@@ -1,0 +1,39 @@
+plugins {
+    id'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+version '1.0'
+
+repositories {
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+    maven {
+        name 'jfrog-duncte123'
+        url 'https://duncte123.jfrog.io/artifactory/maven'
+    }
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation group: 'net.dv8tion', name: 'JDA', version: '4.3.0_294'
+    implementation group: 'io.github.cdimascio', name: 'dotenv-java', version : '2.2.0'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+task stage(dependsOn: ['build','shadowJar','clean','test'])
+build.mustRunAfter clean
+build.mustRunAfter test
+
+jar {
+    manifest {
+        attributes 'Class-Path': '/libs/app-1.0.jar', 'Main-Class': 'me.astri.idleBot.main.Bot'
+    }
+}
