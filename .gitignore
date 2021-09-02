@@ -1,6 +1,5 @@
 .idea/
 out/
-.env
 
 build/
 *.class
