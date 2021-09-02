@@ -27,7 +27,7 @@ public class Utils {
                 if(line.startsWith("#")) continue;
                 line = line.replaceAll("([ ]*,[ ]*)",",");
                 String[] values = line.split(",");
-                records.add(Arrays.stream(values).toList());
+                records.add(Arrays.asList(values));
             }
             br.close();
         } catch (IOException e) {
