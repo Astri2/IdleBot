@@ -38,18 +38,18 @@ public class IntegratedSlashCommandManager extends ListenerAdapter {
         if(!event.getChannel().getId().equals(Config.get("SLASH_MANAGER_CHANNEL_ID")))
             return;
         switch (event.getButton().getId()) {
-            case "updateJDACommands":
+            case "updateJDACommands" -> {
                 Bot.slashCommandManager.updateCommands(event.getJDA());
                 event.reply("All global slash commands updated! (may take some time to effectively update to users)").setEphemeral(true).queue();
-                break;
-            case "updateGuildCommands":
+            }
+            case "updateGuildCommands" -> {
                 Bot.slashCommandManager.updateGuildCommands(event.getGuild());
                 event.reply("All slash commands updated on that guild!").setEphemeral(true).queue();
-                break;
-            case "clearGuildCommands":
+            }
+            case "clearGuildCommands" -> {
                 Bot.slashCommandManager.clearGuildCommands(event.getGuild());
                 event.reply("All slash commands cleared of that guild!").setEphemeral(true).queue();
-                break;
+            }
         }
     }
 }
