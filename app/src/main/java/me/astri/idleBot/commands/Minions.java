@@ -20,7 +20,7 @@ public class Minions implements ISlashCommand {
         hook.sendMessageEmbeds(
                 new EmbedBuilder().setTitle(e.getUser().getAsTag() + " minions")
                         .addField("<:Skeleton_Minion:882792395845033984> Skeleton",
-                                "Level. 26\n"+
+                                "Level 26\n"+
                                 "+13% Cps bonus\n"+
                                 "Cost: 20<:slayer_point:882795259971661844>\n"+
                                 "Reward: 910<:slayer_point:882795259971661844>\n"+
@@ -28,28 +28,28 @@ public class Minions implements ISlashCommand {
                                 "🕐 50m",
                                 true)
                         .addField("<:White_Knight_Minion:882792436638814219> White knight",
-                                "Level. 26\n"+
+                                "Level 26\n"+
                                 "+13% Cps bonus\n"+
                                 "Cost: 40<:slayer_point:882795259971661844>\n"+
                                 "Reward: 26<:slayer_point:882795259971661844>\n"+
                                 "<:bar_f:882933427521859585><:bar_f1:882933444999536681><:bar_f1:882933444999536681><:bar_f1:882933444999536681><:bar_f2:882933451551035422>\n"+
                                 "🕐 Ready",true)
                         .addField("<:Goo_Mutant_Minion:882792386311368794> Mutant Goo",
-                                "Level. 43\n"+
+                                "Level 43\n"+
                                 "\n"+
-                                "Cost: 200<:slayer_point:882795259971661844\n>"+
+                                "Cost: 200<:slayer_point:882795259971661844>\n"+
                                 "Reward: 2150<:slayer_point:882795259971661844>\n"+
                                 "<:bar_e:882933403329122324><:bar_e1:882933409784147969><:bar_e1:882933409784147969><:bar_e1:882933409784147969><:bar_e2:882933417602342942>\n"+
                                 "🕐 3h - Idle",true)
                         .addField("<:Dark_Wizard_Minion:882792427524620288> Dark Wizard",
-                                "Level. 19\n"+
+                                "Level 19\n"+
                                 "+19% Cps bonus\n"+
                                 "Cost: 100<:slayer_point:882795259971661844>\n"+
                                 "Reward: 380<:slayer_point:882795259971661844>\n"+
                                 "<:bar_f:882933427521859585><:bar_f1:882933444999536681><:bar_f1:882933444999536681><:bar_f1:882933444999536681><:bar_e2:882933417602342942>\n"+
                                 "🕐 50m",true)
                         .addField("<:Stone_Golem_Minion:882792417072381964> Stone Golem",
-                                "Level. 3\n"+
+                                "Level 3\n"+
                                 "\n"+
                                 "Cost: 2000<:slayer_point:882795259971661844>\n"+
                                 "Reward: 4500<:slayer_point:882795259971661844>\n"+
