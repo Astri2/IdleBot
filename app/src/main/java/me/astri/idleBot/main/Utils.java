@@ -3,37 +3,41 @@ package me.astri.idleBot.main;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class Utils {
 
+public abstract class Utils {
     public static boolean isInt(String input) {
         return input.matches("-?[0-9]+");
     }
 
-    public static ArrayList<List<String>> readCSV(String key) {
-        String path = Config.get(key.toUpperCase());
+    public static ArrayList<List<String>> readCSV(String path) {
         ArrayList<List<String>> records = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-                if(line.startsWith("#")) continue;
-                line = line.replaceAll("([ ]*,[ ]*)",",");
-                String[] values = line.split(",");
+            Files.readAllLines(Path.of(path)).forEach(line -> {
+                if(line.startsWith("#")) return;
+                String[] values = line.replaceAll("([ ]*,[ ]*)",",").split(",");
                 records.add(Arrays.asList(values));
-            }
-            br.close();
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
         return records;
+    }
+
+    public static String readFile(String path) {
+        try {
+            return Files.readString(Path.of(path));
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
     public static void addReactions(Message message, String ... reactions) {

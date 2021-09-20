@@ -1,0 +1,93 @@
+success_register,{0} welcome to IdleBot!
+error_already_registered,{0} you are already registered!
+error_you_unregistered,{0} you're not registered. Please register yourself using [/register]
+error_someone_unregistered,{0} is not registered. Please register using [/register]
+lang_updated,{0} your language has been set to English
+notation_updated_sc,{0} you are now using scientific notation
+notation_updated_unit,{0} you are now using units notation
+equipment_title,Equipment of {0}
+profile_title,Profile of {0}
+sword,Sword
+sword_steel,Steel Sword
+sword_black,Black Sword
+sword_light,Light Sword
+sword_demon,Demon Sword
+sword_great,Greatsword
+sword_ember,Ember Sword
+sword_infernal,Infernal Sword
+sword_rage,Rage Sword
+sword_elemental,Elemental Sword
+sword_life,Life Sword
+sword_god,God Sword
+shield,Shield
+shield_reinforced,Reinforced Shield
+shield_iron,Iron Shield
+shield_steel,Steel Shield
+shield_knight,Knight Shield
+shield_titanium,Titanium Shield
+shield_golden,Golden Shield
+shield_infernal,Infernal Shield
+shield_spirit,Spirit Shield
+shield_hero,Hero Shield
+shield_king,King Shield
+shield_crystal,Crystal Shield
+armor,Armor
+armor_burlap,Burlap Armor
+armor_leather,Leather Armor
+armor_reinforced,Reinforced Armor
+armor_steel,Steel Armor
+armor_steel_full,Full Steel Armor
+armor_golden_full,Full Gold Armor
+armor_dragon,Dragon Armor
+armor_warlord,Warlord Armor
+armor_break_s,Break's Armor
+armor_black_dragon,Black Dragon Armor
+armor_shadow_knight,Shadow Knight Armor
+helmet,Helmet
+helmet_burlap,Burlap Helmet
+helmet_leather,Leather Helmet
+helmet_reinforced,Reinforced Helmet
+helmet_steel,Steel Helmet
+helmet_steel_full,Steel Full Helmet
+helmet_golden,Golden Helmet
+helmet_dragon,Dragon Helmet
+helmet_champion_s,Champion's Helmet
+helmet_warrior,Warrior Helmet
+helmet_dark_steel,Dark Steel Helmet
+helmet_glorious,Glorious Helmet
+boots,Boots
+boots_burlap,Burlap Boots
+boots_leather,Leather Boots
+boots_reinforced,Reinforced Boots
+boots_iron,Iron Boots
+boots_steel,Steel Boots
+boots_golden,Golden Boots
+boots_dragon,Dragon Boots
+boots_dash,Dash Boots
+boots_climbing,Climbing Boots
+boots_mobious,Mobious Boots
+boots_idle,Idle Boots
+ring,Ring
+ring_silver,Silver Ring
+ring_magic,Magic Ring
+ring_mind,Mind Ring
+ring_shadow,Shadow Ring
+ring_dragon,Dragon Ring
+ring_dual_stone,Duel Stone Ring
+ring_mystic,Mystic Ring
+ring_spectral,Spectral Ring
+ring_albatross,Albatross Ring
+ring_energy,Energy Ring
+ring_phantom,Phantom Ring
+dagger,Dagger
+axe,Axe
+staff,Staff
+bow,Bow
+spellbook,Spellbook
+spirit,Spirit
+necklace,Necklace
+coins,Coins
+production,Production
+display_equipment_button,Display Equipment
+display_profile_button,Display Profile
+cost,Cost

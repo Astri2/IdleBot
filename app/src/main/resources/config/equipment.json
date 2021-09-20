@@ -1,0 +1,661 @@
+{
+  "equipment": [
+    {
+      "id": "sword",
+      "unlocked": true,
+      "basePrice": 6,
+      "baseProduction": 0.1,
+      "upgrades" : [
+        {
+          "name": "sword",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "<:Sword:884124806482649180>"
+        },
+        {
+          "name": "sword_steel",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<:Steel_Sword:884124806679777301>"
+        },
+        {
+          "name": "sword_black",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<:Black_Sword:884124806583308350>"
+        },
+        {
+          "name": "sword_light",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<:Light_Sword:884124806583287839>"
+        },
+        {
+          "name": "sword_demon",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<:Demon_Sword:884124806583292005>"
+        },
+        {
+          "name": "sword_great",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<:Greatsword:884124806499418122>"
+        },
+        {
+          "name": "sword_ember",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<:Ember_Sword:884124806562328596>"
+        },
+        {
+          "name": "sword_infernal",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<:Infernal_Sword:884124806826577960>"
+        },
+        {
+          "name": "sword_rage",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 3000,
+          "emote": "<:Rage_Sword:884124806021275690>"
+        },
+        {
+          "name": "sword_elemental",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<:Elemental_Sword:884124806352605215>"
+        },
+        {
+          "name": "sword_life",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<:Life_Sword:884124806193233930>"
+        },
+        {
+          "name": "sword_god",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<:God_Sword:884124806000308235>"
+        }
+      ]
+    },
+    {
+      "id": "shield",
+      "unlocked": true,
+      "basePrice": 50,
+      "baseProduction": 1,
+      "upgrades" : [
+        {
+          "name": "shield",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "<:Shield:884894979334492230>"
+        },
+        {
+          "name": "shield_reinforced",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<:Reinforced_Shield:884894974787858483>"
+        },
+        {
+          "name": "shield_iron",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<:Iron_Shield:884894974922076170>"
+        },
+        {
+          "name": "shield_steel",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<:Steel_Shield:884894974745935972>"
+        },
+        {
+          "name": "shield_knight",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<:Knight_Shield:884894974552977419>"
+        },
+        {
+          "name": "shield_titanium",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<:Titanium_Shield:884894974473281637>"
+        },
+        {
+          "name": "shield_golden",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 16000,
+          "emote": "<:Golden_Shield:884894974766903296>"
+        },
+        {
+          "name": "shield_infernal",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<:Infernal_Shield:884894974775291914>"
+        },
+        {
+          "name": "shield_spirit",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<:Spirit_Shield:884894974515228672>"
+        },
+        {
+          "name": "shield_hero",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<:Hero_Shield:884894974452326490>"
+        },
+        {
+          "name": "shield_king",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<:King_Shield:884894974347456633>"
+        },
+        {
+          "name": "shield_crystal",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<:Crystal_shield:884894974561370142>"
+        }
+      ]
+    },
+    {
+      "id": "armor",
+      "unlocked": true,
+      "basePrice": 750,
+      "baseProduction": 8,
+      "upgrades" : [
+        {
+          "name": "armor",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "<:Armor:885900470097436732>"
+        },
+        {
+          "name": "armor_burlap",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<:Burlap_Armor:885900470021922826>"
+        },
+        {
+          "name": "armor_leather",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<:Leather_Armor:885900469954805760>"
+        },
+        {
+          "name": "armor_reinforced",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<:Reinforced_Armor:885900469942222899>"
+        },
+        {
+          "name": "armor_steel",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<:Steel_Armor:885900469988360242>"
+        },
+        {
+          "name": "armor_steel_full",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<:Steel_Full_Armor:885900470005145630>"
+        },
+        {
+          "name": "armor_golden_full",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<:Golden_Full_Armor:885900469921275994>"
+        },
+        {
+          "name": "armor_dragon",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 15000,
+          "emote": "<:Dragon_Armor:885900469950632016>"
+        },
+        {
+          "name": "armor_warlord",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<:Warlord_Armor:885900469954826270>"
+        },
+        {
+          "name": "armor_break_s",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<:Break_s_Armor:885900469581512765>"
+        },
+        {
+          "name": "armor_black_dragon",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<:Black_Dragon_Armor:885900470042902578>"
+        },
+        {
+          "name": "armor_shadow_knight",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<:Shadow_Knight_Armor:885900469917073438>"
+        }
+      ]
+    },
+    {
+      "id": "helmet",
+      "unlocked": true,
+      "basePrice": 16000,
+      "baseProduction": 47,
+      "upgrades" : [
+        {
+          "name": "helmet",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "<:Helmet:886590115722444850>"
+        },
+        {
+          "name": "helmet_burlap",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<:Burlap_Helmet:886590115055542322>"
+        },
+        {
+          "name": "helmet_leather",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<:Leather_Helmet:886590115844063232>"
+        },
+        {
+          "name": "helmet_reinforced",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<:Reinforced_Helmet:886590119371481088>"
+        },
+        {
+          "name": "helmet_steel",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<:Steel_Helmet:886590119560220733>"
+        },
+        {
+          "name": "helmet_steel_full",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<:Steel_Full_Helmet:886590119597981707>"
+        },
+        {
+          "name": "helmet_golden",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<:Golden_Helmet:886590115617574962>"
+        },
+        {
+          "name": "helmet_dragon",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<:Dragon_Helmet:886590115328188476>"
+        },
+        {
+          "name": "helmet_champion_s",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<:Champion_s_Helmet:886590114988449792>"
+        },
+        {
+          "name": "helmet_warrior",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<:Warrior_Helmet:886590120071946300>"
+        },
+        {
+          "name": "helmet_dark_steel",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<:Dark_Steel_Helmet:886590114967482420>"
+        },
+        {
+          "name": "helmet_glorious",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<:Glorious_Helmet:886590115579830333>"
+        }
+      ]
+    },
+    {
+      "id": "boots",
+      "unlocked": true,
+      "basePrice": 120000,
+      "baseProduction": 500,
+      "upgrades" : [
+        {
+          "name": "boots",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "<a:boots:886603412395946014>"
+        },
+        {
+          "name": "boots_burlap",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<a:burlap_boots:886603412467224626>"
+        },
+        {
+          "name": "boots_leather",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<a:leather_boots:886603412634992721>"
+        },
+        {
+          "name": "boots_reinforced",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<a:reinforced_boots:886603413251559434>"
+        },
+        {
+          "name": "boots_iron",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<a:iron_boots:886603413046034452>"
+        },
+        {
+          "name": "boots_steel",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<a:steel_boots:886603413297709066>"
+        },
+        {
+          "name": "boots_golden",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 400,
+          "emote": "<a:golden_boots:886603412769234984>"
+        },
+        {
+          "name": "boots_dragon",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 5000,
+          "emote": "<a:dragon_boots:886603412936994846>"
+        },
+        {
+          "name": "boots_dash",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<a:dash_boots:886603412735668294>"
+        },
+        {
+          "name": "boots_climbing",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<a:climbing_boots:886603412668547112>"
+        },
+        {
+          "name": "boots_mobious",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<a:mobious_boots:886603413335461958>"
+        },
+        {
+          "name": "boots_idle",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<a:idle_boots:886603413176074340>"
+        }
+      ]
+    },
+    {
+      "id": "ring",
+      "unlocked": true,
+      "basePrice": 1200000,
+      "baseProduction": 4000,
+      "upgrades" : [
+        {
+          "name": "ring",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "<a:ring:886883889988120616>"
+        },
+        {
+          "name": "ring_silver",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<a:silver_ring:886883890139136020>"
+        },
+        {
+          "name": "ring_magic",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<a:magic_ring:886883890042634240>"
+        },
+        {
+          "name": "ring_mind",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<a:mind_ring:886883890151718942>"
+        },
+        {
+          "name": "ring_shadow",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<a:shadow_ring:886883889770033153>"
+        },
+        {
+          "name": "ring_dragon",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<a:dragon_ring:886883890067800064>"
+        },
+        {
+          "name": "ring_duel_stone",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<a:dual_stone_ring:886883890071998464>"
+        },
+        {
+          "name": "ring_mystic",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<a:mystic_ring:886883889992306739>"
+        },
+        {
+          "name": "ring_spectral",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<a:spectral_ring:886883890382372904>"
+        },
+        {
+          "name": "ring_albatross",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<a:albatros_ring:886883889820368897>"
+        },
+        {
+          "name": "ring_energy",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<a:energy_ring:886883889975529472>"
+        },
+        {
+          "name": "ring_phantom",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<a:phantom_ring:886883890101379072>"
+        }
+      ]
+    },
+    {
+      "id": "dagger",
+      "unlocked": true,
+      "basePrice": 14000000,
+      "baseProduction": 35000,
+      "upgrades" : [
+        {
+          "name": "dagger",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "🔪"
+        }
+      ]
+    },
+    {
+      "id": "axe",
+      "unlocked": true,
+      "basePrice": 580000000,
+      "baseProduction": 160000,
+      "upgrades" : [
+        {
+          "name": "axe",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "🪓"
+        }
+      ]
+    },
+    {
+      "id": "staff",
+      "unlocked": true,
+      "basePrice": 5400000000,
+      "baseProduction": 1000000,
+      "upgrades" : [
+        {
+          "name": "staff",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "🥢"
+        }
+      ]
+    },
+    {
+      "id": "bow",
+      "unlocked": true,
+      "basePrice": 330000000000,
+      "baseProduction": 30000000,
+      "upgrades" : [
+        {
+          "name": "bow",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "🏹"
+        }
+      ]
+    },
+    {
+      "id": "spellbook",
+      "unlocked": true,
+      "basePrice": 4600000000000,
+      "baseProduction": 1200000000,
+      "upgrades" : [
+        {
+          "name": "spellbook",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "📕"
+        }
+      ]
+    },
+    {
+      "id": "spirit",
+      "unlocked": true,
+      "basePrice": 220000000000000,
+      "baseProduction": 115000000000,
+      "upgrades" : [
+        {
+          "name": "spirit",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "🌬"
+        }
+      ]
+    },
+    {
+      "id": "necklace",
+      "unlocked": true,
+      "basePrice": 150000000000000000,
+      "baseProduction": 260000000000000,
+      "upgrades" : [
+        {
+          "name": "necklace",
+          "weight": 0,
+          "minLevel": 0,
+          "boost": 0,
+          "emote": "⭕"
+        }
+      ]
+    }
+  ]
+}

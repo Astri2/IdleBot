@@ -1,0 +1,93 @@
+success_register,{0} bienvenue dans IdleBot !
+error_already_registered,{0} tu es déjà inscrit !
+error_you_unregistered,{0} tu n'es inscrit ! Inscrit toi avec [/register]
+error_someone_unregistered,{0} n'est pas inscrit ! Il peut s'inscrire avec [/register]
+lang_updated,{0} ta langue a été réglée sur Français
+notation_updated_sc,{0} tu utilises dorénavant la notation scientifique
+notation_updated_unit,{0} tu utilises dorénavant la notation en unités
+equipment_title,Équipement de {0}
+profile_title,Profil de {0}
+sword,Épée
+sword_steel,Épée d'Acier
+sword_black,Épée Noire
+sword_light,Épée de Lumière
+sword_demon,Épée Démoniaque
+sword_great,Grande Épée
+sword_ember,Épée Ardente
+sword_infernal,Épée Infernal
+sword_rage,Épée de Rage
+sword_elemental,Épée Élémentaire
+sword_life,Épée de Vie
+sword_god,Épée Divine
+shield,Bouclier
+shield_reinforced,Bouclier Renforcé
+shield_iron,Bouclier de Fer
+shield_steel,Bouclier d'Acier
+shield_knight,Bouclier de Chevalier
+shield_titanium,Bouclier de Titane
+shield_golden,Bouclier Doré
+shield_infernal,Bouclier Infernal
+shield_spirit,Bouclier Spirituel
+shield_hero,Bouclier du Héro
+shield_king,Bouclier du Roi
+shield_crystal,Bouclier de Crystal
+armor,Armure
+armor_burlap,Armure en Tissu
+armor_leather,Armure en Cuire
+armor_reinforced,Armure Renforcée
+armor_steel,Armure d'Acier
+armor_steel_full,Armure Complète d'Acier
+armor_golden_full,Armure Complète Dorée
+armor_dragon,Armure de Dragon
+armor_warlord,Armure de Seigneur de Guerre
+armor_break_s,Armure de Break
+armor_black_dragon,Armure de Dragon Noir
+armor_shadow_knight,Armure du Chevalier de l’ombre
+helmet,Casque
+helmet_burlap,Casque en Tissu
+helmet_leather,Casque en Cuir
+helmet_reinforced,Casque Renforcé
+helmet_steel,Casque d'Acier
+helmet_steel_full,Casque Intégral d'Acier
+helmet_golden,Casque Doré
+helmet_dragon,Casque de Dragon
+helmet_champion_s,Casque de Champion
+helmet_warrior,Casque de Guerrier
+helmet_dark_steel,Casque en Acier Sombre
+helmet_glorious,Casque Glorieux
+boots,Bottes
+boots_burlap,Bottes en Tissu
+boots_leather,Bottes en Cuir
+boots_reinforced,Bottes Renforcées
+boots_iron,Bottes en Fer
+boots_steel,Bottes en Acier
+boots_golden,Bottes Dorées
+boots_dragon,Bottes de Dragon
+boots_dash,Bottes de Course
+boots_climbing,Bottes d'Escalade
+boots_mobious,Bottes de Mobious
+boots_idle,Bottes Inactives
+ring,Anneau
+ring_silver,Bague en Argent
+ring_magic,Anneau Magique
+ring_mind,Anneau de l'Esprit
+ring_shadow,Anneau le L'ombre
+ring_dragon,Anneau de Dragon
+ring_dual_stone,Bague de Pierre Double
+ring_mystic,Anneau Mystique
+ring_spectral,Bague Spectrale
+ring_albatross,Bague de l'Albatross
+ring_energy,Bague d'Énergie
+ring_phantom,Bague Fantôme
+dagger,Dague
+axe,Hache
+staff,Bâton
+bow,Arc
+spellbook,Livre de Sorts
+spirit,Esprit
+necklace,Collier
+coins,Pièces
+production,Production
+display_equipment_button,Afficher l'Équipement
+display_profile_button,Afficher le Profil
+cost,Coût

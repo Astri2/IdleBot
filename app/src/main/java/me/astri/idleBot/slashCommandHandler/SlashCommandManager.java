@@ -1,11 +1,14 @@
 package me.astri.idleBot.slashCommandHandler;
 
+import me.astri.idleBot.main.Config;
 import me.astri.idleBot.main.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.utils.AllowedMentions;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -26,11 +29,13 @@ public class SlashCommandManager extends ListenerAdapter {
         }
         return null;
     }
-
     @Override
     public void onSlashCommand(@NotNull SlashCommandEvent e) {
-
         ISlashCommand slashCommand = getISlashCommand(e.getName());
+
+        if(e.getUser().isBot())
+            return;
+
         if(slashCommand == null) {
             e.reply("Command not found").setEphemeral(true).queue();
             return;
@@ -51,9 +56,10 @@ public class SlashCommandManager extends ListenerAdapter {
             e.reply("That command is on cooldown. Please wait " + Utils.timeParser(cooldown)).setEphemeral(true).queue();
             return;
         }
-
+        boolean ephemeral = slashCommand.isEphemeral();
+        if(e.getOption("ephemeral")!= null) ephemeral = e.getOption("ephemeral").getAsBoolean();
         cooldowns.get(slashCommand.getCommandData().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
-        e.deferReply(slashCommand.isEphemeral()).queue();
+        e.deferReply(ephemeral).queue();
         slashCommand.handle(e,e.getHook());
     }
 
@@ -65,6 +71,9 @@ public class SlashCommandManager extends ListenerAdapter {
     }
 
     private long getCooldown(SlashCommandEvent e, ISlashCommand command) {
+        if(e.getUser().getId().equals(Config.get("BOT_OWNER_ID"))) {
+            return -1L;
+        }
         if(command.getCooldown() <= 0L)
             return -1L;
 

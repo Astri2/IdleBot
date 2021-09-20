@@ -26,7 +26,8 @@ public class IntegratedSlashCommandManager extends ListenerAdapter {
                     Button.danger("updateSomeGuildCommands", "update specific Guild commands").withDisabled(true),
                     Button.primary("clearGuildCommands", "Clear all commands from a guild")), ActionRow.of(
                     Button.danger("clearAllGuildCommands", "Clear all commands from all guilds").withDisabled(true),
-                    Button.danger("removeSomeGuildCommands", "remove specific commands from a guild").withDisabled(true)
+                    Button.danger("removeSomeGuildCommands", "remove specific commands from a guild").withDisabled(true),
+                    Button.secondary("shutdown","shutdow the bot")
             ));
 
             msg.queue();
@@ -49,6 +50,10 @@ public class IntegratedSlashCommandManager extends ListenerAdapter {
             case "clearGuildCommands" -> {
                 Bot.slashCommandManager.clearGuildCommands(event.getGuild());
                 event.reply("All slash commands cleared of that guild!").setEphemeral(true).queue();
+            }
+            case "shutdown" -> {
+                event.reply("Bot will shutdown...").setEphemeral(true).queue();
+                event.getJDA().shutdown();
             }
         }
     }

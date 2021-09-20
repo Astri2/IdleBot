@@ -19,6 +19,7 @@ test {
 
 dependencies {
     implementation group: 'net.dv8tion', name: 'JDA', version: '4.3.0_294'
+    implementation group: 'org.json', name: 'json', version: '20210307'
 }
 
 compileJava.options.encoding = 'UTF-8'
