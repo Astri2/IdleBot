@@ -24,6 +24,12 @@ public class Register implements ISlashCommand {
                         new OptionData(OptionType.STRING, "notation","which notation to use")
                                 .addChoice("scientific notation","sc")
                                 .addChoice("units notation", "un")
+                )
+                .addOptions(
+                        new OptionData(OptionType.STRING, "ephemeral","will the bot reply using ephemeral messages (only you can see)")
+                                .addChoice("True","true")
+                                .addChoice("False", "false")
+                                .addChoice("Default", "default")
                 );
     }
 
@@ -31,13 +37,18 @@ public class Register implements ISlashCommand {
     public void handle(SlashCommandEvent e, InteractionHook hook) {
         Lang lang = null;
         boolean scNotation = false;
+        String ephemeral = "default";
         if(e.getOption("language") != null) {
             lang = Lang.valueOf(e.getOption("language").getAsString());
         }
         if(e.getOption("notation") != null)
             scNotation = e.getOption("notation").getAsString().equals("sc");
 
-        Player player = new Player(e.getUser().getId(), lang, scNotation);
+        if(e.getOption("ephemeral") != null)
+            ephemeral = e.getOption("ephemeral").getAsString();
+
+
+        Player player = new Player(e.getUser().getId(), lang, scNotation, ephemeral);
         if(DataBase.getUser(player.getId()) == null) {
             DataBase.registerPlayer(player);
             hook.sendMessage(Lang.get(player.getLang(),"success_register",e.getUser().getAsMention())).queue();

@@ -7,13 +7,13 @@ import me.astri.idleBot.main.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Player extends BotUser{
+public class Player extends BotUser implements Serializable {
     private static JSONArray JsonEquipments = null;
 
     private BigDecimal coins;
@@ -24,8 +24,8 @@ public class Player extends BotUser{
 
     private final LinkedHashMap<String, Equipment> equipments = new LinkedHashMap<>();
 
-    public Player(String id, Lang lang, boolean scNotation) {
-        super(id, lang, scNotation);
+    public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
+        super(id, lang, scNotation, ephemeral);
         coins = new BigDecimal(120000);
         lastUpdateTime = System.currentTimeMillis();
         initEquipments();
@@ -68,7 +68,6 @@ public class Player extends BotUser{
     public Player update() {
         long newTime = System.currentTimeMillis();
         coins = coins.add(getProduction().multiply(new BigDecimal((newTime - lastUpdateTime)/1000)));
-
         lastUpdateTime = System.currentTimeMillis();
         return this;
     }

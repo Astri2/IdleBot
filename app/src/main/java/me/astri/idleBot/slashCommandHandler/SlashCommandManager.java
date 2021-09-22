@@ -1,14 +1,14 @@
 package me.astri.idleBot.slashCommandHandler;
 
+import me.astri.idleBot.Entities.player.BotUser;
 import me.astri.idleBot.main.Config;
+import me.astri.idleBot.main.DataBase;
 import me.astri.idleBot.main.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.utils.AllowedMentions;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -57,7 +57,13 @@ public class SlashCommandManager extends ListenerAdapter {
             return;
         }
         boolean ephemeral = slashCommand.isEphemeral();
-        if(e.getOption("ephemeral")!= null) ephemeral = e.getOption("ephemeral").getAsBoolean();
+
+        BotUser bUser = DataBase.getUser(e.getUser().getId());
+        if(bUser != null && !bUser.isEphemeral().equals("default"))
+            ephemeral = Boolean.parseBoolean(bUser.isEphemeral());
+
+        if(e.getOption("ephemeral")!= null) ephemeral = Boolean.parseBoolean(e.getOption("ephemeral").getAsString());
+
         cooldowns.get(slashCommand.getCommandData().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
         e.deferReply(ephemeral).queue();
         slashCommand.handle(e,e.getHook());

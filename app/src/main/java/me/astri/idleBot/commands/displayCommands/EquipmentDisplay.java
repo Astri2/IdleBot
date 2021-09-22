@@ -41,7 +41,7 @@ public class EquipmentDisplay implements ISlashCommand {
             return;
         String name = author instanceof Member ? ((Member) author).getEffectiveName() : ((User) author).getName();
         HashMap<String, Equipment> equipments = player.getEquipment();
-        EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"profile_title",name));
+        EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"equipment_title",name));
 
         for(Map.Entry<String,Equipment> set : equipments.entrySet()) {
             Equipment gearPiece = set.getValue();
@@ -51,7 +51,7 @@ public class EquipmentDisplay implements ISlashCommand {
                     "Level **" + gearPiece.getLevel() + "\n" +
                             GameUtils.getNumber(gearPiece.getProduction(),player) + Emotes.getEmote("coin") + "**/s**\n" +
                     Lang.get(player.getLang(),"cost") + "** " + GameUtils.getNumber(gearPiece.getPrice(),player), true);
-            if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) == 1)
+            if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) > 0)
                 break;
         }
         hook.sendMessageEmbeds(eb.build())

@@ -1,4 +1,4 @@
-package me.astri.idleBot.slashCommandHandler;
+package me.astri.idleBot.main;
 
 import me.astri.idleBot.main.Bot;
 import me.astri.idleBot.main.Config;
@@ -9,10 +9,9 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
-import net.dv8tion.jda.api.requests.restaction.interactions.ReplyAction;
 import org.jetbrains.annotations.NotNull;
 
-public class IntegratedSlashCommandManager extends ListenerAdapter {
+public class IntegratedControlPannel extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         TextChannel channel = event.getJDA().getGuildById(Config.get("SLASH_MANAGER_GUILD_ID")).getTextChannelById(Config.get("SLASH_MANAGER_CHANNEL_ID"));
@@ -24,11 +23,16 @@ public class IntegratedSlashCommandManager extends ListenerAdapter {
                     Button.primary("updateGuildCommands", "update all Guild commands"),
                     Button.danger("updateSomeJDACommands", "update specific JDA commands").withDisabled(true),
                     Button.danger("updateSomeGuildCommands", "update specific Guild commands").withDisabled(true),
-                    Button.primary("clearGuildCommands", "Clear all commands from a guild")), ActionRow.of(
+                    Button.primary("clearGuildCommands", "Clear all commands from a guild")),
+                    ActionRow.of(
                     Button.danger("clearAllGuildCommands", "Clear all commands from all guilds").withDisabled(true),
-                    Button.danger("removeSomeGuildCommands", "remove specific commands from a guild").withDisabled(true),
-                    Button.secondary("shutdown","shutdow the bot")
-            ));
+                    Button.danger("removeSomeGuildCommands", "remove specific commands from a guild").withDisabled(true)),
+                    ActionRow.of(
+                            Button.success("loadPlayers","Load player progressions"),
+                            Button.success("savePlayers","Save player progressions")),
+                    ActionRow.of(
+                            Button.secondary("shutdown","shutdown the bot"))
+            );
 
             msg.queue();
         }
@@ -51,10 +55,13 @@ public class IntegratedSlashCommandManager extends ListenerAdapter {
                 Bot.slashCommandManager.clearGuildCommands(event.getGuild());
                 event.reply("All slash commands cleared of that guild!").setEphemeral(true).queue();
             }
-            case "shutdown" -> {
-                event.reply("Bot will shutdown...").setEphemeral(true).queue();
-                event.getJDA().shutdown();
-            }
+            case "shutdown" ->
+                event.reply("Bot will shutdown...").setEphemeral(true).queue(__ ->
+                        event.getJDA().shutdown());
+
+
+            case "loadPlayers" -> DataBase.load(event);
+            case "savePlayers" -> DataBase.save(event);
         }
     }
 }

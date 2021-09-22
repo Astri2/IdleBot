@@ -37,7 +37,7 @@ public class ProfileDisplay implements ISlashCommand {
             return;
         player.update();
         String name = author instanceof Member ? ((Member) author).getEffectiveName() : ((User) author).getName();
-        EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"equipment_title",name))
+        EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"profile_title",name))
                 .addField(Emotes.getEmote("coin") + " " + Lang.get(player.getLang(),"coins"), GameUtils.getNumber(player.getCoins(),player),true)
                 .addField(Emotes.getEmote("coin") + " " + Lang.get(player.getLang(),"production"), GameUtils.getNumber(player.getProduction(),player),true);
 

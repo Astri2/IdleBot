@@ -2,9 +2,15 @@ success_register,{0} welcome to IdleBot!
 error_already_registered,{0} you are already registered!
 error_you_unregistered,{0} you're not registered. Please register yourself using [/register]
 error_someone_unregistered,{0} is not registered. Please register using [/register]
+error_nan,Provided value is not a number
+error_not_enough_money,You don't have enough money!
+error_cant_interact,{0} you can't interact with that!
 lang_updated,{0} your language has been set to English
 notation_updated_sc,{0} you are now using scientific notation
 notation_updated_unit,{0} you are now using units notation
+ephemeral_updated_on,{0} ephemeral mode is now active
+ephemeral_updated_off,{0} ephemeral mode is no longer active
+ephemeral_updated_default,{0} ephemeral mode is set to default
 equipment_title,Equipment of {0}
 profile_title,Profile of {0}
 sword,Sword
@@ -91,3 +97,10 @@ production,Production
 display_equipment_button,Display Equipment
 display_profile_button,Display Profile
 cost,Cost
+expired,Expired
+eqpm_upgrade_success,Your {0} {1} is now level **{2}**! (+{3} levels)
+eqpm_upgrade_ask_eqpm,{0} which piece of equipment should be upgraded?
+eqpm_upgrade_ask_level,{0} by how many levels should your {1} {2} level up?
+nbr_custom,Custom
+nbr_max,Max
+progression_reset,{0} your progression has been reset!

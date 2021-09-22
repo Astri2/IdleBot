@@ -10,18 +10,18 @@ import net.dv8tion.jda.api.events.GenericEvent;
 
 public class WaiterAction<T extends GenericEvent> {
     private final T e;
-    private final Double id;
-
-    double getId() {
-        return id;
-    }
+    private final String id;
 
     public T getEvent() {
         return e;
     }
 
-    WaiterAction(T e, Double id) {
+    WaiterAction(T e, String id) {
         this.e = e;
         this.id = id;
+    }
+
+    public void unregister() {
+        EventWaiter.unregister(e.getClass(),id);
     }
 }

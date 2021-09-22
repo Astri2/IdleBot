@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class EventWaiter implements EventListener {
 
-    private static final HashMap<Class<GenericEvent>, ArrayList<Waiter<GenericEvent>>> waiterMap = new HashMap<>();
-    private static final ArrayList<Waiter<GenericEvent>> toDelete = new ArrayList<>();
+    private static final HashMap<Class<GenericEvent>, CopyOnWriteArrayList<Waiter<GenericEvent>>> waiterMap = new HashMap<>();
 
     @Override
     public void onEvent(@NotNull GenericEvent e) {
@@ -23,25 +23,24 @@ public class EventWaiter implements EventListener {
                     if(waiter.getConditions().test(e)) {
                         waiter.getAction().accept(new WaiterAction<>(e,waiter.getId()));
                         if (waiter.getAutoRemove())
-                            toDelete.add(waiter);
+                            waiterMap.get(e.getClass()).remove(waiter);
                     } else {
-                        waiter.getFailureAction().accept(new WaiterAction<>(e,waiter.getId()));
+                        if(waiter.getFailureAction() != null)
+                            waiter.getFailureAction().accept(new WaiterAction<>(e,waiter.getId()));
                     }
                 });
-                waiterMap.get(e.getClass()).removeAll(toDelete);
             }
     }
 
-    public static void register(Waiter<? extends GenericEvent> waiterToRegister) {
+    public static void register(Waiter<? extends GenericEvent> waiterToRegister, String id) {
         @SuppressWarnings("unchecked")
         Waiter<GenericEvent> waiter = (Waiter<GenericEvent>) waiterToRegister; //casting from template to GenericEvent
-
-        waiter.setId(Math.random());
-
+        waiter.setId(id);
         waiterMap.compute(
                 waiter.getEventType(), (k,v) -> {
                     if(v == null)
-                        return new ArrayList<>() {{add(waiter);}};
+                        return new CopyOnWriteArrayList <>() {{add(waiter);}};
+                    v.removeIf(wait -> wait.getId().equals(waiter.getId()));
                     v.add(waiter);
                     return v;
                 });
@@ -61,10 +60,9 @@ public class EventWaiter implements EventListener {
     }
 
     public static void unregister(Waiter<GenericEvent> waiter) {
-        toDelete.add(waiter);
+        waiterMap.get(waiter.getEventType()).remove(waiter);
     }
-
-    public static void unregister(WaiterAction<? extends GenericEvent> action) {
-        toDelete.addAll(waiterMap.get(action.getEvent().getClass()).stream().filter(waiter -> waiter.getId() == action.getId()).collect(Collectors.toList()));
+    public static void unregister(Class<? extends GenericEvent> eventType, String id) {
+        waiterMap.get(eventType).removeIf(event -> event.getId().equals(id));
     }
 }

@@ -2,9 +2,15 @@ success_register,{0} bienvenue dans IdleBot !
 error_already_registered,{0} tu es déjà inscrit !
 error_you_unregistered,{0} tu n'es inscrit ! Inscrit toi avec [/register]
 error_someone_unregistered,{0} n'est pas inscrit ! Il peut s'inscrire avec [/register]
+error_nan,La valeur fournie n'est pas un nombre
+error_not_enough_money,Tu n'as pas assez d'argent !
+error_cant_interact,{0} tu ne peux pas interagir avec ça !
 lang_updated,{0} ta langue a été réglée sur Français
 notation_updated_sc,{0} tu utilises dorénavant la notation scientifique
 notation_updated_unit,{0} tu utilises dorénavant la notation en unités
+ephemeral_updated_on,{0} le mode éphémère est maintenant actif
+ephemeral_updated_off,{0} le mode éphémère n'est plus actif
+ephemeral_updated_default,{0} le mode éphémère a été mis sur défaut
 equipment_title,Équipement de {0}
 profile_title,Profil de {0}
 sword,Épée
@@ -91,3 +97,10 @@ production,Production
 display_equipment_button,Afficher l'Équipement
 display_profile_button,Afficher le Profil
 cost,Coût
+expired,Expiré
+eqpm_upgrade_success,Ton {0} {1} est maintenant au niveau **{2}**! (+{3} niveaux)
+eqpm_upgrade_ask_eqpm,{0} quelle pièce d'équipement améliorer ?
+eqpm_upgrade_ask_level,{0} de combien de niveaux améliorer ton {1} {2} ?
+nbr_custom,Personnalisé
+nbr_max,Maximum
+progression_reset,{0} ta progression a été réinitialisée !

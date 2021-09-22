@@ -1,6 +1,8 @@
 package me.astri.idleBot.Entities.equipments;
 
-public class EquipmentUpgrade {
+import java.io.Serializable;
+
+public class EquipmentUpgrade implements Serializable {
     private final String name;
     private final int weight;
     private final int minLevel;

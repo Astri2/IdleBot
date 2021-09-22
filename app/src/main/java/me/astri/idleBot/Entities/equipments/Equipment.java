@@ -1,18 +1,25 @@
 package me.astri.idleBot.Entities.equipments;
 
+import me.astri.idleBot.main.Config;
+import me.astri.idleBot.main.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Equipment {
+public class Equipment implements Serializable {
+    private final static HashMap<String,ArrayList<EquipmentUpgrade>> upgrades = initUpgrades(
+            new JSONObject(Utils.readFile(Config.get("CONFIG_PATH") + "equipment.json")).getJSONArray("equipment")
+    );
 
+    private final String id;
     private final boolean unlocked;
     private final double baseProduction;
 
-    private final CopyOnWriteArrayList<EquipmentUpgrade> unboughtUpgrades;
     private final ArrayList<EquipmentUpgrade> ownedUpgrades;
 
     private long level;
@@ -20,9 +27,9 @@ public class Equipment {
     private EquipmentUpgrade currentUpgrade;
 
     public Equipment(JSONObject jsonEquipment) {
-        unboughtUpgrades = new CopyOnWriteArrayList<>(initUpgrades(jsonEquipment));
         ownedUpgrades = new ArrayList<>();
         level = 0;
+        this.id = jsonEquipment.getString("id");
         this.unlocked = jsonEquipment.getBoolean("unlocked");
         this.price = BigDecimal.valueOf(jsonEquipment.getLong("basePrice"));
         this.baseProduction = jsonEquipment.getDouble("baseProduction");
@@ -37,8 +44,8 @@ public class Equipment {
     }
 
     private void queryLevelUpgrades() {
-        for(EquipmentUpgrade upgrade : unboughtUpgrades) {
-            if(level >= upgrade.getMinLevel()) {
+        for(EquipmentUpgrade upgrade : upgrades.get(this.id)) {
+            if(level >= upgrade.getMinLevel() && !ownedUpgrades.contains(upgrade)) {
                 addUpgrade(upgrade);
             }
         }
@@ -46,7 +53,6 @@ public class Equipment {
 
     public Equipment addUpgrade(EquipmentUpgrade upgrade) {
         ownedUpgrades.add(upgrade);
-        unboughtUpgrades.remove(upgrade);
         if(currentUpgrade == null || upgrade.getWeight() > currentUpgrade.getWeight()) {
             currentUpgrade = upgrade;
         }
@@ -76,19 +82,33 @@ public class Equipment {
         return ownedUpgrades.stream().mapToLong(EquipmentUpgrade::getBoost).sum();
     }
 
-    private ArrayList<EquipmentUpgrade> initUpgrades(JSONObject jsonEquipment) {
-        ArrayList<EquipmentUpgrade> upgrades = new ArrayList<>();
-        JSONArray jsonUpgrades = jsonEquipment.getJSONArray("upgrades");
-        for(int i = 0 ; i < jsonUpgrades.length() ; i++) {
-            JSONObject jsonUpgrade = jsonUpgrades.getJSONObject(i);
-            upgrades.add(new EquipmentUpgrade(
-                  jsonUpgrade.getString("name"),
-                  jsonUpgrade.getInt("weight"),
-                  jsonUpgrade.getInt("minLevel"),
-                  jsonUpgrade.getInt("boost"),
-                  jsonUpgrade.getString("emote")
-            ));
+    private static HashMap<String,ArrayList<EquipmentUpgrade>> initUpgrades(JSONArray jsonEquipments) {
+        HashMap<String,ArrayList<EquipmentUpgrade>> equipments_upgrades = new HashMap<>();
+        for(int i = 0 ; i < jsonEquipments.length() ; i++) {
+            ArrayList<EquipmentUpgrade> upgrades = new ArrayList<>();
+            JSONArray jsonUpgrades = jsonEquipments.getJSONObject(i).getJSONArray("upgrades");
+            for(int k = 0 ; k < jsonUpgrades.length() ; k++) {
+                JSONObject jsonUpgrade = jsonUpgrades.getJSONObject(k);
+                upgrades.add(new EquipmentUpgrade(
+                        jsonUpgrade.getString("name"),
+                        jsonUpgrade.getInt("weight"),
+                        jsonUpgrade.getInt("minLevel"),
+                        jsonUpgrade.getInt("boost"),
+                        jsonUpgrade.getString("emote")
+                ));
+            }
+            equipments_upgrades.put(jsonEquipments.getJSONObject(i).getString("id"),upgrades);
         }
-        return upgrades;
+
+        for(Map.Entry<String, ArrayList<EquipmentUpgrade>> entry : equipments_upgrades.entrySet()) {
+            System.out.println(entry.getKey());
+            for (EquipmentUpgrade upgrade : entry.getValue()) {
+                System.out.println("  " + upgrade.getName());
+            }
+            System.out.println();
+        }
+
+
+        return equipments_upgrades;
     }
 }

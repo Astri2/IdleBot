@@ -4,7 +4,6 @@ import me.astri.idleBot.commands.*;
 import me.astri.idleBot.commands.displayCommands.EquipmentDisplay;
 import me.astri.idleBot.commands.displayCommands.ProfileDisplay;
 import me.astri.idleBot.eventWaiter.EventWaiter;
-import me.astri.idleBot.slashCommandHandler.IntegratedSlashCommandManager;
 import me.astri.idleBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -23,12 +22,14 @@ public class Bot {
                 new EquipmentDisplay(),
                 new setLang(),
                 new setNotation(),
+                new setEphemeral(),
                 new ProfileDisplay(),
-                new LevelUpEquipment()
+                new LevelUpEquipment(),
+                new Reset()
         );
         jda = JDABuilder.createDefault(Config.get("TOKEN"))
                 .addEventListeners(
-                        new IntegratedSlashCommandManager(),
+                        new IntegratedControlPannel(),
                         new EventWaiter(),
                         new PermaActionComponent(),
                         slashCommandManager

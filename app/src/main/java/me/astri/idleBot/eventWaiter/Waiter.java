@@ -16,7 +16,7 @@ public class Waiter<T extends GenericEvent> {
     private long expirationTime;
     private TimeUnit timeUnit;
     private Runnable timeoutAction;
-    private double id;
+    private String id;
 
     public Class<T> getEventType() { return this.eventType; }
     public Consumer<WaiterAction<T>> getAction() { return this.action; }
@@ -26,16 +26,16 @@ public class Waiter<T extends GenericEvent> {
     public long getExpirationTime() { return this.expirationTime; }
     public TimeUnit getTimeUnit() { return this.timeUnit; }
     public Runnable getTimeoutAction() { return this.timeoutAction; }
-    public double getId() { return id; }
+    public String getId() { return id; }
 
     public Waiter<T> setEventType(Class<T> eventType) { this.eventType = eventType; return this; }
     public Waiter<T> setAction(Consumer<WaiterAction<T>> action) { this.action = action; return this; }
-    public Waiter<T> setFailureAction(Consumer<WaiterAction<T>> failureAction) { this.failureAction = action; return this;}
+    public Waiter<T> setFailureAction(Consumer<WaiterAction<T>> failureAction) { this.failureAction = failureAction; return this;}
     public Waiter<T> setConditions(Predicate<T> conditions) { this.conditions = conditions; return this; }
     public Waiter<T> setAutoRemove(boolean autoRemove) { this.autoRemove = autoRemove; return this; }
     public Waiter<T> setExpirationTime(long expirationTime, TimeUnit timeUnit) { this.expirationTime = expirationTime ; this.timeUnit = timeUnit; return this; }
     public Waiter<T> setTimeoutAction(Runnable timeoutAction) { this.timeoutAction = timeoutAction; return this; }
-    Waiter<T> setId(double eventId) { this.id = eventId; return this; }
+    Waiter<T> setId(String eventId) { this.id = eventId; return this; }
 
     public Waiter(Class<T> eventType, Predicate<T> conditions, Consumer<WaiterAction<T>> action, Consumer<WaiterAction<T>> failureAction, boolean autoRemove, Long expirationTime, TimeUnit timeUnit, Runnable timeoutAction) {
         this.eventType = eventType;
@@ -59,4 +59,8 @@ public class Waiter<T extends GenericEvent> {
     public Waiter() {
     }
 
+    public void register(String id) {
+
+        EventWaiter.register(this,id);
+    }
 }
