@@ -7,14 +7,9 @@ import me.astri.idleBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.login.LoginException;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 public class Bot extends ListenerAdapter {
     public static JDA jda;
