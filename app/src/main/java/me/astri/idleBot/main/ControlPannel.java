@@ -11,7 +11,9 @@ import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import org.jetbrains.annotations.NotNull;
 
-public class IntegratedControlPannel extends ListenerAdapter {
+import javax.xml.crypto.Data;
+
+public class ControlPannel extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         TextChannel channel = event.getJDA().getGuildById(Config.get("SLASH_MANAGER_GUILD_ID")).getTextChannelById(Config.get("SLASH_MANAGER_CHANNEL_ID"));
@@ -29,7 +31,9 @@ public class IntegratedControlPannel extends ListenerAdapter {
                     Button.danger("removeSomeGuildCommands", "remove specific commands from a guild").withDisabled(true)),
                     ActionRow.of(
                             Button.success("loadPlayers","Load player progressions"),
-                            Button.success("savePlayers","Save player progressions")),
+                            Button.success("savePlayers","Save player progressions"),
+                            Button.success("dlPlayers","⏬ Download player progressions"),
+                            Button.success("upPlayers","⏫ Upload player progressions")),
                     ActionRow.of(
                             Button.secondary("shutdown","shutdown the bot"))
             );
@@ -60,8 +64,22 @@ public class IntegratedControlPannel extends ListenerAdapter {
                         event.getJDA().shutdown());
 
 
-            case "loadPlayers" -> DataBase.load(event);
-            case "savePlayers" -> DataBase.save(event);
+            case "loadPlayers" -> {
+                event.deferReply(true).queue();
+                DataBase.load(event);
+            }
+            case "savePlayers" -> {
+                event.deferReply(true).queue();
+                DataBase.save(event);
+            }
+            case "dlPlayers" ->  {
+                event.deferReply(true).queue();
+                DataBase.download(event);
+            }
+            case "upPlayers" -> {
+                event.deferReply(true).queue();
+                DataBase.upload(event);
+            }
         }
     }
 }

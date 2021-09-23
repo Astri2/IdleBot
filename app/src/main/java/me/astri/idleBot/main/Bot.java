@@ -7,10 +7,16 @@ import me.astri.idleBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.events.ReadyEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.login.LoginException;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
-public class Bot {
+public class Bot extends ListenerAdapter {
     public static JDA jda;
     public static SlashCommandManager slashCommandManager;
 
@@ -29,7 +35,8 @@ public class Bot {
         );
         jda = JDABuilder.createDefault(Config.get("TOKEN"))
                 .addEventListeners(
-                        new IntegratedControlPannel(),
+                        new Bot(),
+                        new ControlPannel(),
                         new EventWaiter(),
                         new PermaActionComponent(),
                         slashCommandManager

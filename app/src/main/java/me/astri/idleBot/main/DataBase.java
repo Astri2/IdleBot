@@ -1,13 +1,18 @@
 package me.astri.idleBot.main;
 
 import me.astri.idleBot.Entities.player.BotUser;
+import me.astri.idleBot.eventWaiter.Waiter;
+import me.astri.idleBot.eventWaiter.WaiterAction;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class DataBase {
@@ -28,10 +33,12 @@ public class DataBase {
             oos.writeObject(botUsers);
             oos.flush();
             oos.close();
-            event.reply("Saved!").setEphemeral(true).queue();
+            if(event != null)
+                event.getHook().sendMessage("Saved!").queue();
         } catch (IOException e) {
             e.printStackTrace();
-            event.reply("Error while Saving!").setEphemeral(true).queue();
+            if(event != null)
+                event.getHook().sendMessage("Error while Saving!").queue();
         }
     }
 
@@ -45,14 +52,38 @@ public class DataBase {
             botUsers = (HashMap<String, BotUser>) ois.readObject();
             fis.close();
             ois.close();
-            event.reply("Loaded!").setEphemeral(true).queue();
+            event.getHook().sendMessage("Loaded!").queue();
         } catch (EOFException e) { //file empty
             botUsers = new HashMap<>();
-            event.reply("Loaded! (file was empty)").setEphemeral(true).queue();
+            event.getHook().sendMessage("Loaded! (file was empty)").queue();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
-            event.reply("Error while Loading!").setEphemeral(true).queue();
+            event.getHook().sendMessage("Error while Loading!").queue();
         }
+    }
+
+    public static void download(ButtonClickEvent event) {
+        event.getHook().sendMessage("players data").addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+    }
+
+    public static void upload(ButtonClickEvent event) {
+        event.getHook().sendMessage("please send a message with the file atached").queue(msg -> {
+            Waiter<GuildMessageReceivedEvent> waiter = new Waiter<>();
+            waiter.setEventType(GuildMessageReceivedEvent.class);
+            waiter.setExpirationTime(1L,TimeUnit.MINUTES);
+            waiter.setConditions(e -> e.getAuthor().equals(event.getUser()) && e.getChannel().equals(event.getChannel()) &&
+                !e.getMessage().getAttachments().isEmpty());
+            waiter.setFailureAction(ctx -> {
+                ctx.unregister();
+                event.getHook().sendMessage("Incorrect message").queue();
+            });
+            waiter.setAction(ctx -> {
+                ctx.getEvent().getMessage().getAttachments().get(0).downloadToFile(System.getenv("PLAYER_DATA"));
+                event.getHook().sendMessage("player data uploaded").setEphemeral(true).queue();
+            }).setAutoRemove(true);
+            waiter.register("uploadPlayerData");
+        });
+
     }
 
 }
