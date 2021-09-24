@@ -25,18 +25,17 @@ public class ProfileDisplay implements ISlashCommand {
 
     @Override
     public void handle(SlashCommandEvent e, InteractionHook hook) {
-        IMentionable author = e.isFromGuild() ? e.getMember() : e.getUser();
         User user = e.getOption("user") == null ? e.getUser() : e.getOption("user").getAsUser();
         Player player = GameUtils.getUser(hook, e.getUser(), user);
 
-        display(hook, author, player);
+        display(hook, user, player);
     }
 
-    public static void display(InteractionHook hook, IMentionable author, Player player) {
+    public static void display(InteractionHook hook, IMentionable user, Player player) {
         if(player == null)
             return;
         player.update();
-        String name = author instanceof Member ? ((Member) author).getEffectiveName() : ((User) author).getName();
+        String name = user instanceof Member ? ((Member) user).getEffectiveName() : ((User) user).getName();
         EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"profile_title",name))
                 .addField(Emotes.getEmote("coin") + " " + Lang.get(player.getLang(),"coins"), GameUtils.getNumber(player.getCoins(),player),true)
                 .addField(Emotes.getEmote("coin") + " " + Lang.get(player.getLang(),"production"), GameUtils.getNumber(player.getProduction(),player),true);

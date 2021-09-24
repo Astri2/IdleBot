@@ -29,17 +29,16 @@ public class EquipmentDisplay implements ISlashCommand {
 
     @Override
     public void handle(SlashCommandEvent e, InteractionHook hook) {
-        IMentionable author = e.isFromGuild() ? e.getMember() : e.getUser();
         User user = e.getOption("user") == null ? e.getUser() : e.getOption("user").getAsUser();
         Player player = GameUtils.getUser(hook, e.getUser(), user);
 
-        display(hook, author, player);
+        display(hook, user, player);
     }
 
-    public static void display(InteractionHook hook, IMentionable author, Player player) {
+    public static void display(InteractionHook hook, IMentionable user, Player player) {
         if(player == null)
             return;
-        String name = author instanceof Member ? ((Member) author).getEffectiveName() : ((User) author).getName();
+        String name = user instanceof Member ? ((Member) user).getEffectiveName() : ((User) user).getName();
         HashMap<String, Equipment> equipments = player.getEquipment();
         EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"equipment_title",name));
 
@@ -54,6 +53,7 @@ public class EquipmentDisplay implements ISlashCommand {
             if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) > 0)
                 break;
         }
+        eb.setDescription(Lang.get(player.getLang(),"equipment_display_money",GameUtils.getNumber(player.getCoins(),player) + Emotes.getEmote("coin")));
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
                         Button.secondary("equipmentDisplay","\uD83D\uDD04"),

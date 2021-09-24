@@ -99,16 +99,6 @@ public class Equipment implements Serializable {
             }
             equipments_upgrades.put(jsonEquipments.getJSONObject(i).getString("id"),upgrades);
         }
-
-        for(Map.Entry<String, ArrayList<EquipmentUpgrade>> entry : equipments_upgrades.entrySet()) {
-            System.out.println(entry.getKey());
-            for (EquipmentUpgrade upgrade : entry.getValue()) {
-                System.out.println("  " + upgrade.getName());
-            }
-            System.out.println();
-        }
-
-
         return equipments_upgrades;
     }
 }
