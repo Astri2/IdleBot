@@ -18,7 +18,7 @@ public class Bot extends ListenerAdapter {
     public static void main(String[] args) throws LoginException, InterruptedException {
         Emotes.init();
         slashCommandManager = new SlashCommandManager(
-                new Minions(),
+                //new Minions(),
                 new Register(),
                 new EquipmentDisplay(),
                 new setLang(),
