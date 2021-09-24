@@ -1,50 +1,44 @@
 package me.astri.idleBot.main;
 
+import net.dv8tion.jda.api.interactions.commands.Command;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public enum Lang {
-    ENGLISH("\uD83C\uDDFA\uD83C\uDDF8","English"),
-    FRENCH("\uD83C\uDDEB\uD83C\uDDF7","Français");
+    ENGLISH("English"),
+    GERMAN("German"),
+    FRENCH("Français");
 
-    private final String emoji;
     private final String name;
-    public String getEmoji() {
-        return this.emoji;
-    }
     public String getName() {
         return this.name;
     }
 
-    Lang(String a, String b) {
-        this.emoji = a;
-        this.name = b;
-    }
-
-    public static Lang getEnumFromEmoji(String emote) {
-        for(Lang language : Lang.values()) {
-            if(language.emoji.equalsIgnoreCase(emote))
-                return language;
-        }
-        return null;
+    Lang(String a) {
+        this.name = a;
     }
 
     private static final HashMap<Lang,HashMap<String,String>> langsMap = new HashMap<>();
 
-    public static String get(Lang lang, String key, String ... variables) {
-        if (lang == null)
-            lang = Lang.ENGLISH;
+    public static ArrayList<Command.Choice> getChoices() {
+        ArrayList<Command.Choice> choices = new ArrayList<>();
+        Arrays.stream(Lang.values()).forEach(lang -> choices.add(new Command.Choice(lang.getName(),lang.name())));
+        return choices;
+    }
 
-        if(langsMap.get(lang) == null)
-            loadLang(lang);
-        String str = langsMap.get(lang).get(key);
+    public String get(String key, String ... variables) {
+        if(langsMap.get(this) == null)
+            loadLang(this);
+        String str = langsMap.get(this).get(key);
         if(str == null)
             return "no string";
         for(int i = 0 ; i < variables.length ; i++)
             str = str.replaceAll("\\{"+i+"}",variables[i]);
-            str = str.replaceAll("(\\[|])","");
-        return str;
+            str = str.replaceAll("([^\\\\]|^)[\\[\\]]","$1"); //remove all [] except if backslash before
+        return str ;
     }
 
     private static void loadLang(Lang lang) {
