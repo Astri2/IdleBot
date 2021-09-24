@@ -184,6 +184,7 @@ public class LevelUpEquipment implements ISlashCommand {
             return;
         }
         eq.levelUp(level);
+        player.editCoins(eq.getPrice(level));
         hook.sendMessage(Lang.get(player.getLang(),"eqpm_upgrade_success",
                                     eq.getEmote(),Lang.get(player.getLang(),eq.getName()),Long.toString(eq.getLevel()),Integer.toString(level)))
                 .addActionRow(
