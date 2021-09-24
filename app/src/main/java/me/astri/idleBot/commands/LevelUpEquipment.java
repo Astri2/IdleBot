@@ -183,6 +183,7 @@ public class LevelUpEquipment implements ISlashCommand {
                     + Emotes.getEmote("coin")).queue();
             return;
         }
+        player.editCoins(eq.getPrice(level));
         eq.levelUp(level);
         player.editCoins(eq.getPrice(level));
         hook.sendMessage(Lang.get(player.getLang(),"eqpm_upgrade_success",

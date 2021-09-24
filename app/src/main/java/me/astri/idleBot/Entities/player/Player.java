@@ -26,10 +26,9 @@ public class Player extends BotUser implements Serializable {
 
     public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
         super(id, lang, scNotation, ephemeral);
-        coins = new BigDecimal(120000);
+        coins = new BigDecimal(6);
         lastUpdateTime = System.currentTimeMillis();
         initEquipments();
-        equipments.get("sword").levelUp(5);
     }
 
     private void initEquipments() {
