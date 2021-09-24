@@ -9,7 +9,7 @@ import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import org.jetbrains.annotations.NotNull;
 
-public class controlPanel extends ListenerAdapter {
+public class ControlPanel extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         TextChannel channel = event.getJDA().getGuildById(Config.get("SLASH_MANAGER_GUILD_ID")).getTextChannelById(Config.get("SLASH_MANAGER_CHANNEL_ID"));

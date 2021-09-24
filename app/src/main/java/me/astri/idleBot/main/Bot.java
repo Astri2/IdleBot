@@ -31,7 +31,7 @@ public class Bot extends ListenerAdapter {
         jda = JDABuilder.createDefault(Config.get("TOKEN"))
                 .addEventListeners(
                         new Bot(),
-                        new controlPanel(),
+                        new ControlPanel(),
                         new EventWaiter(),
                         new PermaActionComponent(),
                         slashCommandManager
