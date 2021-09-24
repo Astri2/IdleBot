@@ -17,9 +17,8 @@ public class Register implements ISlashCommand {
         return new CommandData("register","register yourself to the game")
                 .addOptions(
                         new OptionData(OptionType.STRING,"language","the lang the bot will use will you")
-                        .addChoices(
-                                new Choice("English","ENGLISH"),
-                                new Choice("Français","FRENCH")))
+                        .addChoices(Lang.getChoices()))
+
                 .addOptions(
                         new OptionData(OptionType.STRING, "notation","which notation to use")
                                 .addChoice("scientific notation","sc")
@@ -51,9 +50,13 @@ public class Register implements ISlashCommand {
         Player player = new Player(e.getUser().getId(), lang, scNotation, ephemeral);
         if(DataBase.getUser(player.getId()) == null) {
             DataBase.registerPlayer(player);
+            hook.sendMessage(player.getLang().get("success_register",e.getUser().getAsMention())).queue();
+        } else {
+            hook.sendMessage(player.getLang().get("error_already_registered", e.getUser().getAsMention())).queue();
+            /*
             hook.sendMessage(Lang.get(player.getLang(),"success_register",e.getUser().getAsMention())).queue();
         } else {
-            hook.sendMessage(Lang.get(player.getLang(),"error_already_registered", e.getUser().getAsMention())).queue();
+            hook.sendMessage(Lang.get(player.getLang(),"error_already_registered", e.getUser().getAsMention())).queue();*/
         }
     }
 

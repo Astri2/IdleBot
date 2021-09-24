@@ -6,7 +6,6 @@ import me.astri.idleBot.main.Lang;
 import me.astri.idleBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
-import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
@@ -29,9 +28,9 @@ public class setEphemeral implements ISlashCommand {
             return;
         botUser.setEphemeral(e.getOption("ephemeral").getAsString());
         switch(botUser.isEphemeral()) {
-            case "true" -> hook.sendMessage(Lang.get(botUser.getLang(),"ephemeral_updated_on",e.getUser().getAsMention())).setEphemeral(true).queue();
-            case "false" -> hook.sendMessage(Lang.get(botUser.getLang(),"ephemeral_updated_off",e.getUser().getAsMention())).setEphemeral(false).queue();
-            case "default" -> hook.sendMessage(Lang.get(botUser.getLang(),"ephemeral_updated_default",e.getUser().getAsMention())).queue();
+            case "true" -> hook.sendMessage(botUser.getLang().get("ephemeral_updated_on",e.getUser().getAsMention())).setEphemeral(true).queue();
+            case "false" -> hook.sendMessage(botUser.getLang().get("ephemeral_updated_off",e.getUser().getAsMention())).setEphemeral(false).queue();
+            case "default" -> hook.sendMessage(botUser.getLang().get("ephemeral_updated_default",e.getUser().getAsMention())).queue();
         }
     }
 

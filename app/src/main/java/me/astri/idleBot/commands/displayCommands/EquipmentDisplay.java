@@ -40,24 +40,24 @@ public class EquipmentDisplay implements ISlashCommand {
             return;
         String name = user instanceof Member ? ((Member) user).getEffectiveName() : ((User) user).getName();
         HashMap<String, Equipment> equipments = player.getEquipment();
-        EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"equipment_title",name));
+        EmbedBuilder eb = new EmbedBuilder().setTitle(player.getLang().get("equipment_title",name));
 
         for(Map.Entry<String,Equipment> set : equipments.entrySet()) {
             Equipment gearPiece = set.getValue();
             if(!gearPiece.isUnlocked())
                 continue;
-            eb.addField(gearPiece.getEmote() + " " + Lang.get(player.getLang(),gearPiece.getName()),
+            eb.addField(gearPiece.getEmote() + " " + player.getLang().get(gearPiece.getName()),
                     "Level **" + gearPiece.getLevel() + "\n" +
                             GameUtils.getNumber(gearPiece.getProduction(),player) + Emotes.getEmote("coin") + "**/s**\n" +
-                    Lang.get(player.getLang(),"cost") + "** " + GameUtils.getNumber(gearPiece.getPrice(),player), true);
+                    player.getLang().get("cost") + "** " + GameUtils.getNumber(gearPiece.getPrice(),player), true);
             if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) > 0)
                 break;
         }
-        eb.setDescription(Lang.get(player.getLang(),"equipment_display_money",GameUtils.getNumber(player.getCoins(),player) + Emotes.getEmote("coin")));
+        eb.setDescription(player.getLang().get("equipment_display_money",GameUtils.getNumber(player.getCoins(),player) + Emotes.getEmote("coin")));
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
                         Button.secondary("equipmentDisplay","\uD83D\uDD04"),
-                        Button.secondary("profileDisplay", Lang.get(player.getLang(),"display_profile_button")))
+                        Button.secondary("profileDisplay", player.getLang().get("display_profile_button")))
                 .queue();
     }
 

@@ -15,6 +15,9 @@ public abstract class BotUser implements Serializable {
         this.lang = lang;
         this.useScNotation = useScNotation;
         this.ephemeral = ephemeral;
+
+        if(this.lang == null)
+            this.lang = Lang.ENGLISH;
     }
 
     public String getId() {

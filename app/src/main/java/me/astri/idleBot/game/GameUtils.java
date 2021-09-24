@@ -5,7 +5,6 @@ import me.astri.idleBot.Entities.player.Player;
 import me.astri.idleBot.main.DataBase;
 import me.astri.idleBot.main.Lang;
 import net.dv8tion.jda.api.entities.IMentionable;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 
 import java.math.BigDecimal;
@@ -22,10 +21,10 @@ public abstract class GameUtils {
         Player player = (Player) DataBase.getUser(user.getId());
         if(player == null) { //If specified user doesn't match any user
             if(user.equals(author)) { //is the specified user the command requester?
-                hook.sendMessage(Lang.get(null,"error_you_unregistered",user.getAsMention())).queue(); //command requester is not registered
+                hook.sendMessage(Lang.ENGLISH.get("error_you_unregistered",user.getAsMention())).queue(); //command requester is not registered
             } else {
                 Player playerAuthor = getUser(hook, author, author); //get the player associated to the command requester
-                hook.sendMessage(Lang.get(playerAuthor == null ? null : playerAuthor.getLang(), //if requester isn't registered either, use default
+                hook.sendMessage(playerAuthor == null ? null : playerAuthor.getLang().get( //if requester isn't registered either, use default
                         "error_someone_unregistered", user.getAsMention())).queue();             // language. Otherwise use command requester language
             }
         }

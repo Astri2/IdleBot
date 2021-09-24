@@ -31,8 +31,8 @@ public class setNotation implements ISlashCommand {
 
     public void setNot(InteractionHook hook, BotUser botUser, boolean useScNot) {
         botUser.setUseScNotation(useScNot);
-        hook.sendMessage(Lang.get(
-                botUser.getLang(),useScNot ? "notation_updated_sc" : "notation_updated_unit",hook.getInteraction().getUser().getAsMention())).queue();
+        hook.sendMessage(botUser.getLang().get(
+                useScNot ? "notation_updated_sc" : "notation_updated_unit",hook.getInteraction().getUser().getAsMention())).queue();
     }
 
     @Override

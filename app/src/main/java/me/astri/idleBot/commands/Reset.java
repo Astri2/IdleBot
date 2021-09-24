@@ -23,7 +23,7 @@ public class Reset implements ISlashCommand {
         Player player = GameUtils.getUser(hook,e.getUser());
         if(player == null)
             return;
-        hook.sendMessage(Lang.get(player.getLang(),"progression_reset",e.getUser().getAsMention())).queue();
+        hook.sendMessage(player.getLang().get("progression_reset",e.getUser().getAsMention())).queue();
         DataBase.registerPlayer(new Player(player.getId(),player.getLang(),player.isUseScNotation(),player.isEphemeral()));
     }
 

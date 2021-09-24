@@ -54,20 +54,13 @@ public class Player extends BotUser implements Serializable {
         return coins;
     }
 
-    public Player editCoins(BigDecimal coins) {
+    public void editCoins(BigDecimal coins) {
         this.coins = this.coins.add(coins);
-        return this;
     }
 
-    public Player resetCoins() {
-        this.coins = new BigDecimal(0);
-        return this;
-    }
-
-    public Player update() {
+    public void update() {
         long newTime = System.currentTimeMillis();
         coins = coins.add(getProduction().multiply(new BigDecimal((newTime - lastUpdateTime)/1000)));
         lastUpdateTime = System.currentTimeMillis();
-        return this;
     }
 }

@@ -9,7 +9,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -33,7 +32,7 @@ public abstract class WaiterTemplates {
                     waiter.setEventType(ButtonClickEvent.class)
                             .setExpirationTime(1, TimeUnit.MINUTES)
                             .setTimeoutAction(() -> {
-                                msg.editMessage(message + "\n" + Lang.get(lang,"expired")).queue();
+                                msg.editMessage(message + "\n" + lang.get("expired")).queue();
                                 msg.editMessageComponents(getKP(id,false,true)).queue();
                             })
                             .setConditions(e ->
@@ -42,7 +41,7 @@ public abstract class WaiterTemplates {
                             )
                             .setFailureAction(ctx -> {
                                 if(ctx.getEvent().getMessageId().equals(msg.getId()))
-                                    ctx.getEvent().reply(Lang.get(lang,"error_cant_interact",ctx.getEvent().getUser().getAsMention()))
+                                    ctx.getEvent().reply(lang.get("error_cant_interact",ctx.getEvent().getUser().getAsMention()))
                                             .setEphemeral(true).queue();
                             })
                             .setAction(ctx -> {

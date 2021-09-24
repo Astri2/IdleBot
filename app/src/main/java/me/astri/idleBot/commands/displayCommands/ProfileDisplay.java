@@ -36,14 +36,14 @@ public class ProfileDisplay implements ISlashCommand {
             return;
         player.update();
         String name = user instanceof Member ? ((Member) user).getEffectiveName() : ((User) user).getName();
-        EmbedBuilder eb = new EmbedBuilder().setTitle(Lang.get(player.getLang(),"profile_title",name))
-                .addField(Emotes.getEmote("coin") + " " + Lang.get(player.getLang(),"coins"), GameUtils.getNumber(player.getCoins(),player),true)
-                .addField(Emotes.getEmote("coin") + " " + Lang.get(player.getLang(),"production"), GameUtils.getNumber(player.getProduction(),player),true);
+        EmbedBuilder eb = new EmbedBuilder().setTitle(player.getLang().get("profile_title",name))
+                .addField(Emotes.getEmote("coin") + " " + player.getLang().get("coins"), GameUtils.getNumber(player.getCoins(),player),true)
+                .addField(Emotes.getEmote("coin") + " " + player.getLang().get("production"), GameUtils.getNumber(player.getProduction(),player),true);
 
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
                         Button.secondary("profileDisplay","\uD83D\uDD04"),
-                        Button.secondary("equipmentDisplay",Lang.get(player.getLang(),"display_equipment_button")))
+                        Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
                 .queue();
     }
 

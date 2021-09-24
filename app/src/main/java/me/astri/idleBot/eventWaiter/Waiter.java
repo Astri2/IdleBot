@@ -35,7 +35,7 @@ public class Waiter<T extends GenericEvent> {
     public Waiter<T> setAutoRemove(boolean autoRemove) { this.autoRemove = autoRemove; return this; }
     public Waiter<T> setExpirationTime(long expirationTime, TimeUnit timeUnit) { this.expirationTime = expirationTime ; this.timeUnit = timeUnit; return this; }
     public Waiter<T> setTimeoutAction(Runnable timeoutAction) { this.timeoutAction = timeoutAction; return this; }
-    Waiter<T> setId(String eventId) { this.id = eventId; return this; }
+    void setId(String eventId) { this.id = eventId; }
 
     public Waiter(Class<T> eventType, Predicate<T> conditions, Consumer<WaiterAction<T>> action, Consumer<WaiterAction<T>> failureAction, boolean autoRemove, Long expirationTime, TimeUnit timeUnit, Runnable timeoutAction) {
         this.eventType = eventType;

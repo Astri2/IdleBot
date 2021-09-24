@@ -2,17 +2,11 @@ package me.astri.idleBot.main;
 
 import me.astri.idleBot.Entities.player.BotUser;
 import me.astri.idleBot.eventWaiter.Waiter;
-import me.astri.idleBot.eventWaiter.WaiterAction;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.api.interactions.InteractionHook;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class DataBase {
@@ -45,7 +39,6 @@ public class DataBase {
     //because of an Object to Game cast
     @SuppressWarnings("unchecked")
     public static void load(ButtonClickEvent event) {
-        boolean success = true;
         try {
             FileInputStream fis = new FileInputStream(System.getenv("PLAYER_DATA"));
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -67,7 +60,7 @@ public class DataBase {
     }
 
     public static void upload(ButtonClickEvent event) {
-        event.getHook().sendMessage("please send a message with the file atached").queue(msg -> {
+        event.getHook().sendMessage("please send a message with the file attached").queue(msg -> {
             Waiter<GuildMessageReceivedEvent> waiter = new Waiter<>();
             waiter.setEventType(GuildMessageReceivedEvent.class);
             waiter.setExpirationTime(1L,TimeUnit.MINUTES);

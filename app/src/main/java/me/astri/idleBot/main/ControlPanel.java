@@ -1,7 +1,5 @@
 package me.astri.idleBot.main;
 
-import me.astri.idleBot.main.Bot;
-import me.astri.idleBot.main.Config;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
@@ -11,9 +9,7 @@ import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import org.jetbrains.annotations.NotNull;
 
-import javax.xml.crypto.Data;
-
-public class ControlPannel extends ListenerAdapter {
+public class controlPanel extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         TextChannel channel = event.getJDA().getGuildById(Config.get("SLASH_MANAGER_GUILD_ID")).getTextChannelById(Config.get("SLASH_MANAGER_CHANNEL_ID"));

@@ -79,9 +79,9 @@ public class LevelUpEquipment implements ISlashCommand {
     public static void askEquipment(InteractionHook hook, Player player, String levels) {
         SelectionMenu.Builder menu = SelectionMenu.create("equipmentSelect" + player.getId());
         for(Map.Entry<String,Equipment> eq : player.getEquipment().entrySet()) {
-            menu.addOption(Lang.get(player.getLang(),eq.getValue().getName()),eq.getKey(), Emoji.fromMarkdown(eq.getValue().getEmote()));
+            menu.addOption(player.getLang().get(eq.getValue().getName()),eq.getKey(), Emoji.fromMarkdown(eq.getValue().getEmote()));
         }
-        hook.sendMessage(Lang.get(player.getLang(),"eqpm_upgrade_ask_eqpm",hook.getInteraction().getUser().getAsMention()))
+        hook.sendMessage(player.getLang().get("eqpm_upgrade_ask_eqpm",hook.getInteraction().getUser().getAsMention()))
             .addActionRow(menu.build()).queue(msg -> {
                 hook.setEphemeral(msg.isEphemeral());
 
@@ -89,7 +89,7 @@ public class LevelUpEquipment implements ISlashCommand {
                 waiter.setExpirationTime(1, TimeUnit.MINUTES).setTimeoutAction(() ->
                     msg.editMessageComponents(ActionRow.of(SelectionMenu.create("unused")
                             .addOption("unused","unused")
-                            .setPlaceholder(Lang.get(player.getLang(),"expired")).setDisabled(true).build())).queue()
+                            .setPlaceholder(player.getLang().get("expired")).setDisabled(true).build())).queue()
                 );
                 waiter.setAutoRemove(true).setEventType(SelectionMenuEvent.class);
                 waiter.setConditions(
@@ -97,7 +97,7 @@ public class LevelUpEquipment implements ISlashCommand {
                 );
                 waiter.setFailureAction(ctx -> {
                     if(ctx.getEvent().getMessageId().equals(msg.getId()))
-                        ctx.getEvent().reply(Lang.get(player.getLang(),"error_cant_interact",ctx.getEvent().getUser().getAsMention()))
+                        ctx.getEvent().reply(player.getLang().get("error_cant_interact",ctx.getEvent().getUser().getAsMention()))
                             .setEphemeral(true).queue();
                 });
                 waiter.setAction(ctx -> {
@@ -116,14 +116,14 @@ public class LevelUpEquipment implements ISlashCommand {
     }
 
     private static void askLevel(InteractionHook hook, Player player, String equipment) {
-        hook.sendMessage(Lang.get(player.getLang(),"eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
+        hook.sendMessage(player.getLang().get("eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
                 player.getEquipment().get(equipment).getEmote(),player.getEquipment().get(equipment).getName()))
            .addActionRow(SelectionMenu.create("levelsSelect" + player.getId())
                 .addOption("1","1")
                 .addOption("10","10")
                 .addOption("50","50")
-                .addOption(Lang.get(player.getLang(),"nbr_max"),"max")
-                .addOption(Lang.get(player.getLang(),"nbr_custom"),"custom").build()
+                .addOption(player.getLang().get("nbr_max"),"max")
+                .addOption(player.getLang().get("nbr_custom"),"custom").build()
            ).queue(msg -> {
                 hook.setEphemeral(msg.isEphemeral());
 
@@ -131,7 +131,7 @@ public class LevelUpEquipment implements ISlashCommand {
                 waiter.setExpirationTime(1, TimeUnit.MINUTES).setTimeoutAction(() ->
                     msg.editMessageComponents(ActionRow.of(SelectionMenu.create("unused")
                             .addOption("unused","unused")
-                            .setPlaceholder(Lang.get(player.getLang(),"expired")).setDisabled(true).build())).queue()
+                            .setPlaceholder(player.getLang().get("expired")).setDisabled(true).build())).queue()
                 );
                 waiter.setAutoRemove(true).setEventType(SelectionMenuEvent.class);
                 waiter.setConditions(
@@ -139,7 +139,7 @@ public class LevelUpEquipment implements ISlashCommand {
                 );
                 waiter.setFailureAction(ctx -> {
                     if(ctx.getEvent().getMessageId().equals(msg.getId()))
-                        ctx.getEvent().reply(Lang.get(player.getLang(),"error_cant_interact",ctx.getEvent().getUser().getAsMention()))
+                        ctx.getEvent().reply(player.getLang().get("error_cant_interact",ctx.getEvent().getUser().getAsMention()))
                                 .setEphemeral(true).queue();
                 });
                 waiter.setAction(ctx -> {
@@ -157,7 +157,7 @@ public class LevelUpEquipment implements ISlashCommand {
 
     private static void askCustomLevel(InteractionHook hook, boolean isEphemeral, Player player, String equipment) {
         AtomicReference<String> number = new AtomicReference<>("");
-                WaiterTemplates.numPadEvent(Lang.get(player.getLang(),"eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
+                WaiterTemplates.numPadEvent(player.getLang().get("eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
                         player.getEquipment().get(equipment).getEmote(),player.getEquipment().get(equipment).getName()),
                         hook, isEphemeral,number, player.getLang(), () -> levelUp(hook,player,equipment,number.get()));
     }
@@ -174,22 +174,22 @@ public class LevelUpEquipment implements ISlashCommand {
         else try {
             level = Integer.parseInt(levels);
         } catch(NumberFormatException e) {
-            hook.sendMessage(Lang.get(player.getLang(),"error_nan")).queue();
+            hook.sendMessage(player.getLang().get("error_nan")).queue();
             return;
         }
         if(eq.getPrice(level).compareTo(player.getCoins()) > 0) {
-            hook.sendMessage(Lang.get(player.getLang(),"error_not_enough_money") + " **"
+            hook.sendMessage(player.getLang().get("error_not_enough_money") + " **"
                     + GameUtils.getNumber(player.getCoins(),player) + "/" + GameUtils.getNumber(eq.getPrice(level),player) + "**"
                     + Emotes.getEmote("coin")).queue();
             return;
         }
         player.editCoins(eq.getPrice(level).negate());
         eq.levelUp(level);
-        hook.sendMessage(Lang.get(player.getLang(),"eqpm_upgrade_success",
-                                    eq.getEmote(),Lang.get(player.getLang(),eq.getName()),Long.toString(eq.getLevel()),Integer.toString(level)))
+        hook.sendMessage(player.getLang().get("eqpm_upgrade_success",
+                                    eq.getEmote(),player.getLang().get(eq.getName()),Long.toString(eq.getLevel()),Integer.toString(level)))
                 .addActionRow(
                         Button.secondary("redoLevelUp:" + equipment + ":" + levels,"\uD83D\uDD04"),
-                        Button.secondary("equipmentDisplay",Lang.get(player.getLang(),"display_equipment_button")))
+                        Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
                 .queue();
     }
 

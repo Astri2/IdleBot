@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Equipment implements Serializable {
     private final static HashMap<String,ArrayList<EquipmentUpgrade>> upgrades = initUpgrades(
@@ -36,11 +35,10 @@ public class Equipment implements Serializable {
         queryLevelUpgrades();
     }
 
-    public Equipment levelUp(int levels) {
+    public void levelUp(int levels) {
         level+=levels;
         price = price.multiply(BigDecimal.valueOf(Math.pow(1.15,levels)));
         queryLevelUpgrades();
-        return this;
     }
 
     private void queryLevelUpgrades() {
@@ -51,12 +49,11 @@ public class Equipment implements Serializable {
         }
     }
 
-    public Equipment addUpgrade(EquipmentUpgrade upgrade) {
+    public void addUpgrade(EquipmentUpgrade upgrade) {
         ownedUpgrades.add(upgrade);
         if(currentUpgrade == null || upgrade.getWeight() > currentUpgrade.getWeight()) {
             currentUpgrade = upgrade;
         }
-        return this;
     }
 
     public boolean isUnlocked() { return unlocked; }
