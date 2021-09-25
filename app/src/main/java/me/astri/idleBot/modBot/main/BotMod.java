@@ -1,6 +1,7 @@
 package me.astri.idleBot.modBot.main;
 
 import me.astri.idleBot.GameBot.main.Config;
+import me.astri.idleBot.modBot.listeners.VoiceRole;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
