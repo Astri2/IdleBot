@@ -30,6 +30,6 @@ build.mustRunAfter test
 
 jar {
     manifest {
-        attributes 'Class-Path': '/libs/app-1.0.jar', 'Main-Class': 'me.astri.idleBot.GameBot.main.Bot'
+        attributes 'Class-Path': '/libs/app-1.0.jar', 'Main-Class': 'me.astri.idleBot.Main'
     }
 }
