@@ -1,9 +1,8 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.game;
 
 import me.astri.idleBot.GameBot.commands.LevelUpEquipment;
 import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
 import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
-import me.astri.idleBot.GameBot.game.GameUtils;
 import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

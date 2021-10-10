@@ -2,14 +2,21 @@ package me.astri.idleBot.GameBot.main;
 
 import me.astri.idleBot.GameBot.Entities.player.BotUser;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
+import net.dv8tion.jda.api.events.DisconnectEvent;
+import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class DataBase {
+public class DataBase extends ListenerAdapter {
     private static HashMap<String, BotUser> botUsers = new HashMap<>();
 
     public static void registerPlayer(BotUser user) {
@@ -20,7 +27,8 @@ public class DataBase {
         return botUsers.get(id);
     }
 
-    public static void save(ButtonClickEvent event) {
+    public static void save(@Nullable ButtonClickEvent event) {
+        System.out.println("saving");
         try {
             FileOutputStream fos = new FileOutputStream(System.getenv("PLAYER_DATA"));
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -31,27 +39,29 @@ public class DataBase {
                 event.getHook().sendMessage("Saved!").queue();
         } catch (IOException e) {
             e.printStackTrace();
-            if(event != null)
-                event.getHook().sendMessage("Error while Saving!").queue();
+            BotGame.jda.getTextChannelById("883754753887195208").sendMessage("Error while Saving!").queue();
         }
     }
 
     //because of an Object to Game cast
     @SuppressWarnings("unchecked")
-    public static void load(ButtonClickEvent event) {
+    public static void load(@Nullable ButtonClickEvent event) {
+        System.out.println("loading");
         try {
             FileInputStream fis = new FileInputStream(System.getenv("PLAYER_DATA"));
             ObjectInputStream ois = new ObjectInputStream(fis);
             botUsers = (HashMap<String, BotUser>) ois.readObject();
             fis.close();
             ois.close();
-            event.getHook().sendMessage("Loaded!").queue();
+            if(event != null)
+                event.getHook().sendMessage("Loaded!").queue();
         } catch (EOFException e) { //file empty
             botUsers = new HashMap<>();
-            event.getHook().sendMessage("Loaded! (file was empty)").queue();
+            if(event != null)
+                event.getHook().sendMessage("Loaded! (file was empty)").queue();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
-            event.getHook().sendMessage("Error while Loading!").queue();
+            BotGame.jda.getTextChannelById("883754753887195208").sendMessage("Error while Loading!").queue();
         }
     }
 
@@ -81,4 +91,21 @@ public class DataBase {
 
     }
 
+
+    @Override
+    public void onReady(@NotNull ReadyEvent event) {
+        load(null);
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                save(null);
+            }
+        },60000,60000);
+    }
+
+    @Override
+    public void onDisconnect(@NotNull DisconnectEvent event) {
+        save(null);
+    }
 }

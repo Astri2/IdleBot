@@ -4,6 +4,7 @@ import me.astri.idleBot.GameBot.commands.*;
 import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
 import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
+import me.astri.idleBot.GameBot.game.PermaActionComponent;
 import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -28,6 +29,7 @@ public class BotGame {
         );
         jda = JDABuilder.createDefault(Config.get("TOKEN_1"))
                 .addEventListeners(
+                        new DataBase(),
                         new ControlPanel(),
                         new EventWaiter(),
                         new PermaActionComponent(),

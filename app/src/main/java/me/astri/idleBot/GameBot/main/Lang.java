@@ -42,11 +42,15 @@ public enum Lang {
     }
 
     private static void loadLang(Lang lang) {
-        ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.toString().toLowerCase() + ".csv");
-        HashMap<String,String> langMap = new HashMap<>();
-        langsMap.put(lang,langMap);
-        for(List<String> args : CSV_lang)
-            langMap.put(args.get(0),args.get(1));
+        try {
+            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.toString().toLowerCase() + ".csv");
+            HashMap<String, String> langMap = new HashMap<>();
+            langsMap.put(lang, langMap);
+            for (List<String> args : CSV_lang)
+                langMap.put(args.get(0), args.get(1));
+        } catch(Exception e) {
+            System.out.println("can't open file");
+        }
     }
 }
 
