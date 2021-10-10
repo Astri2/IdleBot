@@ -563,7 +563,84 @@
           "weight": 0,
           "minLevel": 0,
           "boost": 0,
-          "emote": "🔪"
+          "emote": "<a:dagger:896884323607805982>"
+        },
+        {
+          "name": "dagger_black",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<a:black_dagger:896884323440021505>"
+        },
+        {
+          "name": "dagger_golden",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<a:golden_dagger:896884324270485514>"
+        },
+        {
+          "name": "dagger_demon",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<a:demon_dagger:896884323884617768>"
+        },
+        {
+          "name": "dagger_dragon",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<a:dragon_dagger:896884323897180181>"
+        },
+        {
+          "name": "dagger_glory",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 150,
+          "emote": "<a:glory_dagger:896884323989479426>"
+        },
+        {
+          "name": "dagger_kunai",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<a:kunai:896884324312416306>"
+        },
+        {
+          "name": "dagger_zap",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<a:zap_dagger:896884324702486648>"
+        },
+        {
+          "name": "dagger_abyssal",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<a:abyssal_dagger:896884323544858654>"
+        },
+        {
+          "name": "dagger_larret_s",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<a:latter_s_dagger:896884324366966814>"
+        },
+        {
+          "name": "dagger_flame",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<a:flame_dagger:896884324182409216>"
+        },
+        {
+          "name": "dagger_breaker",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<a:dagger_breaker:896884323909771265>"
         }
       ]
     },
@@ -578,7 +655,84 @@
           "weight": 0,
           "minLevel": 0,
           "boost": 0,
-          "emote": "🪓"
+          "emote": "<a:Axe:896890193989210142>"
+        },
+        {
+          "name": "axe_black",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<a:Black_Axe:896890193389441085>"
+        },
+        {
+          "name": "axe_golden",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<a:Golden_Axe:896890192605085717>"
+        },
+        {
+          "name": "axe_demon",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<a:Demon_Axe:896890192605098086>"
+        },
+        {
+          "name": "axe_infernal_battle",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 500,
+          "emote": "<a:Infernal_Battle_Axe:896890192823189544>"
+        },
+        {
+          "name": "axe_battle",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<a:Battle_Axe:896890193850802208>"
+        },
+        {
+          "name": "axe_beast",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<a:Beast_Axe:896890193754333184>"
+        },
+        {
+          "name": "axe_tri",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<a:Triaxe:896890192684789790>"
+        },
+        {
+          "name": "axe_crystal",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<a:Crystal_Axe:896890193024520212>"
+        },
+        {
+          "name": "axe_chopan_s",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<a:Chopan_s_Axe:896890192860942357>"
+        },
+        {
+          "name": "axe_blood_moon",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<a:Blood_Moon_Axe:896890193095839765>"
+        },
+        {
+          "name": "axe_wide_blood_moon",
+          "weight": 10,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<a:Wide_Blood_Moon_Axe:896890192605110282>"
         }
       ]
     },
