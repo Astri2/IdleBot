@@ -37,6 +37,7 @@ public class EquipmentDisplay implements ISlashCommand {
     public static void display(InteractionHook hook, IMentionable user, Player player) {
         if(player == null)
             return;
+        player.update();
         String name = user instanceof Member ? ((Member) user).getEffectiveName() : ((User) user).getName();
         HashMap<String, Equipment> equipments = player.getEquipment();
         EmbedBuilder eb = new EmbedBuilder().setTitle(player.getLang().get("equipment_title",name));
