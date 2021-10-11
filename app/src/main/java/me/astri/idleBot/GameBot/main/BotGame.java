@@ -1,6 +1,7 @@
 package me.astri.idleBot.GameBot.main;
 
 import me.astri.idleBot.GameBot.commands.*;
+import me.astri.idleBot.GameBot.commands.debug.Give;
 import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
 import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
@@ -33,7 +34,10 @@ public class BotGame {
                         new ControlPanel(),
                         new EventWaiter(),
                         new PermaActionComponent(),
-                        slashCommandManager
+                        slashCommandManager,
+
+                        //DEBUG
+                        new Give()
                 )
                 .build().awaitReady();
     }
