@@ -65,13 +65,16 @@ public class Equipment implements Serializable {
     public String getEmote() { return currentUpgrade.getEmote(); }
 
     public BigDecimal getPrice() {
-        return getPrice(1);
+        return this.price;
     }
 
     public BigDecimal getPrice(int levelToUp) {
         BigDecimal sum = new BigDecimal(0);
-        for(int i = 0 ; i <= levelToUp-1 ; i++)//-1 cause 1.15^0 = current price
-            sum = sum.add(price.multiply(BigDecimal.valueOf(Math.pow(1.5,i))));
+        BigDecimal tmp_price = new BigDecimal(String.valueOf(this.price));
+        for(int i = 0 ; i <= levelToUp-1 ; i++) { //-1 cause 1.15^0 = current price
+            sum = sum.add(tmp_price);
+            tmp_price = tmp_price.multiply(BigDecimal.valueOf(1.5));
+        }
         return sum;
     }
 

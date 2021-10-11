@@ -57,7 +57,7 @@ public class ControlPanel extends ListenerAdapter {
             }
             case "shutdown" ->
                 event.reply("Bot will shutdown...").setEphemeral(true).queue(__ ->
-                        event.getJDA().shutdown());
+                        event.getJDA().shutdownNow()    );
 
 
             case "loadPlayers" -> {

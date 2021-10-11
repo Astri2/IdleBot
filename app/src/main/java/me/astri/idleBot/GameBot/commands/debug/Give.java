@@ -1,6 +1,5 @@
 package me.astri.idleBot.GameBot.commands.debug;
 
-import me.astri.idleBot.GameBot.Entities.player.BotUser;
 import me.astri.idleBot.GameBot.Entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import net.dv8tion.jda.api.entities.Member;
