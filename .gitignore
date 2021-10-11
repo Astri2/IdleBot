@@ -1,8 +1,8 @@
 .idea/
+.gradle/
 out/
 build/
 *.class
 *.dat
 *.lock
 *.bin
-.gradle/
