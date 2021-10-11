@@ -118,6 +118,7 @@ coins,Pièces
 production,Production
 display_equipment_button,Afficher l'Équipement
 display_profile_button,Afficher le Profil
+redo_level_up_button,Réitérer l'Achat
 cost,Coût
 expired,Expiré
 eqpm_upgrade_success,Ton {0} {1} est maintenant au niveau **{2}**! (+{3} niveaux)

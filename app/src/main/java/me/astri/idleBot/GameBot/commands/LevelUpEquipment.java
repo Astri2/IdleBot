@@ -187,7 +187,7 @@ public class LevelUpEquipment implements ISlashCommand {
         hook.sendMessage(player.getLang().get("eqpm_upgrade_success",
                                     eq.getEmote(),player.getLang().get(eq.getName()),Long.toString(eq.getLevel()),Integer.toString(level)))
                 .addActionRow(
-                        Button.secondary("redoLevelUp:" + equipment + ":" + levels,"\uD83D\uDD04"),
+                        Button.secondary("redoLevelUp:" + equipment + ":" + levels, player.getLang().get("redo_level_up_button")),
                         Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
                 .queue();
     }

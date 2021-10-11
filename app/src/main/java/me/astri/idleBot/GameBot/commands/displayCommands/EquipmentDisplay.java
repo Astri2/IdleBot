@@ -56,7 +56,7 @@ public class EquipmentDisplay implements ISlashCommand {
         eb.setDescription(player.getLang().get("equipment_display_money",GameUtils.getNumber(player.getCoins(),player) + Emotes.getEmote("coin")));
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
-                        Button.secondary("equipmentDisplay","\uD83D\uDD04"),
+                        Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")),
                         Button.secondary("profileDisplay", player.getLang().get("display_profile_button")))
                 .queue();
     }

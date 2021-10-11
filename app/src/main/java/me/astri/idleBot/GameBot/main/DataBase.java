@@ -28,7 +28,6 @@ public class DataBase extends ListenerAdapter {
     }
 
     public static void save(@Nullable ButtonClickEvent event) {
-        System.out.println("saving");
         try {
             FileOutputStream fos = new FileOutputStream(System.getenv("PLAYER_DATA"));
             ObjectOutputStream oos = new ObjectOutputStream(fos);

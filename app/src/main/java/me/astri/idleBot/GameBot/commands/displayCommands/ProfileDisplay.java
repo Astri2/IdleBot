@@ -41,7 +41,7 @@ public class ProfileDisplay implements ISlashCommand {
 
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
-                        Button.secondary("profileDisplay","\uD83D\uDD04"),
+                        Button.secondary("profileDisplay",player.getLang().get("display_profile_button")),
                         Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
                 .queue();
     }
