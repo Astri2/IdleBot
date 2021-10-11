@@ -86,7 +86,29 @@ ring_albatross,Albatross Ring
 ring_energy,Energy Ring
 ring_phantom,Phantom Ring
 dagger,Dagger
+dagger_black,Black Dagger
+dagger_golden,Golden Dagger
+dagger_demon,Demon Dagger
+dagger_dragon,Dragon Dagger
+dagger_glory,Glory Dagger
+dagger_kunai,Kunai
+dagger_zap,Zap Dagger
+dagger_abyssal,Abyssal Dagger
+dagger_larret_s,Larret's Dagger
+dagger_flame,Flame Dagger
+dagger_breaker,Dagger Breaker
 axe,Axe
+axe_black,Black Axe
+axe_golden,Golden Axe
+axe_demon,Demon Axe
+axe_infernal_battle,Infernal Battle Axe
+axe_battle,Battle Axe
+axe_beast,Beast Axe
+axe_tri,Triaxe
+axe_crystal,Cystal Axe
+axe_chopan_s,Chopan's Axe
+axe_blood_moon,Blood Moon Axe
+axe_wide_blood_moon,Wide Blood Moon Axe
 staff,Staff
 bow,Bow
 spellbook,Spellbook

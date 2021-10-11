@@ -37,7 +37,7 @@ public class Equipment implements Serializable {
 
     public void levelUp(int levels) {
         level+=levels;
-        price = price.multiply(BigDecimal.valueOf(Math.pow(1.15,levels)));
+        price = price.multiply(BigDecimal.valueOf(Math.pow(1.5,levels)));
         queryLevelUpgrades();
     }
 
@@ -67,8 +67,12 @@ public class Equipment implements Serializable {
     public BigDecimal getPrice() {
         return getPrice(1);
     }
+
     public BigDecimal getPrice(int levelToUp) {
-        return price.multiply(BigDecimal.valueOf(Math.pow(1.15,levelToUp-1)));
+        BigDecimal sum = new BigDecimal(0);
+        for(int i = 0 ; i <= levelToUp-1 ; i++)//-1 cause 1.15^0 = current price
+            sum = sum.add(price.multiply(BigDecimal.valueOf(Math.pow(1.5,i))));
+        return sum;
     }
 
     public BigDecimal getProduction() {

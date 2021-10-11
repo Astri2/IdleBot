@@ -9,7 +9,6 @@ import java.util.List;
 
 public enum Lang {
     ENGLISH("English"),
-    GERMAN("German"),
     FRENCH("Français");
 
     private final String name;
@@ -34,7 +33,7 @@ public enum Lang {
             loadLang(this);
         String str = langsMap.get(this).get(key);
         if(str == null)
-            return "no string";
+            return "`no string`";
         for(int i = 0 ; i < variables.length ; i++)
             str = str.replaceAll("\\{"+i+"}",variables[i]);
             str = str.replaceAll("([^\\\\]|^)[\\[\\]]","$1"); //remove all [] except if backslash before
