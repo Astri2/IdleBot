@@ -3,3 +3,5 @@ out/
 build/
 *.class
 *.dat
+*.lock
+*.bin
