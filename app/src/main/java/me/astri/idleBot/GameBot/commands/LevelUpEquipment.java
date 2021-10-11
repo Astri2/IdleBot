@@ -115,14 +115,26 @@ public class LevelUpEquipment implements ISlashCommand {
     }
 
     private static void askLevel(InteractionHook hook, Player player, String equipment) {
+        Equipment eq = player.getEquipment().get(equipment);
+        int maxLevel = getMaxLevel(player,eq);
         hook.sendMessage(player.getLang().get("eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
                 player.getEquipment().get(equipment).getEmote(),player.getEquipment().get(equipment).getName()))
            .addActionRow(SelectionMenu.create("levelsSelect" + player.getId())
-                .addOption("1","1")
-                .addOption("10","10")
-                .addOption("50","50")
-                .addOption(player.getLang().get("nbr_max"),"max")
-                .addOption(player.getLang().get("nbr_custom"),"custom").build()
+                .addOption(
+                        player.getLang().get("level_s","1") + " - "
+                                + GameUtils.getNumber(eq.getPrice(),player) + "$","1")
+                .addOption(
+                        player.getLang().get("level_p","10") + " - "
+                                + GameUtils.getNumber(eq.getPrice(10),player) + "$","10")
+                .addOption(
+                        player.getLang().get("level_p","50") + " - "
+                                + GameUtils.getNumber(eq.getPrice(50),player) + "$","50")
+                .addOption(
+                        player.getLang().get("nbr_max") + " - " +
+                                player.getLang().get("level_" + (maxLevel > 1 ? "p" : "s"),Integer.toString(maxLevel)) + " - "
+                                + GameUtils.getNumber(eq.getPrice(maxLevel),player) + "$","max")
+                .addOption(player.getLang().get(
+                        "nbr_custom"),"custom").build()
            ).queue(msg -> {
                 hook.setEphemeral(msg.isEphemeral());
 
@@ -164,11 +176,10 @@ public class LevelUpEquipment implements ISlashCommand {
     private static void levelUp(InteractionHook hook, Player player, String equipment, String levels) {
         Equipment eq = player.getEquipment().get(equipment);
         player.update();
-        int level=0;
+        int level;
+
         if(levels.equals("max")) {
-            do {
-                level++;
-            } while(eq.getPrice(level+1).compareTo(player.getCoins()) < 0);
+            level = getMaxLevel(player, eq);
         }
         else try {
             level = Integer.parseInt(levels);
@@ -190,6 +201,14 @@ public class LevelUpEquipment implements ISlashCommand {
                         Button.secondary("redoLevelUp:" + equipment + ":" + levels, player.getLang().get("redo_level_up_button")),
                         Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
                 .queue();
+    }
+
+    private static int getMaxLevel(Player player, Equipment eq) {
+        int level=0;
+        do {
+            level++;
+        } while(eq.getPrice(level+1).compareTo(player.getCoins()) < 0);
+        return level;
     }
 
     public static void redoLevelUp(InteractionHook hook, IMentionable author, String buttonId) {

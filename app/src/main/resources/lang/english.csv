@@ -119,6 +119,8 @@ production,Production
 display_equipment_button,Display Equipment
 display_profile_button,Display Profile
 redo_level_up_button,Repeat Purchase
+level_s,{0} Level
+level_p,{0} Levels
 cost,Cost
 expired,Expired
 eqpm_upgrade_success,Your {0} {1} is now level **{2}**! (+{3} levels)
