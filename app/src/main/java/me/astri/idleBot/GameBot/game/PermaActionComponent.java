@@ -13,20 +13,19 @@ public class PermaActionComponent extends ListenerAdapter {
     public void onButtonClick(@NotNull ButtonClickEvent e) {
         if(!e.getMessage().getAuthor().equals(e.getJDA().getSelfUser()))
             return;
-        IMentionable author = e.isFromGuild() ? e.getMember() : e.getUser();
         boolean eph = e.getMessage().isEphemeral();
         switch(e.getButton().getId().replaceAll("[^a-zA-Z].*","")) {
             case "equipmentDisplay" -> {
                 e.deferReply(eph).queue();
-                EquipmentDisplay.display(e.getHook(), author, GameUtils.getUser(e.getHook(), e.getUser()));
+                EquipmentDisplay.display(e.getHook(), e.getUser(), e.getUser());
             }
             case "profileDisplay" -> {
                 e.deferReply(eph).queue();
-                ProfileDisplay.display(e.getHook(),author,GameUtils.getUser(e.getHook(), e.getUser()));
+                ProfileDisplay.display(e.getHook(),e.getUser(),GameUtils.getUser(e.getHook(), e.getUser()));
             }
             case "redoLevelUp" -> {
                 e.deferReply(eph).queue();
-                LevelUpEquipment.redoLevelUp(e.getHook(),author, e.getButton().getId());
+                LevelUpEquipment.redoLevelUp(e.getHook(),e.getUser(), e.getButton().getId());
             }
         }
     }

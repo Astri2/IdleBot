@@ -11,6 +11,7 @@ notation_updated_unit,{0} tu utilises dorénavant la notation en unités
 ephemeral_updated_on,{0} le mode éphémère est maintenant actif
 ephemeral_updated_off,{0} le mode éphémère n'est plus actif
 ephemeral_updated_default,{0} le mode éphémère a été mis sur défaut
+requested_by,Demandé par {0}
 equipment_title,Équipement de {0}
 profile_title,Profil de {0}
 sword,Épée
@@ -129,4 +130,3 @@ eqpm_upgrade_ask_level,{0} de combien de niveaux améliorer ton {1} {2} ?
 nbr_custom,Personnalisé
 nbr_max,Maximum
 progression_reset,{0} ta progression a été réinitialisée !
-equipment_display_money, Tu as {0} Pièces

@@ -11,6 +11,7 @@ notation_updated_unit,{0} you are now using units notation
 ephemeral_updated_on,{0} ephemeral mode is now active
 ephemeral_updated_off,{0} ephemeral mode is no longer active
 ephemeral_updated_default,{0} ephemeral mode is set to default
+requested_by,Requested by {0}
 equipment_title,Equipment of {0}
 profile_title,Profile of {0}
 sword,Sword
@@ -129,4 +130,3 @@ eqpm_upgrade_ask_level,{0} by how many levels should your {1} {2} level up?
 nbr_custom,Custom
 nbr_max,Max
 progression_reset,{0} your progression has been reset!
-equipment_display_money,You have {0} Coins
