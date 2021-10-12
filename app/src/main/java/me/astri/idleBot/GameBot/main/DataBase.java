@@ -38,7 +38,7 @@ public class DataBase extends ListenerAdapter {
                 event.getHook().sendMessage("Saved!").queue();
         } catch (IOException e) {
             e.printStackTrace();
-            BotGame.jda.getTextChannelById("883754753887195208").sendMessage("Error while Saving!").queue();
+            BotGame.jda.getTextChannelById(Config.get("SLASH_MANAGER_GUILD_ID")).sendMessage("Error while Saving!").queue();
         }
     }
 
@@ -60,7 +60,7 @@ public class DataBase extends ListenerAdapter {
                 event.getHook().sendMessage("Loaded! (file was empty)").queue();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
-            BotGame.jda.getTextChannelById("883754753887195208").sendMessage("Error while Loading!").queue();
+            BotGame.jda.getTextChannelById(Config.get("SLASH_MANAGER_GUILD_ID")).sendMessage("Error while Loading!").queue();
         }
     }
 

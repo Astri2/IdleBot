@@ -1,6 +1,7 @@
 package me.astri.idleBot.GameBot.commands;
 
 import me.astri.idleBot.GameBot.Entities.player.Player;
+import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.main.DataBase;
 import me.astri.idleBot.GameBot.main.Lang;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
@@ -51,11 +52,7 @@ public class Register implements ISlashCommand {
             DataBase.registerPlayer(player);
             hook.sendMessage(player.getLang().get("success_register",e.getUser().getAsMention())).queue();
         } else {
-            hook.sendMessage(player.getLang().get("error_already_registered", e.getUser().getAsMention())).queue();
-            /*
-            hook.sendMessage(Lang.get(player.getLang(),"success_register",e.getUser().getAsMention())).queue();
-        } else {
-            hook.sendMessage(Lang.get(player.getLang(),"error_already_registered", e.getUser().getAsMention())).queue();*/
+            hook.sendMessage(GameUtils.getUser(hook,e.getUser()).getLang().get("error_already_registered", e.getUser().getAsMention())).queue();
         }
     }
 
