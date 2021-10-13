@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -106,11 +107,14 @@ public class DataBase extends ListenerAdapter {
         timer1.schedule(new TimerTask() {
             @Override
             public void run() {
-                event.getJDA().getTextChannelById("897522180005437550")
-                .sendMessage(String.format("<t:%d>",System.currentTimeMillis()))
-                .addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+                try {
+                    event.getJDA().getTextChannelById("897522180005437550")
+                            .sendMessage(String.format("<t:%d>", Instant.now().getEpochSecond()))
+                            .addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+                } catch(Exception ignored) {}
+
             }
-        },5000,5000);
+        },300000,300000);
     }
 
     @Override

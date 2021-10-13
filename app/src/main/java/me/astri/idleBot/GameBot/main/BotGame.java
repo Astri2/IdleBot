@@ -9,6 +9,8 @@ import me.astri.idleBot.GameBot.game.PermaActionComponent;
 import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 import javax.security.auth.login.LoginException;
 
@@ -29,6 +31,8 @@ public class BotGame {
                 new Reset()
         );
         jda = JDABuilder.createDefault(Config.get("TOKEN_1"))
+                .enableIntents(GatewayIntent.GUILD_MEMBERS)
+                .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .addEventListeners(
                         new DataBase(),
                         new ControlPanel(),
