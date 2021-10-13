@@ -60,7 +60,7 @@ public class DataBase extends ListenerAdapter {
                 event.getHook().sendMessage("Loaded! (file was empty)").queue();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
-            BotGame.jda.getTextChannelById(Config.get("SLASH_MANAGER_GUILD_ID")).sendMessage("Error while Loading!").queue();
+            BotGame.jda.getTextChannelById(Config.get("SLASH_MANAGER_CHANNEL_ID")).sendMessage("Error while Loading!").queue();
         }
     }
 
@@ -101,6 +101,16 @@ public class DataBase extends ListenerAdapter {
                 save(null);
             }
         },60000,60000);
+
+        Timer timer1 = new Timer();
+        timer1.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                event.getJDA().getTextChannelById("897522180005437550")
+                .sendMessage(String.format("<t:%d>",System.currentTimeMillis()))
+                .addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+            }
+        },5000,5000);
     }
 
     @Override
