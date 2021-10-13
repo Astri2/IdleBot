@@ -1,7 +1,7 @@
 package me.astri.idleBot.GameBot.main;
 
 import me.astri.idleBot.GameBot.commands.*;
-import me.astri.idleBot.GameBot.commands.debug.Give;
+import me.astri.idleBot.GameBot.commands.debug.DebugCommands;
 import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
 import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
@@ -41,7 +41,7 @@ public class BotGame {
                         slashCommandManager,
 
                         //DEBUG
-                        new Give()
+                        new DebugCommands()
                 )
                 .build().awaitReady();
     }

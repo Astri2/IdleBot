@@ -94,7 +94,6 @@ public class DataBase extends ListenerAdapter {
 
     @Override
     public void onReady(@NotNull ReadyEvent event) {
-        load(null);
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -103,18 +102,21 @@ public class DataBase extends ListenerAdapter {
             }
         },60000,60000);
 
-        Timer timer1 = new Timer();
-        timer1.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    event.getJDA().getTextChannelById("897522180005437550")
-                            .sendMessage(String.format("<t:%d>", Instant.now().getEpochSecond()))
-                            .addFile(new File(System.getenv("PLAYER_DATA"))).queue();
-                } catch(Exception ignored) {}
 
-            }
-        },300000,300000);
+        //if(event.getJDA().getSelfUser().getId().equals("880922037189771386")) {
+            Timer timer1 = new Timer();
+            timer1.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    try {
+                        event.getJDA().getTextChannelById("897522180005437550")
+                                .sendMessage(String.format("<t:%d>", Instant.now().getEpochSecond()))
+                                .addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+                    } catch(Exception ignored) {}
+
+                }
+            },300000,300000);
+        //}
     }
 
     @Override
