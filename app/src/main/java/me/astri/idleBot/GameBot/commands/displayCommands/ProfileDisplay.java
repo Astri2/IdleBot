@@ -25,24 +25,30 @@ public class ProfileDisplay implements ISlashCommand {
     @Override
     public void handle(SlashCommandEvent e, InteractionHook hook) {
         User user = e.getOption("user") == null ? e.getUser() : e.getOption("user").getAsUser();
-        Player player = GameUtils.getUser(hook, e.getUser(), user);
-
-        display(hook, user, player);
+        display(hook, user, e.getUser());
     }
 
-    public static void display(InteractionHook hook, IMentionable user, Player player) {
-        if(player == null)
+    public static void display(InteractionHook hook, User user, User event_author) {
+        Player player = GameUtils.getUser(hook, event_author, user);
+        Player author = GameUtils.getUser(hook, event_author);
+        if(player == null || author == null)
             return;
+
         player.update();
-        String name = user instanceof Member ? ((Member) user).getEffectiveName() : ((User) user).getName();
-        EmbedBuilder eb = new EmbedBuilder().setAuthor(player.getLang().get("profile_title",name),null, hook.getJDA().getUserById(user.getId()).getAvatarUrl())
-                .addField(Emotes.getEmote("coin") + " " + player.getLang().get("coins"), GameUtils.getNumber(player.getCoins(),player),true)
-                .addField(Emotes.getEmote("coin") + " " + player.getLang().get("production"), GameUtils.getNumber(player.getProduction(),player),true);
+        String name = hook.getInteraction().getGuild().getMember(user) == null ? user.getName() :
+                hook.getInteraction().getGuild().getMember(user).getEffectiveName();
+
+        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("profile_title",name),null, user.getAvatarUrl())
+                .addField(Emotes.getEmote("coin") + " " + author.getLang().get("coins"), GameUtils.getNumber(player.getCoins(),player),true)
+                .addField(Emotes.getEmote("coin") + " " + author.getLang().get("production"), GameUtils.getNumber(player.getProduction(),player),true);
+
+        if(!author.equals(player))
+            eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getAvatarUrl());
 
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
-                        Button.secondary("profileDisplay",player.getLang().get("display_profile_button")),
-                        Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
+                        Button.secondary("profileDisplay",author.getLang().get("display_profile_button")),
+                        Button.secondary("equipmentDisplay",author.getLang().get("display_equipment_button")))
                 .queue();
     }
 
