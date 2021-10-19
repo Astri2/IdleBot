@@ -18,7 +18,7 @@ public class BotGame {
     public static JDA jda;
     public static SlashCommandManager slashCommandManager;
 
-    public BotGame() throws LoginException, InterruptedException {
+    public static void startBot(String token) throws LoginException, InterruptedException {
         Emotes.init();
         slashCommandManager = new SlashCommandManager(
                 new Register(),
@@ -30,7 +30,7 @@ public class BotGame {
                 new LevelUpEquipment(),
                 new Reset()
         );
-        jda = JDABuilder.createDefault(Config.get("TOKEN_1"))
+        jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .setMemberCachePolicy(MemberCachePolicy.ALL)
                 .addEventListeners(
