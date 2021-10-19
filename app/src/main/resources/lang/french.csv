@@ -1,6 +1,5 @@
 success_register,{0} bienvenue dans IdleBot !
 error_already_registered,{0} tu es déjà inscrit !
-error_you_unregistered,{0} tu n'es inscrit ! Inscrit toi avec [/register]
 error_someone_unregistered,{0} n'est pas inscrit ! Il peut s'inscrire avec [/register]
 error_nan,La valeur fournie n'est pas un nombre
 error_not_enough_money,Tu n'as pas assez d'argent !

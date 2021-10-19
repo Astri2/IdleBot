@@ -19,14 +19,11 @@ public abstract class GameUtils {
      */
     public static Player getUser(InteractionHook hook, IMentionable author, IMentionable user) {
         Player player = (Player) DataBase.getUser(user.getId());
-        if(player == null) { //If specified user doesn't match any user
-            if(user.equals(author)) { //is the specified user the command requester?
-                hook.sendMessage(Lang.ENGLISH.get("error_you_unregistered",user.getAsMention())).queue(); //command requester is not registered
-            } else {
-                Player playerAuthor = getUser(hook, author, author); //get the player associated to the command requester
-                hook.sendMessage(playerAuthor == null ? null : playerAuthor.getLang().get( //if requester isn't registered either, use default
-                        "error_someone_unregistered", user.getAsMention())).queue();             // language. Otherwise use command requester language
-            }
+        if(player == null) {
+            BotUser playerAuthor = DataBase.getUser(author.getId());
+            Lang lang = playerAuthor == null ? Lang.ENGLISH : playerAuthor.getLang();
+            hook.sendMessage(lang.get("error_someone_unregistered",user.getAsMention()))
+                    .setEphemeral(true).queue();
         }
         return player;
     }
