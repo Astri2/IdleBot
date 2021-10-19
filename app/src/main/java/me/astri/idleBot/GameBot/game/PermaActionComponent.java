@@ -3,7 +3,6 @@ package me.astri.idleBot.GameBot.game;
 import me.astri.idleBot.GameBot.commands.LevelUpEquipment;
 import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
 import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
-import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -21,7 +20,7 @@ public class PermaActionComponent extends ListenerAdapter {
             }
             case "profileDisplay" -> {
                 e.deferReply(eph).queue();
-                ProfileDisplay.display(e.getHook(),e.getUser(),GameUtils.getUser(e.getHook(), e.getUser()));
+                ProfileDisplay.display(e.getHook(),e.getUser(),e.getUser());
             }
             case "redoLevelUp" -> {
                 e.deferReply(eph).queue();

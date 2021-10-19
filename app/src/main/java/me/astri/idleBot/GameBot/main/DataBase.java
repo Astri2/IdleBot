@@ -2,8 +2,8 @@ package me.astri.idleBot.GameBot.main;
 
 import me.astri.idleBot.GameBot.Entities.player.BotUser;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
-import net.dv8tion.jda.api.events.DisconnectEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;
+import net.dv8tion.jda.api.events.ShutdownEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -11,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Timer;
@@ -19,6 +21,14 @@ import java.util.concurrent.TimeUnit;
 
 public class DataBase extends ListenerAdapter {
     private static HashMap<String, BotUser> botUsers = new HashMap<>();
+
+    public static void setUsers(HashMap<String, BotUser> users) {
+        botUsers = users;
+    }
+
+    public static HashMap<String, BotUser> getUsers() {
+        return botUsers;
+    }
 
     public static void registerPlayer(BotUser user) {
         botUsers.put(user.getId(),user);
@@ -59,9 +69,9 @@ public class DataBase extends ListenerAdapter {
             botUsers = new HashMap<>();
             if(event != null)
                 event.getHook().sendMessage("Loaded! (file was empty)").queue();
-        } catch (ClassNotFoundException | IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            BotGame.jda.getTextChannelById(Config.get("SLASH_MANAGER_CHANNEL_ID")).sendMessage("Error while Loading!").queue();
+            event.getHook().sendMessage("Error while Loading!").queue();
         }
     }
 
@@ -94,6 +104,7 @@ public class DataBase extends ListenerAdapter {
 
     @Override
     public void onReady(@NotNull ReadyEvent event) {
+        load(null);
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -102,16 +113,18 @@ public class DataBase extends ListenerAdapter {
             }
         },60000,60000);
 
-
-        //if(event.getJDA().getSelfUser().getId().equals("880922037189771386")) {
+        //if(event.getJDA().getSelfUser().getId().equals("880922037189771386")) { //only the official version send backups
             Timer timer1 = new Timer();
             timer1.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     try {
-                        event.getJDA().getTextChannelById("897522180005437550")
-                                .sendMessage(String.format("<t:%d>", Instant.now().getEpochSecond()))
-                                .addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+                        String path = System.getenv("PLAYER_DATA");
+                        if(Files.size(Path.of(path)) > 100)
+                            event.getJDA().getTextChannelById("897522180005437550")
+                                    .sendMessage(String.format("<t:%d>", Instant.now().getEpochSecond()))
+                                    .addFile(new File(path)).queue();
+
                     } catch(Exception ignored) {}
 
                 }
@@ -120,7 +133,7 @@ public class DataBase extends ListenerAdapter {
     }
 
     @Override
-    public void onDisconnect(@NotNull DisconnectEvent event) {
+    public void onShutdown(@NotNull ShutdownEvent event) {
         save(null);
     }
 }

@@ -60,7 +60,7 @@ public class DebugCommands extends ListenerAdapter {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         try {
-            List<BotUser> players = DataBase.botUsers.values().stream().toList();
+            List<BotUser> players = DataBase.getUsers().values().stream().toList();
             List<BotUser> new_players = new ArrayList<>();
             for (BotUser botUser : players) {
                 System.out.println("player:" + event.getJDA().retrieveUserById(botUser.getId()).complete().getName());
@@ -100,7 +100,7 @@ public class DebugCommands extends ListenerAdapter {
             HashMap<String, BotUser> new_botUsers = new HashMap<>();
             for(BotUser new_player : new_players)
                 new_botUsers.put(new_player.getId(),new_player);
-            DataBase.botUsers = new_botUsers;
+            DataBase.setUsers(new_botUsers);
 
             event.getMessage().addReaction("✅").queue();
         } catch (Exception e) {event.getChannel().sendMessage(e.getMessage()).queue();}
