@@ -1,7 +1,6 @@
 package me.astri.idleBot.GameBot.commands.displayCommands;
 
 import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
-import me.astri.idleBot.GameBot.Entities.player.BotUser;
 import me.astri.idleBot.GameBot.Entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.main.Emotes;
@@ -33,11 +32,13 @@ public class EquipmentDisplay implements ISlashCommand {
 
     public static void display(InteractionHook hook, User user, User event_author) {
         Player player = GameUtils.getUser(hook, event_author, user);
-        BotUser author = GameUtils.getUser(hook,event_author);
-        if(player == null)
+        Player author = GameUtils.getUser(hook,event_author);
+        if(player == null || author == null)
             return;
         player.update();
-        String name = user.getName();
+        String name = hook.getInteraction().getGuild().getMember(user) == null ? user.getName() :
+                hook.getInteraction().getGuild().getMember(user).getEffectiveName();
+
         HashMap<String, Equipment> equipments = player.getEquipment();
         EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("equipment_title",name),null, user.getAvatarUrl());
         if(!author.equals(player))
