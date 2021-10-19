@@ -125,6 +125,15 @@ public class SlashCommandManager extends ListenerAdapter {
         Arrays.stream(command).forEach(cmd -> guild.upsertCommand(getISlashCommand(cmd).getCommandData()).queue());
     }
 
+
+    /**
+     * Clear all commands from the JDA
+     * @param jda the JBA bot on which you'll clear the commands
+     */
+    public void clearJDACommands(JDA jda) {
+        jda.updateCommands().queue();
+    }
+
     /**
      * Clear all commands from a specific Guild
      * @param guild the Guild on which you'll clear all commands
