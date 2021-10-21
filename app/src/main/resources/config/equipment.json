@@ -746,8 +746,85 @@
           "name": "staff",
           "weight": 0,
           "minLevel": 0,
-          "boost": 0,
-          "emote": "🥢"
+          "boost": 100,
+          "emote": "<:Staff:900769202200248340>"
+        },
+        {
+          "name": "staff_black",
+          "weight": 0,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<:Black_Staff:900769201688555582>"
+        },
+        {
+          "name": "staff_light",
+          "weight": 0,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<:Light_Staff:900769201248141323>"
+        },
+        {
+          "name": "staff_fire",
+          "weight": 0,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<:Fire_Staff:900769201067814993>"
+        },
+        {
+          "name": "staff_aqua",
+          "weight": 0,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<:Aqua_Staff:900769201566920724>"
+        },
+        {
+          "name": "staff_emerald",
+          "weight": 0,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<:Emerald_Staff:900769201294278737>"
+        },
+        {
+          "name": "staff_holy",
+          "weight": 0,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<:Holy_Staff:900769201478852690>"
+        },
+        {
+          "name": "staff_dragon",
+          "weight": 0,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<:Dragon_Staff:900769201248145459>"
+        },
+        {
+          "name": "staff_red_rose",
+          "weight": 0,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<:Red_Rose_Staff:900769201403359242>"
+        },
+        {
+          "name": "staff_celestial",
+          "weight": 0,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<:Celestial_Staff:900769201181032501>"
+        },
+        {
+          "name": "staff_sacred",
+          "weight": 0,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<:Sacred_Staff:900769201659183134>"
+        },
+        {
+          "name": "staff_of_limit",
+          "weight": 0,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<:Staff_of_Limit:900769201407529000>"
         }
       ]
     },
