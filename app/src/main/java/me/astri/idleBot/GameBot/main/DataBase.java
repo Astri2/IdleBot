@@ -55,7 +55,7 @@ public class DataBase extends ListenerAdapter {
 
     //because of an Object to Game cast
     @SuppressWarnings("unchecked")
-    public static void load(@Nullable ButtonClickEvent event) {
+    public static int load(@Nullable ButtonClickEvent event) {
         System.out.println("loading");
         try {
             FileInputStream fis = new FileInputStream(System.getenv("PLAYER_DATA"));
@@ -66,13 +66,18 @@ public class DataBase extends ListenerAdapter {
             if(event != null)
                 event.getHook().sendMessage("Loaded!").queue();
         } catch (EOFException e) { //file empty
+            e.printStackTrace();
             botUsers = new HashMap<>();
             if(event != null)
                 event.getHook().sendMessage("Loaded! (file was empty)").queue();
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
-            event.getHook().sendMessage("Error while Loading!").queue();
+            if(event != null)
+                event.getHook().sendMessage("Error while Loading!").queue();
+            return -1;
         }
+        return 0;
     }
 
     public static void download(ButtonClickEvent event) {
@@ -104,7 +109,18 @@ public class DataBase extends ListenerAdapter {
 
     @Override
     public void onReady(@NotNull ReadyEvent event) {
-        load(null);
+        try {
+            if(load(null) == 1) {
+                event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
+                    .getHistory().retrievePast(1).queue(history ->
+                        history.get(0).getAttachments().get(0)
+                            .downloadToFile(Config.get("PLAYER_DATA"))
+                                .thenRun(() -> load(null))
+                    )
+                ;
+            }
+        } catch(Exception ignore) {} //no backup files detected
+
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -121,11 +137,11 @@ public class DataBase extends ListenerAdapter {
                     try {
                         String path = System.getenv("PLAYER_DATA");
                         if(Files.size(Path.of(path)) > 100)
-                            event.getJDA().getTextChannelById("897522180005437550")
-                                    .sendMessage(String.format("<t:%d>\n%d",
-                                            Instant.now().getEpochSecond(),
-                                            Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()))
-                                    .addFile(new File(path)).queue();
+                            event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
+                                .sendMessage(String.format("<t:%d>\n%d",
+                                    Instant.now().getEpochSecond(),
+                                    Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()))
+                                .addFile(new File(path)).queue();
                     } catch(Exception ignored) {}
 
                 }
