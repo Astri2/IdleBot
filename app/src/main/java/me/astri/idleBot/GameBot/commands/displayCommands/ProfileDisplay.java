@@ -5,8 +5,6 @@ import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.main.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.IMentionable;
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
@@ -29,9 +27,8 @@ public class ProfileDisplay implements ISlashCommand {
     }
 
     public static void display(InteractionHook hook, User user, User event_author) {
-        Player player = GameUtils.getUser(hook, event_author, user);
-        Player author = GameUtils.getUser(hook, event_author);
-        if(player == null || author == null)
+        Player player,author;
+        if((player = GameUtils.getUser(hook, event_author, user)) == null | (author = GameUtils.getUser(hook, event_author)) == null)
             return;
 
         player.update();

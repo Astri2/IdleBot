@@ -31,10 +31,10 @@ public class EquipmentDisplay implements ISlashCommand {
     }
 
     public static void display(InteractionHook hook, User user, User event_author) {
-        Player player = GameUtils.getUser(hook, event_author, user);
-        Player author = GameUtils.getUser(hook,event_author);
-        if(player == null || author == null)
+        Player player,author;
+        if((player = GameUtils.getUser(hook, event_author, user)) == null | (author = GameUtils.getUser(hook, event_author)) == null)
             return;
+        
         player.update();
         String name = hook.getInteraction().getGuild().getMember(user) == null ? user.getName() :
                 hook.getInteraction().getGuild().getMember(user).getEffectiveName();

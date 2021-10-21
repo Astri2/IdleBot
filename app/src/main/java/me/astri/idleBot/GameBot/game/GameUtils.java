@@ -20,16 +20,21 @@ public abstract class GameUtils {
     public static Player getUser(InteractionHook hook, IMentionable author, IMentionable user) {
         Player player = (Player) DataBase.getUser(user.getId());
         if(player == null) {
-            BotUser playerAuthor = DataBase.getUser(author.getId());
-            Lang lang = playerAuthor == null ? Lang.ENGLISH : playerAuthor.getLang();
-            hook.sendMessage(lang.get("error_someone_unregistered",user.getAsMention()))
-                    .setEphemeral(true).queue();
+            if(author == null) {
+                hook.sendMessage(Lang.ENGLISH.get("error_you_unregistered", user.getAsMention()))
+                        .setEphemeral(true).queue();
+            } else if(!author.equals(user)) {
+                BotUser playerAuthor = DataBase.getUser(author.getId());
+                Lang lang = playerAuthor == null ? Lang.ENGLISH : playerAuthor.getLang();
+                hook.sendMessage(lang.get("error_someone_unregistered", user.getAsMention()))
+                        .setEphemeral(true).queue();
+            }
         }
         return player;
     }
 
     public static Player getUser(InteractionHook hook, IMentionable author) {
-        return getUser(hook,author,author);
+        return getUser(hook,null,author);
     }
 
     public static String getNumber(BigDecimal number, BotUser user) {
