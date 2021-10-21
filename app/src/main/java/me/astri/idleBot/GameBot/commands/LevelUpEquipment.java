@@ -118,7 +118,7 @@ public class LevelUpEquipment implements ISlashCommand {
         Equipment eq = player.getEquipment().get(equipment);
         int maxLevel = getMaxLevel(player,eq);
         hook.sendMessage(player.getLang().get("eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
-                player.getEquipment().get(equipment).getEmote(),player.getEquipment().get(equipment).getName()))
+                player.getEquipment().get(equipment).getEmote(),player.getLang().get(player.getEquipment().get(equipment).getName())))
            .addActionRow(SelectionMenu.create("levelsSelect" + player.getId())
                 .addOption(
                         player.getLang().get("level_s","1") + " - "
@@ -169,7 +169,7 @@ public class LevelUpEquipment implements ISlashCommand {
     private static void askCustomLevel(InteractionHook hook, boolean isEphemeral, Player player, String equipment) {
         AtomicReference<String> number = new AtomicReference<>("");
                 WaiterTemplates.numPadEvent(player.getLang().get("eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
-                        player.getEquipment().get(equipment).getEmote(),player.getEquipment().get(equipment).getName()),
+                        player.getEquipment().get(equipment).getEmote(),player.getLang().get(player.getEquipment().get(equipment).getName())),
                         hook, isEphemeral,number, player.getLang(), () -> levelUp(hook,player,equipment,number.get()));
     }
 

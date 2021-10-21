@@ -25,7 +25,7 @@ public abstract class WaiterTemplates {
     public static void numPadEvent(String message, InteractionHook hook, boolean isEphemeral, AtomicReference<String> number, Lang lang,@Nullable Runnable postExecutionAction) {
         String id = System.currentTimeMillis() + hook.getInteraction().getUser().getId() + "_";
         number.set("");
-        hook.sendMessage(message + "\n" + number + "_").setEphemeral(isEphemeral)
+        hook.sendMessage(message + "\n" + number + "\\_").setEphemeral(isEphemeral)
                 .addActionRows(getKP(id,false, false))
                 .queue(msg -> {
                     Waiter<ButtonClickEvent> waiter = new Waiter<>();
