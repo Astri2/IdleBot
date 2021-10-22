@@ -121,7 +121,7 @@ staff_dragon,Dragon Staff
 staff_red_rose,Red Rose Staff
 staff_celestial,Celestial Staff
 staff_sacred,Sacred Staff
-staff_of_limit,Staff of Limit
+staff_limit,Staff of Limit
 bow,Bow
 bow_black,Black Bow
 bow_light,Light Bow
@@ -135,6 +135,17 @@ bow_lethal,Lethal Bow
 bow_hydro,Hydro Bow
 bow_hyper,Hyper Bow
 spellbook,Spellbook
+spellbook_elder,Elder Spellbook
+spellbook_destiny,Book of Destiny
+spellbook_infinity,Book of Infinity
+spellbook_secret,Book of Secret
+spellbook_ancient,Ancient Spellbook
+spellbook_static,Book of Static
+spellbook_incineration,Book of Incineration
+spellbook_guardian,Book of The Guardians
+spellbook_titans,Book of Titans
+spellbook_hellfire,Hellfire Tome
+spellbook_unknown,Tome of The Unknown
 spirit,Spirit
 necklace,Necklace
 coins,Coins

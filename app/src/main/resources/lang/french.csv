@@ -121,7 +121,7 @@ staff_dragon,Bâton de Dragon
 staff_red_rose,Bâton de la Rose Rouge
 staff_celestial,Bâton Céleste
 staff_sacred,Bâton Sacré
-staff_of_limit,Bâton de la Limite
+staff_limit,Bâton de la Limite
 bow,Arc
 bow_black,Arc Noir
 bow_light,Arc Étincelant
@@ -135,6 +135,17 @@ bow_lethal,Arc Mortel
 bow_hydro,Arc Hydro
 bow_hyper,Hyper Arc
 spellbook,Livre de Sorts
+spellbook_elder,Livre de sorts de l'Ancien
+spellbook_destiny,Livre du Destin
+spellbook_infinity,Livre de l'Infini
+spellbook_secret,Livre des Secrets
+spellbook_ancient,Livre de Sorts Antique
+spellbook_static,Livre de Statique
+spellbook_incineration,Livre d'Incinération
+spellbook_guardian,Livre des Gardiens
+spellbook_titans,Livre des Titans
+spellbook_hellfire,Livre des Enfers
+spellbook_unknown,Livre de l'Inconnu
 spirit,Esprit
 necklace,Collier
 coins,Pièces
