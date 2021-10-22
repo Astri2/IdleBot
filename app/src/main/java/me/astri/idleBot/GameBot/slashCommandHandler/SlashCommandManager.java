@@ -80,13 +80,14 @@ public class SlashCommandManager extends ListenerAdapter {
         if(e.getUser().getId().equals(Config.get("BOT_OWNER_ID"))) {
             return -1L;
         }
-        if(command.getCooldown() <= 0L)
+        if(command.getCooldown() <= 0L) {
             return -1L;
-
+        }
         long time = System.currentTimeMillis();
         Long lastTime = cooldowns.get(command.getCommandData().getName()).get(e.getUser().getIdLong());
-        if(lastTime == null)
+        if(lastTime == null) {
             return -1L;
+        }
 
         return (lastTime + command.getCooldown()) - time;
     }
