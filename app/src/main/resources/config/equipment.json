@@ -751,77 +751,77 @@
         },
         {
           "name": "staff_black",
-          "weight": 0,
+          "weight": 1,
           "minLevel": 10,
           "boost": 100,
           "emote": "<:Black_Staff:900769201688555582>"
         },
         {
           "name": "staff_light",
-          "weight": 0,
+          "weight": 2,
           "minLevel": 50,
           "boost": 100,
           "emote": "<:Light_Staff:900769201248141323>"
         },
         {
           "name": "staff_fire",
-          "weight": 0,
+          "weight": 3,
           "minLevel": 100,
           "boost": 100,
           "emote": "<:Fire_Staff:900769201067814993>"
         },
         {
           "name": "staff_aqua",
-          "weight": 0,
+          "weight": 4,
           "minLevel": 150,
           "boost": 100,
           "emote": "<:Aqua_Staff:900769201566920724>"
         },
         {
           "name": "staff_emerald",
-          "weight": 0,
+          "weight": 5,
           "minLevel": 200,
           "boost": 100,
           "emote": "<:Emerald_Staff:900769201294278737>"
         },
         {
           "name": "staff_holy",
-          "weight": 0,
+          "weight": 6,
           "minLevel": 250,
           "boost": 100,
           "emote": "<:Holy_Staff:900769201478852690>"
         },
         {
           "name": "staff_dragon",
-          "weight": 0,
+          "weight": 7,
           "minLevel": 300,
           "boost": 100,
           "emote": "<:Dragon_Staff:900769201248145459>"
         },
         {
           "name": "staff_red_rose",
-          "weight": 0,
+          "weight": 8,
           "minLevel": 350,
           "boost": 100,
           "emote": "<:Red_Rose_Staff:900769201403359242>"
         },
         {
           "name": "staff_celestial",
-          "weight": 0,
+          "weight": 9,
           "minLevel": 400,
           "boost": 100,
           "emote": "<:Celestial_Staff:900769201181032501>"
         },
         {
           "name": "staff_sacred",
-          "weight": 0,
+          "weight": 10,
           "minLevel": 450,
           "boost": 100,
           "emote": "<:Sacred_Staff:900769201659183134>"
         },
         {
           "name": "staff_of_limit",
-          "weight": 0,
+          "weight": 11,
           "minLevel": 500,
           "boost": 100,
           "emote": "<:Staff_of_Limit:900769201407529000>"
@@ -838,8 +838,85 @@
           "name": "bow",
           "weight": 0,
           "minLevel": 0,
-          "boost": 0,
-          "emote": "🏹"
+          "boost": 100,
+          "emote": "<:Bow:901115905688363098>"
+        },
+        {
+          "name": "bow_black",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<:Black_Bow:901115905298268211>"
+        },
+        {
+          "name": "bow_light",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<:Light_Bow:901115905612857355>"
+        },
+        {
+          "name": "bow_demon",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<:Demon_Bow:901115905558327376>"
+        },
+        {
+          "name": "bow_crystal",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 200,
+          "emote": "<:Crystal_Bow:901115905638023198>"
+        },
+        {
+          "name": "bow_slash",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<:Slash_Bow:901115905512181850>"
+        },
+        {
+          "name": "bow_lava",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<:Lava_Bow:901115905533177917>"
+        },
+        {
+          "name": "bow_thunder",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<:Thunder_Bow:901115907722592326>"
+        },
+        {
+          "name": "bow_idle",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<:Idle_Bow:901115905608650783>"
+        },
+        {
+          "name": "bow_lethal",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<:Lethal_Bow:901115905793200188>"
+        },
+        {
+          "name": "bow_hydro",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<:Hydro_Bow:901115905608650883>"
+        },
+        {
+          "name": "bow_hyper",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<:Hyper_Bow:901115905524789249>"
         }
       ]
     },
