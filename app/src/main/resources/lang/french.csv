@@ -147,7 +147,29 @@ spellbook_titans,Livre des Titans
 spellbook_hellfire,Livre des Enfers
 spellbook_unknown,Livre de l'Inconnu
 spirit,Esprit
+spirit_grand,Esprit Grandiose
+spirit_hell,Esprit Infernal
+spirit_heavenly,Esprit Céleste
+spirit_twin,Esprit Jumeau
+spirit_evil,Esprit Maléfique
+spirit_battle,Esprit de Combat
+spirit_strength,Esprit de Force
+spirit_blood,Esprit du Sang
+spirit_ultra,Ultra Esprit
+spirit_hyper,Hyper Esprit
+spirit_idle,Esprit d'Inactivité
 necklace,Collier
+necklace_ancient,Collier Antique
+necklace_divine,Collier Antique
+necklace_shadow,Collier de l'Ombre
+necklace_chaos,Collier du Chaos
+necklace_void,Collier du Vide
+necklace_implosion,Collier d'Implosion
+necklace_doomsday,Collier de la Fin du Monde
+necklace_apocalypse,Collier d'Apocalypse
+necklace_premonition,Collier de Prémonition
+necklace_coin,Collier de Pièce
+necklace_demon_eye,Collier de l'Œil du Démon
 coins,Pièces
 production,Production
 display_equipment_button,Afficher l'Équipement

@@ -147,7 +147,29 @@ spellbook_titans,Book of Titans
 spellbook_hellfire,Hellfire Tome
 spellbook_unknown,Tome of The Unknown
 spirit,Spirit
+spirit_grand,Grand Spirit
+spirit_hell,Hell Spirit
+spirit_heavenly,Heavenly Spirit
+spirit_twin,Twin Spirit
+spirit_evil,Evil Spirit
+spirit_battle,Battle Spirit
+spirit_strength,Spirit of Strength
+spirit_blood,Spirit of Blood
+spirit_ultra,Ultra Spirit
+spirit_hyper,Hyper Spirit
+spirit_idle,Idle Spirit
 necklace,Necklace
+necklace_ancient,Ancient Necklace
+necklace_divine,Divine Necklace
+necklace_shadow,Shadow Necklace
+necklace_chaos,Chaos Necklace
+necklace_void,Void Necklace
+necklace_implosion,Implosion Necklace
+necklace_doomsday,Doomsday Necklace
+necklace_apocalypse,Apocalypse Necklace
+necklace_premonition,Premonition Necklace
+necklace_coin,Coin Necklace
+necklace_demon_eye,Demon Eye Necklace
 coins,Coins
 production,Production
 display_equipment_button,Display Equipment
