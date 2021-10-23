@@ -1115,7 +1115,84 @@
           "weight": 0,
           "minLevel": 0,
           "boost": 0,
-          "emote": "⭕"
+          "emote": "<a:Necklace:901156008708161687>"
+        },
+        {
+          "name": "necklace_ancient",
+          "weight": 1,
+          "minLevel": 10,
+          "boost": 100,
+          "emote": "<a:Ancient_Necklace:901156170092388412>"
+        },
+        {
+          "name": "necklace_divine",
+          "weight": 2,
+          "minLevel": 50,
+          "boost": 100,
+          "emote": "<a:Divine_Necklace:901156009291165697>"
+        },
+        {
+          "name": "necklace_shadow",
+          "weight": 3,
+          "minLevel": 100,
+          "boost": 100,
+          "emote": "<a:Shadow_Necklace:901156008649441330>"
+        },
+        {
+          "name": "necklace_chaos",
+          "weight": 4,
+          "minLevel": 150,
+          "boost": 100,
+          "emote": "<a:Chaos_Necklace:901156009995825193>"
+        },
+        {
+          "name": "necklace_void",
+          "weight": 5,
+          "minLevel": 200,
+          "boost": 100,
+          "emote": "<a:Void_Necklace:901156008385200230>"
+        },
+        {
+          "name": "necklace_implosion",
+          "weight": 6,
+          "minLevel": 250,
+          "boost": 100,
+          "emote": "<a:Implosion_Necklace:901156009148551188>"
+        },
+        {
+          "name": "necklace_doomsday",
+          "weight": 7,
+          "minLevel": 300,
+          "boost": 100,
+          "emote": "<a:Doomsday_Necklace:901156009140166737>"
+        },
+        {
+          "name": "necklace_apocalypse",
+          "weight": 8,
+          "minLevel": 350,
+          "boost": 100,
+          "emote": "<a:Apocalypse_Necklace:901156010385899520>"
+        },
+        {
+          "name": "necklace_premonition",
+          "weight": 9,
+          "minLevel": 400,
+          "boost": 100,
+          "emote": "<a:Premonition_Necklace:901156008867528734>"
+        },
+        {
+          "name": "necklace_coin",
+          "weight": 10,
+          "minLevel": 450,
+          "boost": 100,
+          "emote": "<a:Coin_Necklace:901156010163585134>"
+        },
+        {
+          "name": "necklace_demon_eye",
+          "weight": 11,
+          "minLevel": 500,
+          "boost": 100,
+          "emote": "<a:Demon_Eye_Necklace:901156009916104774>"
         }
       ]
     }
