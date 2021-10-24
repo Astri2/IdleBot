@@ -110,7 +110,7 @@ public class DataBase extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         try {
-            if(load(null) == 1) {
+            if(load(null) != 0) {
                 event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
                     .getHistory().retrievePast(1).queue(history ->
                         history.get(0).getAttachments().get(0)
