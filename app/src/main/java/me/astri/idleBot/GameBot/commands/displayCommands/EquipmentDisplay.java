@@ -49,12 +49,12 @@ public class EquipmentDisplay implements ISlashCommand {
                 continue;
             eb.addField(gearPiece.getEmote() + " " + author.getLang().get(gearPiece.getName()),
                     "Level **" + gearPiece.getLevel() + "\n" +
-                            GameUtils.getNumber(gearPiece.getProduction(),player) + Emotes.getEmote("coin") + "**/s**\n" +
-                            author.getLang().get("cost") + "** " + GameUtils.getNumber(gearPiece.getPrice(),player), true);
+                            GameUtils.getNumber(gearPiece.getProduction(),author) + Emotes.getEmote("coin") + "**/s**\n" +
+                            author.getLang().get("cost") + "** " + GameUtils.getNumber(gearPiece.getPrice(),author), true);
             if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) > 0)
                 break;
         }
-        eb.setDescription(GameUtils.getNumber(player.getCoins(),player) + " " + Emotes.getEmote("coin") + author.getLang().get("coins"));
+        eb.setDescription(GameUtils.getNumber(player.getCoins(),author) + " " + Emotes.getEmote("coin") + author.getLang().get("coins"));
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
                         Button.secondary("equipmentDisplay",author.getLang().get("display_equipment_button")),
