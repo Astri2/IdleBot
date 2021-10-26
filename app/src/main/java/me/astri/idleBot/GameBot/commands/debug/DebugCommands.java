@@ -56,7 +56,6 @@ public class DebugCommands extends ListenerAdapter {
     }
 
     private void prices(GuildMessageReceivedEvent event) {
-        //TODO set DataBase.botUsers Eq.id Private
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         try {

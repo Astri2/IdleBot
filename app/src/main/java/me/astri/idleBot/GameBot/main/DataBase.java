@@ -129,24 +129,21 @@ public class DataBase extends ListenerAdapter {
             }
         },60000,60000);
 
-        //if(event.getJDA().getSelfUser().getId().equals("880922037189771386")) { //only the official version send backups
-            Timer timer1 = new Timer();
-            timer1.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        String path = System.getenv("PLAYER_DATA");
-                        if(Files.size(Path.of(path)) > 100)
-                            event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
-                                .sendMessage(String.format("<t:%d>\n%d",
-                                    Instant.now().getEpochSecond(),
-                                    Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()))
-                                .addFile(new File(path)).queue();
-                    } catch(Exception ignored) {}
-
-                }
-            },300000,300000);
-        //}
+        Timer timer1 = new Timer();
+        timer1.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    String path = System.getenv("PLAYER_DATA");
+                    if(Files.size(Path.of(path)) > 100)
+                        event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
+                            .sendMessage(String.format("<t:%d>\n%d",
+                                Instant.now().getEpochSecond(),
+                                Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()))
+                            .addFile(new File(path)).queue();
+                } catch(Exception ignored) {}
+            }
+        },300000,300000);
     }
 
     @Override
