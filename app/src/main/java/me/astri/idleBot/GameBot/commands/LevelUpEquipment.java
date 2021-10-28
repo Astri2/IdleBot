@@ -115,6 +115,7 @@ public class LevelUpEquipment implements ISlashCommand {
     }
 
     private static void askLevel(InteractionHook hook, Player player, String equipment) {
+        player.update();
         Equipment eq = player.getEquipment().get(equipment);
         int maxLevel = getMaxLevel(player,eq);
         hook.sendMessage(player.getLang().get("eqpm_upgrade_ask_level", hook.getInteraction().getUser().getAsMention(),
