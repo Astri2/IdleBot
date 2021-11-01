@@ -8,8 +8,7 @@ import javax.security.auth.login.LoginException;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void main(String[] args) throws Exception {
         try {
             BotGame.startBot(Config.get("TOKEN_1"));
         } catch(LoginException e) {
