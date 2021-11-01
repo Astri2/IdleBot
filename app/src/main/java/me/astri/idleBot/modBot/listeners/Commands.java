@@ -5,12 +5,10 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-
 public class Commands extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
-        String cmd = event.getMessage().getContentRaw().split("\\s+")[0];
+        String cmd = event.getMessage().getContentRaw().split("\\s+")[0].toLowerCase();
         if ("wiki".equals(cmd)) {
             Wiki.handle(event);
         }

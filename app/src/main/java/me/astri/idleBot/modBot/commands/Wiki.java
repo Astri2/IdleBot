@@ -12,7 +12,9 @@ public class Wiki {
 
     private static final Pattern pattern = Pattern.compile("\"title\":\"(.*?)\".*?\"fullurl\":\"(.*?)\"");
     public static void handle(GuildMessageReceivedEvent event) {
-        String arg = event.getMessage().getContentRaw().replaceAll("wiki\\s+","");
+        String[] args = event.getMessage().getContentRaw().split("\\s+");
+        if(args.length < 2) return;
+        String arg = args[1];
 
         EmbedBuilder eb = new EmbedBuilder()
                 .setColor(0xFEAC01)
