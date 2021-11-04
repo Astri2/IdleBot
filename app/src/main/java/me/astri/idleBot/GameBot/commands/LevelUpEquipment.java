@@ -20,6 +20,7 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -188,16 +189,23 @@ public class LevelUpEquipment implements ISlashCommand {
             hook.sendMessage(player.getLang().get("error_nan")).queue();
             return;
         }
+
+        BigDecimal price = eq.getPrice(level);
+
         if(eq.getPrice(level).compareTo(player.getCoins()) > 0) {
-            hook.sendMessage(player.getLang().get("error_not_enough_money") + " **"
-                    + GameUtils.getNumber(player.getCoins(),player) + "/" + GameUtils.getNumber(eq.getPrice(level),player) + "**"
+            hook.sendMessage(player.getLang().get("error_not_enough_money",hook.getInteraction().getUser().getAsMention()) + " **"
+                    + GameUtils.getNumber(player.getCoins(),player) + "/" + GameUtils.getNumber(price,player) + "**"
                     + Emotes.getEmote("coin")).queue();
             return;
         }
-        player.editCoins(eq.getPrice(level).negate());
+
+        player.editCoins(price.negate());
         eq.levelUp(level);
+
         hook.sendMessage(player.getLang().get("eqpm_upgrade_success",
-                                    eq.getEmote(),player.getLang().get(eq.getName()),Long.toString(eq.getLevel()),Integer.toString(level)))
+                                    hook.getInteraction().getUser().getAsMention(),eq.getEmote(),player.getLang().get(eq.getName()),
+                                    Long.toString(eq.getLevel()),Integer.toString(level)) + "\n**-" +
+                                    GameUtils.getNumber(price,player) + Emotes.getEmote("coin") + "**")
                 .addActionRow(
                         Button.secondary("redoLevelUp:" + equipment + ":" + levels, player.getLang().get("redo_level_up_button")),
                         Button.secondary("equipmentDisplay",player.getLang().get("display_equipment_button")))
