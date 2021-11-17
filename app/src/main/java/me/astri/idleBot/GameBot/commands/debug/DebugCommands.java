@@ -37,7 +37,7 @@ public class DebugCommands extends ListenerAdapter {
             return;
         BigDecimal money;
         try {
-            money = BigDecimal.valueOf(Long.parseLong(args[2]));
+            money = BigDecimal.valueOf(10).pow(Integer.parseInt(args[2]));
         } catch(Exception ignore) {return;}
         Member member = event.getMessage().getMentionedMembers().get(0);
         Player player = GameUtils.getUser(null,member);
