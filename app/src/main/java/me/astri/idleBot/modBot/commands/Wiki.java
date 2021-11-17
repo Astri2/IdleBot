@@ -12,7 +12,7 @@ public class Wiki {
 
     private static final Pattern pattern = Pattern.compile("\"title\":\"(.*?)\".*?\"fullurl\":\"(.*?)\"");
     public static void handle(GuildMessageReceivedEvent event) {
-        String[] args = event.getMessage().getContentRaw().split("\\s+");
+        String[] args = event.getMessage().getContentRaw().split("\\s+",2);
         if(args.length < 2) return;
         String arg = args[1];
 
