@@ -45,8 +45,11 @@ public abstract class WaiterTemplates {
                                             .setEphemeral(true).queue();
                             })
                             .setAction(ctx -> {
-                                String suffix = ctx.getEvent().getInteraction().getButton().getId().substring(id.length()); //get le suffix to know which button pressed
-                                if(Character.isDigit(suffix.toCharArray()[0])) {
+                                String suffix = ctx.getEvent().getInteraction().getButton().getId().substring(id.length()); //get the suffix to know which button pressed
+                                if(suffix.equals("0") && number.get().isEmpty()) {
+                                    ctx.getEvent().editMessage(message + "\n" + "_").queue();
+                                }
+                                else if(Character.isDigit(suffix.toCharArray()[0])) {
                                     number.set(number.get()+suffix);
                                     ctx.getEvent().editMessage(message + "\n" + number.get() + "_").queue();
                                     ctx.getEvent().getHook().editOriginalComponents(getKP(id,true,false)).queue();
