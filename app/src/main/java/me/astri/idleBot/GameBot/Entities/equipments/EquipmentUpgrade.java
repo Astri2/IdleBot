@@ -30,7 +30,7 @@ public class EquipmentUpgrade implements Serializable {
     }
 
     public int getBoost() {
-        return 1+boost/100;
+        return boost/100;
     }
 
     public String getEmote() {

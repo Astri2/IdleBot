@@ -79,15 +79,11 @@ public class Equipment implements Serializable {
     }
 
     public BigDecimal getProduction() {
-        return BigDecimal.valueOf(level * baseProduction * getBooster());
+        return BigDecimal.valueOf(level * baseProduction * (1 + getBooster()));
     }
 
     private long getBooster() {
-        int totBooster=1;
-        for(EquipmentUpgrade upgrade : ownedUpgrades) {
-            totBooster*=upgrade.getBoost();
-        }
-        return totBooster;
+        return ownedUpgrades.stream().mapToLong(EquipmentUpgrade::getBoost).sum();
     }
 
     private static HashMap<String,ArrayList<EquipmentUpgrade>> initUpgrades(JSONArray jsonEquipments) {
