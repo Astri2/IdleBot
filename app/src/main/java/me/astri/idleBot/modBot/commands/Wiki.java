@@ -2,49 +2,59 @@ package me.astri.idleBot.modBot.commands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.io.InputStream;
+import java.io.IOException;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Wiki {
 
-    private static final Pattern pattern = Pattern.compile("\"title\":\"(.*?)\".*?\"fullurl\":\"(.*?)\"");
     public static void handle(GuildMessageReceivedEvent event) {
+        event.getMessage().addReaction("⌛").queue();
         String[] args = event.getMessage().getContentRaw().split("\\s+",2);
         if(args.length < 2) return;
         String arg = args[1];
-
         EmbedBuilder eb = new EmbedBuilder()
                 .setColor(0xFEAC01)
                 .setFooter("Requested by" + event.getAuthor().getAsTag(),event.getAuthor().getAvatarUrl())
-                .setThumbnail("https://static.wikia.nocookie.net/idleslayer/images/e/e6/Site-logo.png/revision/latest?cb=20210626192252");
+                .setThumbnail("https://static.wikia.nocookie.net/idleslayer/images/e/e6/Site-logo.png/revision/latest?cb=20210626192252")
+                .setAuthor(String.format("Results for \"%s\"", arg),
+                "https://idleslayer.fandom.com/wiki/Special:Search?query="+arg.replace(" ","+"));
 
         try {
-            //getting online data
-            URL url = new URL("https://idleslayer.fandom.com/api.php?format=json&action=query&prop=info&inprop=url&generator=allpages&gapfrom="
-                    + arg);
-            InputStream input = url.openStream();
-            String search = new String(input.readAllBytes());
-            Matcher results = pattern.matcher(search);
+            JSONArray jsonSearch = new JSONObject(readOnlineFile("https://idleslayer.fandom.com/api.php?action=query&format=json&list=search&srprop&srsearch="+arg.replace(" ","_")))
+                    .getJSONObject("query").getJSONArray("search");
+            for(Object ObjResult : jsonSearch) {
+                JSONObject jsonResult = (JSONObject)ObjResult;
+                StringBuilder title = new StringBuilder(jsonResult.getString("title"));
 
-            //parsing data to send it on discord
-            eb.setAuthor(String.format("Results for \"%s\"", arg),
-                            "https://idleslayer.fandom.com/wiki/Special:Search?query="+arg);
-            int i = 0;
-            while(results.find()) {
-                eb.appendDescription(String.format("• [%s](%s)\n",
-                        results.group(i+1),
-                        results.group(i+2)));
+                JSONArray jsonSectionSearch = new JSONObject(readOnlineFile("https://idleslayer.fandom.com/api.php?action=parse&format=json&prop=sections&pageid="+jsonResult.get("pageid")))
+                        .getJSONObject("parse").getJSONArray("sections");
+                for(Object ObjSection : jsonSectionSearch) {
+                    JSONObject jsonSection = (JSONObject)ObjSection;
+                    if(jsonSection.getString("line").toLowerCase().contains(arg.toLowerCase())) {
+                        title.append("#").append(jsonSection.getString("anchor"));
+                        break;
+                    }
+                }
+                String link = "https://idleslayer.fandom.com/wiki/"+title.toString().replace(" ","_");
+                eb.appendDescription(String.format("• [%s](%s)\n", title,link));
             }
+
+
             if(eb.getDescriptionBuilder().isEmpty())
-                eb.appendDescription(String.format("Nothing found, please search directly from the [wiki](https://idleslayer.fandom.com/wiki/Special:Search?query=%s)",arg));
+                eb.appendDescription(String.format("Nothing found, please search directly from the [wiki](https://idleslayer.fandom.com/wiki/Special:Search?query=%s)",arg.replace(" ","_")));
             event.getMessage().replyEmbeds(eb.build()).queue();
         } catch(Exception e) {
-            eb.setTitle("Results for %s", arg)
-                    .setDescription(String.format("Nothing found, please search directly from the [wiki](https://idleslayer.fandom.com/wiki/Special:Search?query=%s)",arg));
+            e.printStackTrace();
+            eb.setDescription(String.format("Error while searching, please search directly from the [wiki](https://idleslayer.fandom.com/wiki/Special:Search?query=%s)",arg.replace(" ","_")));
             event.getMessage().replyEmbeds(eb.build()).queue();
         }
+        event.getMessage().removeReaction("⌛",event.getJDA().getSelfUser()).queue();
+    }
+
+    private static String readOnlineFile(String url) throws IOException {
+        return new String(new URL(url).openStream().readAllBytes());
     }
 }
