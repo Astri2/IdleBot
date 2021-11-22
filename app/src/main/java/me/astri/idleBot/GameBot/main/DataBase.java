@@ -56,7 +56,6 @@ public class DataBase extends ListenerAdapter {
     //because of an Object to Game cast
     @SuppressWarnings("unchecked")
     public static int load(@Nullable ButtonClickEvent event) {
-        System.out.println("loading");
         try {
             FileInputStream fis = new FileInputStream(System.getenv("PLAYER_DATA"));
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -66,7 +65,7 @@ public class DataBase extends ListenerAdapter {
             if(event != null)
                 event.getHook().sendMessage("Loaded!").queue();
         } catch (EOFException e) { //file empty
-            e.printStackTrace();
+            System.err.println("Warning - File empty");
             botUsers = new HashMap<>();
             if(event != null)
                 event.getHook().sendMessage("Loaded! (file was empty)").queue();
@@ -106,11 +105,11 @@ public class DataBase extends ListenerAdapter {
 
     }
 
-
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         try {
             if(load(null) != 0) {
+                System.out.println("loading backup");
                 event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
                     .getHistory().retrievePast(1).queue(history ->
                         history.get(0).getAttachments().get(0)
