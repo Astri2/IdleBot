@@ -57,7 +57,7 @@ public class EventWaiter implements EventListener {
         }
     }
 
-    public static void unregister(Waiter<GenericEvent> waiter) {
+    public static void unregister(Waiter<? extends GenericEvent> waiter) {
         waiterMap.get(waiter.getEventType()).remove(waiter);
     }
     public static void unregister(Class<? extends GenericEvent> eventType, String id) {
