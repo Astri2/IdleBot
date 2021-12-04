@@ -12,18 +12,17 @@ public class PermaActionComponent extends ListenerAdapter {
     public void onButtonClick(@NotNull ButtonClickEvent e) {
         if(!e.getMessage().getAuthor().equals(e.getJDA().getSelfUser()))
             return;
-        boolean eph = e.getMessage().isEphemeral();
         switch(e.getButton().getId().replaceAll("[^a-zA-Z].*","")) {
             case "equipmentDisplay" -> {
-                e.deferReply(eph).queue();
+                e.deferReply(true).queue();
                 EquipmentDisplay.display(e.getHook(), e.getUser(), e.getUser());
             }
             case "profileDisplay" -> {
-                e.deferReply(eph).queue();
+                e.deferReply(true).queue();
                 ProfileDisplay.display(e.getHook(),e.getUser(),e.getUser());
             }
             case "redoLevelUp" -> {
-                e.deferReply(eph).queue();
+                e.deferReply(true).queue();
                 LevelUpEquipment.redoLevelUp(e.getHook(),e.getUser(), e.getButton().getId());
             }
         }
