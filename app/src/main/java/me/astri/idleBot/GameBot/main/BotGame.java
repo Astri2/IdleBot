@@ -7,6 +7,7 @@ import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.game.PermaActionComponent;
 import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
+import me.astri.idleBot.modBot.listeners.Commands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
