@@ -179,7 +179,7 @@ level_s,{0} Niveau
 level_p,{0} Niveaux
 cost,Coût
 expired,Expiré
-eqpm_upgrade_success,{0} ton {1} {2} est maintenant au niveau **{3}**! (+{4} niveaux)
+eqpm_upgrade_success,{0} ton {1} {2} est maintenant au niveau **{3}**!
 eqpm_upgrade_ask_eqpm,{0} quelle pièce d'équipement améliorer ?
 eqpm_upgrade_ask_level,{0} de combien de niveaux améliorer ton {1} {2} ?
 nbr_custom,Personnalisé

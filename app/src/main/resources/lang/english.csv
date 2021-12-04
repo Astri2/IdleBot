@@ -179,7 +179,7 @@ level_s,{0} Level
 level_p,{0} Levels
 cost,Cost
 expired,Expired
-eqpm_upgrade_success,{0} your {1} {2} is now level **{3}**! (+{4} levels)
+eqpm_upgrade_success,{0} your {1} {2} is now level **{3}**!
 eqpm_upgrade_ask_eqpm,{0} which piece of equipment should be upgraded?
 eqpm_upgrade_ask_level,{0} by how many levels should your {1} {2} level up?
 nbr_custom,Custom
