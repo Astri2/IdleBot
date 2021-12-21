@@ -34,10 +34,10 @@ public class Number {//TODO try to avoid using Math.pow
     }
 
     public Number add(Number n1) throws Exception {
-        if(this.powerOfTen - n1.powerOfTen > 20) {
+        if(this.powerOfTen - n1.powerOfTen > 20) { //this >> n1 so we return this
             return this;
         }
-        else if(n1.powerOfTen - this.powerOfTen > 20) {
+        else if(n1.powerOfTen - this.powerOfTen > 20) { //this << n1 so we return n1
             this.powerOfTen = n1.powerOfTen;
             this.value = n1.value;
             return this;
