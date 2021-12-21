@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.commands;
+package me.astri.idleBot.GameBot.commands.settings;
 
 import me.astri.idleBot.GameBot.Entities.player.BotUser;
 import me.astri.idleBot.GameBot.game.GameUtils;
