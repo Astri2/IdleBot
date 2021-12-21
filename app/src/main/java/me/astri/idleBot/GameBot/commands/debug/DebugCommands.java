@@ -88,7 +88,7 @@ public class DebugCommands extends ListenerAdapter {
                 p1.editCoins(money);
                 List<Equipment> equipments_reset = p1.getEquipment().values().stream().toList();
                 for (int k = 0; k < equipments_reset.size(); k++) {
-                    equipments_reset.get(k).levelUp(eqs.get(k).intValue());
+                    equipments_reset.get(k).levelUp(eqs.get(k).intValue(),p1.getUpgrades());
                     System.out.println(p1.getEquipment().values().stream().toList().get(k).getName() + " : level " + p1.getEquipment().values().stream().toList().get(k).getLevel() +
                             " : price " + p1.getEquipment().values().stream().toList().get(k).getPrice());
                 }

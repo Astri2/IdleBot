@@ -1,58 +1,51 @@
 package me.astri.idleBot.GameBot.Entities.equipments;
 
-import me.astri.idleBot.GameBot.main.Config;
-import me.astri.idleBot.GameBot.main.Utils;
-import org.json.JSONArray;
+import me.astri.idleBot.GameBot.Entities.upgrade.EquipmentUpgrade;
+import me.astri.idleBot.GameBot.Entities.upgrade.PlayerUpgrades;
+import me.astri.idleBot.GameBot.Entities.upgrade.UpgradeManager;
 import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 public class Equipment implements Serializable {
-    private final static HashMap<String,ArrayList<EquipmentUpgrade>> upgrades = initUpgrades(
-            new JSONObject(Utils.readFile(Config.get("CONFIG_PATH") + "equipment.json")).getJSONArray("equipment")
-    );
-
     private final String id;
     private final boolean unlocked;
     private final double baseProduction;
 
-    private final ArrayList<EquipmentUpgrade> ownedUpgrades;
-
     private long level;
     private BigDecimal price;
     private EquipmentUpgrade currentUpgrade;
+    private int booster;
 
-    public Equipment(JSONObject jsonEquipment) {
-        ownedUpgrades = new ArrayList<>();
+    public Equipment(JSONObject jsonEquipment, PlayerUpgrades upgrades) {
         level = 0;
         this.id = jsonEquipment.getString("id");
         this.unlocked = jsonEquipment.getBoolean("unlocked");
         this.price = BigDecimal.valueOf(jsonEquipment.getLong("basePrice"));
         this.baseProduction = jsonEquipment.getDouble("baseProduction");
-        queryLevelUpgrades();
+        queryLevelUpgrades(upgrades);
     }
 
-    public void levelUp(int levels) {
+    public void levelUp(int levels, PlayerUpgrades upgrades) {
         level+=levels;
         price = price.multiply(BigDecimal.valueOf(Math.pow(1.3,levels)));
-        queryLevelUpgrades();
+        queryLevelUpgrades(upgrades);
     }
 
-    private void queryLevelUpgrades() {
-        for(EquipmentUpgrade upgrade : upgrades.get(this.id)) {
-            if(level >= upgrade.getMinLevel() && !ownedUpgrades.contains(upgrade)) {
-                addUpgrade(upgrade);
-            }
-        }
-    }
+    private void queryLevelUpgrades(PlayerUpgrades p) {
+        List<String> upgradesByEq = p.getUnbought().getEq().get(this.id);
+        if(upgradesByEq.isEmpty()) return;
+        String str_upgrade = upgradesByEq.get(0);
+        if(UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade).meetUnlockCondition(this)) {
+            p.getBought().getEq().get(this.id).add(str_upgrade);
+            upgradesByEq.remove(str_upgrade);
 
-    public void addUpgrade(EquipmentUpgrade upgrade) {
-        ownedUpgrades.add(upgrade);
-        if(currentUpgrade == null || upgrade.getWeight() > currentUpgrade.getWeight()) {
-            currentUpgrade = upgrade;
+            EquipmentUpgrade eqUpgrade = UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade);
+            currentUpgrade = (currentUpgrade != null && currentUpgrade.getWeight() > eqUpgrade.getWeight()) ? currentUpgrade : eqUpgrade;
+            currentUpgrade.action(this); //apply the booster
+            queryLevelUpgrades(p); //loop until you get all of them or you don't have the level requirement
         }
     }
 
@@ -62,7 +55,7 @@ public class Equipment implements Serializable {
 
     public String getName() { return currentUpgrade.getName(); }
 
-    public String getEmote() { return currentUpgrade.getEmote(); }
+    public String getEmote() { return currentUpgrade.getIcon(); }
 
     public BigDecimal getPrice() {
         return this.price;
@@ -83,26 +76,10 @@ public class Equipment implements Serializable {
     }
 
     private long getBooster() {
-        return ownedUpgrades.stream().mapToLong(EquipmentUpgrade::getBoost).sum();
+        return booster;
     }
 
-    private static HashMap<String,ArrayList<EquipmentUpgrade>> initUpgrades(JSONArray jsonEquipments) {
-        HashMap<String,ArrayList<EquipmentUpgrade>> equipments_upgrades = new HashMap<>();
-        for(int i = 0 ; i < jsonEquipments.length() ; i++) {
-            ArrayList<EquipmentUpgrade> upgrades = new ArrayList<>();
-            JSONArray jsonUpgrades = jsonEquipments.getJSONObject(i).getJSONArray("upgrades");
-            for(int k = 0 ; k < jsonUpgrades.length() ; k++) {
-                JSONObject jsonUpgrade = jsonUpgrades.getJSONObject(k);
-                upgrades.add(new EquipmentUpgrade(
-                        jsonUpgrade.getString("name"),
-                        jsonUpgrade.getInt("weight"),
-                        jsonUpgrade.getInt("minLevel"),
-                        jsonUpgrade.getInt("boost"),
-                        jsonUpgrade.getString("emote")
-                ));
-            }
-            equipments_upgrades.put(jsonEquipments.getJSONObject(i).getString("id"),upgrades);
-        }
-        return equipments_upgrades;
+    public void increaseBooster(int boost) {
+        booster+=boost;
     }
 }

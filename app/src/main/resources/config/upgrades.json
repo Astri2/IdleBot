@@ -1,0 +1,1124 @@
+{
+  "EQUIPMENT": {
+    "eq_list": ["sword","shield","armor","helmet","boots","ring","dagger","axe","staff","bow","spellbook","spirit","necklace"],
+    "sword": [
+      {
+        "name": "sword",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Sword:884124806482649180>"
+      },
+      {
+        "name": "sword_steel",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Steel_Sword:884124806679777301>"
+      },
+      {
+        "name": "sword_black",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Black_Sword:884124806583308350>"
+      },
+      {
+        "name": "sword_light",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Light_Sword:884124806583287839>"
+      },
+      {
+        "name": "sword_demon",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Demon_Sword:884124806583292005>"
+      },
+      {
+        "name": "sword_great",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Greatsword:884124806499418122>"
+      },
+      {
+        "name": "sword_ember",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Ember_Sword:884124806562328596>"
+      },
+      {
+        "name": "sword_infernal",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Infernal_Sword:884124806826577960>"
+      },
+      {
+        "name": "sword_rage",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 3000,
+        "icon": "<:Rage_Sword:884124806021275690>"
+      },
+      {
+        "name": "sword_elemental",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Elemental_Sword:884124806352605215>"
+      },
+      {
+        "name": "sword_life",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Life_Sword:884124806193233930>"
+      },
+      {
+        "name": "sword_god",
+        "weight": 11,
+        "type": "EQUIPMENT",
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:God_Sword:884124806000308235>"
+      }
+    ],
+    "shield": [
+      {
+        "name": "shield",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Shield:884894979334492230>"
+      },
+      {
+        "name": "shield_reinforced",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Reinforced_Shield:884894974787858483>"
+      },
+      {
+        "name": "shield_iron",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Iron_Shield:884894974922076170>"
+      },
+      {
+        "name": "shield_steel",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Steel_Shield:884894974745935972>"
+      },
+      {
+        "name": "shield_knight",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Knight_Shield:884894974552977419>"
+      },
+      {
+        "name": "shield_titanium",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Titanium_Shield:884894974473281637>"
+      },
+      {
+        "name": "shield_golden",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 16000,
+        "icon": "<:Golden_Shield:884894974766903296>"
+      },
+      {
+        "name": "shield_infernal",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Infernal_Shield:884894974775291914>"
+      },
+      {
+        "name": "shield_spirit",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Spirit_Shield:884894974515228672>"
+      },
+      {
+        "name": "shield_hero",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Hero_Shield:884894974452326490>"
+      },
+      {
+        "name": "shield_king",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:King_Shield:884894974347456633>"
+      },
+      {
+        "name": "shield_crystal",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Crystal_shield:884894974561370142>"
+      }
+    ],
+    "armor": [
+      {
+        "name": "armor",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Armor:885900470097436732>"
+      },
+      {
+        "name": "armor_burlap",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Burlap_Armor:885900470021922826>"
+      },
+      {
+        "name": "armor_leather",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Leather_Armor:885900469954805760>"
+      },
+      {
+        "name": "armor_reinforced",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Reinforced_Armor:885900469942222899>"
+      },
+      {
+        "name": "armor_steel",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Steel_Armor:885900469988360242>"
+      },
+      {
+        "name": "armor_steel_full",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Steel_Full_Armor:885900470005145630>"
+      },
+      {
+        "name": "armor_golden_full",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Golden_Full_Armor:885900469921275994>"
+      },
+      {
+        "name": "armor_dragon",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 15000,
+        "icon": "<:Dragon_Armor:885900469950632016>"
+      },
+      {
+        "name": "armor_warlord",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Warlord_Armor:885900469954826270>"
+      },
+      {
+        "name": "armor_break_s",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Break_s_Armor:885900469581512765>"
+      },
+      {
+        "name": "armor_black_dragon",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Black_Dragon_Armor:885900470042902578>"
+      },
+      {
+        "name": "armor_shadow_knight",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Shadow_Knight_Armor:885900469917073438>"
+      }
+    ],
+    "helmet": [
+      {
+        "name": "helmet",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Helmet:886590115722444850>"
+      },
+      {
+        "name": "helmet_burlap",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Burlap_Helmet:886590115055542322>"
+      },
+      {
+        "name": "helmet_leather",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Leather_Helmet:886590115844063232>"
+      },
+      {
+        "name": "helmet_reinforced",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Reinforced_Helmet:886590119371481088>"
+      },
+      {
+        "name": "helmet_steel",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Steel_Helmet:886590119560220733>"
+      },
+      {
+        "name": "helmet_steel_full",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Steel_Full_Helmet:886590119597981707>"
+      },
+      {
+        "name": "helmet_golden",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Golden_Helmet:886590115617574962>"
+      },
+      {
+        "name": "helmet_dragon",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Dragon_Helmet:886590115328188476>"
+      },
+      {
+        "name": "helmet_champion_s",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Champion_s_Helmet:886590114988449792>"
+      },
+      {
+        "name": "helmet_warrior",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Warrior_Helmet:886590120071946300>"
+      },
+      {
+        "name": "helmet_dark_steel",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Dark_Steel_Helmet:886590114967482420>"
+      },
+      {
+        "name": "helmet_glorious",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Glorious_Helmet:886590115579830333>"
+      }
+    ],
+    "boots": [
+      {
+        "name": "boots",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<a:boots:886603412395946014>"
+      },
+      {
+        "name": "boots_burlap",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<a:burlap_boots:886603412467224626>"
+      },
+      {
+        "name": "boots_leather",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<a:leather_boots:886603412634992721>"
+      },
+      {
+        "name": "boots_reinforced",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<a:reinforced_boots:886603413251559434>"
+      },
+      {
+        "name": "boots_iron",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<a:iron_boots:886603413046034452>"
+      },
+      {
+        "name": "boots_steel",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<a:steel_boots:886603413297709066>"
+      },
+      {
+        "name": "boots_golden",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 400,
+        "icon": "<a:golden_boots:886603412769234984>"
+      },
+      {
+        "name": "boots_dragon",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 5000,
+        "icon": "<a:dragon_boots:886603412936994846>"
+      },
+      {
+        "name": "boots_dash",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<a:dash_boots:886603412735668294>"
+      },
+      {
+        "name": "boots_climbing",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<a:climbing_boots:886603412668547112>"
+      },
+      {
+        "name": "boots_mobious",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<a:mobious_boots:886603413335461958>"
+      },
+      {
+        "name": "boots_idle",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<a:idle_boots:886603413176074340>"
+      }
+    ],
+    "ring": [
+      {
+        "name": "ring",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<a:ring:886883889988120616>"
+      },
+      {
+        "name": "ring_silver",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<a:silver_ring:886883890139136020>"
+      },
+      {
+        "name": "ring_magic",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<a:magic_ring:886883890042634240>"
+      },
+      {
+        "name": "ring_mind",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<a:mind_ring:886883890151718942>"
+      },
+      {
+        "name": "ring_shadow",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<a:shadow_ring:886883889770033153>"
+      },
+      {
+        "name": "ring_dragon",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<a:dragon_ring:886883890067800064>"
+      },
+      {
+        "name": "ring_duel_stone",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<a:dual_stone_ring:886883890071998464>"
+      },
+      {
+        "name": "ring_mystic",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<a:mystic_ring:886883889992306739>"
+      },
+      {
+        "name": "ring_spectral",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<a:spectral_ring:886883890382372904>"
+      },
+      {
+        "name": "ring_albatross",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<a:albatros_ring:886883889820368897>"
+      },
+      {
+        "name": "ring_energy",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<a:energy_ring:886883889975529472>"
+      },
+      {
+        "name": "ring_phantom",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<a:phantom_ring:886883890101379072>"
+      }
+    ],
+    "dagger": [
+      {
+        "name": "dagger",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<a:dagger:896884323607805982>"
+      },
+      {
+        "name": "dagger_black",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<a:black_dagger:896884323440021505>"
+      },
+      {
+        "name": "dagger_golden",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<a:golden_dagger:896884324270485514>"
+      },
+      {
+        "name": "dagger_demon",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<a:demon_dagger:896884323884617768>"
+      },
+      {
+        "name": "dagger_dragon",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<a:dragon_dagger:896884323897180181>"
+      },
+      {
+        "name": "dagger_glory",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 150,
+        "icon": "<a:glory_dagger:896884323989479426>"
+      },
+      {
+        "name": "dagger_kunai",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<a:kunai:896884324312416306>"
+      },
+      {
+        "name": "dagger_zap",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<a:zap_dagger:896884324702486648>"
+      },
+      {
+        "name": "dagger_abyssal",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<a:abyssal_dagger:896884323544858654>"
+      },
+      {
+        "name": "dagger_larret_s",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<a:latter_s_dagger:896884324366966814>"
+      },
+      {
+        "name": "dagger_flame",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<a:flame_dagger:896884324182409216>"
+      },
+      {
+        "name": "dagger_breaker",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<a:dagger_breaker:896884323909771265>"
+      }
+    ],
+    "axe": [
+      {
+        "name": "axe",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<a:Axe:896890193989210142>"
+      },
+      {
+        "name": "axe_black",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<a:Black_Axe:896890193389441085>"
+      },
+      {
+        "name": "axe_golden",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<a:Golden_Axe:896890192605085717>"
+      },
+      {
+        "name": "axe_demon",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<a:Demon_Axe:896890192605098086>"
+      },
+      {
+        "name": "axe_infernal_battle",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 500,
+        "icon": "<a:Infernal_Battle_Axe:896890192823189544>"
+      },
+      {
+        "name": "axe_battle",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<a:Battle_Axe:896890193850802208>"
+      },
+      {
+        "name": "axe_beast",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<a:Beast_Axe:896890193754333184>"
+      },
+      {
+        "name": "axe_tri",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<a:Triaxe:896890192684789790>"
+      },
+      {
+        "name": "axe_crystal",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<a:Crystal_Axe:896890193024520212>"
+      },
+      {
+        "name": "axe_chopan_s",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<a:Chopan_s_Axe:896890192860942357>"
+      },
+      {
+        "name": "axe_blood_moon",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<a:Blood_Moon_Axe:896890193095839765>"
+      },
+      {
+        "name": "axe_wide_blood_moon",
+        "weight": 10,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<a:Wide_Blood_Moon_Axe:896890192605110282>"
+      }
+    ],
+    "staff": [
+      {
+        "name": "staff",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Staff:900769202200248340>"
+      },
+      {
+        "name": "staff_black",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Black_Staff:900769201688555582>"
+      },
+      {
+        "name": "staff_light",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Light_Staff:900769201248141323>"
+      },
+      {
+        "name": "staff_fire",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Fire_Staff:900769201067814993>"
+      },
+      {
+        "name": "staff_aqua",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Aqua_Staff:900769201566920724>"
+      },
+      {
+        "name": "staff_emerald",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Emerald_Staff:900769201294278737>"
+      },
+      {
+        "name": "staff_holy",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Holy_Staff:900769201478852690>"
+      },
+      {
+        "name": "staff_dragon",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Dragon_Staff:900769201248145459>"
+      },
+      {
+        "name": "staff_red_rose",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Red_Rose_Staff:900769201403359242>"
+      },
+      {
+        "name": "staff_celestial",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Celestial_Staff:900769201181032501>"
+      },
+      {
+        "name": "staff_sacred",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Sacred_Staff:900769201659183134>"
+      },
+      {
+        "name": "staff_limit",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Staff_Limit:900769201407529000>"
+      }
+    ],
+    "bow": [
+      {
+        "name": "bow",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Bow:901115905688363098>"
+      },
+      {
+        "name": "bow_black",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Black_Bow:901115905298268211>"
+      },
+      {
+        "name": "bow_light",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Light_Bow:901115905612857355>"
+      },
+      {
+        "name": "bow_demon",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Demon_Bow:901115905558327376>"
+      },
+      {
+        "name": "bow_crystal",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 200,
+        "icon": "<:Crystal_Bow:901115905638023198>"
+      },
+      {
+        "name": "bow_slash",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Slash_Bow:901115905512181850>"
+      },
+      {
+        "name": "bow_lava",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Lava_Bow:901115905533177917>"
+      },
+      {
+        "name": "bow_thunder",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Thunder_Bow:901115907722592326>"
+      },
+      {
+        "name": "bow_idle",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Idle_Bow:901115905608650783>"
+      },
+      {
+        "name": "bow_lethal",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Lethal_Bow:901115905793200188>"
+      },
+      {
+        "name": "bow_hydro",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Hydro_Bow:901115905608650883>"
+      },
+      {
+        "name": "bow_hyper",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Hyper_Bow:901115905524789249>"
+      }
+    ],
+    "spellbook": [
+      {
+        "name": "spellbook",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Spellbook:901120747383181372>"
+      },
+      {
+        "name": "spellbook_elder",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Elder_Spellbook:901120747555135499>"
+      },
+      {
+        "name": "spellbook_destiny",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<:Book_of_Destiny:901120747316056095>"
+      },
+      {
+        "name": "spellbook_infinity",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Book_of_Infinity:901120747299299418>"
+      },
+      {
+        "name": "spellbook_secret",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Book_of_Secret:901120747597090836>"
+      },
+      {
+        "name": "spellbook_ancient",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<:Ancient_Spellbook:901120747425112064>"
+      },
+      {
+        "name": "spellbook_static",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Book_of_Static:901120747387363348>"
+      },
+      {
+        "name": "spellbook_incineration",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Book_of_Incineration:901120747035045919>"
+      },
+      {
+        "name": "spellbook_guardian",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Book_of_The_Guardians:901120747337043978>"
+      },
+      {
+        "name": "spellbook_titans",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Book_of_Titans:901120747387375716>"
+      },
+      {
+        "name": "spellbook_hellfire",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Hellfire_Tome:901120747404148796>"
+      },
+      {
+        "name": "spellbook_unknown",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Tome_of_The_Unknown:901120748129755226>"
+      }
+    ],
+    "spirit": [
+      {
+        "name": "spirit",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<:Spirit:901146873727963137>"
+      },
+      {
+        "name": "spirit_grand",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<:Grand_Spirit:901146873614712953>"
+      },
+      {
+        "name": "spirit_hell",
+        "weight": 2,
+        "minLevel": 20,
+        "boost": 100,
+        "icon": "<:Hell_Spirit:901146871916027915>"
+      },
+      {
+        "name": "spirit_heavenly",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<:Heavenly_Spirit:901146871983140865>"
+      },
+      {
+        "name": "spirit_twin",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<:Twin_Spirit:901146874134814790>"
+      },
+      {
+        "name": "spirit_evil",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 150,
+        "icon": "<:Evil_Spirit:901146873195278427>"
+      },
+      {
+        "name": "spirit_battle",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<:Battle_Spirit:901146871895056424>"
+      },
+      {
+        "name": "spirit_strength",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<:Spirit_of_Strength:901146874122211359>"
+      },
+      {
+        "name": "spirit_blood",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<:Spirit_of_Blood:901146873723773000>"
+      },
+      {
+        "name": "spirit_ultra",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<:Ultra_Spirit:901146874218692619>"
+      },
+      {
+        "name": "spirit_hyper",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<:Hyper_Spirit:901146872624840744>"
+      },
+      {
+        "name": "spirit_idle",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<:Idle_Spirit:901146873002332240>"
+      }
+    ],
+    "necklace": [
+      {
+        "name": "necklace",
+        "weight": 0,
+        "minLevel": 0,
+        "boost": 0,
+        "icon": "<a:Necklace:901156008708161687>"
+      },
+      {
+        "name": "necklace_ancient",
+        "weight": 1,
+        "minLevel": 10,
+        "boost": 100,
+        "icon": "<a:Ancient_Necklace:901156170092388412>"
+      },
+      {
+        "name": "necklace_divine",
+        "weight": 2,
+        "minLevel": 50,
+        "boost": 100,
+        "icon": "<a:Divine_Necklace:901156009291165697>"
+      },
+      {
+        "name": "necklace_shadow",
+        "weight": 3,
+        "minLevel": 100,
+        "boost": 100,
+        "icon": "<a:Shadow_Necklace:901156008649441330>"
+      },
+      {
+        "name": "necklace_chaos",
+        "weight": 4,
+        "minLevel": 150,
+        "boost": 100,
+        "icon": "<a:Chaos_Necklace:901156009995825193>"
+      },
+      {
+        "name": "necklace_void",
+        "weight": 5,
+        "minLevel": 200,
+        "boost": 100,
+        "icon": "<a:Void_Necklace:901156008385200230>"
+      },
+      {
+        "name": "necklace_implosion",
+        "weight": 6,
+        "minLevel": 250,
+        "boost": 100,
+        "icon": "<a:Implosion_Necklace:901156009148551188>"
+      },
+      {
+        "name": "necklace_doomsday",
+        "weight": 7,
+        "minLevel": 300,
+        "boost": 100,
+        "icon": "<a:Doomsday_Necklace:901156009140166737>"
+      },
+      {
+        "name": "necklace_apocalypse",
+        "weight": 8,
+        "minLevel": 350,
+        "boost": 100,
+        "icon": "<a:Apocalypse_Necklace:901156010385899520>"
+      },
+      {
+        "name": "necklace_premonition",
+        "weight": 9,
+        "minLevel": 400,
+        "boost": 100,
+        "icon": "<a:Premonition_Necklace:901156008867528734>"
+      },
+      {
+        "name": "necklace_coin",
+        "weight": 10,
+        "minLevel": 450,
+        "boost": 100,
+        "icon": "<a:Coin_Necklace:901156010163585134>"
+      },
+      {
+        "name": "necklace_demon_eye",
+        "weight": 11,
+        "minLevel": 500,
+        "boost": 100,
+        "icon": "<a:Demon_Eye_Necklace:901156009916104774>"
+      }
+    ]
+  }
+}

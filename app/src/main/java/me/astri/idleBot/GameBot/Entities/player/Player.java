@@ -1,6 +1,7 @@
 package me.astri.idleBot.GameBot.Entities.player;
 
 import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.Entities.upgrade.PlayerUpgrades;
 import me.astri.idleBot.GameBot.main.Config;
 import me.astri.idleBot.GameBot.main.Lang;
 import me.astri.idleBot.GameBot.main.Utils;
@@ -23,11 +24,13 @@ public class Player extends BotUser implements Serializable {
     private long lastUpdateTime;
 
     private final LinkedHashMap<String, Equipment> equipments = new LinkedHashMap<>();
+    private final PlayerUpgrades upgrades;
 
     public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
         super(id, lang, scNotation, ephemeral);
         coins = new BigDecimal(6);
         lastUpdateTime = System.currentTimeMillis();
+        upgrades = new PlayerUpgrades(); //has to be done before equipment
         initEquipments();
     }
 
@@ -36,12 +39,16 @@ public class Player extends BotUser implements Serializable {
             JsonEquipments = new JSONObject(Utils.readFile(Config.get("CONFIG_PATH") + "equipment.json")).getJSONArray("equipment");
         for(int i = 0 ; i < JsonEquipments.length() ; i++) {
             JSONObject JsonEquipment = JsonEquipments.getJSONObject(i);
-            equipments.put(JsonEquipment.getString("id"),new Equipment(JsonEquipment));
+            equipments.put(JsonEquipment.getString("id"),new Equipment(JsonEquipment,this.upgrades));
         }
     }
 
     public HashMap<String, Equipment> getEquipment() {
         return equipments;
+    }
+
+    public PlayerUpgrades getUpgrades() {
+        return upgrades;
     }
 
     public BigDecimal getProduction() {

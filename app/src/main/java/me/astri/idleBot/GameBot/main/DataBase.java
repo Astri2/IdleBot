@@ -105,9 +105,9 @@ public class DataBase extends ListenerAdapter {
 
     }
 
-    @Override
-    public void onReady(@NotNull ReadyEvent event) {
-        try {
+    //@Override
+    public void TEMPonReady(@NotNull ReadyEvent event) {
+       try {
             if(load(null) != 0) {
                 System.out.println("loading backup");
                 event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
