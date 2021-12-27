@@ -185,3 +185,5 @@ eqpm_upgrade_ask_level,{0} de combien de niveaux améliorer ton {1} {2} ?
 nbr_custom,Personnalisé
 nbr_max,Maximum
 progression_reset,{0} ta progression a été réinitialisée !
+equipment_upg_title,{0} {1} {2}
+equipment_upg_desc,Ton équipement {0} te donnes dorénavant {1}% plus de Pièces.\n{2} Coût : {3}

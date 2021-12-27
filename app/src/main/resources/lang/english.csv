@@ -185,3 +185,5 @@ eqpm_upgrade_ask_level,{0} by how many levels should your {1} {2} level up?
 nbr_custom,Custom
 nbr_max,Max
 progression_reset,{0} your progression has been reset!
+equipment_upg_title,{0} {1} {2}
+equipment_upg_desc,Your {0} now gives you {1}% more Coins.\n{2} Cost: {3}

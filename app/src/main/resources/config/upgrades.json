@@ -4,6 +4,7 @@
     "sword": [
       {
         "name": "sword",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -11,6 +12,7 @@
       },
       {
         "name": "sword_steel",
+        "price":50,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -18,6 +20,7 @@
       },
       {
         "name": "sword_black",
+        "price":25000,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -25,6 +28,7 @@
       },
       {
         "name": "sword_light",
+        "price":35000000,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -32,6 +36,7 @@
       },
       {
         "name": "sword_demon",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -39,6 +44,7 @@
       },
       {
         "name": "sword_great",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -46,6 +52,7 @@
       },
       {
         "name": "sword_ember",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -53,6 +60,7 @@
       },
       {
         "name": "sword_infernal",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -60,6 +68,7 @@
       },
       {
         "name": "sword_rage",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 3000,
@@ -67,6 +76,7 @@
       },
       {
         "name": "sword_elemental",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -74,6 +84,7 @@
       },
       {
         "name": "sword_life",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -81,6 +92,7 @@
       },
       {
         "name": "sword_god",
+        "price":0,
         "weight": 11,
         "type": "EQUIPMENT",
         "minLevel": 500,
@@ -91,6 +103,7 @@
     "shield": [
       {
         "name": "shield",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -98,6 +111,7 @@
       },
       {
         "name": "shield_reinforced",
+        "price":500,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -105,6 +119,7 @@
       },
       {
         "name": "shield_iron",
+        "price":150000,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -112,6 +127,7 @@
       },
       {
         "name": "shield_steel",
+        "price":180000000,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -119,6 +135,7 @@
       },
       {
         "name": "shield_knight",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -126,6 +143,7 @@
       },
       {
         "name": "shield_titanium",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -133,6 +151,7 @@
       },
       {
         "name": "shield_golden",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 16000,
@@ -140,6 +159,7 @@
       },
       {
         "name": "shield_infernal",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -147,6 +167,7 @@
       },
       {
         "name": "shield_spirit",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -154,6 +175,7 @@
       },
       {
         "name": "shield_hero",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -161,6 +183,7 @@
       },
       {
         "name": "shield_king",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -168,6 +191,7 @@
       },
       {
         "name": "shield_crystal",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -177,6 +201,7 @@
     "armor": [
       {
         "name": "armor",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -184,6 +209,7 @@
       },
       {
         "name": "armor_burlap",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -191,6 +217,7 @@
       },
       {
         "name": "armor_leather",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -198,6 +225,7 @@
       },
       {
         "name": "armor_reinforced",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -205,6 +233,7 @@
       },
       {
         "name": "armor_steel",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -212,6 +241,7 @@
       },
       {
         "name": "armor_steel_full",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -219,6 +249,7 @@
       },
       {
         "name": "armor_golden_full",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -226,6 +257,7 @@
       },
       {
         "name": "armor_dragon",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 15000,
@@ -233,6 +265,7 @@
       },
       {
         "name": "armor_warlord",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -240,6 +273,7 @@
       },
       {
         "name": "armor_break_s",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -247,6 +281,7 @@
       },
       {
         "name": "armor_black_dragon",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -254,6 +289,7 @@
       },
       {
         "name": "armor_shadow_knight",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -263,6 +299,7 @@
     "helmet": [
       {
         "name": "helmet",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -270,6 +307,7 @@
       },
       {
         "name": "helmet_burlap",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -277,6 +315,7 @@
       },
       {
         "name": "helmet_leather",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -284,6 +323,7 @@
       },
       {
         "name": "helmet_reinforced",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -291,6 +331,7 @@
       },
       {
         "name": "helmet_steel",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -298,6 +339,7 @@
       },
       {
         "name": "helmet_steel_full",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -305,6 +347,7 @@
       },
       {
         "name": "helmet_golden",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -312,6 +355,7 @@
       },
       {
         "name": "helmet_dragon",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -319,6 +363,7 @@
       },
       {
         "name": "helmet_champion_s",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -326,6 +371,7 @@
       },
       {
         "name": "helmet_warrior",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -333,6 +379,7 @@
       },
       {
         "name": "helmet_dark_steel",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -340,6 +387,7 @@
       },
       {
         "name": "helmet_glorious",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -349,6 +397,7 @@
     "boots": [
       {
         "name": "boots",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -356,6 +405,7 @@
       },
       {
         "name": "boots_burlap",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -363,6 +413,7 @@
       },
       {
         "name": "boots_leather",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -370,6 +421,7 @@
       },
       {
         "name": "boots_reinforced",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -377,6 +429,7 @@
       },
       {
         "name": "boots_iron",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -384,6 +437,7 @@
       },
       {
         "name": "boots_steel",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -391,6 +445,7 @@
       },
       {
         "name": "boots_golden",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 400,
@@ -398,6 +453,7 @@
       },
       {
         "name": "boots_dragon",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 5000,
@@ -405,6 +461,7 @@
       },
       {
         "name": "boots_dash",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -412,6 +469,7 @@
       },
       {
         "name": "boots_climbing",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -419,6 +477,7 @@
       },
       {
         "name": "boots_mobious",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -426,6 +485,7 @@
       },
       {
         "name": "boots_idle",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -435,6 +495,7 @@
     "ring": [
       {
         "name": "ring",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -442,6 +503,7 @@
       },
       {
         "name": "ring_silver",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -449,6 +511,7 @@
       },
       {
         "name": "ring_magic",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -456,6 +519,7 @@
       },
       {
         "name": "ring_mind",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -463,6 +527,7 @@
       },
       {
         "name": "ring_shadow",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -470,6 +535,7 @@
       },
       {
         "name": "ring_dragon",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -477,6 +543,7 @@
       },
       {
         "name": "ring_duel_stone",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -484,6 +551,7 @@
       },
       {
         "name": "ring_mystic",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -491,6 +559,7 @@
       },
       {
         "name": "ring_spectral",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -498,6 +567,7 @@
       },
       {
         "name": "ring_albatross",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -505,6 +575,7 @@
       },
       {
         "name": "ring_energy",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -512,6 +583,7 @@
       },
       {
         "name": "ring_phantom",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -521,6 +593,7 @@
     "dagger": [
       {
         "name": "dagger",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -528,6 +601,7 @@
       },
       {
         "name": "dagger_black",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -535,6 +609,7 @@
       },
       {
         "name": "dagger_golden",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -542,6 +617,7 @@
       },
       {
         "name": "dagger_demon",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -549,6 +625,7 @@
       },
       {
         "name": "dagger_dragon",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -556,6 +633,7 @@
       },
       {
         "name": "dagger_glory",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 150,
@@ -563,6 +641,7 @@
       },
       {
         "name": "dagger_kunai",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -570,6 +649,7 @@
       },
       {
         "name": "dagger_zap",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -577,6 +657,7 @@
       },
       {
         "name": "dagger_abyssal",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -584,6 +665,7 @@
       },
       {
         "name": "dagger_larret_s",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -591,6 +673,7 @@
       },
       {
         "name": "dagger_flame",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -598,6 +681,7 @@
       },
       {
         "name": "dagger_breaker",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -607,6 +691,7 @@
     "axe": [
       {
         "name": "axe",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -614,6 +699,7 @@
       },
       {
         "name": "axe_black",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -621,6 +707,7 @@
       },
       {
         "name": "axe_golden",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -628,6 +715,7 @@
       },
       {
         "name": "axe_demon",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -635,6 +723,7 @@
       },
       {
         "name": "axe_infernal_battle",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 500,
@@ -642,6 +731,7 @@
       },
       {
         "name": "axe_battle",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -649,6 +739,7 @@
       },
       {
         "name": "axe_beast",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -656,6 +747,7 @@
       },
       {
         "name": "axe_tri",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -663,6 +755,7 @@
       },
       {
         "name": "axe_crystal",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -670,6 +763,7 @@
       },
       {
         "name": "axe_chopan_s",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -677,6 +771,7 @@
       },
       {
         "name": "axe_blood_moon",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -684,6 +779,7 @@
       },
       {
         "name": "axe_wide_blood_moon",
+        "price":0,
         "weight": 10,
         "minLevel": 500,
         "boost": 100,
@@ -693,6 +789,7 @@
     "staff": [
       {
         "name": "staff",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -700,6 +797,7 @@
       },
       {
         "name": "staff_black",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -707,6 +805,7 @@
       },
       {
         "name": "staff_light",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -714,6 +813,7 @@
       },
       {
         "name": "staff_fire",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -721,6 +821,7 @@
       },
       {
         "name": "staff_aqua",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -728,6 +829,7 @@
       },
       {
         "name": "staff_emerald",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -735,6 +837,7 @@
       },
       {
         "name": "staff_holy",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -742,6 +845,7 @@
       },
       {
         "name": "staff_dragon",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -749,6 +853,7 @@
       },
       {
         "name": "staff_red_rose",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -756,6 +861,7 @@
       },
       {
         "name": "staff_celestial",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -763,6 +869,7 @@
       },
       {
         "name": "staff_sacred",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -770,6 +877,7 @@
       },
       {
         "name": "staff_limit",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -779,6 +887,7 @@
     "bow": [
       {
         "name": "bow",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -786,6 +895,7 @@
       },
       {
         "name": "bow_black",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -793,6 +903,7 @@
       },
       {
         "name": "bow_light",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -800,6 +911,7 @@
       },
       {
         "name": "bow_demon",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -807,6 +919,7 @@
       },
       {
         "name": "bow_crystal",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 200,
@@ -814,6 +927,7 @@
       },
       {
         "name": "bow_slash",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -821,6 +935,7 @@
       },
       {
         "name": "bow_lava",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -828,6 +943,7 @@
       },
       {
         "name": "bow_thunder",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -835,6 +951,7 @@
       },
       {
         "name": "bow_idle",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -842,6 +959,7 @@
       },
       {
         "name": "bow_lethal",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -849,6 +967,7 @@
       },
       {
         "name": "bow_hydro",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -856,6 +975,7 @@
       },
       {
         "name": "bow_hyper",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -865,6 +985,7 @@
     "spellbook": [
       {
         "name": "spellbook",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -872,6 +993,7 @@
       },
       {
         "name": "spellbook_elder",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -879,6 +1001,7 @@
       },
       {
         "name": "spellbook_destiny",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -886,6 +1009,7 @@
       },
       {
         "name": "spellbook_infinity",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -893,6 +1017,7 @@
       },
       {
         "name": "spellbook_secret",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -900,6 +1025,7 @@
       },
       {
         "name": "spellbook_ancient",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -907,6 +1033,7 @@
       },
       {
         "name": "spellbook_static",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -914,6 +1041,7 @@
       },
       {
         "name": "spellbook_incineration",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -921,6 +1049,7 @@
       },
       {
         "name": "spellbook_guardian",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -928,6 +1057,7 @@
       },
       {
         "name": "spellbook_titans",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -935,6 +1065,7 @@
       },
       {
         "name": "spellbook_hellfire",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -942,6 +1073,7 @@
       },
       {
         "name": "spellbook_unknown",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -951,6 +1083,7 @@
     "spirit": [
       {
         "name": "spirit",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -958,6 +1091,7 @@
       },
       {
         "name": "spirit_grand",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -965,6 +1099,7 @@
       },
       {
         "name": "spirit_hell",
+        "price":0,
         "weight": 2,
         "minLevel": 20,
         "boost": 100,
@@ -972,6 +1107,7 @@
       },
       {
         "name": "spirit_heavenly",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -979,6 +1115,7 @@
       },
       {
         "name": "spirit_twin",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -986,6 +1123,7 @@
       },
       {
         "name": "spirit_evil",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 150,
@@ -993,6 +1131,7 @@
       },
       {
         "name": "spirit_battle",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -1000,6 +1139,7 @@
       },
       {
         "name": "spirit_strength",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -1007,6 +1147,7 @@
       },
       {
         "name": "spirit_blood",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -1014,6 +1155,7 @@
       },
       {
         "name": "spirit_ultra",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -1021,6 +1163,7 @@
       },
       {
         "name": "spirit_hyper",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -1028,6 +1171,7 @@
       },
       {
         "name": "spirit_idle",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
@@ -1037,6 +1181,7 @@
     "necklace": [
       {
         "name": "necklace",
+        "price":0,
         "weight": 0,
         "minLevel": 0,
         "boost": 0,
@@ -1044,6 +1189,7 @@
       },
       {
         "name": "necklace_ancient",
+        "price":0,
         "weight": 1,
         "minLevel": 10,
         "boost": 100,
@@ -1051,6 +1197,7 @@
       },
       {
         "name": "necklace_divine",
+        "price":0,
         "weight": 2,
         "minLevel": 50,
         "boost": 100,
@@ -1058,6 +1205,7 @@
       },
       {
         "name": "necklace_shadow",
+        "price":0,
         "weight": 3,
         "minLevel": 100,
         "boost": 100,
@@ -1065,6 +1213,7 @@
       },
       {
         "name": "necklace_chaos",
+        "price":0,
         "weight": 4,
         "minLevel": 150,
         "boost": 100,
@@ -1072,6 +1221,7 @@
       },
       {
         "name": "necklace_void",
+        "price":0,
         "weight": 5,
         "minLevel": 200,
         "boost": 100,
@@ -1079,6 +1229,7 @@
       },
       {
         "name": "necklace_implosion",
+        "price":0,
         "weight": 6,
         "minLevel": 250,
         "boost": 100,
@@ -1086,6 +1237,7 @@
       },
       {
         "name": "necklace_doomsday",
+        "price":0,
         "weight": 7,
         "minLevel": 300,
         "boost": 100,
@@ -1093,6 +1245,7 @@
       },
       {
         "name": "necklace_apocalypse",
+        "price":0,
         "weight": 8,
         "minLevel": 350,
         "boost": 100,
@@ -1100,6 +1253,7 @@
       },
       {
         "name": "necklace_premonition",
+        "price":0,
         "weight": 9,
         "minLevel": 400,
         "boost": 100,
@@ -1107,6 +1261,7 @@
       },
       {
         "name": "necklace_coin",
+        "price":0,
         "weight": 10,
         "minLevel": 450,
         "boost": 100,
@@ -1114,6 +1269,7 @@
       },
       {
         "name": "necklace_demon_eye",
+        "price":0,
         "weight": 11,
         "minLevel": 500,
         "boost": 100,
