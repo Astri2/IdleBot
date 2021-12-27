@@ -31,13 +31,13 @@ public enum Lang {
     public String get(String key, String ... variables) {
         if(langsMap.get(this) == null)
             loadLang(this);
-        String str = langsMap.get(this).get(key);
+        String str = langsMap.get(this).get(key.toLowerCase());
         if(str == null)
             return "`no string`";
         for(int i = 0 ; i < variables.length ; i++)
             str = str.replaceAll("\\{"+i+"}",variables[i]);
             str = str.replaceAll("([^\\\\]|^)[\\[\\]]","$1"); //remove all [] except if backslash before
-        return str ;
+        return str.replace("\\n","\n");
     }
 
     private static void loadLang(Lang lang) {

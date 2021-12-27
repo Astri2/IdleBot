@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class UpgradeManager { //TODO verifier que le type sert tjr a qqch
-    private static final HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> eqUpgrades = new HashMap<>(); //eq.id -> upgrade.name -> upgrade
+    private static final HashMap<String,LinkedHashMap<String, EquipmentUpgrade>> eqUpgrades = new HashMap<>(); //eq.id -> upgrade.name -> upgrade
 
     public static void initUpgrades() throws Exception {
         JSONObject JSONUpgrades = new JSONObject(Utils.readFile(Config.get("CONFIG_PATH")+ "upgrades.json"));

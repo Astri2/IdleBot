@@ -1,6 +1,5 @@
 package me.astri.idleBot.GameBot.main;
 
-import me.astri.idleBot.GameBot.Entities.upgrade.Upgrade;
 import me.astri.idleBot.GameBot.Entities.upgrade.UpgradeManager;
 import me.astri.idleBot.GameBot.commands.*;
 import me.astri.idleBot.GameBot.commands.debug.DebugCommands;
@@ -37,7 +36,8 @@ public class BotGame extends ListenerAdapter {
                 new setEphemeral(),
                 new ProfileDisplay(),
                 new LevelUpEquipment(),
-                new Reset()
+                new Reset(),
+                new Upgrades()
         );
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)

@@ -66,7 +66,11 @@ public class SlashCommandManager extends ListenerAdapter {
 
         cooldowns.get(slashCommand.getCommandData().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
         e.deferReply(ephemeral).queue();
-        slashCommand.handle(e,e.getHook());
+        try {
+            slashCommand.handle(e,e.getHook());
+        } catch (Exception exception) {
+            exception.printStackTrace(); //TODO exception manager
+        }
     }
 
     private ArrayList<CommandData> getAllCommandData() {

@@ -1,5 +1,6 @@
 package me.astri.idleBot.GameBot.Entities;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 @SuppressWarnings("unused")
@@ -114,6 +115,11 @@ public class Number {//TODO try to avoid using Math.pow
         return getScientificNotation(3);
     }
 
+    public String getNotation(boolean scientific) {
+        if(scientific) return getScientificNotation();
+        return getUnitNotation();
+    }
+
     private void toScientificNotation() throws Exception {
         if(Double.isInfinite(this.value)) {
             throw new Exception("Number is infinite!");
@@ -133,5 +139,9 @@ public class Number {//TODO try to avoid using Math.pow
             this.value*=10.;
             this.powerOfTen--;
         }
+    }
+
+    public double toDouble() {
+        return this.value*Math.pow(10,this.powerOfTen);
     }
 }

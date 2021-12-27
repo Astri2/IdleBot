@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 public interface ISlashCommand {
     CommandData getCommandData();
 
-    void handle(SlashCommandEvent e, InteractionHook hook);
+    void handle(SlashCommandEvent e, InteractionHook hook) throws Exception;
 
     default Boolean hasPermission(SlashCommandEvent e) {
         return true;
