@@ -40,9 +40,9 @@ public class EquipmentDisplay implements ISlashCommand {
                 hook.getInteraction().getGuild().getMember(user).getEffectiveName();
 
         HashMap<String, Equipment> equipments = player.getEquipment();
-        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("equipment_title",name),null, user.getAvatarUrl());
+        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("equipment_title",name),null, user.getEffectiveAvatarUrl());
         if(!author.equals(player))
-            eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getAvatarUrl());
+            eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getEffectiveAvatarUrl());
         for(Map.Entry<String,Equipment> set : equipments.entrySet()) {
             Equipment gearPiece = set.getValue();
             if(!gearPiece.isUnlocked())
@@ -54,7 +54,7 @@ public class EquipmentDisplay implements ISlashCommand {
             if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) > 0)
                 break;
         }
-        eb.setDescription(GameUtils.getNumber(player.getCoins(),author) + " " + Emotes.getEmote("coin") + author.getLang().get("coins"));
+        eb.setDescription(GameUtils.getNumber(player.getCoins(),author) + " " + Emotes.getEmote("coin") + " " + author.getLang().get("coins"));
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
                         Button.secondary("equipmentDisplay",author.getLang().get("display_equipment_button")),
