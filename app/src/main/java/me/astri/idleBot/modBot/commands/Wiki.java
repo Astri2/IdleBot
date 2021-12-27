@@ -17,7 +17,7 @@ public class Wiki {
         String arg = args[1];
         EmbedBuilder eb = new EmbedBuilder()
                 .setColor(0xFEAC01)
-                .setFooter("Requested by " + event.getAuthor().getAsTag(),event.getAuthor().getAvatarUrl())
+                .setFooter("Requested by " + event.getAuthor().getAsTag(),event.getAuthor().getEffectiveAvatarUrl())
                 .setThumbnail("https://static.wikia.nocookie.net/idleslayer/images/e/e6/Site-logo.png/revision/latest?cb=20210626192252")
                 .setAuthor(String.format("Results for \"%s\"", arg),
                 "https://idleslayer.fandom.com/wiki/Special:Search?query="+arg.replace(" ","+"));

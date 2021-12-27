@@ -35,12 +35,12 @@ public class ProfileDisplay implements ISlashCommand {
         String name = hook.getInteraction().getGuild().getMember(user) == null ? user.getName() :
                 hook.getInteraction().getGuild().getMember(user).getEffectiveName();
 
-        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("profile_title",name),null, user.getAvatarUrl())
+        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("profile_title",name),null, user.getEffectiveAvatarUrl())
                 .addField(Emotes.getEmote("coin") + " " + author.getLang().get("coins"), GameUtils.getNumber(player.getCoins(),author),true)
                 .addField(Emotes.getEmote("coin") + " " + author.getLang().get("production"), GameUtils.getNumber(player.getProduction(),author),true);
 
         if(!author.equals(player))
-            eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getAvatarUrl());
+            eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getEffectiveAvatarUrl());
 
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
