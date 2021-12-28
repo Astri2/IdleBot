@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class EventWaiter implements EventListener {
 
     private static final HashMap<Class<GenericEvent>, CopyOnWriteArrayList<Waiter<GenericEvent>>> waiterMap = new HashMap<>();
+    //TODO remplacer par une map si possible
 
     @Override
     public void onEvent(@NotNull GenericEvent e) {
@@ -37,15 +38,17 @@ public class EventWaiter implements EventListener {
         waiterMap.compute(
                 waiter.getEventType(), (k,v) -> {
                     if(v == null)
-                        return new CopyOnWriteArrayList <>() {{add(waiter);}};
+                        return new CopyOnWriteArrayList<>() {{add(waiter);}};
                     v.removeIf(wait -> wait.getId().equals(waiter.getId()));
                     v.add(waiter);
                     return v;
                 });
+        setAutoUnregister(waiter);
+    }
 
-        if(waiterToRegister.getExpirationTime() != 0) { //if = 0, no auto expiration
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
+    private static void setAutoUnregister(Waiter<GenericEvent> waiter) {
+        if(waiter.getExpirationTime() != 0) { //if = 0, no auto expiration
+            waiter.timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     if(waiterMap.get(waiter.getEventType()).remove(waiter) && waiter.getTimeoutAction() != null) { //if waiter was in the list && there is a timeoutAction
@@ -62,5 +65,14 @@ public class EventWaiter implements EventListener {
     }
     public static void unregister(Class<? extends GenericEvent> eventType, String id) {
         waiterMap.get(eventType).removeIf(event -> event.getId().equals(id));
+    }
+
+    public static void resetTimer(Class<? extends GenericEvent> eventType, String id) {
+        Waiter<GenericEvent> waiter = waiterMap.get(eventType)
+                .stream().filter(w -> w.getId().equals(id)).toList().get(0);
+        waiter.timer.cancel();
+        waiter.timer.purge();
+        waiter.timer = new Timer();
+        setAutoUnregister(waiter);
     }
 }

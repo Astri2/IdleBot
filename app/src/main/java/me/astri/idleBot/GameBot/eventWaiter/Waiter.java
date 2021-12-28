@@ -2,6 +2,7 @@ package me.astri.idleBot.GameBot.eventWaiter;
 
 import net.dv8tion.jda.api.events.GenericEvent;
 
+import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -17,6 +18,7 @@ public class Waiter<T extends GenericEvent> {
     private TimeUnit timeUnit;
     private Runnable timeoutAction;
     private String id;
+    Timer timer;
 
     public Class<T> getEventType() { return this.eventType; }
     public Consumer<WaiterAction<T>> getAction() { return this.action; }
@@ -46,6 +48,7 @@ public class Waiter<T extends GenericEvent> {
         this.expirationTime = expirationTime;
         this.timeUnit = timeUnit;
         this.timeoutAction = timeoutAction;
+        this.timer = new Timer();
     }
 
     public Waiter(Class<T> eventType, Predicate<T> conditions, Consumer<WaiterAction<T>> action, Consumer<WaiterAction<T>> failureAction, boolean autoRemove, Long expirationTime, TimeUnit timeUnit) {
@@ -57,6 +60,7 @@ public class Waiter<T extends GenericEvent> {
     }
 
     public Waiter() {
+        this.timer = new Timer();
     }
 
     public void register(String id) {

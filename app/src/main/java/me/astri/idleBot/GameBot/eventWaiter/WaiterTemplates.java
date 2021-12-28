@@ -30,7 +30,7 @@ public abstract class WaiterTemplates {
                 .queue(msg -> {
                     Waiter<ButtonClickEvent> waiter = new Waiter<>();
                     waiter.setEventType(ButtonClickEvent.class)
-                            .setExpirationTime(1, TimeUnit.MINUTES)
+                            .setExpirationTime(10, TimeUnit.SECONDS)
                             .setTimeoutAction(() -> {
                                 msg.editMessage(message + "\n" + lang.get("expired")).queue();
                                 msg.editMessageComponents(getKP(id,false,true)).queue();
@@ -45,6 +45,7 @@ public abstract class WaiterTemplates {
                                             .setEphemeral(true).queue();
                             })
                             .setAction(ctx -> {
+                                ctx.resetTimer();
                                 String suffix = ctx.getEvent().getInteraction().getButton().getId().substring(id.length()); //get the suffix to know which button pressed
                                 if(suffix.equals("0") && number.get().isEmpty()) {
                                     ctx.getEvent().editMessage(message + "\n" + "_").queue();

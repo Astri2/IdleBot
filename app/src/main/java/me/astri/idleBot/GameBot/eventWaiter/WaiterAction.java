@@ -24,4 +24,8 @@ public class WaiterAction<T extends GenericEvent> {
     public void unregister() {
         EventWaiter.unregister(e.getClass(),id);
     }
+
+    public void resetTimer() {
+        EventWaiter.resetTimer(e.getClass(),id);
+    }
 }
