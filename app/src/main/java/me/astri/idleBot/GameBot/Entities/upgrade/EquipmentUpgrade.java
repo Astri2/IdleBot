@@ -4,7 +4,6 @@ import me.astri.idleBot.GameBot.Entities.Number;
 import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.Entities.player.Player;
 import me.astri.idleBot.GameBot.main.Emotes;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,8 +20,11 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
     private final int weight;
     private final int boost;
 
-    public EquipmentUpgrade(String name, String icon, Number price, String strType, String eq, int minLvl, int weight, int boost) {
-        super(name,icon,price,Type.valueOf(strType),getCondition(minLvl),getAction(boost));
+    public EquipmentUpgrade(String name, String icon, Number price, String eq, int minLvl, int weight, int boost) {
+        super(name,icon,price);
+        this.condition = getCondition(minLvl);
+        this.action = getAction(boost);
+
         this.minLvl = minLvl;
         this.eq = eq;
         this.weight = weight;
@@ -45,28 +47,31 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
         return boost/100;
     }
 
-    private static Predicate<Object> getCondition(int minLvl) {
+    private Predicate<Object> getCondition(int minLvl) {
         return obj -> {
             Equipment eq = (Equipment)obj;
             return eq.getLevel() >= minLvl;
         };
     }
-    private static Consumer<Object> getAction(int boost) {
+    private Consumer<Object> getAction(int boost) {
         return obj -> {
             Equipment eq = (Equipment) obj;
             eq.increaseBooster(boost/100);
+            eq.updateCurrentUpgrade(this);
         };
     }
 
     @Override
-    public MessageEmbed.Field getUpgradeField(Player p, boolean current, boolean canAfford) {
-        return new MessageEmbed.Field(
-                p.getLang().get(this.type.toString() + "_upg_title",current ? "►":"", this.icon, p.getLang().get(this.name)),
-                p.getLang().get(this.type.toString() + "_upg_desc", this.eq,
-                        Integer.toString(this.boost),
-                        canAfford ? Emotes.getEmote("yes") : Emotes.getEmote("no"),
-                        this.price.getNotation(p.isUseScNotation())+ Emotes.getEmote("coin")),
-                true);
+    protected String getUpgradeTitle(Player p, boolean current) {
+        return p.getLang().get("equipment_upg_title",current ? "►":"", this.icon, p.getLang().get(this.name));
+    }
+
+    @Override
+    protected String getUpgradeDesc(Player p, boolean canAfford) {
+        return p.getLang().get("equipment_upg_desc", p.getLang().get(p.getEquipment().get(this.eq).getName()),
+                Integer.toString(this.boost),
+                canAfford ? Emotes.getEmote("yes") : Emotes.getEmote("no"),
+                this.price.getNotation(p.isUseScNotation())+ Emotes.getEmote("coin"));
     }
 
     public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) throws Exception {
@@ -82,7 +87,6 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
                         upgrade.getString("name"),
                         upgrade.getString("icon"),
                         new Number(upgrade.getInt("price")),
-                        "EQUIPMENT",
                         eq,
                         upgrade.getInt("minLevel"),
                         upgrade.getInt("weight"),

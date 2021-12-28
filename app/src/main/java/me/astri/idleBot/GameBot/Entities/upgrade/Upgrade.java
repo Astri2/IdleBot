@@ -2,38 +2,29 @@ package me.astri.idleBot.GameBot.Entities.upgrade;
 
 import me.astri.idleBot.GameBot.Entities.Number;
 import me.astri.idleBot.GameBot.Entities.player.Player;
+import me.astri.idleBot.GameBot.main.Emotes;
 import net.dv8tion.jda.api.entities.MessageEmbed;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public abstract class Upgrade {
-    protected enum Type {
-        EQUIPMENT
-    }
 
     protected final String name;
     protected final String icon;
     protected final Number price;
-    protected final Type type;
-    protected final Predicate<Object> condition;
-    protected final Consumer<Object> action;
+    protected Predicate<Object> condition;
+    protected Consumer<Object> action;
 
-    public Upgrade(String name, String icon, Number price, Type type, Predicate<Object> condition, Consumer<Object> action) {
+    public Upgrade(String name, String icon, Number price) {
         this.name = name;
         this.icon = icon;
         this.price = price;
-        this.type = type;
-        this.condition = condition;
-        this.action = action;
     }
 
     public String getName() {
         return this.name;
-    }
-
-    public Type getType() {
-        return this.type;
     }
 
     public String getIcon() {
@@ -52,5 +43,11 @@ public abstract class Upgrade {
         action.accept(t);
     }
 
-    public abstract MessageEmbed.Field getUpgradeField(Player p, boolean current, boolean canAfford);
+    public MessageEmbed.Field getUpgradeField(Player p, boolean current, boolean canAfford) {
+        return new MessageEmbed.Field(getUpgradeTitle(p,current),getUpgradeDesc(p,canAfford),true);
+    }
+
+    protected abstract String getUpgradeTitle(Player p, boolean current);
+
+    protected abstract String getUpgradeDesc(Player p, boolean canAfford);
 }

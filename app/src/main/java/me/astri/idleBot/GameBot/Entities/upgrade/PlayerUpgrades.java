@@ -1,9 +1,6 @@
 package me.astri.idleBot.GameBot.Entities.upgrade;
 
-import me.astri.idleBot.GameBot.Entities.Number;
-import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.Entities.player.Player;
-import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -41,11 +38,13 @@ public class PlayerUpgrades {
 
     public void buy(Player p, Upgrade upgrade, List<Upgrade> availableSortedUpgrades) {
         p.editCoins(BigDecimal.valueOf(upgrade.getPrice().toDouble()).negate());
+        availableUpgrades.remove(upgrade.getName());
+        availableSortedUpgrades.remove(upgrade);
+
         if (upgrade instanceof EquipmentUpgrade) {
             EquipmentUpgrade up = (EquipmentUpgrade)upgrade;
+            up.action(p.getEquipment().get(up.getEq()));
             this.getBought().getEq().get(up.getEq()).add(up.getName());
-            availableUpgrades.remove(up.getName());
-            availableSortedUpgrades.remove(up);
         }
     }
 

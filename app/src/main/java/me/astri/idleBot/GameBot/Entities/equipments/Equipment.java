@@ -32,7 +32,6 @@ public class Equipment implements Serializable {
                 this.id,
                 jsonEquipment.getString("baseIcon"),
                 new Number(0),
-                "EQUIPMENT",
                 this.id,
                 0,
                 0,
@@ -53,12 +52,12 @@ public class Equipment implements Serializable {
         if(UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade).meetUnlockCondition(this)) {
             p.getAvailable().add(str_upgrade);
             upgradesByEq.remove(str_upgrade);
-
-            //EquipmentUpgrade eqUpgrade = UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade);
-            //currentUpgrade = (currentUpgrade != null && currentUpgrade.getWeight() > eqUpgrade.getWeight()) ? currentUpgrade : eqUpgrade;
-            //currentUpgrade.action(this); //apply the booster
             queryLevelUpgrades(p); //loop until you get all of them or you don't have the level requirement
         }
+    }
+
+    public void updateCurrentUpgrade(EquipmentUpgrade newUpgrade) {
+        if(currentUpgrade.getWeight() < newUpgrade.getWeight()) currentUpgrade = newUpgrade;
     }
 
     public boolean isUnlocked() { return unlocked; }
