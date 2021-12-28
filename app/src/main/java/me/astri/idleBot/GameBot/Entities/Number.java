@@ -144,4 +144,10 @@ public class Number {//TODO try to avoid using Math.pow
     public double toDouble() {
         return this.value*Math.pow(10,this.powerOfTen);
     }
+
+    public int compareTo(Number nb) {
+        if(nb.powerOfTen > this.powerOfTen) return -1;
+        if(nb.powerOfTen < this.powerOfTen) return 1;
+        return Double.compare(this.value, nb.value); // -1, 0 or 1 | < = >
+    }
 }

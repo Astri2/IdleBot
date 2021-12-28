@@ -32,6 +32,10 @@ public abstract class Upgrade {
         return this.name;
     }
 
+    public Type getType() {
+        return this.type;
+    }
+
     public String getIcon() {
         return this.icon;
     }

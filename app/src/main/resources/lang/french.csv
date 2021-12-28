@@ -1,7 +1,7 @@
 success_register,{0} bienvenue dans IdleBot !
 error_already_registered,{0} tu es déjà inscrit !
-error_someone_unregistered,{0} n'est pas inscrit ! Il peut s'inscrire avec [/register]
-error_you_unregistered, {0} tu n'es pas inscrit ! Tu peux t'inscrire avec [/register]
+error_someone_unregistered,{0} n'est pas inscrit ! Il peut s'inscrire avec `/register`
+error_you_unregistered, {0} tu n'es pas inscrit ! Tu peux t'inscrire avec `/register`
 error_nan,La valeur fournie n'est pas un nombre
 error_not_enough_money,{0} Tu n'as pas assez d'argent !
 error_cant_interact,{0} tu ne peux pas interagir avec ça !
@@ -187,3 +187,4 @@ nbr_max,Maximum
 progression_reset,{0} ta progression a été réinitialisée !
 equipment_upg_title,{0} {1} {2}
 equipment_upg_desc,Ton équipement {0} te donnes dorénavant {1}% plus de Pièces.\n{2} Coût : {3}
+no_available_upgrade,Tu n'a aucune amélioration disponible...

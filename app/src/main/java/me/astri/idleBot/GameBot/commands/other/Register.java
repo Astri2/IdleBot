@@ -33,7 +33,7 @@ public class Register implements ISlashCommand {
     }
 
     @Override
-    public void handle(SlashCommandEvent e, InteractionHook hook) {
+    public void handle(SlashCommandEvent e, InteractionHook hook) throws Exception {
         Lang lang = null;
         boolean scNotation = false;
         String ephemeral = "default";

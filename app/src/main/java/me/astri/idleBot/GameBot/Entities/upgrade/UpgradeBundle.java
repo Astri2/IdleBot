@@ -3,9 +3,10 @@ package me.astri.idleBot.GameBot.Entities.upgrade;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class UpgradeBundle {
-    private final HashMap<String, ArrayList<String>> eqUpgrades = new HashMap<>();
+    private final HashMap<String, List<String>> eqUpgrades = new HashMap<>();
 
     public UpgradeBundle(boolean init) {
         //init eqUpgrades
@@ -23,7 +24,7 @@ public class UpgradeBundle {
         }
     }
 
-    public HashMap<String, ArrayList<String>> getEq() {
+    public HashMap<String, List<String>> getEq() {
         return eqUpgrades;
     }
 }

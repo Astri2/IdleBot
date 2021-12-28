@@ -1,5 +1,6 @@
 package me.astri.idleBot.GameBot.Entities.equipments;
 
+import me.astri.idleBot.GameBot.Entities.Number;
 import me.astri.idleBot.GameBot.Entities.upgrade.EquipmentUpgrade;
 import me.astri.idleBot.GameBot.Entities.upgrade.PlayerUpgrades;
 import me.astri.idleBot.GameBot.Entities.upgrade.UpgradeManager;
@@ -19,13 +20,24 @@ public class Equipment implements Serializable {
     private EquipmentUpgrade currentUpgrade;
     private int booster;
 
-    public Equipment(JSONObject jsonEquipment, PlayerUpgrades upgrades) {
+    public Equipment(JSONObject jsonEquipment, PlayerUpgrades upgrades) throws Exception {
         level = 0;
         this.id = jsonEquipment.getString("id");
         this.unlocked = jsonEquipment.getBoolean("unlocked");
         this.price = BigDecimal.valueOf(jsonEquipment.getLong("basePrice"));
         this.baseProduction = jsonEquipment.getDouble("baseProduction");
         queryLevelUpgrades(upgrades);
+
+        currentUpgrade =new EquipmentUpgrade(
+                this.id,
+                jsonEquipment.getString("baseIcon"),
+                new Number(0),
+                "EQUIPMENT",
+                this.id,
+                0,
+                0,
+                0
+        );
     }
 
     public void levelUp(int levels, PlayerUpgrades upgrades) {
@@ -36,15 +48,15 @@ public class Equipment implements Serializable {
 
     private void queryLevelUpgrades(PlayerUpgrades p) {
         List<String> upgradesByEq = p.getUnbought().getEq().get(this.id);
-        if(upgradesByEq.isEmpty()) return;
+        if(upgradesByEq.isEmpty()) return; //you already own all upgrades of that eq
         String str_upgrade = upgradesByEq.get(0);
         if(UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade).meetUnlockCondition(this)) {
-            p.getBought().getEq().get(this.id).add(str_upgrade);
+            p.getAvailable().add(str_upgrade);
             upgradesByEq.remove(str_upgrade);
 
-            EquipmentUpgrade eqUpgrade = UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade);
-            currentUpgrade = (currentUpgrade != null && currentUpgrade.getWeight() > eqUpgrade.getWeight()) ? currentUpgrade : eqUpgrade;
-            currentUpgrade.action(this); //apply the booster
+            //EquipmentUpgrade eqUpgrade = UpgradeManager.getEqUpgrades().get(this.id).get(str_upgrade);
+            //currentUpgrade = (currentUpgrade != null && currentUpgrade.getWeight() > eqUpgrade.getWeight()) ? currentUpgrade : eqUpgrade;
+            //currentUpgrade.action(this); //apply the booster
             queryLevelUpgrades(p); //loop until you get all of them or you don't have the level requirement
         }
     }

@@ -69,7 +69,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
                 true);
     }
 
-    public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades) throws Exception {
+    public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) throws Exception {
         JSONArray JSONEqList = JSONEqUpgrades.getJSONArray("eq_list");
         for(int i = 0 ; i < JSONEqList.length() ; i++) {
             String eq = JSONEqList.getString(i);
@@ -78,18 +78,18 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
             JSONArray JSONUpgrades = JSONEqUpgrades.getJSONArray(eq);
             for(int k = 0 ; k < JSONUpgrades.length() ; k++) {
                 JSONObject upgrade = JSONUpgrades.getJSONObject(k);
-                upgrades.put(upgrade.getString("name"),
-                        new EquipmentUpgrade(
-                                upgrade.getString("name"),
-                                upgrade.getString("icon"),
-                                new Number(upgrade.getInt("price")),
-                                "EQUIPMENT",
-                                eq,
-                                upgrade.getInt("minLevel"),
-                                upgrade.getInt("weight"),
-                                upgrade.getInt("boost")
-                        )
-                );
+                EquipmentUpgrade eqUp =  new EquipmentUpgrade(
+                        upgrade.getString("name"),
+                        upgrade.getString("icon"),
+                        new Number(upgrade.getInt("price")),
+                        "EQUIPMENT",
+                        eq,
+                        upgrade.getInt("minLevel"),
+                        upgrade.getInt("weight"),
+                        upgrade.getInt("boost")
+                    );
+                upgrades.put(upgrade.getString("name"), eqUp);
+                upg.put(upgrade.getString("name"), eqUp);
             }
         }
     }

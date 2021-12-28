@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public enum Lang {
     ENGLISH("English"),
@@ -34,10 +36,20 @@ public enum Lang {
         String str = langsMap.get(this).get(key.toLowerCase());
         if(str == null)
             return "`no string`";
+        return fixString(str,variables);
+    }
+
+    private static final Pattern emotePattern = Pattern.compile("§(.+?)§");
+    private String fixString(String str, String[] variables) {
         for(int i = 0 ; i < variables.length ; i++)
             str = str.replaceAll("\\{"+i+"}",variables[i]);
-            str = str.replaceAll("([^\\\\]|^)[\\[\\]]","$1"); //remove all [] except if backslash before
-        return str.replace("\\n","\n");
+
+        str = str.replace("\\n","\n"); //fix multiple lines
+        Matcher m = emotePattern.matcher(str); //fix
+        while(m.find()) {
+            str = str.replaceFirst("§.+?§", Emotes.getEmote(m.group(1)));
+        }
+        return str;
     }
 
     private static void loadLang(Lang lang) {

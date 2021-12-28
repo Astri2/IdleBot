@@ -3,14 +3,6 @@
     "eq_list": ["sword","shield","armor","helmet","boots","ring","dagger","axe","staff","bow","spellbook","spirit","necklace"],
     "sword": [
       {
-        "name": "sword",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Sword:884124806482649180>"
-      },
-      {
         "name": "sword_steel",
         "price":50,
         "weight": 1,
@@ -102,14 +94,6 @@
     ],
     "shield": [
       {
-        "name": "shield",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Shield:884894979334492230>"
-      },
-      {
         "name": "shield_reinforced",
         "price":500,
         "weight": 1,
@@ -199,14 +183,6 @@
       }
     ],
     "armor": [
-      {
-        "name": "armor",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Armor:885900470097436732>"
-      },
       {
         "name": "armor_burlap",
         "price":0,
@@ -298,14 +274,6 @@
     ],
     "helmet": [
       {
-        "name": "helmet",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Helmet:886590115722444850>"
-      },
-      {
         "name": "helmet_burlap",
         "price":0,
         "weight": 1,
@@ -395,14 +363,6 @@
       }
     ],
     "boots": [
-      {
-        "name": "boots",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<a:boots:886603412395946014>"
-      },
       {
         "name": "boots_burlap",
         "price":0,
@@ -494,14 +454,6 @@
     ],
     "ring": [
       {
-        "name": "ring",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<a:ring:886883889988120616>"
-      },
-      {
         "name": "ring_silver",
         "price":0,
         "weight": 1,
@@ -591,14 +543,6 @@
       }
     ],
     "dagger": [
-      {
-        "name": "dagger",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<a:dagger:896884323607805982>"
-      },
       {
         "name": "dagger_black",
         "price":0,
@@ -690,14 +634,6 @@
     ],
     "axe": [
       {
-        "name": "axe",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<a:Axe:896890193989210142>"
-      },
-      {
         "name": "axe_black",
         "price":0,
         "weight": 1,
@@ -787,14 +723,6 @@
       }
     ],
     "staff": [
-      {
-        "name": "staff",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Staff:900769202200248340>"
-      },
       {
         "name": "staff_black",
         "price":0,
@@ -886,14 +814,6 @@
     ],
     "bow": [
       {
-        "name": "bow",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Bow:901115905688363098>"
-      },
-      {
         "name": "bow_black",
         "price":0,
         "weight": 1,
@@ -983,14 +903,6 @@
       }
     ],
     "spellbook": [
-      {
-        "name": "spellbook",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Spellbook:901120747383181372>"
-      },
       {
         "name": "spellbook_elder",
         "price":0,
@@ -1082,14 +994,6 @@
     ],
     "spirit": [
       {
-        "name": "spirit",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<:Spirit:901146873727963137>"
-      },
-      {
         "name": "spirit_grand",
         "price":0,
         "weight": 1,
@@ -1179,14 +1083,6 @@
       }
     ],
     "necklace": [
-      {
-        "name": "necklace",
-        "price":0,
-        "weight": 0,
-        "minLevel": 0,
-        "boost": 0,
-        "icon": "<a:Necklace:901156008708161687>"
-      },
       {
         "name": "necklace_ancient",
         "price":0,

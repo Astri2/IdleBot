@@ -6,7 +6,7 @@ public class Emotes {
     private static final HashMap<String,String> emotes = new HashMap<>();
     public static String getEmote(String name) {
         String emote = emotes.get(name.toLowerCase());
-        return emote == null ? "NA" : emote;
+        return emote == null ? "N/A" : emote;
     }
 
     public static void init() {

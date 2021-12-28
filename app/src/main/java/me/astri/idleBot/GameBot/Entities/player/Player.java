@@ -1,5 +1,6 @@
 package me.astri.idleBot.GameBot.Entities.player;
 
+import me.astri.idleBot.GameBot.Entities.Number;
 import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.Entities.upgrade.PlayerUpgrades;
 import me.astri.idleBot.GameBot.main.Config;
@@ -26,7 +27,7 @@ public class Player extends BotUser implements Serializable {
     private final LinkedHashMap<String, Equipment> equipments = new LinkedHashMap<>();
     private final PlayerUpgrades upgrades;
 
-    public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
+    public Player(String id, Lang lang, boolean scNotation, String ephemeral) throws Exception {
         super(id, lang, scNotation, ephemeral);
         coins = new BigDecimal(6);
         lastUpdateTime = System.currentTimeMillis();
@@ -34,7 +35,7 @@ public class Player extends BotUser implements Serializable {
         initEquipments();
     }
 
-    private void initEquipments() {
+    private void initEquipments() throws Exception {
         if(JsonEquipments == null) //read only once
             JsonEquipments = new JSONObject(Utils.readFile(Config.get("CONFIG_PATH") + "equipment.json")).getJSONArray("equipment");
         for(int i = 0 ; i < JsonEquipments.length() ; i++) {
@@ -58,7 +59,7 @@ public class Player extends BotUser implements Serializable {
     }
 
     public BigDecimal getCoins() {
-        return coins;
+        return this.coins;
     }
 
     public void editCoins(BigDecimal coins) {
