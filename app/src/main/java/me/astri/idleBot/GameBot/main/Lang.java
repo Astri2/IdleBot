@@ -40,14 +40,17 @@ public enum Lang {
     }
 
     private static final Pattern emotePattern = Pattern.compile("§(.+?)§");
+    private static final Pattern varPattern = Pattern.compile("\\{([0-9]+)}");
     private String fixString(String str, String[] variables) {
-        for(int i = 0 ; i < variables.length ; i++)
-            str = str.replaceAll("\\{"+i+"}",variables[i]);
-
         str = str.replace("\\n","\n"); //fix multiple lines
-        Matcher m = emotePattern.matcher(str); //fix
+
+        Matcher m = varPattern.matcher(str); //variables
         while(m.find()) {
-            str = str.replaceFirst("§.+?§", Emotes.getEmote(m.group(1)));
+            str = str.replace(m.group(0),variables[Integer.parseInt(m.group(1))]);
+        }
+        Matcher m1 = emotePattern.matcher(str); //emotes
+        while(m1.find()) {
+            str = str.replace(m1.group(0), Emotes.getEmote(m1.group(1)));
         }
         return str;
     }
@@ -64,4 +67,3 @@ public enum Lang {
         }
     }
 }
-

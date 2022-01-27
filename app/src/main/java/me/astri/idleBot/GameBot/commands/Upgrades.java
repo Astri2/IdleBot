@@ -66,7 +66,7 @@ public class Upgrades implements ISlashCommand {
                         }
                         case "buy_all" -> {
                             player.getUpgrades().buyAll(player, upgrades.get());
-                            while(current.get() >= upgrades.get().size()) current.addAndGet(-1);
+                            current.set(Math.min(current.get(),upgrades.get().size()-1));
                             max.set(Math.min(upgrades.get().size(), 12));
                         }
                     }

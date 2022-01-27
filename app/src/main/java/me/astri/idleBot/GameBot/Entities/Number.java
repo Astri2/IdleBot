@@ -1,6 +1,5 @@
 package me.astri.idleBot.GameBot.Entities;
 
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 @SuppressWarnings("unused")
@@ -43,7 +42,7 @@ public class Number {//TODO try to avoid using Math.pow
             this.value = n1.value;
             return this;
         }
-        else {
+        else { //perform the calculation
             this.value += n1.value/Math.pow(10,this.powerOfTen-n1.powerOfTen);
             toScientificNotation();
             return this;

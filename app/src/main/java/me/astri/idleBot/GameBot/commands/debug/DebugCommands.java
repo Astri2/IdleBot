@@ -28,6 +28,7 @@ public class DebugCommands extends ListenerAdapter {
     }
 
     private void give(GuildMessageReceivedEvent event) {
+        System.out.println(event.getMessage().getTimeCreated().toEpochSecond());
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         String[] args = event.getMessage().getContentRaw().split("\\s+");
@@ -94,6 +95,7 @@ public class DebugCommands extends ListenerAdapter {
                 }
 
             }
+
 
             //PUT NEW DATA INTO DB
             HashMap<String, BotUser> new_botUsers = new HashMap<>();

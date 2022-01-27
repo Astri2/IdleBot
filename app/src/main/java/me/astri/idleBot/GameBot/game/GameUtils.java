@@ -50,7 +50,6 @@ public abstract class GameUtils {
                                                 "Qd","Sd","St","Od","Nd","Vg"};
     private static String getCompactNotation(BigDecimal number) {
         String scNotation = getScientistNotation(number);
-
         try {
             int powerOfTen = Integer.parseInt(scNotation.replaceAll(".+e","")); //"1.00E9" -> 9
             double value = Double.parseDouble(scNotation.replaceAll("e.+","").replace(",",".")); //"1.00E9" -> 1.00

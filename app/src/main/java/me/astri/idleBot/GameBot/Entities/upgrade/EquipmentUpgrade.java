@@ -71,7 +71,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
         return p.getLang().get("equipment_upg_desc", p.getLang().get(p.getEquipment().get(this.eq).getName()),
                 Integer.toString(this.boost),
                 canAfford ? Emotes.getEmote("yes") : Emotes.getEmote("no"),
-                this.price.getNotation(p.isUseScNotation())+ Emotes.getEmote("coin"));
+                this.price.getNotation(p.isUseScNotation()) + Emotes.getEmote("coin"));
     }
 
     public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) throws Exception {

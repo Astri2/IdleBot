@@ -12,16 +12,12 @@ import java.util.List;
 
 
 public abstract class Utils {
-    public static boolean isInt(String input) {
-        return input.matches("-?[0-9]+");
-    }
-
     public static ArrayList<List<String>> readCSV(String path) {
         ArrayList<List<String>> records = new ArrayList<>();
         try {
             Files.readAllLines(Path.of(path)).forEach(line -> {
                 if(line.startsWith("#")) return;
-                String[] values = line.replaceAll("([ ]*,[ ]*)",",").split(",");
+                String[] values = line.split(",");
                 records.add(Arrays.asList(values));
             });
         } catch (IOException e) {
