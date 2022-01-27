@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.utils;
 
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;

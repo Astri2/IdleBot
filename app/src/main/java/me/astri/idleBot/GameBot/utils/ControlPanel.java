@@ -1,5 +1,7 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.utils;
 
+import me.astri.idleBot.GameBot.BotGame;
+import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import net.dv8tion.jda.api.entities.TextChannel;

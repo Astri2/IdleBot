@@ -1,9 +1,9 @@
 package me.astri.idleBot.GameBot.slashCommandHandler;
 
-import me.astri.idleBot.GameBot.Entities.player.BotUser;
-import me.astri.idleBot.GameBot.main.Config;
-import me.astri.idleBot.GameBot.main.DataBase;
-import me.astri.idleBot.GameBot.main.Utils;
+import me.astri.idleBot.GameBot.entities.player.BotUser;
+import me.astri.idleBot.GameBot.utils.Config;
+import me.astri.idleBot.GameBot.dataBase.DataBase;
+import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;

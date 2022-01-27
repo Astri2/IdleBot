@@ -1,7 +1,7 @@
 package me.astri.idleBot;
 
-import me.astri.idleBot.GameBot.main.BotGame;
-import me.astri.idleBot.GameBot.main.Config;
+import me.astri.idleBot.GameBot.BotGame;
+import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.modBot.main.BotMod;
 
 import javax.security.auth.login.LoginException;

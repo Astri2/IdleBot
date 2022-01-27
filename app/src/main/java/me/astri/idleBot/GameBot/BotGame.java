@@ -1,6 +1,7 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot;
 
-import me.astri.idleBot.GameBot.Entities.upgrade.UpgradeManager;
+import me.astri.idleBot.GameBot.dataBase.DataBase;
+import me.astri.idleBot.GameBot.entities.upgrade.UpgradeManager;
 import me.astri.idleBot.GameBot.commands.*;
 import me.astri.idleBot.GameBot.commands.debug.DebugCommands;
 import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
@@ -12,6 +13,8 @@ import me.astri.idleBot.GameBot.commands.settings.setLang;
 import me.astri.idleBot.GameBot.commands.settings.setNotation;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.game.PermaActionComponent;
+import me.astri.idleBot.GameBot.utils.ControlPanel;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;

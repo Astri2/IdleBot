@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.Entities;
+package me.astri.idleBot.GameBot.entities;
 
 import java.util.regex.Pattern;
 

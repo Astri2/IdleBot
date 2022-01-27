@@ -1,6 +1,6 @@
-package me.astri.idleBot.GameBot.Entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade;
 
-import me.astri.idleBot.GameBot.Entities.player.Player;
+import me.astri.idleBot.GameBot.entities.player.Player;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -41,8 +41,7 @@ public class PlayerUpgrades {
         availableUpgrades.remove(upgrade.getName());
         availableSortedUpgrades.remove(upgrade);
 
-        if (upgrade instanceof EquipmentUpgrade) {
-            EquipmentUpgrade up = (EquipmentUpgrade)upgrade;
+        if (upgrade instanceof EquipmentUpgrade up) {
             up.action(p.getEquipment().get(up.getEq()));
             this.getBought().getEq().get(up.getEq()).add(up.getName());
         }

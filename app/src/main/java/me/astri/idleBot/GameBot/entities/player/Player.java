@@ -1,11 +1,10 @@
-package me.astri.idleBot.GameBot.Entities.player;
+package me.astri.idleBot.GameBot.entities.player;
 
-import me.astri.idleBot.GameBot.Entities.Number;
-import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
-import me.astri.idleBot.GameBot.Entities.upgrade.PlayerUpgrades;
-import me.astri.idleBot.GameBot.main.Config;
-import me.astri.idleBot.GameBot.main.Lang;
-import me.astri.idleBot.GameBot.main.Utils;
+import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.upgrade.PlayerUpgrades;
+import me.astri.idleBot.GameBot.utils.Config;
+import me.astri.idleBot.GameBot.utils.Lang;
+import me.astri.idleBot.GameBot.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

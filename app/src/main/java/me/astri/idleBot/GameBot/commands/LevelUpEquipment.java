@@ -1,12 +1,12 @@
 package me.astri.idleBot.GameBot.commands;
 
-import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
-import me.astri.idleBot.GameBot.Entities.player.Player;
+import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.eventWaiter.WaiterTemplates;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.main.Emotes;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.IMentionable;

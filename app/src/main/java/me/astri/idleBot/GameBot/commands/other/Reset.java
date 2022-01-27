@@ -1,8 +1,8 @@
 package me.astri.idleBot.GameBot.commands.other;
 
-import me.astri.idleBot.GameBot.Entities.player.Player;
+import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.main.DataBase;
+import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;

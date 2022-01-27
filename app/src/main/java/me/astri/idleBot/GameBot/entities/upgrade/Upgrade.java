@@ -1,10 +1,8 @@
-package me.astri.idleBot.GameBot.Entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade;
 
-import me.astri.idleBot.GameBot.Entities.Number;
-import me.astri.idleBot.GameBot.Entities.player.Player;
-import me.astri.idleBot.GameBot.main.Emotes;
+import me.astri.idleBot.GameBot.entities.Number;
+import me.astri.idleBot.GameBot.entities.player.Player;
 import net.dv8tion.jda.api.entities.MessageEmbed;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;

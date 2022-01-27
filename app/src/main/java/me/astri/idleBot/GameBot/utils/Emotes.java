@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.utils;
 
 import java.util.HashMap;
 

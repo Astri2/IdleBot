@@ -1,7 +1,9 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.dataBase;
 
-import me.astri.idleBot.GameBot.Entities.player.BotUser;
+import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
+import me.astri.idleBot.GameBot.BotGame;
+import me.astri.idleBot.GameBot.utils.Config;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.ShutdownEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;

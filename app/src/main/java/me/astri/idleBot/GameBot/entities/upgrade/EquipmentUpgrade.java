@@ -1,9 +1,9 @@
-package me.astri.idleBot.GameBot.Entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade;
 
-import me.astri.idleBot.GameBot.Entities.Number;
-import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
-import me.astri.idleBot.GameBot.Entities.player.Player;
-import me.astri.idleBot.GameBot.main.Emotes;
+import me.astri.idleBot.GameBot.entities.Number;
+import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.player.Player;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

@@ -1,6 +1,6 @@
-package me.astri.idleBot.GameBot.Entities.player;
+package me.astri.idleBot.GameBot.entities.player;
 
-import me.astri.idleBot.GameBot.main.Lang;
+import me.astri.idleBot.GameBot.utils.Lang;
 
 import java.io.Serializable;
 

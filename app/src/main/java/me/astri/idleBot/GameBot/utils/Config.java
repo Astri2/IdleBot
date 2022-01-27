@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.utils;
 
 public class Config {
     public static String get(String key) {

@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.main;
+package me.astri.idleBot.GameBot.utils;
 
 import net.dv8tion.jda.api.interactions.commands.Command;
 
@@ -43,7 +43,6 @@ public enum Lang {
     private static final Pattern varPattern = Pattern.compile("\\{([0-9]+)}");
     private String fixString(String str, String[] variables) {
         str = str.replace("\\n","\n"); //fix multiple lines
-
         Matcher m = varPattern.matcher(str); //variables
         while(m.find()) {
             str = str.replace(m.group(0),variables[Integer.parseInt(m.group(1))]);

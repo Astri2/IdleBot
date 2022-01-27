@@ -1,6 +1,6 @@
 package me.astri.idleBot.modBot.listeners;
 
-import me.astri.idleBot.GameBot.main.Config;
+import me.astri.idleBot.GameBot.utils.Config;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

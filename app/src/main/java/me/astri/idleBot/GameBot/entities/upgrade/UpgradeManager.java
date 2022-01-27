@@ -1,7 +1,7 @@
-package me.astri.idleBot.GameBot.Entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade;
 
-import me.astri.idleBot.GameBot.main.Config;
-import me.astri.idleBot.GameBot.main.Utils;
+import me.astri.idleBot.GameBot.utils.Config;
+import me.astri.idleBot.GameBot.utils.Utils;
 import org.json.JSONObject;
 
 import java.util.Comparator;

@@ -1,16 +1,20 @@
 package me.astri.idleBot.GameBot.commands.debug;
 
-import me.astri.idleBot.GameBot.Entities.equipments.Equipment;
-import me.astri.idleBot.GameBot.Entities.player.BotUser;
-import me.astri.idleBot.GameBot.Entities.player.Player;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import me.astri.idleBot.GameBot.dataBase.DataBase;
+import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
+import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.player.BotUser;
+import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.main.DataBase;
-import me.astri.idleBot.GameBot.main.Lang;
+import me.astri.idleBot.GameBot.utils.*;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.FileWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,10 +24,12 @@ public class DebugCommands extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().toLowerCase().split("\\s+");
+        if(!event.getAuthor().getId().equals(Config.get("BOT_OWNER_ID"))) return;
         switch (args[0]) {
             case "i!give" -> give(event);
             case "i!load" -> load(event);
             case "i!prices" -> prices(event);
+            case "i!save" -> save(event);
         }
     }
 
@@ -51,9 +57,18 @@ public class DebugCommands extends ListenerAdapter {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         try {
-            DataBase.load(null);
-            event.getMessage().addReaction("✅").queue();
-        } catch (Exception e) {event.getChannel().sendMessage(e.getMessage()).queue();}
+            final Gson gson = new GsonBuilder().create();
+            Player p = gson.fromJson(Utils.readFile("filename.json"), Player.class);
+
+            final GsonBuilder builder = new GsonBuilder();
+            final Gson gson1 = builder.create();
+            final String json = gson1.toJson(p);
+
+            FileWriter myWriter = new FileWriter("filename1.json");
+            myWriter.write(json);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch(Exception e) {e.printStackTrace();}
     }
 
     private void prices(GuildMessageReceivedEvent event) {
@@ -106,5 +121,23 @@ public class DebugCommands extends ListenerAdapter {
             event.getMessage().addReaction("✅").queue();
         } catch (Exception e) {event.getChannel().sendMessage(e.getMessage()).queue();}
 
+    }
+
+    private void save(GuildMessageReceivedEvent event) {
+        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
+            return;
+        try {
+            Player p = GameUtils.getUser(null,event.getAuthor());
+
+            final GsonBuilder builder = new GsonBuilder();
+            builder.setExclusionStrategies(new GsonIgnoreStrategy());
+            final Gson gson = builder.create();
+            final String json = gson.toJson(p);
+
+            FileWriter myWriter = new FileWriter("filename.json");
+            myWriter.write(json);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch(Exception e) {e.printStackTrace();}
     }
 }

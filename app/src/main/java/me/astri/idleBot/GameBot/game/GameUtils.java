@@ -1,9 +1,9 @@
 package me.astri.idleBot.GameBot.game;
 
-import me.astri.idleBot.GameBot.Entities.player.BotUser;
-import me.astri.idleBot.GameBot.Entities.player.Player;
-import me.astri.idleBot.GameBot.main.DataBase;
-import me.astri.idleBot.GameBot.main.Lang;
+import me.astri.idleBot.GameBot.entities.player.BotUser;
+import me.astri.idleBot.GameBot.entities.player.Player;
+import me.astri.idleBot.GameBot.dataBase.DataBase;
+import me.astri.idleBot.GameBot.utils.Lang;
 import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 

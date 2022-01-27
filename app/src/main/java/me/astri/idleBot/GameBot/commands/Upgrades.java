@@ -1,12 +1,11 @@
 package me.astri.idleBot.GameBot.commands;
 
-import me.astri.idleBot.GameBot.Entities.Number;
-import me.astri.idleBot.GameBot.Entities.player.Player;
-import me.astri.idleBot.GameBot.Entities.upgrade.Upgrade;
+import me.astri.idleBot.GameBot.entities.player.Player;
+import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.main.BotGame;
-import me.astri.idleBot.GameBot.main.Emotes;
+import me.astri.idleBot.GameBot.BotGame;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;

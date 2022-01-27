@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.Entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade;
 
 import java.util.ArrayList;
 import java.util.HashMap;

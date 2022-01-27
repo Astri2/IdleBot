@@ -1,6 +1,6 @@
 package me.astri.idleBot.GameBot.eventWaiter;
 
-import me.astri.idleBot.GameBot.main.Lang;
+import me.astri.idleBot.GameBot.utils.Lang;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
