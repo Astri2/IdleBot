@@ -1,9 +1,8 @@
-package me.astri.idleBot.GameBot.Entities.equipments;
+package me.astri.idleBot.GameBot.entities.equipments;
 
-import me.astri.idleBot.GameBot.Entities.Number;
-import me.astri.idleBot.GameBot.Entities.upgrade.EquipmentUpgrade;
-import me.astri.idleBot.GameBot.Entities.upgrade.PlayerUpgrades;
-import me.astri.idleBot.GameBot.Entities.upgrade.UpgradeManager;
+import me.astri.idleBot.GameBot.entities.upgrade.EquipmentUpgrade;
+import me.astri.idleBot.GameBot.entities.upgrade.PlayerUpgrades;
+import me.astri.idleBot.GameBot.entities.upgrade.UpgradeManager;
 import org.json.JSONObject;
 
 import java.io.Serializable;
@@ -17,7 +16,9 @@ public class Equipment implements Serializable {
 
     private long level;
     private BigDecimal price;
-    private EquipmentUpgrade currentUpgrade;
+    private String currentIcon;
+    private String currentUpgrade;
+    private int currentWeight;
     private int booster;
 
     public Equipment(JSONObject jsonEquipment, PlayerUpgrades upgrades) throws Exception {
@@ -26,17 +27,9 @@ public class Equipment implements Serializable {
         this.unlocked = jsonEquipment.getBoolean("unlocked");
         this.price = BigDecimal.valueOf(jsonEquipment.getLong("basePrice"));
         this.baseProduction = jsonEquipment.getDouble("baseProduction");
-        queryLevelUpgrades(upgrades);
-
-        currentUpgrade =new EquipmentUpgrade(
-                this.id,
-                jsonEquipment.getString("baseIcon"),
-                new Number(0),
-                this.id,
-                0,
-                0,
-                0
-        );
+        this.currentIcon = jsonEquipment.getString("baseIcon");
+        currentUpgrade = this.id;
+        currentWeight = 0;
     }
 
     public void levelUp(int levels, PlayerUpgrades upgrades) {
@@ -57,16 +50,20 @@ public class Equipment implements Serializable {
     }
 
     public void updateCurrentUpgrade(EquipmentUpgrade newUpgrade) {
-        if(currentUpgrade.getWeight() < newUpgrade.getWeight()) currentUpgrade = newUpgrade;
+        if(currentWeight < newUpgrade.getWeight()) {
+            currentUpgrade = newUpgrade.getName();
+            currentIcon = newUpgrade.getIcon();
+            currentWeight = newUpgrade.getWeight();
+        }
     }
 
     public boolean isUnlocked() { return unlocked; }
 
     public long getLevel() { return level; }
 
-    public String getName() { return currentUpgrade.getName(); }
+    public String getName() { return currentUpgrade; }
 
-    public String getEmote() { return currentUpgrade.getIcon(); }
+    public String getEmote() { return currentIcon; }
 
     public BigDecimal getPrice() {
         return this.price;
