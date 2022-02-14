@@ -2,6 +2,7 @@
 .gradle/
 out/
 build/
+app/src/main/resources/save/
 *.class
 *.dat
 *.lock

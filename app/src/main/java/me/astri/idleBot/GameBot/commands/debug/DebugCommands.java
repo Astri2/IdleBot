@@ -2,6 +2,7 @@ package me.astri.idleBot.GameBot.commands.debug;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
 import me.astri.idleBot.GameBot.entities.BigNumber;
@@ -16,6 +17,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.FileWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,14 +58,7 @@ public class DebugCommands extends ListenerAdapter {
     private void load(GuildMessageReceivedEvent event) {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
-        try {
-            Gson gson = new GsonBuilder().create();
-
-            String json = Utils.readFile("filename.json");
-
-            DataBase.botUsers.put(event.getAuthor().getId(),gson.fromJson(json, Player.class));
-            System.out.println("Successfully load from the file.");
-        } catch(Exception e) { e.printStackTrace(); }
+        DataBase.load(null);
     }
 
     private void prices(GuildMessageReceivedEvent event) {
@@ -121,18 +116,6 @@ public class DebugCommands extends ListenerAdapter {
     private void save(GuildMessageReceivedEvent event) {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
-        try {
-            BotUser p = DataBase.getUsers().get(event.getAuthor().getId());
-
-            final GsonBuilder builder = new GsonBuilder();
-            builder.setExclusionStrategies(new GsonIgnoreStrategy());
-            final Gson gson = builder.create();
-            final String json = gson.toJson(p);
-
-            FileWriter myWriter = new FileWriter("filename.json");
-            myWriter.write(json);
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch(Exception e) {e.printStackTrace();}
+        DataBase.save(null);
     }
 }

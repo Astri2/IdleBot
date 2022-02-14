@@ -1,9 +1,15 @@
 package me.astri.idleBot.GameBot.dataBase;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
+import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.utils.Config;
+import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.ShutdownEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
@@ -13,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
@@ -42,11 +49,16 @@ public class DataBase extends ListenerAdapter {
 
     public static void save(@Nullable ButtonClickEvent event) {
         try {
-            FileOutputStream fos = new FileOutputStream(System.getenv("PLAYER_DATA"));
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(botUsers);
-            oos.flush();
-            oos.close();
+            HashMap<String,BotUser> playerList = DataBase.getUsers();
+            final GsonBuilder builder = new GsonBuilder();
+            builder.setExclusionStrategies(new GsonIgnoreStrategy());
+            final Gson gson = builder.create();
+            final String json = gson.toJson(playerList);
+
+            FileWriter myWriter = new FileWriter(Config.get("PLAYER_DATA"));
+            myWriter.write(json);
+            myWriter.close();
+
             if(event != null)
                 event.getHook().sendMessage("Saved!").queue();
         } catch (IOException e) {
@@ -55,23 +67,23 @@ public class DataBase extends ListenerAdapter {
         }
     }
 
-    //because of an Object to Game cast
-    @SuppressWarnings("unchecked")
     public static int load(@Nullable ButtonClickEvent event) {
         try {
-            FileInputStream fis = new FileInputStream(System.getenv("PLAYER_DATA"));
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            botUsers = (HashMap<String, BotUser>) ois.readObject();
-            fis.close();
-            ois.close();
+            String json = Utils.readFile(Config.get("PLAYER_DATA"));
+            if(json.isEmpty())
+            {
+                System.err.println("Warning - File empty or non existent");
+                botUsers = new HashMap<>();
+                if(event != null)
+                    event.getHook().sendMessage("Loaded! (file was empty)").queue();
+                return 1;
+            }
+            Gson gson = new GsonBuilder().create();
+            Type classType = new TypeToken<HashMap<String, Player>>() {}.getType();
+            DataBase.botUsers = gson.fromJson(json, classType);
+            System.out.println("Successfully load from the file.");
             if(event != null)
                 event.getHook().sendMessage("Loaded!").queue();
-        } catch (EOFException e) { //file empty
-            System.err.println("Warning - File empty");
-            botUsers = new HashMap<>();
-            if(event != null)
-                event.getHook().sendMessage("Loaded! (file was empty)").queue();
-            return 1;
         } catch (Exception e) {
             e.printStackTrace();
             if(event != null)
@@ -82,7 +94,7 @@ public class DataBase extends ListenerAdapter {
     }
 
     public static void download(ButtonClickEvent event) {
-        event.getHook().sendMessage("players data").addFile(new File(System.getenv("PLAYER_DATA"))).queue();
+        event.getHook().sendMessage("players data").addFile(new File(Config.get("PLAYER_DATA"))).queue();
     }
 
     public static void upload(ButtonClickEvent event) {
@@ -107,10 +119,10 @@ public class DataBase extends ListenerAdapter {
 
     }
 
-    //@Override
-    public void TEMPonReady(@NotNull ReadyEvent event) {
+    @Override
+    public void onReady(@NotNull ReadyEvent event) {
        try {
-            if(load(null) != 0) {
+            if(load(null) != 0) { // => if it can't find the save file
                 System.out.println("loading backup");
                 event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
                     .getHistory().retrievePast(1).queue(history ->
@@ -122,29 +134,28 @@ public class DataBase extends ListenerAdapter {
             }
         } catch(Exception ignore) {} //no backup files detected
 
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        Timer saver = new Timer();
+        saver.schedule(new TimerTask() {
             @Override
             public void run() {
                 save(null);
             }
         },60000,60000);
 
-        Timer timer1 = new Timer();
-        timer1.schedule(new TimerTask() {
+        Timer backupMaker = new Timer();
+        backupMaker.schedule(new TimerTask() {
             @Override
             public void run() {
                 try {
                     String path = System.getenv("PLAYER_DATA");
                     if(Files.size(Path.of(path)) > 100)
                         event.getJDA().getTextChannelById(Config.get("BACKUP_CHANNEL"))
-                            .sendMessage(String.format("<t:%d>\n%d",
-                                Instant.now().getEpochSecond(),
-                                Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()))
+                            .sendMessage(String.format("<t:%d>",
+                                Instant.now().getEpochSecond()))
                             .addFile(new File(path)).queue();
                 } catch(Exception ignored) {}
             }
-        },300000,300000);
+        },300000,TimeUnit.MILLISECONDS.convert(5L, TimeUnit.MINUTES));
     }
 
     @Override
