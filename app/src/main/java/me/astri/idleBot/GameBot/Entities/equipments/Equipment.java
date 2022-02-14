@@ -1,32 +1,34 @@
 package me.astri.idleBot.GameBot.entities.equipments;
 
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.upgrade.EquipmentUpgrade;
 import me.astri.idleBot.GameBot.entities.upgrade.PlayerUpgrades;
 import me.astri.idleBot.GameBot.entities.upgrade.UpgradeManager;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 
 public class Equipment implements Serializable {
+    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.3);
+
     private final String id;
     private final boolean unlocked;
-    private final double baseProduction;
+    private final BigNumber baseProduction;
 
     private long level;
-    private BigDecimal price;
+    private final BigNumber price;
     private String currentIcon;
     private String currentUpgrade;
     private int currentWeight;
     private int booster;
 
-    public Equipment(JSONObject jsonEquipment, PlayerUpgrades upgrades) throws Exception {
+    public Equipment(JSONObject jsonEquipment) {
         level = 0;
         this.id = jsonEquipment.getString("id");
         this.unlocked = jsonEquipment.getBoolean("unlocked");
-        this.price = BigDecimal.valueOf(jsonEquipment.getLong("basePrice"));
-        this.baseProduction = jsonEquipment.getDouble("baseProduction");
+        this.price = new BigNumber(jsonEquipment.getLong("basePrice"));
+        this.baseProduction = new BigNumber(jsonEquipment.getDouble("baseProduction"));
         this.currentIcon = jsonEquipment.getString("baseIcon");
         currentUpgrade = this.id;
         currentWeight = 0;
@@ -34,7 +36,7 @@ public class Equipment implements Serializable {
 
     public void levelUp(int levels, PlayerUpgrades upgrades) {
         level+=levels;
-        price = price.multiply(BigDecimal.valueOf(Math.pow(1.3,levels)));
+        price.multiply(BigNumber.pow(PRICE_MULTIPLIER,new BigNumber(levels)));
         queryLevelUpgrades(upgrades);
     }
 
@@ -65,22 +67,22 @@ public class Equipment implements Serializable {
 
     public String getEmote() { return currentIcon; }
 
-    public BigDecimal getPrice() {
+    public BigNumber getPrice() {
         return this.price;
     }
 
-    public BigDecimal getPrice(int levelToUp) {
-        BigDecimal sum = new BigDecimal(0);
-        BigDecimal tmp_price = new BigDecimal(String.valueOf(this.price));
+    public BigNumber getPrice(int levelToUp) {
+        BigNumber sum = new BigNumber(0);
+        BigNumber tmp_price = new BigNumber(this.price);
         for(int i = 0 ; i <= levelToUp-1 ; i++) { //-1 cause 1.15^0 = current price
-            sum = sum.add(tmp_price);
-            tmp_price = tmp_price.multiply(BigDecimal.valueOf(1.3));
+            sum.add(tmp_price);
+            tmp_price = tmp_price.multiply(PRICE_MULTIPLIER);
         }
         return sum;
     }
 
-    public BigDecimal getProduction() {
-        return BigDecimal.valueOf(level * baseProduction * (1 + getBooster()));
+    public BigNumber getProduction() {
+        return BigNumber.multiply(new BigNumber(level * (1 + this.getBooster())),baseProduction);
     }
 
     private long getBooster() {

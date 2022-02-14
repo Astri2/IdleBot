@@ -1,5 +1,6 @@
 package me.astri.idleBot.GameBot.entities.upgrade;
 
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
 
 import java.math.BigDecimal;
@@ -37,7 +38,7 @@ public class PlayerUpgrades {
     }
 
     public void buy(Player p, Upgrade upgrade, List<Upgrade> availableSortedUpgrades) {
-        p.editCoins(BigDecimal.valueOf(upgrade.getPrice().toDouble()).negate());
+        p.editCoins(BigNumber.negate(upgrade.getPrice()));
         availableUpgrades.remove(upgrade.getName());
         availableSortedUpgrades.remove(upgrade);
 
@@ -48,7 +49,7 @@ public class PlayerUpgrades {
     }
 
     public void buyAll(Player p, List<Upgrade> availableSortedUpgrades) {
-        while(availableUpgrades.size() > 0 && p.getCoins().compareTo(BigDecimal.valueOf(availableSortedUpgrades.get(0).getPrice().toDouble())) >= 0) {
+        while(availableUpgrades.size() > 0 && p.getCoins().compareTo(availableSortedUpgrades.get(0).getPrice()) >= 0) {
             Upgrade upgrade = availableSortedUpgrades.get(0);
             buy(p, upgrade, availableSortedUpgrades);
         }

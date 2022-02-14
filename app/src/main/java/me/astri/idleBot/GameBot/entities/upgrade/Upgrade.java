@@ -1,6 +1,6 @@
 package me.astri.idleBot.GameBot.entities.upgrade;
 
-import me.astri.idleBot.GameBot.entities.Number;
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
@@ -11,11 +11,11 @@ public abstract class Upgrade {
 
     protected final String name;
     protected final String icon;
-    protected final Number price;
+    protected final BigNumber price;
     protected Predicate<Object> condition;
     protected Consumer<Object> action;
 
-    public Upgrade(String name, String icon, Number price) {
+    public Upgrade(String name, String icon, BigNumber price) {
         this.name = name;
         this.icon = icon;
         this.price = price;
@@ -29,7 +29,7 @@ public abstract class Upgrade {
         return this.icon;
     }
 
-    public Number getPrice() {
+    public BigNumber getPrice() {
         return this.price;
     }
 

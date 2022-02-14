@@ -11,12 +11,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
         try {
             BotGame.startBot(Config.get("TOKEN_1"));
-        } catch(LoginException e) {
+        } catch (LoginException e) {
             System.out.println(">>> BotGame not connected");
         }
         try {
             BotMod.startBot(Config.get("TOKEN_2"));
-        } catch(LoginException e) {
+        } catch (LoginException e) {
             System.out.println(">>> BotMod not connected");
         }
     }

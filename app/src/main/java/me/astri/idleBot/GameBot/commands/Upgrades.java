@@ -1,12 +1,12 @@
 package me.astri.idleBot.GameBot.commands;
 
+import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.BotGame;
-import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
@@ -16,7 +16,6 @@ import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +30,7 @@ public class Upgrades implements ISlashCommand {
     }
 
     @Override
-    public void handle(SlashCommandEvent e, InteractionHook hook) throws Exception {
+    public void handle(SlashCommandEvent e, InteractionHook hook) {
         Player player = GameUtils.getUser(hook, e.getUser());
         if(player == null)
             return;
@@ -80,13 +79,13 @@ public class Upgrades implements ISlashCommand {
         EmbedBuilder eb = new EmbedBuilder();
         eb.setAuthor("Available Upgrades of " + BotGame.jda.getUserById(p.getId()).getName(),null, BotGame.jda.getUserById(p.getId()).getEffectiveAvatarUrl());
         p.update();
-        eb.setDescription(GameUtils.getNumber(p.getCoins(),p) + " " + Emotes.getEmote("coin") + " " + p.getLang().get("coins"));
+        eb.setDescription(p.getCoins().getNotation(p.usesScNotation()) + " " + Emotes.getEmote("coin") + " " + p.getLang().get("coins"));
         for(int i = min ; i < max ; i++) {
             Upgrade upg = upgrades.get(i);
-            eb.addField(upg.getUpgradeField(p,i==current,p.getCoins().compareTo(BigDecimal.valueOf(upg.getPrice().toDouble()))>=0));
+            eb.addField(upg.getUpgradeField(p,i==current,p.getCoins().compareTo(upg.getPrice())>=0));
         }
 
-        if(upgrades.isEmpty()) eb.appendDescription("\n\n" + Emotes.getEmote("no")+ " - " + p.getLang().get("no_available_upgrade"));
+        if(upgrades.isEmpty()) eb.addField(p.getLang().get("no_available_upgrade"),Emotes.getEmote("no"),false);
 
         return eb.build();
     }
@@ -96,10 +95,10 @@ public class Upgrades implements ISlashCommand {
         return Collections.singletonList(ActionRow.of(
                 Button.secondary("left", "<=").withDisabled(allDisable || current == min),
                 Button.secondary("right", "=>").withDisabled(allDisable || current == max),
-                Button.secondary("buy", "BUY").withDisabled(allDisable || p.getCoins().compareTo(
-                        BigDecimal.valueOf(upgrades.get(current).getPrice().toDouble())) < 0),
-                Button.secondary("buy_all", "BUY ALL").withDisabled(allDisable || p.getCoins().compareTo(
-                        BigDecimal.valueOf(upgrades.get(0).getPrice().toDouble())) < 0)
+                Button.secondary("buy", "BUY").withDisabled(allDisable ||
+                        p.getCoins().compareTo(upgrades.get(current).getPrice()) < 0),
+                Button.secondary("buy_all", "BUY ALL").withDisabled(allDisable ||
+                        p.getCoins().compareTo(upgrades.get(0).getPrice()) < 0)
         ));
     }
 }

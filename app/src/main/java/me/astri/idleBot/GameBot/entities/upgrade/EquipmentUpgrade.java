@@ -1,6 +1,6 @@
 package me.astri.idleBot.GameBot.entities.upgrade;
 
-import me.astri.idleBot.GameBot.entities.Number;
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.utils.Emotes;
@@ -20,7 +20,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
     private final int weight;
     private final int boost;
 
-    public EquipmentUpgrade(String name, String icon, Number price, String eq, int minLvl, int weight, int boost) {
+    public EquipmentUpgrade(String name, String icon, BigNumber price, String eq, int minLvl, int weight, int boost) {
         super(name,icon,price);
         this.condition = getCondition(minLvl);
         this.action = getAction(boost);
@@ -71,7 +71,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
         return p.getLang().get("equipment_upg_desc", p.getLang().get(p.getEquipment().get(this.eq).getName()),
                 Integer.toString(this.boost),
                 canAfford ? Emotes.getEmote("yes") : Emotes.getEmote("no"),
-                this.price.getNotation(p.isUseScNotation()) + Emotes.getEmote("coin"));
+                this.price.getNotation(p.usesScNotation()) + Emotes.getEmote("coin"));
     }
 
     public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) throws Exception {
@@ -86,7 +86,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
                 EquipmentUpgrade eqUp =  new EquipmentUpgrade(
                         upgrade.getString("name"),
                         upgrade.getString("icon"),
-                        new Number(upgrade.getInt("price")),
+                        new BigNumber(upgrade.getInt("price")),
                         eq,
                         upgrade.getInt("minLevel"),
                         upgrade.getInt("weight"),

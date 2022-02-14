@@ -33,7 +33,7 @@ public abstract class BotUser implements Serializable {
         return this.lang;
     }
     
-    public boolean isUseScNotation() {
+    public boolean usesScNotation() {
         return this.useScNotation;
     }
 

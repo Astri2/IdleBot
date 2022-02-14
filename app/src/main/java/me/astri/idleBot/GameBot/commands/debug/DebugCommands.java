@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
@@ -15,7 +16,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.FileWriter;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,9 +42,9 @@ public class DebugCommands extends ListenerAdapter {
             return;
         if(args.length < 3)
             return;
-        BigDecimal money;
+        BigNumber money;
         try {
-            money = BigDecimal.valueOf(10).pow(Integer.parseInt(args[2]));
+            money = new BigNumber(1.,Long.parseLong(args[2]));
         } catch(Exception ignore) {return;}
         Member member = event.getMessage().getMentionedMembers().get(0);
         Player player = GameUtils.getUser(null,member);
@@ -81,9 +81,9 @@ public class DebugCommands extends ListenerAdapter {
                 System.out.println("player:" + event.getJDA().retrieveUserById(botUser.getId()).complete().getName());
                 //GATHER PLAYER INFORMATION
 
-                BigDecimal money = ((Player) botUser).getCoins();
+                BigNumber money = ((Player) botUser).getCoins();
                 String id = botUser.getId();
-                boolean scNot = botUser.isUseScNotation();
+                boolean scNot = botUser.usesScNotation();
                 String eph = botUser.isEphemeral();
                 Lang lang = botUser.getLang();
 

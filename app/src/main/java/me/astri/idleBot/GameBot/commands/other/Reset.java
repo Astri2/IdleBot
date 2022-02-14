@@ -1,5 +1,6 @@
 package me.astri.idleBot.GameBot.commands.other;
 
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
@@ -24,10 +25,10 @@ public class Reset implements ISlashCommand {
         if(player == null)
             return;
         if(e.getOption("onlymoney").getAsBoolean()) {
-            player.editCoins(player.getCoins().negate());
+            player.editCoins(BigNumber.negate(player.getCoins()));
         }
         else {
-            DataBase.registerPlayer(new Player(player.getId(), player.getLang(), player.isUseScNotation(), player.isEphemeral()));
+            DataBase.registerPlayer(new Player(player.getId(), player.getLang(), player.usesScNotation(), player.isEphemeral()));
         }
         hook.sendMessage(player.getLang().get("progression_reset", e.getUser().getAsMention())).queue();
     }

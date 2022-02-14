@@ -38,7 +38,7 @@ public abstract class GameUtils {
     }
 
     public static String getNumber(BigDecimal number, BotUser user) {
-        return user.isUseScNotation() && number.compareTo(BigDecimal.valueOf(1000)) > 0 ?
+        return user.usesScNotation() && number.compareTo(BigDecimal.valueOf(1000)) > 0 ?
                 getScientistNotation(number) : getCompactNotation(number);
     }
 

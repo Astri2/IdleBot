@@ -2,7 +2,7 @@ success_register,{0} welcome to IdleBot!
 error_already_registered,{0} you are already registered!
 error_someone_unregistered,{0} is not registered. Please register using `/register`
 error_you_unregistered,{0} you're not registered. Please register using `/register`
-error_nan,Provided value is not a number
+error_nan,Provided value is not a bigNumber
 error_not_enough_money,{0} You don't have enough money!
 error_cant_interact,{0} you can't interact with that!
 lang_updated,{0} your language has been set to English

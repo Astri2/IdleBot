@@ -1,13 +1,14 @@
 package me.astri.idleBot.GameBot.commands;
 
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.eventWaiter.WaiterTemplates;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
@@ -20,7 +21,6 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -124,17 +124,17 @@ public class LevelUpEquipment implements ISlashCommand {
            .addActionRow(SelectionMenu.create("levelsSelect" + player.getId())
                 .addOption(
                         player.getLang().get("level_s","1") + " - "
-                                + GameUtils.getNumber(eq.getPrice(),player) + "$","1")
+                                + eq.getPrice().getNotation(player.usesScNotation()) + "$","1")
                 .addOption(
                         player.getLang().get("level_p","10") + " - "
-                                + GameUtils.getNumber(eq.getPrice(10),player) + "$","10")
+                                + eq.getPrice(10).getNotation(player.usesScNotation()) + "$","10")
                 .addOption(
                         player.getLang().get("level_p","50") + " - "
-                                + GameUtils.getNumber(eq.getPrice(50),player) + "$","50")
+                                + eq.getPrice(50).getNotation(player.usesScNotation()) + "$","50")
                 .addOption(
                         player.getLang().get("nbr_max") + " - " +
                                 player.getLang().get("level_" + (maxLevel > 1 ? "p" : "s"),Integer.toString(maxLevel)) + " - "
-                                + GameUtils.getNumber(eq.getPrice(maxLevel),player) + "$","max")
+                                + eq.getPrice(maxLevel).getNotation(player.usesScNotation()) + "$","max")
                 .addOption(player.getLang().get(
                         "nbr_custom"),"custom").build()
            ).queue(msg -> {
@@ -190,16 +190,16 @@ public class LevelUpEquipment implements ISlashCommand {
             return;
         }
 
-        BigDecimal price = eq.getPrice(level);
+        BigNumber price = eq.getPrice(level);
 
         if(eq.getPrice(level).compareTo(player.getCoins()) > 0) {
             hook.sendMessage(player.getLang().get("error_not_enough_money",hook.getInteraction().getUser().getAsMention()) + " **"
-                    + GameUtils.getNumber(player.getCoins(),player) + "/" + GameUtils.getNumber(price,player) + "**"
+                    + player.getCoins().getNotation(player.usesScNotation()) + "/" + price.getNotation(player.usesScNotation()) + "**"
                     + Emotes.getEmote("coin")).queue();
             return;
         }
 
-        player.editCoins(price.negate());
+        player.editCoins(BigNumber.negate(price));
         eq.levelUp(level,player.getUpgrades());
 
         hook.sendMessage(player.getLang().get("eqpm_upgrade_success",
@@ -207,7 +207,7 @@ public class LevelUpEquipment implements ISlashCommand {
                                     Long.toString(eq.getLevel())) + " (+" +
                                     player.getLang().get(levels.equals("1") ? "level_s" : "level_p",levels) + ")" +
                                     "\n**-" +
-                                    GameUtils.getNumber(price,player) + Emotes.getEmote("coin") + "**")
+                                    price.getNotation(player.usesScNotation()) + Emotes.getEmote("coin") + "**")
             .addActionRow(
                         Button.secondary("redoLevelUp:" + equipment + ":" + levels,
                                 player.getLang().get("redo_level_up_button") + " - (" +
