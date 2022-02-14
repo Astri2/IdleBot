@@ -3,92 +3,92 @@
     {
       "id": "sword",
       "unlocked": true,
-      "basePrice": 6,
-      "baseProduction": 0.1,
+      "basePrice": "6",
+      "baseProduction": "0.1",
       "baseIcon": "<:Sword:884124806482649180>"
     },
     {
       "id": "shield",
       "unlocked": true,
-      "basePrice": 50,
-      "baseProduction": 1,
+      "basePrice": "50",
+      "baseProduction": "1",
       "baseIcon": "<:Shield:884894979334492230>"
     },
     {
       "id": "armor",
       "unlocked": true,
-      "basePrice": 750,
-      "baseProduction": 8,
+      "basePrice": "750",
+      "baseProduction": "8",
       "baseIcon": "<:Armor:885900470097436732>"
     },
     {
       "id": "helmet",
       "unlocked": true,
-      "basePrice": 16000,
-      "baseProduction": 47,
+      "basePrice": "1.6e4",
+      "baseProduction": "47",
       "baseIcon": "<:Helmet:886590115722444850>"
     },
     {
       "id": "boots",
       "unlocked": true,
-      "basePrice": 120000,
-      "baseProduction": 500,
+      "basePrice": "1.2e5",
+      "baseProduction": "500",
       "baseIcon": "<a:boots:886603412395946014>"
     },
     {
       "id": "ring",
       "unlocked": true,
-      "basePrice": 1200000,
-      "baseProduction": 4000,
+      "basePrice": "1.2e6",
+      "baseProduction": "4000",
       "baseIcon": "<a:ring:886883889988120616>"
     },
     {
       "id": "dagger",
       "unlocked": true,
-      "basePrice": 14000000,
-      "baseProduction": 35000,
+      "basePrice": "1.4e7",
+      "baseProduction": "3.5e4",
       "baseIcon": "<a:dagger:896884323607805982>"
     },
     {
       "id": "axe",
       "unlocked": true,
-      "basePrice": 580000000,
-      "baseProduction": 160000,
+      "basePrice": "5.8e8",
+      "baseProduction": "1.6e5",
       "baseIcon": "<a:Axe:896890193989210142>"
     },
     {
       "id": "staff",
       "unlocked": true,
-      "basePrice": 5400000000,
-      "baseProduction": 1000000,
+      "basePrice": "5.4e9",
+      "baseProduction": "1e6",
       "baseIcon": "<:Staff:900769202200248340>"
     },
     {
       "id": "bow",
       "unlocked": true,
-      "basePrice": 330000000000,
-      "baseProduction": 30000000,
+      "basePrice": "3.3e11",
+      "baseProduction": "3e7",
       "baseIcon": "<:Bow:901115905688363098>"
     },
     {
       "id": "spellbook",
       "unlocked": true,
-      "basePrice": 4600000000000,
-      "baseProduction": 1200000000,
+      "basePrice": "4.6e12",
+      "baseProduction": "1.2e9",
       "baseIcon": "<:Spellbook:901120747383181372>"
     },
     {
       "id": "spirit",
       "unlocked": true,
-      "basePrice": 220000000000000,
-      "baseProduction": 115000000000,
+      "basePrice": "2.2e14",
+      "baseProduction": "1.15e11",
       "baseIcon": "<:Spirit:901146873727963137>"
     },
     {
       "id": "necklace",
       "unlocked": true,
-      "basePrice": 150000000000000000,
-      "baseProduction": 260000000000000,
+      "basePrice": "1.5e17",
+      "baseProduction": "2.6e14",
       "baseIcon": "<a:Necklace:901156008708161687>"
     }
   ]

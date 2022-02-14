@@ -27,8 +27,8 @@ public class Equipment implements Serializable {
         level = 0;
         this.id = jsonEquipment.getString("id");
         this.unlocked = jsonEquipment.getBoolean("unlocked");
-        this.price = new BigNumber(jsonEquipment.getLong("basePrice"));
-        this.baseProduction = new BigNumber(jsonEquipment.getDouble("baseProduction"));
+        this.price = new BigNumber(jsonEquipment.getString("basePrice"));
+        this.baseProduction = new BigNumber(jsonEquipment.getString("baseProduction"));
         this.currentIcon = jsonEquipment.getString("baseIcon");
         currentUpgrade = this.id;
         currentWeight = 0;

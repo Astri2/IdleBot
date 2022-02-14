@@ -86,7 +86,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
                 EquipmentUpgrade eqUp =  new EquipmentUpgrade(
                         upgrade.getString("name"),
                         upgrade.getString("icon"),
-                        new BigNumber(upgrade.getInt("price")),
+                        new BigNumber(upgrade.getString("price")),
                         eq,
                         upgrade.getInt("minLevel"),
                         upgrade.getInt("weight"),

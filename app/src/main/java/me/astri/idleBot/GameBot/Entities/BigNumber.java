@@ -31,8 +31,11 @@ public class BigNumber {//TODO try to avoid using Math.pow
     public BigNumber(int val) {
         this((double) val);
     }
-    public BigNumber(String val) {
-        this(Double.parseDouble(val));
+    public BigNumber(String nb) {
+        String[] args = nb.split("e");
+        this.val = Double.parseDouble(args[0]);
+        this.p10 = args.length != 1 ? Long.parseLong(args[1]) : 0;
+        toScientificNotation();
     }
 
     public BigNumber add(@NotNull BigNumber n1) {
