@@ -6,80 +6,80 @@ import java.text.DecimalFormat;
 
 @SuppressWarnings("unused")
 public class BigNumber {//TODO try to avoid using Math.pow
-    private double value;
-    private long powerOfTen;
+    private double val;
+    private long p10;
 
-    public BigNumber(double value, long powerOfTen) {
-        this.value = value;
-        this.powerOfTen = powerOfTen;
+    public BigNumber(double val, long powOf10) {
+        this.val = val;
+        this.p10 = powOf10;
         toScientificNotation();
     }
     public BigNumber() {
         this(0,0);
     }
     public BigNumber(BigNumber bigNumber) {
-        this(bigNumber.value, bigNumber.powerOfTen);
+        this(bigNumber.val, bigNumber.p10);
     }
 
-    public BigNumber(double value) {
-        this.value = value;
+    public BigNumber(double val) {
+        this.val = val;
         toScientificNotation();
     }
-    public BigNumber(long value) {
-        this((double) value);
+    public BigNumber(long val) {
+        this((double) val);
     }
-    public BigNumber(int value) {
-        this((double) value);
+    public BigNumber(int val) {
+        this((double) val);
     }
-    public BigNumber(String value) {
-        this(Double.parseDouble(value));
+    public BigNumber(String val) {
+        this(Double.parseDouble(val));
     }
 
     public BigNumber add(@NotNull BigNumber n1) {
-        if(this.powerOfTen - n1.powerOfTen > 20) { //this >> n1 so we return this
+        if(this.p10 - n1.p10 > 20) { //this >> n1 so we return this
             return this;
         }
-        else if(n1.powerOfTen - this.powerOfTen > 20) { //this << n1 so we return n1
-            this.powerOfTen = n1.powerOfTen;
-            this.value = n1.value;
+        else if(n1.p10 - this.p10 > 20) { //this << n1 so we return n1
+            this.p10 = n1.p10;
+            this.val = n1.val;
             return this;
         }
         else { //perform the calculation
-            this.value += n1.value/Math.pow(10,this.powerOfTen-n1.powerOfTen);
+            this.val += n1.val /Math.pow(10,this.p10 -n1.p10);
             toScientificNotation();
             return this;
         }
     }
 
     public BigNumber subtract(@NotNull BigNumber n1) {
-        n1.value*=-1;
+        n1.val *=-1;
         this.add(n1);
         return this;
     }
 
     public BigNumber multiply(@NotNull BigNumber n1) {
-        this.value *= n1.value;
-        this.powerOfTen += n1.powerOfTen;
+        this.val *= n1.val;
+        this.p10 += n1.p10;
         toScientificNotation();
         return this;
     }
 
     public BigNumber divide(@NotNull BigNumber n1) {
-        this.value /= n1.value;
-        this.powerOfTen -= n1.powerOfTen;
+        this.val /= n1.val;
+        this.p10 -= n1.p10;
         toScientificNotation();
         return this;
     }
 
     public BigNumber pow(@NotNull BigNumber n1) {
-        this.powerOfTen *= n1.value * Math.pow(10,n1.powerOfTen);
-        this.value = Math.pow(value,n1.value*Math.pow(10,n1.powerOfTen));
+        this.p10 *= n1.val * Math.pow(10,n1.p10);
+        this.val = Math.pow(val,n1.val *Math.pow(10,n1.p10));
         toScientificNotation();
         return this;
     }
 
     public BigNumber negate() {
-        this.value *= -1;
+        this.val *= -1;
         return this;
     }
 
@@ -116,13 +116,15 @@ public class BigNumber {//TODO try to avoid using Math.pow
     private static final String[] bigUnits = {"","K","M","B","T","Qa","Qi","Sx","Sp","Oc","No","De","Ud","Dd","Td","Qt",
             "Qd","Sd","St","Od","Nd","Vg"};
     public String getUnitNotation() {
-        String unit = bigUnits[(int) (this.powerOfTen/3)];
-        String tweaked_value = this.getRoundVal(2,this.value * Math.pow(10,powerOfTen%3));
-        return tweaked_value + unit;
+        int unitRank = (int)(this.p10/3); //int division -> floor
+        if(unitRank > bigUnits.length) return getScientificNotation();
+
+        String tweaked_value = this.getRoundVal(2,this.val * Math.pow(10, p10 % 3));
+        return tweaked_value + bigUnits[unitRank];
     }
 
     public String getScientificNotation() {
-        return "%se%d".formatted(this.getRoundVal(2, this.value),this.powerOfTen);
+        return "%se%d".formatted(this.getRoundVal(2, this.val),this.p10);
     }
 
     @Override
@@ -131,40 +133,40 @@ public class BigNumber {//TODO try to avoid using Math.pow
     }
 
     public String getNotation(boolean scientific) {
-        if(scientific && this.powerOfTen >= 3 ) return getScientificNotation();
+        if(scientific && this.p10 >= 3 ) return getScientificNotation();
         else return getUnitNotation();
     }
 
     private void toScientificNotation() {
         try {
-            if (Double.isInfinite(this.value)) {
+            if (Double.isInfinite(this.val)) {
                 throw new NumberFormatException("Number is infinite!");
             }
 
-            if (this.value == 0) {
-                this.powerOfTen = 0;
+            if (this.val == 0) {
+                this.p10 = 0;
                 return;
             }
 
-            while (Math.abs(this.value) >= 10.) {
-                this.value /= 10.;
-                this.powerOfTen++;
+            while (Math.abs(this.val) >= 10.) {
+                this.val /= 10.;
+                this.p10++;
             }
 
-            while (Math.abs(this.value) < 1.) {
-                this.value *= 10.;
-                this.powerOfTen--;
+            while (Math.abs(this.val) < 1.) {
+                this.val *= 10.;
+                this.p10--;
             }
         } catch (NumberFormatException e) {e.printStackTrace();}
     }
 
     public double toDouble() {
-        return this.value*Math.pow(10,this.powerOfTen);
+        return this.val *Math.pow(10,this.p10);
     }
 
     public int compareTo(BigNumber nb) {
-        if(nb.powerOfTen > this.powerOfTen) return -1;
-        if(nb.powerOfTen < this.powerOfTen) return 1;
-        return Double.compare(this.value, nb.value); // -1, 0 or 1 | < = >
+        if(nb.p10 > this.p10) return -1;
+        if(nb.p10 < this.p10) return 1;
+        return Double.compare(this.val, nb.val); // -1, 0 or 1 | < = >
     }
 }

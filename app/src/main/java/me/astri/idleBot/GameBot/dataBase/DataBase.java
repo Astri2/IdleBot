@@ -22,7 +22,7 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class DataBase extends ListenerAdapter {
-    private static HashMap<String, BotUser> botUsers = new HashMap<>();
+    public static HashMap<String, BotUser> botUsers = new HashMap<>();
 
     public static void setUsers(HashMap<String, BotUser> users) {
         botUsers = users;

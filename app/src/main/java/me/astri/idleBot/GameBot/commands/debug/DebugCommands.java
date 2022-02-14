@@ -34,9 +34,9 @@ public class DebugCommands extends ListenerAdapter {
     }
 
     private void give(GuildMessageReceivedEvent event) {
-        System.out.println(event.getMessage().getTimeCreated().toEpochSecond());
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
+
         String[] args = event.getMessage().getContentRaw().split("\\s+");
         if(event.getMessage().getMentionedMembers().isEmpty())
             return;
@@ -57,18 +57,13 @@ public class DebugCommands extends ListenerAdapter {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         try {
-            final Gson gson = new GsonBuilder().create();
-            Player p = gson.fromJson(Utils.readFile("filename.json"), Player.class);
+            Gson gson = new GsonBuilder().create();
 
-            final GsonBuilder builder = new GsonBuilder();
-            final Gson gson1 = builder.create();
-            final String json = gson1.toJson(p);
+            String json = Utils.readFile("filename.json");
 
-            FileWriter myWriter = new FileWriter("filename1.json");
-            myWriter.write(json);
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch(Exception e) {e.printStackTrace();}
+            DataBase.botUsers.put(event.getAuthor().getId(),gson.fromJson(json, Player.class));
+            System.out.println("Successfully load from the file.");
+        } catch(Exception e) { e.printStackTrace(); }
     }
 
     private void prices(GuildMessageReceivedEvent event) {
@@ -127,7 +122,7 @@ public class DebugCommands extends ListenerAdapter {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         try {
-            Player p = GameUtils.getUser(null,event.getAuthor());
+            BotUser p = DataBase.getUsers().get(event.getAuthor().getId());
 
             final GsonBuilder builder = new GsonBuilder();
             builder.setExclusionStrategies(new GsonIgnoreStrategy());
