@@ -20,7 +20,7 @@ public class Reset implements ISlashCommand {
     }
 
     @Override
-    public void handle(SlashCommandEvent e, InteractionHook hook) throws Exception {
+    public void handle(SlashCommandEvent e, InteractionHook hook) {
         Player player = GameUtils.getUser(hook,e.getUser());
         if(player == null)
             return;

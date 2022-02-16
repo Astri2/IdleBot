@@ -74,7 +74,7 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
                 this.price.getNotation(p.usesScNotation()) + Emotes.getEmote("coin"));
     }
 
-    public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) throws Exception {
+    public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) {
         JSONArray JSONEqList = JSONEqUpgrades.getJSONArray("eq_list");
         for(int i = 0 ; i < JSONEqList.length() ; i++) {
             String eq = JSONEqList.getString(i);

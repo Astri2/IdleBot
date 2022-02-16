@@ -3,7 +3,6 @@ package me.astri.idleBot.GameBot.entities.upgrade;
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
