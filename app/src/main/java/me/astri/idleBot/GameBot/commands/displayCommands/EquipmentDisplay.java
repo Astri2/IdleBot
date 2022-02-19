@@ -43,16 +43,22 @@ public class EquipmentDisplay implements ISlashCommand {
         EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("equipment_title",name),null, user.getEffectiveAvatarUrl());
         if(!author.equals(player))
             eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getEffectiveAvatarUrl());
+
+        boolean previousIsntLevel0 = true, currentIsntLevel0;
         for(Map.Entry<String,Equipment> set : equipments.entrySet()) {
             Equipment gearPiece = set.getValue();
             if(!gearPiece.isUnlocked())
                 continue;
-            eb.addField(gearPiece.getEmote() + " " + author.getLang().get(gearPiece.getName()),
-                    "Level **" + gearPiece.getLevel() + "\n" +
-                            gearPiece.getProduction().getNotation(author.usesScNotation()) + Emotes.getEmote("coin") + "**/s**\n" +
-                            author.getLang().get("cost") + "** " + gearPiece.getPrice().getNotation(author.usesScNotation()), true);
-            if(gearPiece.getLevel() == 0 && gearPiece.getPrice().compareTo(player.getCoins()) > 0)
-                break;
+
+            currentIsntLevel0 = gearPiece.getLevel() != 0;
+            //display if previous/current eq isn't level 0 or if you have enough money
+            if(previousIsntLevel0 || currentIsntLevel0 || gearPiece.getPrice().compareTo(player.getCoins()) <= 0) {
+                eb.addField(gearPiece.getEmote() + " " + author.getLang().get(gearPiece.getName()),
+                        "Level **" + gearPiece.getLevel() + "\n" +
+                                gearPiece.getProduction().getNotation(author.usesScNotation()) + Emotes.getEmote("coin") + "**/s**\n" +
+                                author.getLang().get("cost") + "** " + gearPiece.getPrice().getNotation(author.usesScNotation()), true);
+            }
+            previousIsntLevel0 = currentIsntLevel0;
         }
         eb.setDescription(player.getCoins().getNotation(author.usesScNotation()) + " " + Emotes.getEmote("coin") + " " + author.getLang().get("coins"));
         hook.sendMessageEmbeds(eb.build())
