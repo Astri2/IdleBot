@@ -1,7 +1,8 @@
-package me.astri.idleBot.GameBot.commands.displayCommands;
+package me.astri.idleBot.GameBot.commands.noCategory;
 
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -12,9 +13,9 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.components.Button;
 
-public class ProfileDisplay implements ISlashCommand {
+public class Profile extends ISlashCommand {
     @Override
-    public CommandData getCommandData() {
+    public CommandData getData() {
         return new CommandData("profile","shows your profile")
                 .addOption(OptionType.USER,"user","show someone's profile",false)
                 .addOption(OptionType.BOOLEAN,"ephemeral","only you can see the message",false);

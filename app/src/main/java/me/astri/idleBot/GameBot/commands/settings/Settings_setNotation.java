@@ -2,17 +2,17 @@ package me.astri.idleBot.GameBot.commands.settings;
 
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 
-public class setNotation implements ISlashCommand {
+public class Settings_setNotation extends ISlashSubcommand {
     @Override
-    public CommandData getCommandData() {
-        return new CommandData("notation","choose your number notation")
+    public SubcommandData getData() {
+        return new SubcommandData("notation","choose your number notation")
                 .addOptions(
                         new OptionData(OptionType.STRING, "notation","which notation to use",true)
                             .addChoice("scientific notation","sc")

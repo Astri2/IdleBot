@@ -2,19 +2,18 @@ package me.astri.idleBot.GameBot.commands.settings;
 
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.game.GameUtils;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import me.astri.idleBot.GameBot.utils.Lang;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 
-public class setLang implements ISlashCommand {
+public class Settings_setLang extends ISlashSubcommand {
     @Override
-    public CommandData getCommandData() {
-
-        return new CommandData("lang","choose your language")
+    public SubcommandData getData() {
+        return new SubcommandData("lang","choose your language")
                 .addOptions(new OptionData(OptionType.STRING,"language","the lang the bot will use will you",true)
                         .addChoices(Lang.getChoices()));
     }

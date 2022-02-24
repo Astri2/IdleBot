@@ -1,24 +1,22 @@
-package me.astri.idleBot.GameBot.commands;
+package me.astri.idleBot.GameBot.commands.equipments;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
-import me.astri.idleBot.GameBot.eventWaiter.WaiterAction;
 import me.astri.idleBot.GameBot.eventWaiter.WaiterTemplates;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import net.dv8tion.jda.api.entities.Emoji;
 import net.dv8tion.jda.api.entities.IMentionable;
-import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
@@ -28,10 +26,10 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class LevelUpEquipment implements ISlashCommand {
+public class Equipments_upgrade extends ISlashSubcommand {
     @Override
-    public CommandData getCommandData() {
-        return new CommandData("levelup","increase the level of your equipment")
+    public SubcommandData getData() {
+        return new SubcommandData("upgrade","increase the level of your equipment")
                 .addOptions(new OptionData(OptionType.STRING, "equipment","which equipment to level up")
                         .addChoice("sword","sword")
                         .addChoice("shield","shield")

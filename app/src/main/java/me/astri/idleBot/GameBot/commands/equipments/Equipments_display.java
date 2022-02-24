@@ -1,25 +1,25 @@
-package me.astri.idleBot.GameBot.commands.displayCommands;
+package me.astri.idleBot.GameBot.commands.equipments;
 
 import me.astri.idleBot.GameBot.entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import me.astri.idleBot.GameBot.utils.Emotes;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.interactions.components.Button;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class EquipmentDisplay implements ISlashCommand {
+public class Equipments_display extends ISlashSubcommand {
     @Override
-    public CommandData getCommandData() {
-        return new CommandData("equipment","shows your equipment")
+    public SubcommandData getData() {
+        return new SubcommandData("display","shows your equipment")
                 .addOption(OptionType.USER,"user","show someone's equipment",false)
                 .addOption(OptionType.BOOLEAN,"ephemeral","only you can see the message",false);
     }

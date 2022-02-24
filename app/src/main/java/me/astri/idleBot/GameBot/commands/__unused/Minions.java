@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.commands;
+package me.astri.idleBot.GameBot.commands.__unused;
 
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -9,9 +9,9 @@ import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.components.Button;
 import net.dv8tion.jda.api.interactions.components.ButtonStyle;
 
-public class Minions implements ISlashCommand {
+public class Minions extends ISlashCommand {
     @Override
-    public CommandData getCommandData() {
+    public CommandData getData() {
         return new CommandData("minions","shows your minions");
     }
 

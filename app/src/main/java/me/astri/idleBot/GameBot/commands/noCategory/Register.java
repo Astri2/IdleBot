@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.commands.other;
+package me.astri.idleBot.GameBot.commands.noCategory;
 
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
@@ -11,9 +11,9 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
-public class Register implements ISlashCommand {
+public class Register extends ISlashCommand {
     @Override
-    public CommandData getCommandData() {
+    public CommandData getData() {
         return new CommandData("register","register yourself to the game")
                 .addOptions(
                         new OptionData(OptionType.STRING,"language","the lang the bot will use will you")

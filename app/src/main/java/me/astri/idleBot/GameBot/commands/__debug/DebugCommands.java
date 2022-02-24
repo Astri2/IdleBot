@@ -1,23 +1,18 @@
-package me.astri.idleBot.GameBot.commands.debug;
+package me.astri.idleBot.GameBot.commands.__debug;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
-import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipments.Equipment;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.utils.*;
+import me.astri.idleBot.GameBot.utils.Config;
+import me.astri.idleBot.GameBot.utils.Lang;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.FileWriter;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

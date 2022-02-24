@@ -2,20 +2,31 @@ package me.astri.idleBot.GameBot.slashCommandHandler;
 
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.commands.build.BaseCommand;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 
-public interface ISlashCommand {
-    CommandData getCommandData();
+import java.util.Collection;
+import java.util.List;
 
-    void handle(SlashCommandEvent e, InteractionHook hook);
+public abstract class ISlashCommand extends ISlashGenericCommand{
+    protected final List<ISlashSubcommand> subCommands;
 
-    default Boolean hasPermission(SlashCommandEvent e) {
-        return true;
+    protected List<SubcommandData> getSubCommandDatas() {
+        return this.subCommands.stream().map(slashSubCommand -> (SubcommandData) slashSubCommand.getData()).toList();
     }
 
-    default Boolean guildOnly() { return false; }
+    protected List<ISlashSubcommand> initSubcommands() { return List.of(); }
 
-    default Boolean isEphemeral() { return false; }
+    @Override
+    public void handle(SlashCommandEvent e, InteractionHook hook) {}
 
-    default long getCooldown() { return -1L; } //no cooldown
+    public final Collection<ISlashSubcommand> getSubcommands() {
+        return this.subCommands;
+    }
+
+    public ISlashCommand() {
+        this.subCommands = this.initSubcommands();
+    }
+    
 }

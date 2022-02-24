@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.commands.other;
+package me.astri.idleBot.GameBot.commands.noCategory;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
@@ -10,10 +10,10 @@ import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 
-public class Reset implements ISlashCommand {
+public class Reset extends ISlashCommand {
 
     @Override
-    public CommandData getCommandData() {
+    public CommandData getData() {
         return new CommandData("reset","reset your account")
                 .addOption(OptionType.BOOLEAN, "onlymoney", "will only reset the money",true)
                 .addOption(OptionType.BOOLEAN,"ephemeral","only you can see the message");

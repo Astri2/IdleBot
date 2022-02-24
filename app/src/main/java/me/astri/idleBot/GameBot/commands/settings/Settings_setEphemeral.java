@@ -2,17 +2,17 @@ package me.astri.idleBot.GameBot.commands.settings;
 
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 
-public class setEphemeral implements ISlashCommand {
+public class Settings_setEphemeral extends ISlashSubcommand {
     @Override
-    public CommandData getCommandData() {
-        return new CommandData("ephemeral","choose your language")
+    public SubcommandData getData() {
+        return new SubcommandData("ephemeral","choose your language")
                 .addOptions(new OptionData(OptionType.STRING, "ephemeral","will the bot reply using ephemeral messages (only you can see)",true)
                                 .addChoice("True","true")
                                 .addChoice("False", "false")

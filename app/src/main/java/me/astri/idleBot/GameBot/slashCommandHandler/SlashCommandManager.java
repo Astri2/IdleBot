@@ -19,19 +19,29 @@ public class SlashCommandManager extends ListenerAdapter {
 
     public SlashCommandManager(ISlashCommand ... slashCommand) {
         Collections.addAll(slashCommands, slashCommand);
-        Arrays.stream(slashCommand).forEach(cmd -> cooldowns.put(cmd.getCommandData().getName(),new HashMap<>()));
+        Arrays.stream(slashCommand).forEach(cmd -> {
+            if(cmd.getSubCommandDatas().isEmpty()) {
+                cooldowns.put(cmd.getClass().getName(), new HashMap<>());
+            } else
+                cmd.getSubcommands().forEach(subCmd -> cooldowns.put(subCmd.getClass().getName(), new HashMap<>()));
+        });
     }
 
-    private ISlashCommand getISlashCommand(String name) {
+    private ISlashGenericCommand getISlashCommand(String name, String subName) {
         for(ISlashCommand slashCommand : slashCommands) {
-            if(name.equals(slashCommand.getCommandData().getName()))
-                return slashCommand;
+            if(name.equals(slashCommand.getData().getName())) {
+                if(subName == null || subName.isEmpty()) return slashCommand;
+                else for(ISlashSubcommand slashSubcommand : slashCommand.getSubcommands()) {
+                    if(subName.equals(slashSubcommand.getData().getName()))
+                        return slashSubcommand;
+                }
+            }
         }
         return null;
     }
     @Override
     public void onSlashCommand(@NotNull SlashCommandEvent e) {
-        ISlashCommand slashCommand = getISlashCommand(e.getName());
+        ISlashGenericCommand slashCommand = getISlashCommand(e.getName(),e.getSubcommandName());
 
         if(e.getUser().isBot())
             return;
@@ -64,7 +74,7 @@ public class SlashCommandManager extends ListenerAdapter {
 
         if(e.getOption("ephemeral")!= null) ephemeral = Boolean.parseBoolean(e.getOption("ephemeral").getAsString());
 
-        cooldowns.get(slashCommand.getCommandData().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
+        cooldowns.get(slashCommand.getClass().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
         e.deferReply(ephemeral).queue();
         try {
             slashCommand.handle(e,e.getHook());
@@ -75,12 +85,12 @@ public class SlashCommandManager extends ListenerAdapter {
 
     private ArrayList<CommandData> getAllCommandData() {
         ArrayList<CommandData> list = new ArrayList<>();
-        slashCommands.forEach(command -> list.add(command.getCommandData()));
+        slashCommands.forEach(command -> list.add((CommandData) command.getData()));
 
         return list;
     }
 
-    private long getCooldown(SlashCommandEvent e, ISlashCommand command) {
+    private long getCooldown(SlashCommandEvent e, ISlashGenericCommand command) {
         if(e.getUser().getId().equals(Config.get("BOT_OWNER_ID"))) {
             return -1L;
         }
@@ -88,7 +98,7 @@ public class SlashCommandManager extends ListenerAdapter {
             return -1L;
         }
         long time = System.currentTimeMillis();
-        Long lastTime = cooldowns.get(command.getCommandData().getName()).get(e.getUser().getIdLong());
+        Long lastTime = cooldowns.get(command.getData().getName()).get(e.getUser().getIdLong());
         if(lastTime == null) {
             return -1L;
         }
@@ -118,7 +128,7 @@ public class SlashCommandManager extends ListenerAdapter {
      * @param command list of commands you want to Add or Update
      */
     public void updateCommands(JDA jda, String ... command) {
-        Arrays.stream(command).forEach(cmd -> jda.upsertCommand(getISlashCommand(cmd).getCommandData()).queue());
+        Arrays.stream(command).forEach(cmd -> jda.upsertCommand((CommandData) getISlashCommand(cmd,"").getData()).queue());
     }
 
     /**
@@ -127,7 +137,7 @@ public class SlashCommandManager extends ListenerAdapter {
      * @param command list of commands you want to Add or Update
      */
     public void updateGuildCommands(Guild guild, String ... command) {
-        Arrays.stream(command).forEach(cmd -> guild.upsertCommand(getISlashCommand(cmd).getCommandData()).queue());
+        Arrays.stream(command).forEach(cmd -> guild.upsertCommand((CommandData) getISlashCommand(cmd,"").getData()).queue());
     }
 
 

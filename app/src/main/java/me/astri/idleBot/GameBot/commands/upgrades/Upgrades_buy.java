@@ -1,18 +1,18 @@
-package me.astri.idleBot.GameBot.commands;
+package me.astri.idleBot.GameBot.commands.upgrades;
 
 import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
+import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
 
@@ -23,10 +23,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Upgrades implements ISlashCommand {
+public class Upgrades_buy extends ISlashSubcommand {
     @Override
-    public CommandData getCommandData() {
-        return new CommandData("upgrades","displays your available upgrades");
+    public SubcommandData getData() {
+        return new SubcommandData("buy","displays your available upgrades");
     }
 
     private final int MAX_DISPLAYED_UPGRADES = 12;
