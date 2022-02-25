@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.build.BaseCommand;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
+import net.dv8tion.jda.api.interactions.components.ButtonStyle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +45,14 @@ public class Chesthunt extends ISlashCommand {
             ArrayList<Button> buttons = new ArrayList<>();
             for(int k = 0 ; k < 5 ; k++) {
                 int val = Math.max(grid[i][k],0);
-                buttons.add(Button.secondary(i + " " + k, Emoji.fromMarkdown(emotes[val])).withDisabled(val != 0 || allDisable));
+                ButtonStyle style;
+                switch(val) {
+                    case 1,2 -> style = ButtonStyle.PRIMARY;
+                    case 3 -> style = ButtonStyle.DANGER;
+                    case 4 -> style = ButtonStyle.SUCCESS;
+                    default -> style = ButtonStyle.SECONDARY;
+                }
+                buttons.add(Button.of(style,i + " " + k, Emoji.fromMarkdown(emotes[val])).withDisabled(val != 0 || allDisable));
             }
             rows.add(ActionRow.of(buttons));
         }
