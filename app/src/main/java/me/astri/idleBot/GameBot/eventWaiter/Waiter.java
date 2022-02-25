@@ -63,6 +63,10 @@ public class Waiter<T extends GenericEvent> {
         this.timer = new Timer();
     }
 
+    public Waiter(Waiter<T> waiter) {
+        this(waiter.eventType, waiter.conditions, waiter.action, waiter.failureAction, waiter.autoRemove, waiter.expirationTime, waiter.timeUnit, waiter.timeoutAction);
+    }
+
     public void register(String id) {
 
         EventWaiter.register(this,id);

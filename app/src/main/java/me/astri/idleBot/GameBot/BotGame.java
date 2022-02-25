@@ -2,6 +2,7 @@ package me.astri.idleBot.GameBot;
 
 import me.astri.idleBot.GameBot.commands.__debug.DebugCommands;
 import me.astri.idleBot.GameBot.commands.equipments.Equipments;
+import me.astri.idleBot.GameBot.commands.noCategory.Chesthunt;
 import me.astri.idleBot.GameBot.commands.noCategory.Profile;
 import me.astri.idleBot.GameBot.commands.noCategory.Register;
 import me.astri.idleBot.GameBot.commands.noCategory.Reset;
@@ -40,7 +41,9 @@ public class BotGame extends ListenerAdapter {
 
                 new Profile(),
                 new Register(),
-                new Reset()
+                new Reset(),
+
+                new Chesthunt()
         );
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
