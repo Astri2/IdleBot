@@ -1,7 +1,7 @@
 package me.astri.idleBot.GameBot.game;
 
-import me.astri.idleBot.GameBot.commands.equipments.Equipments_upgrade;
-import me.astri.idleBot.GameBot.commands.equipments.Equipments_display;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
 import me.astri.idleBot.GameBot.commands.noCategory.Profile;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -18,7 +18,7 @@ public class PermaActionComponent extends ListenerAdapter {
         switch(replacePattern.matcher(e.getButton().getId()).replaceAll("")) {
             case "equipmentDisplay" -> {
                 e.deferReply(true).queue();
-                Equipments_display.display(e.getHook(), e.getUser(), e.getUser());
+                Equipment_display.display(e.getHook(), e.getUser(), e.getUser());
             }
             case "profileDisplay" -> {
                 e.deferReply(true).queue();
@@ -26,7 +26,7 @@ public class PermaActionComponent extends ListenerAdapter {
             }
             case "redoLevelUp" -> {
                 e.deferReply(true).queue();
-                Equipments_upgrade.redoLevelUp(e.getHook(),e.getUser(), e.getButton().getId());
+                Equipment_upgrade.redoLevelUp(e.getHook(),e.getUser(), e.getButton().getId());
             }
         }
     }

@@ -1,6 +1,6 @@
-package me.astri.idleBot.GameBot.commands.equipments;
+package me.astri.idleBot.GameBot.commands.equipment;
 
-import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
@@ -16,7 +16,7 @@ import net.dv8tion.jda.api.interactions.components.Button;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Equipments_display extends ISlashSubcommand {
+public class Equipment_display extends ISlashSubcommand {
     @Override
     public SubcommandData getData() {
         return new SubcommandData("display","shows your equipment")

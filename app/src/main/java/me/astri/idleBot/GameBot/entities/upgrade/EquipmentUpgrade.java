@@ -1,7 +1,7 @@
 package me.astri.idleBot.GameBot.entities.upgrade;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
-import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import org.json.JSONArray;

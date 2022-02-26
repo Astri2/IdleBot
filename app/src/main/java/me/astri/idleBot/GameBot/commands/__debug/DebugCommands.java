@@ -2,7 +2,7 @@ package me.astri.idleBot.GameBot.commands.__debug;
 
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.entities.BigNumber;
-import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;

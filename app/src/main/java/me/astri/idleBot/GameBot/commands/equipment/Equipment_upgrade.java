@@ -1,7 +1,7 @@
-package me.astri.idleBot.GameBot.commands.equipments;
+package me.astri.idleBot.GameBot.commands.equipment;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
-import me.astri.idleBot.GameBot.entities.equipments.Equipment;
+import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Equipments_upgrade extends ISlashSubcommand {
+public class Equipment_upgrade extends ISlashSubcommand {
     @Override
     public SubcommandData getData() {
         return new SubcommandData("upgrade","increase the level of your equipment")

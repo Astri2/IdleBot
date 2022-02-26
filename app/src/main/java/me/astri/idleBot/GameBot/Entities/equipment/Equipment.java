@@ -1,4 +1,4 @@
-package me.astri.idleBot.GameBot.entities.equipments;
+package me.astri.idleBot.GameBot.entities.equipment;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.upgrade.EquipmentUpgrade;
