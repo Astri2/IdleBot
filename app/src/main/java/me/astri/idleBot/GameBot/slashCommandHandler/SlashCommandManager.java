@@ -20,7 +20,7 @@ public class SlashCommandManager extends ListenerAdapter {
     public SlashCommandManager(ISlashCommand ... slashCommand) {
         Collections.addAll(slashCommands, slashCommand);
         Arrays.stream(slashCommand).forEach(cmd -> {
-            if(cmd.getSubCommandDatas().isEmpty()) {
+            if(cmd.getSubcommands() == null) {
                 cooldowns.put(cmd.getClass().getName(), new HashMap<>());
             } else
                 cmd.getSubcommands().forEach(subCmd -> cooldowns.put(subCmd.getClass().getName(), new HashMap<>()));

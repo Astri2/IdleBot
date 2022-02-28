@@ -2,28 +2,38 @@ package me.astri.idleBot.GameBot;
 
 import me.astri.idleBot.GameBot.commands.__debug.DebugCommands;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
 import me.astri.idleBot.GameBot.commands.noCategory.Chesthunt;
 import me.astri.idleBot.GameBot.commands.noCategory.Profile;
 import me.astri.idleBot.GameBot.commands.noCategory.Register;
 import me.astri.idleBot.GameBot.commands.noCategory.Reset;
 import me.astri.idleBot.GameBot.commands.settings.Settings;
+import me.astri.idleBot.GameBot.commands.settings.Settings_setEphemeral;
+import me.astri.idleBot.GameBot.commands.settings.Settings_setLang;
+import me.astri.idleBot.GameBot.commands.settings.Settings_setNotation;
 import me.astri.idleBot.GameBot.commands.upgrades.Upgrades;
+import me.astri.idleBot.GameBot.commands.upgrades.Upgrades_buy;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
+import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 import me.astri.idleBot.GameBot.entities.upgrade.UpgradeManager;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.game.PermaActionComponent;
 import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
+import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.ControlPanel;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.privileges.CommandPrivilege;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.login.LoginException;
+import java.util.ArrayList;
 
 public class BotGame extends ListenerAdapter {
     public static JDA jda;
@@ -31,14 +41,26 @@ public class BotGame extends ListenerAdapter {
 
     public static void startBot(String token) throws LoginException, InterruptedException {
         slashCommandManager = new SlashCommandManager(
-                new Equipment(),
-                new Upgrades(),
-                new Settings(),
+                //subcommands
+                new Equipment(
+                        new Equipment_display(),
+                        new Equipment_upgrade()
+                ),
+                new Upgrades(
+                        new Upgrades_buy()
+                ),
+                new Settings(
+                        new Settings_setEphemeral(),
+                        new Settings_setLang(),
+                        new Settings_setNotation()
+                ),
 
+                //regular commands
                 new Profile(),
                 new Register(),
                 new Reset(),
 
+                //other
                 new Chesthunt()
         );
         jda = JDABuilder.createDefault(token)

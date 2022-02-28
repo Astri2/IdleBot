@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.interactions.commands.build.BaseCommand;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,8 +17,6 @@ public abstract class ISlashCommand extends ISlashGenericCommand{
         return this.subCommands.stream().map(slashSubCommand -> (SubcommandData) slashSubCommand.getData()).toList();
     }
 
-    protected List<ISlashSubcommand> initSubcommands() { return List.of(); }
-
     @Override
     public void handle(SlashCommandEvent e, InteractionHook hook) {}
 
@@ -26,7 +25,10 @@ public abstract class ISlashCommand extends ISlashGenericCommand{
     }
 
     public ISlashCommand() {
-        this.subCommands = this.initSubcommands();
+        this.subCommands = null;
     }
-    
+
+    public ISlashCommand(ISlashSubcommand ... subcommands) {
+        this.subCommands = List.of(subcommands);
+    }
 }
