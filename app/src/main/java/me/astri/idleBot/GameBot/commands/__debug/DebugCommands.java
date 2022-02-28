@@ -13,6 +13,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +28,7 @@ public class DebugCommands extends ListenerAdapter {
             case "i!load" -> load(event);
             case "i!prices" -> prices(event);
             case "i!save" -> save(event);
+            case "i!ping" -> ping(event);
         }
     }
 
@@ -112,5 +114,14 @@ public class DebugCommands extends ListenerAdapter {
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
             return;
         DataBase.save(null);
+    }
+
+    private void ping(GuildMessageReceivedEvent event) {
+        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
+            return;
+        long time = System.currentTimeMillis();
+        event.getChannel().sendMessage("Pong !").queue(msg ->
+            msg.editMessageFormat("Pong %dms 🏓 !",System.currentTimeMillis()-time).queue()
+        );
     }
 }
