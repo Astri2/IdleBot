@@ -4,6 +4,7 @@ import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
+import me.astri.idleBot.modBot.main.BotMod;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
@@ -82,9 +83,12 @@ public class ControlPanel extends ListenerAdapter {
                                     .setAction(ctx -> {
                                         String id = ctx.getEvent().getButton().getId();
                                         if (id.equals("shutdown_confirm_" + event.getId())) {
-                                            confirmMsg.editMessageComponents().queue();
-                                            ctx.getEvent().reply("Shutdown confirmed.").setEphemeral(true).queue();
+                                            confirmMsg.editMessageComponents().complete();
+                                            ctx.getEvent().reply("Shutdown confirmed.").setEphemeral(true).complete();
                                             ctx.getEvent().getJDA().shutdown();
+
+                                            if(BotMod.jda == null || !BotMod.jda.getStatus().isInit())
+                                                System.exit(0);
                                         } else {
                                             confirmMsg.editMessageComponents().queue();
                                             ctx.getEvent().reply("Shutdown canceled").setEphemeral(true).queue();

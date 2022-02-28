@@ -13,7 +13,6 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,19 +22,17 @@ public class DebugCommands extends ListenerAdapter {
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().toLowerCase().split("\\s+");
         if(!event.getAuthor().getId().equals(Config.get("BOT_OWNER_ID"))) return;
+        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser())) return;
         switch (args[0]) {
             case "i!give" -> give(event);
-            case "i!load" -> load(event);
+            case "i!load" -> load();
             case "i!prices" -> prices(event);
-            case "i!save" -> save(event);
+            case "i!save" -> save();
             case "i!ping" -> ping(event);
         }
     }
 
     private void give(GuildMessageReceivedEvent event) {
-        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
-            return;
-
         String[] args = event.getMessage().getContentRaw().split("\\s+");
         if(event.getMessage().getMentionedMembers().isEmpty())
             return;
@@ -52,9 +49,7 @@ public class DebugCommands extends ListenerAdapter {
         event.getMessage().addReaction("✅").queue();
     }
 
-    private void load(GuildMessageReceivedEvent event) {
-        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
-            return;
+    private void load() {
         DataBase.load(null);
     }
 
@@ -110,15 +105,11 @@ public class DebugCommands extends ListenerAdapter {
 
     }
 
-    private void save(GuildMessageReceivedEvent event) {
-        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
-            return;
+    private void save() {
         DataBase.save(null);
     }
 
     private void ping(GuildMessageReceivedEvent event) {
-        if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser()))
-            return;
         long time = System.currentTimeMillis();
         event.getChannel().sendMessage("Pong !").queue(msg ->
             msg.editMessageFormat("Pong %dms 🏓 !",System.currentTimeMillis()-time).queue()
