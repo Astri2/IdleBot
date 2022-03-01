@@ -5,16 +5,23 @@ import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.modBot.main.BotMod;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
+import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Button;
+import net.dv8tion.jda.api.interactions.components.ComponentLayout;
+import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
+import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class ControlPanel extends ListenerAdapter {
     @Override
@@ -26,14 +33,12 @@ public class ControlPanel extends ListenerAdapter {
             MessageAction msg = channel.sendMessage("Slash Commands controller").setActionRows(ActionRow.of(
                     Button.primary("updateJDACommands", "update all JDA commands"),
                     Button.primary("updateGuildCommands", "update all Guild commands"),
-                    Button.danger("updateSomeJDACommands", "update specific JDA commands").withDisabled(true),
-                    Button.danger("updateSomeGuildCommands", "update specific Guild commands").withDisabled(true)),
+                    Button.primary("updateCommandFromSpecificGuild", "update commands from a specific guild")),
                     ActionRow.of(
                         Button.primary("clearJDACommands","Clear all JDA commands"),
                         Button.primary("clearGuildCommands", "Clear all commands from a guild")),
                     ActionRow.of(
-                        Button.danger("clearAllGuildCommands", "Clear all commands from all guilds").withDisabled(true),
-                        Button.danger("removeSomeGuildCommands", "remove specific commands from a guild").withDisabled(true)),
+                        Button.danger("clearAllGuildCommands", "Clear all commands from all guilds").withDisabled(true)),
                     ActionRow.of(
                         Button.success("loadPlayers","Load player progressions"),
                         Button.success("savePlayers","Save player progressions"),
@@ -57,8 +62,8 @@ public class ControlPanel extends ListenerAdapter {
                 event.reply("All global slash commands updated! (may take some time to effectively update to users)").setEphemeral(true).queue();
             }
             case "updateGuildCommands" -> {
-                BotGame.slashCommandManager.updateGuildCommands(event.getGuild());
-                event.reply("All slash commands updated on that guild!").setEphemeral(true).queue();
+                event.deferReply(true).queue();
+                BotGame.slashCommandManager.updateGuildCommands(event.getGuild(),event.getHook());
             }
             case "clearJDACommands" -> {
                 BotGame.slashCommandManager.clearJDACommands(event.getJDA());
@@ -67,6 +72,33 @@ public class ControlPanel extends ListenerAdapter {
             case "clearGuildCommands" -> {
                 BotGame.slashCommandManager.clearGuildCommands(event.getGuild());
                 event.reply("All slash commands cleared of that guild!").setEphemeral(true).queue();
+            }
+            case "updateCommandFromSpecificGuild" -> {
+                event.deferReply(true).queue();
+                List<Guild> guildList = event.getJDA().getGuilds();
+                SelectionMenu guilds = SelectionMenu.create("guildChoice").addOptions(
+                        guildList.stream().map(g -> SelectOption.of(g.getName(),g.getId())).collect(Collectors.toList())
+                ).setRequiredRange(1,guildList.size()).build();
+
+                event.getHook().sendMessage("Which guild(s)?").addActionRow(guilds).queue(msg -> {
+                    EventWaiter.register(new Waiter<SelectionMenuEvent>()
+                            .setEventType(SelectionMenuEvent.class)
+                            .setAutoRemove(true)
+                            .setConditions(e -> e.getMessage().equals(msg))
+                            .setExpirationTime(1, TimeUnit.MINUTES)
+                            .setTimeoutAction(() -> msg.editMessageComponents().queue())
+                            .setAction(ctx -> {
+                                ctx.getEvent().deferReply(true).queue();
+                                ctx.getEvent().editSelectionMenu(ctx.getEvent().getSelectionMenu().asDisabled()).queue();
+                                System.out.println("passse");
+                                ctx.getEvent().getSelectedOptions().forEach(
+                                    option -> {
+                                        System.out.println("passe1");
+                                        BotGame.slashCommandManager.updateGuildCommands(event.getJDA().getGuildById(option.getValue()), ctx.getEvent().getHook());
+                                    });
+                            }),"updateCommandFromSpecificGuild"
+                    );
+                });
             }
             case "shutdown" -> {
                 event.deferReply(true).queue();

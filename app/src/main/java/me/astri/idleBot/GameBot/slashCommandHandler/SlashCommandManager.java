@@ -1,44 +1,52 @@
 package me.astri.idleBot.GameBot.slashCommandHandler;
 
+import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
+import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
+import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.utils.Utils;
+import me.astri.idleBot.modBot.main.BotMod;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
+import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
+import net.dv8tion.jda.api.interactions.components.Button;
+import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
+import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class SlashCommandManager extends ListenerAdapter {
-    private final List<ISlashCommand> slashCommands = new ArrayList<>();
+    private final HashMap<String,ISlashCommand> slashCommands = new HashMap<>();
     private final HashMap<String, HashMap<Long,Long>> cooldowns = new HashMap<>();
 
     public SlashCommandManager(ISlashCommand ... slashCommand) {
-        Collections.addAll(slashCommands, slashCommand);
+        Arrays.stream(slashCommand).forEach(cmd -> slashCommands.put(cmd.getData().getName(),cmd));
         Arrays.stream(slashCommand).forEach(cmd -> {
-            if(cmd.getSubcommands() == null) {
+            if(cmd.getSubcommands().isEmpty()) {
                 cooldowns.put(cmd.getClass().getName(), new HashMap<>());
             } else
-                cmd.getSubcommands().forEach(subCmd -> cooldowns.put(subCmd.getClass().getName(), new HashMap<>()));
+                cmd.getSubcommands().values().forEach(subCmd -> cooldowns.put(subCmd.getClass().getName(), new HashMap<>()));
         });
     }
 
     private ISlashGenericCommand getISlashCommand(String name, String subName) {
-        for(ISlashCommand slashCommand : slashCommands) {
-            if(name.equals(slashCommand.getData().getName())) {
-                if(subName == null || subName.isEmpty()) return slashCommand;
-                else for(ISlashSubcommand slashSubcommand : slashCommand.getSubcommands()) {
-                    if(subName.equals(slashSubcommand.getData().getName()))
-                        return slashSubcommand;
-                }
-            }
-        }
-        return null;
+            if (subName == null || subName.isEmpty())
+                return slashCommands.get(name);
+            else
+                return slashCommands.get(name).getSubcommands().get(subName);
     }
+
     @Override
     public void onSlashCommand(@NotNull SlashCommandEvent e) {
         ISlashGenericCommand slashCommand = getISlashCommand(e.getName(),e.getSubcommandName());
@@ -85,7 +93,7 @@ public class SlashCommandManager extends ListenerAdapter {
 
     private ArrayList<CommandData> getAllCommandData() {
         ArrayList<CommandData> list = new ArrayList<>();
-        slashCommands.forEach(command -> list.add((CommandData) command.getData()));
+        slashCommands.values().forEach(command -> list.add((CommandData) command.getData()));
 
         return list;
     }
@@ -98,7 +106,7 @@ public class SlashCommandManager extends ListenerAdapter {
             return -1L;
         }
         long time = System.currentTimeMillis();
-        Long lastTime = cooldowns.get(command.getData().getName()).get(e.getUser().getIdLong());
+        Long lastTime = cooldowns.get(command.getClass().getName()).get(e.getUser().getIdLong());
         if(lastTime == null) {
             return -1L;
         }
@@ -118,28 +126,41 @@ public class SlashCommandManager extends ListenerAdapter {
      * Add new commands, Delete missing commands, Update edited commands
      * @param guild the Guild on which you'll update all commands
      */
-    public void updateGuildCommands(Guild guild) {
-        guild.updateCommands().addCommands(getAllCommandData()).queue();
-    }
+    public void updateGuildCommands(Guild guild, InteractionHook hook) {
+        System.out.println("passe2");
+        guild.updateCommands().addCommands(getAllCommandData()).complete();
+        hook.sendMessage("Enable Permissions for \"%s\"?".formatted(guild.getName())).addActionRows(ActionRow.of(
+                Button.success("updateGuildCommands_%s_confirm".formatted(guild.getId()),"Yes"),
+                Button.danger("updateGuildCommands_%s_cancel".formatted(guild.getId()),"No")
+        )).queue(msg ->
+            EventWaiter.register(new Waiter<ButtonClickEvent>()
+                .setEventType(ButtonClickEvent.class)
+                .setAutoRemove(true)
+                .setConditions(e -> e.getButton().getId().startsWith("updateGuildCommands_" + guild.getId()))
+                .setExpirationTime(1, TimeUnit.MINUTES)
+                .setTimeoutAction(() -> msg.editMessageComponents().queue())
+                .setAction(ctx -> {
+                    String id = ctx.getEvent().getButton().getId();
+                    msg.editMessageComponents(
+                            ActionRow.of(Button.success("yes","Yes").asDisabled(),Button.danger("no","No").asDisabled())).queue();
+                    System.out.println("passe3");
+                    if (id.contains("confirm")) {
+                        System.out.println("passe4");
+                        ctx.getEvent().editMessage("Permissions will be enabled").queue();
+                        guild.retrieveCommands().queue(commands -> commands.forEach(command -> {
+                            System.out.println("passe5");
+                            System.out.println(command.getName());
 
-    /**
-     * Add or Update specific commands on the whole Bot
-     * @param jda the JDA bot on which you'll updates the commands
-     * @param command list of commands you want to Add or Update
-     */
-    public void updateCommands(JDA jda, String ... command) {
-        Arrays.stream(command).forEach(cmd -> jda.upsertCommand((CommandData) getISlashCommand(cmd,"").getData()).queue());
+                            command.editCommand().setDefaultEnabled(false).queue();
+                            command.updatePrivileges(guild, slashCommands.get(command.getName()).getCommandPrivileges()).queue();
+                        }));
+                    } else {
+                        ctx.getEvent().editMessage("Permissions won't be enabled").queue();
+                    }
+                }),"updateGuildCommands_" + guild.getId()
+            )
+        );
     }
-
-    /**
-     * Add or Update specific commands on a specific Guild
-     * @param guild the Guild on which you'll updates the commands
-     * @param command list of commands you want to Add or Update
-     */
-    public void updateGuildCommands(Guild guild, String ... command) {
-        Arrays.stream(command).forEach(cmd -> guild.upsertCommand((CommandData) getISlashCommand(cmd,"").getData()).queue());
-    }
-
 
     /**
      * Clear all commands from the JDA
