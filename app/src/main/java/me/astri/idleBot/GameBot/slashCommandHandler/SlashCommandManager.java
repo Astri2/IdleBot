@@ -127,9 +127,8 @@ public class SlashCommandManager extends ListenerAdapter {
      * @param guild the Guild on which you'll update all commands
      */
     public void updateGuildCommands(Guild guild, InteractionHook hook) {
-        System.out.println("passe2");
         guild.updateCommands().addCommands(getAllCommandData()).complete();
-        hook.sendMessage("Enable Permissions for \"%s\"?".formatted(guild.getName())).addActionRows(ActionRow.of(
+        hook.sendMessage("Enable Permissions for \"%s\"?".formatted(guild.getName())).setEphemeral(true).addActionRows(ActionRow.of(
                 Button.success("updateGuildCommands_%s_confirm".formatted(guild.getId()),"Yes"),
                 Button.danger("updateGuildCommands_%s_cancel".formatted(guild.getId()),"No")
         )).queue(msg ->
@@ -143,19 +142,16 @@ public class SlashCommandManager extends ListenerAdapter {
                     String id = ctx.getEvent().getButton().getId();
                     msg.editMessageComponents(
                             ActionRow.of(Button.success("yes","Yes").asDisabled(),Button.danger("no","No").asDisabled())).queue();
-                    System.out.println("passe3");
                     if (id.contains("confirm")) {
-                        System.out.println("passe4");
-                        ctx.getEvent().editMessage("Permissions will be enabled").queue();
+                        ctx.getEvent().editMessage("Permissions will be enabled for " + guild.getName()).queue();
                         guild.retrieveCommands().queue(commands -> commands.forEach(command -> {
-                            System.out.println("passe5");
                             System.out.println(command.getName());
 
                             command.editCommand().setDefaultEnabled(false).queue();
                             command.updatePrivileges(guild, slashCommands.get(command.getName()).getCommandPrivileges()).queue();
                         }));
                     } else {
-                        ctx.getEvent().editMessage("Permissions won't be enabled").queue();
+                        ctx.getEvent().editMessage("Permissions won't be enabled for " + guild.getName()).queue();
                     }
                 }),"updateGuildCommands_" + guild.getId()
             )

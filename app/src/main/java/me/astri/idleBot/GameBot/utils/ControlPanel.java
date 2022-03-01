@@ -38,7 +38,7 @@ public class ControlPanel extends ListenerAdapter {
                         Button.primary("clearJDACommands","Clear all JDA commands"),
                         Button.primary("clearGuildCommands", "Clear all commands from a guild")),
                     ActionRow.of(
-                        Button.danger("clearAllGuildCommands", "Clear all commands from all guilds").withDisabled(true)),
+                        Button.primary("clearAllGuildCommands", "Clear all commands from all guilds")),
                     ActionRow.of(
                         Button.success("loadPlayers","Load player progressions"),
                         Button.success("savePlayers","Save player progressions"),
@@ -90,15 +90,17 @@ public class ControlPanel extends ListenerAdapter {
                             .setAction(ctx -> {
                                 ctx.getEvent().deferReply(true).queue();
                                 ctx.getEvent().editSelectionMenu(ctx.getEvent().getSelectionMenu().asDisabled()).queue();
-                                System.out.println("passse");
                                 ctx.getEvent().getSelectedOptions().forEach(
                                     option -> {
-                                        System.out.println("passe1");
                                         BotGame.slashCommandManager.updateGuildCommands(event.getJDA().getGuildById(option.getValue()), ctx.getEvent().getHook());
                                     });
                             }),"updateCommandFromSpecificGuild"
                     );
                 });
+            }
+            case "clearAllGuildCommands" -> {
+                event.getJDA().getGuilds().forEach(guild -> guild.updateCommands().queue());
+                event.reply("all slash commands from every guild were removed.").setEphemeral(true).queue();
             }
             case "shutdown" -> {
                 event.deferReply(true).queue();
