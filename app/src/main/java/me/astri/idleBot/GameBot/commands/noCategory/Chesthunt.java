@@ -38,8 +38,6 @@ public class Chesthunt extends ISlashCommand {
     private static final String[] emotes = {"<:closed_chest:946562343645626469>","<:coin:883817946663747614>","<:slayer_point:882795259971661844>",
             "<:mimic:946563866110853140>","<:Knight_Shield:884894974552977419>"};
     private ArrayList<ActionRow> getRows(int[][] grid, boolean allDisable) {
-        System.out.println(Arrays.deepToString(grid));
-
         ArrayList<ActionRow> rows = new ArrayList<>();
         for(int i = 0 ; i < 5 ; i++) {
             ArrayList<Button> buttons = new ArrayList<>();
@@ -95,13 +93,14 @@ public class Chesthunt extends ISlashCommand {
                 .setAutoRemove(false)
                 .setExpirationTime(5L, TimeUnit.MINUTES)
                 .setConditions(ctx -> ctx.getUser().equals(user) && ctx.getMessage().equals(msg))
-                .setTimeoutAction(() -> msg.editMessage("expired").setActionRows(getRows(grid,true)).queue())
+                .setTimeoutAction(() ->
+                    msg.editMessage("expired").setActionRows(getRows(grid,true)).queue()
+                )
                 .setFailureAction(a -> {
                     if(a.getEvent().getMessage().equals(msg))
                         a.getEvent().reply("you can't interact with that!").setEphemeral(true).queue();
                 })
                 .setAction(a -> {
-                    System.out.println(a.getEvent().getButton().getId());
                     a.resetTimer();
 
                     String[] pos = a.getEvent().getButton().getId().split(" ");
