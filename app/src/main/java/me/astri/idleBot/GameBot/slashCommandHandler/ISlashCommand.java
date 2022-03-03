@@ -30,7 +30,7 @@ public abstract class ISlashCommand extends ISlashGenericCommand{
         Stream.of(subs).forEach(sub -> subCommands.put(sub.getData().getName(),sub));
     }
 
-    private static final String[] bypass = Config.get("BYPASS_PERMISSION").split(";");
+    private static final String[] bypass = Config.get("AUTHORIZED_USERS").split(",");
     private static final List<CommandPrivilege> defaultPrivileges = new ArrayList<>();
     public List<CommandPrivilege> getCommandPrivileges() {
         if(defaultPrivileges.isEmpty()) {
