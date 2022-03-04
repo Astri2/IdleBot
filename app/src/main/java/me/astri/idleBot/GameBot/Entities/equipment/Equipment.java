@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Equipment implements Serializable {
-    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.3);
+    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.5);
 
     private final String id;
     private final boolean unlocked;
