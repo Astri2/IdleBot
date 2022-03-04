@@ -13,8 +13,6 @@ public class PermaActionComponent extends ListenerAdapter {
     private static final Pattern replacePattern = Pattern.compile("[^a-zA-Z].*");
     @Override
     public void onButtonClick(@NotNull ButtonClickEvent e) {
-        if(!e.getMessage().getAuthor().equals(e.getJDA().getSelfUser()))
-            return;
         switch(replacePattern.matcher(e.getButton().getId()).replaceAll("")) {
             case "equipmentDisplay" -> {
                 e.deferReply(true).queue();
