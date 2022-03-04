@@ -73,7 +73,7 @@ public class ControlPanel extends ListenerAdapter {
                             BotGame.slashCommandManager.updateGuildCommands(guild, usePermissions.get())
                     );
                     ctx.getEvent().getHook().sendMessage("All slash commands from all guilds updated! (permissions system: %b)"
-                            .formatted(usePermissions)).setEphemeral(true).queue();
+                            .formatted(usePermissions.get())).setEphemeral(true).queue();
                 }).register(event.getId());
 
             }
@@ -86,7 +86,7 @@ public class ControlPanel extends ListenerAdapter {
                                 askForTogglePermissionsWaiter(ctx.getEvent(), guild.getName(), usePermissions).appendAction(ctx2 -> {
                                     BotGame.slashCommandManager.updateGuildCommands(guild, usePermissions.get());
                                     ctx2.getEvent().getHook().sendMessage("All slash commands from %s updated! (permissions system: %b)"
-                                            .formatted(guild.getName(),usePermissions)).setEphemeral(true).queue();
+                                            .formatted(guild.getName(),usePermissions.get())).setEphemeral(true).queue();
                                 }).register(guild.getId())
                         )
                 ).register(event.getId());
