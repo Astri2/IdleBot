@@ -1,30 +1,17 @@
 package me.astri.idleBot.GameBot.slashCommandHandler;
 
-import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
-import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
-import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.utils.Utils;
-import me.astri.idleBot.modBot.main.BotMod;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
-import net.dv8tion.jda.api.events.interaction.SelectionMenuEvent;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.interactions.components.ActionRow;
-import net.dv8tion.jda.api.interactions.components.Button;
-import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
-import net.dv8tion.jda.api.interactions.components.selections.SelectionMenu;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class SlashCommandManager extends ListenerAdapter {
     private final HashMap<String,ISlashCommand> slashCommands = new HashMap<>();
@@ -114,48 +101,15 @@ public class SlashCommandManager extends ListenerAdapter {
         return (lastTime + command.getCooldown()) - time;
     }
 
+
+
+
     /**
      * Add new commands, Delete missing commands, Update edited commands
      * @param jda the JDA bot on which you'll update all commands
      */
-    public void updateCommands(JDA jda) {
+    public void updateJDACommands(JDA jda) {
         jda.updateCommands().addCommands(getAllCommandData()).queue();
-    }
-
-    /**
-     * Add new commands, Delete missing commands, Update edited commands
-     * @param guild the Guild on which you'll update all commands
-     */
-    public void updateGuildCommands(Guild guild, InteractionHook hook) {
-        guild.updateCommands().addCommands(getAllCommandData()).complete();
-        hook.sendMessage("Enable Permissions for \"%s\"?".formatted(guild.getName())).setEphemeral(true).addActionRows(ActionRow.of(
-                Button.success("updateGuildCommands_%s_confirm".formatted(guild.getId()),"Yes"),
-                Button.danger("updateGuildCommands_%s_cancel".formatted(guild.getId()),"No")
-        )).queue(msg ->
-            EventWaiter.register(new Waiter<ButtonClickEvent>()
-                .setEventType(ButtonClickEvent.class)
-                .setAutoRemove(true)
-                .setConditions(e -> e.getButton().getId().startsWith("updateGuildCommands_" + guild.getId()))
-                .setExpirationTime(1, TimeUnit.MINUTES)
-                .setTimeoutAction(() -> msg.editMessageComponents().queue())
-                .setAction(ctx -> {
-                    String id = ctx.getEvent().getButton().getId();
-                    msg.editMessageComponents(
-                            ActionRow.of(Button.success("yes","Yes").asDisabled(),Button.danger("no","No").asDisabled())).queue();
-                    if (id.contains("confirm")) {
-                        ctx.getEvent().editMessage("Permissions will be enabled for " + guild.getName()).queue();
-                        guild.retrieveCommands().queue(commands -> commands.forEach(command -> {
-                            System.out.println(command.getName());
-
-                            command.editCommand().setDefaultEnabled(false).queue();
-                            command.updatePrivileges(guild, slashCommands.get(command.getName()).getCommandPrivileges()).queue();
-                        }));
-                    } else {
-                        ctx.getEvent().editMessage("Permissions won't be enabled for " + guild.getName()).queue();
-                    }
-                }),"updateGuildCommands_" + guild.getId()
-            )
-        );
     }
 
     /**
@@ -167,33 +121,25 @@ public class SlashCommandManager extends ListenerAdapter {
     }
 
     /**
+     * Add new commands, Delete missing ones and Update edited ones
+     * @param guild the guild you want to update the commands on
+     * @param permissions enable or not permission system on this guild
+     */
+    public void updateGuildCommands(Guild guild, boolean permissions) {
+        guild.updateCommands().addCommands(getAllCommandData()).complete();
+        guild.retrieveCommands().queue(commands -> commands.forEach(command -> {
+            if(permissions) {
+                command.editCommand().setDefaultEnabled(false).queue();
+                command.updatePrivileges(guild, slashCommands.get(command.getName()).getCommandPrivileges()).queue();
+            }
+        }));
+    }
+
+    /**
      * Clear all commands from a specific Guild
      * @param guild the Guild on which you'll clear all commands
      */
     public void clearGuildCommands(Guild guild) {
         guild.updateCommands().queue();
-    }
-
-
-    /**
-     * Clear all Guild commands from all Guilds
-     * @param jda the JDA bot on which you'll clear the Guild commands
-     */
-    public void clearAllGuildCommands(JDA jda) { jda.getGuilds().forEach(guild -> guild.updateCommands().queue());}
-
-    /**
-     * Remove specific commands from a specific Guild
-     * @param guild the Guild on which you'll clear the commands
-     * @param command list of commands you want to remove
-     */
-    public void removeGuildCommands(Guild guild, String ... command) {
-        if(command.length == 0)
-            return;
-        List<String> commandsToRemove = Arrays.asList(command);
-        guild.retrieveCommands().queue(guildCommands ->
-            guildCommands.forEach(cmd -> {
-                if(commandsToRemove.contains(cmd.getName()))
-                    guild.deleteCommandById(cmd.getId()).queue();
-            }));
     }
 }
