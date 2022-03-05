@@ -1,4 +1,4 @@
-"success_register","{0} welcome to IdleBot!"
+"success_register","test"
 "error_already_registered","{0} you are already registered!"
 "error_someone_unregistered","{0} is not registered. Please register using `/register`"
 "error_you_unregistered","{0} you're not registered. Please register using `/register`"
