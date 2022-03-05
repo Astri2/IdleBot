@@ -10,16 +10,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum Lang {
-    ENGLISH("English"),
-    FRENCH("Français");
+    ENGLISH("English", "game_texts"),
+    FRENCH("Français", "French");
 
     private final String name;
+    private final String path;
     public String getName() {
         return this.name;
     }
 
-    Lang(String a) {
+    Lang(String a, String b) {
         this.name = a;
+        this.path =b;
     }
 
     private static final HashMap<Lang,HashMap<String,String>> langsMap = new HashMap<>();
@@ -56,7 +58,7 @@ public enum Lang {
 
     private static void loadLang(Lang lang) {
         try {
-            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.toString().toLowerCase() + ".csv");
+            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.path + ".csv");
             HashMap<String, String> langMap = new HashMap<>();
             langsMap.put(lang, langMap);
             for (List<String> args : CSV_lang)
