@@ -1,4 +1,3 @@
 files:
-  - source: /**/lang/english.csv
+  - source: /**/lang/game_texts.csv
     translation: /**/lang/%language%.csv
-    scheme: 'identifier,source_or_translation'
