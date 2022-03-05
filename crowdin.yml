@@ -1,0 +1,4 @@
+files:
+  - source: /**/lang/english.csv
+    translation: /**/lang/%language%.csv
+    scheme: 'identifier,source_or_translation'
