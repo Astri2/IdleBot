@@ -11,7 +11,9 @@ import java.util.regex.Pattern;
 
 public enum Lang {
     ENGLISH("English", "game_texts"),
-    FRENCH("Français", "French");
+    FRENCH("Français", "French"),
+    GERMAN("Deutsch","German"),
+    SPANISH("Español","Spanish");
 
     private final String name;
     private final String path;
@@ -67,4 +69,6 @@ public enum Lang {
             System.out.println("can't open file");
         }
     }
+    //"(.+?)","(.+?)"
+    //$1,$2
 }

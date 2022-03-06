@@ -1,190 +1,190 @@
-"success_register","{0} bienvenue dans IdleBot !"
-"error_already_registered","{0} tu es déjà inscrit !"
-"error_someone_unregistered","{0} n'est pas inscrit ! Il peut s'inscrire avec `/register`"
-"error_you_unregistered"," {0} tu n'es pas inscrit ! Tu peux t'inscrire avec `/register`"
-"error_nan","La valeur fournie n'est pas un nombre"
-"error_not_enough_money","{0} Tu n'as pas assez d'argent !"
-"error_cant_interact","{0} tu ne peux pas interagir avec ça !"
-"lang_updated","{0} ta langue a été réglée sur Français"
-"notation_updated_sc","{0} tu utilises dorénavant la notation scientifique"
-"notation_updated_unit","{0} tu utilises dorénavant la notation en unités"
-"ephemeral_updated_on","{0} le mode éphémère est maintenant actif"
-"ephemeral_updated_off","{0} le mode éphémère n'est plus actif"
-"ephemeral_updated_default","{0} le mode éphémère a été mis sur défaut"
-"requested_by","Demandé par {0}"
-"equipment_title","Équipement de {0}"
-"profile_title","Profil de {0}"
-"sword","Épée"
-"sword_steel","Épée d'Acier"
-"sword_black","Épée Noire"
-"sword_light","Épée de Lumière"
-"sword_demon","Épée Démoniaque"
-"sword_great","Grande Épée"
-"sword_ember","Épée Ardente"
-"sword_infernal","Épée Infernal"
-"sword_rage","Épée de Rage"
-"sword_elemental","Épée Élémentaire"
-"sword_life","Épée de Vie"
-"sword_god","Épée Divine"
-"shield","Bouclier"
-"shield_reinforced","Bouclier Renforcé"
-"shield_iron","Bouclier de Fer"
-"shield_steel","Bouclier d'Acier"
-"shield_knight","Bouclier de Chevalier"
-"shield_titanium","Bouclier de Titane"
-"shield_golden","Bouclier Doré"
-"shield_infernal","Bouclier Infernal"
-"shield_spirit","Bouclier Spirituel"
-"shield_hero","Bouclier du Héro"
-"shield_king","Bouclier du Roi"
-"shield_crystal","Bouclier de Crystal"
-"armor","Armure"
-"armor_burlap","Armure en Tissu"
-"armor_leather","Armure en Cuire"
-"armor_reinforced","Armure Renforcée"
-"armor_steel","Armure d'Acier"
-"armor_steel_full","Armure Complète d'Acier"
-"armor_golden_full","Armure Complète Dorée"
-"armor_dragon","Armure de Dragon"
-"armor_warlord","Armure de Seigneur de Guerre"
-"armor_break_s","Armure de Break"
-"armor_black_dragon","Armure de Dragon Noir"
-"armor_shadow_knight","Armure du Chevalier de l’ombre"
-"helmet","Casque"
-"helmet_burlap","Casque en Tissu"
-"helmet_leather","Casque en Cuir"
-"helmet_reinforced","Casque Renforcé"
-"helmet_steel","Casque d'Acier"
-"helmet_steel_full","Casque Intégral d'Acier"
-"helmet_golden","Casque Doré"
-"helmet_dragon","Casque de Dragon"
-"helmet_champion_s","Casque de Champion"
-"helmet_warrior","Casque de Guerrier"
-"helmet_dark_steel","Casque en Acier Sombre"
-"helmet_glorious","Casque Glorieux"
-"boots","Bottes"
-"boots_burlap","Bottes en Tissu"
-"boots_leather","Bottes en Cuir"
-"boots_reinforced","Bottes Renforcées"
-"boots_iron","Bottes en Fer"
-"boots_steel","Bottes en Acier"
-"boots_golden","Bottes Dorées"
-"boots_dragon","Bottes de Dragon"
-"boots_dash","Bottes de Course"
-"boots_climbing","Bottes d'Escalade"
-"boots_mobious","Bottes de Mobious"
-"boots_idle","Bottes Inactives"
-"ring","Anneau"
-"ring_silver","Bague en Argent"
-"ring_magic","Anneau Magique"
-"ring_mind","Anneau de l'Esprit"
-"ring_shadow","Anneau le L'ombre"
-"ring_dragon","Anneau de Dragon"
-"ring_dual_stone","Bague de Pierre Double"
-"ring_mystic","Anneau Mystique"
-"ring_spectral","Bague Spectrale"
-"ring_albatross","Bague de l'Albatross"
-"ring_energy","Bague d'Énergie"
-"ring_phantom","Bague Fantôme"
-"dagger","Dague"
-"dagger_black","Dague Noire"
-"dagger_golden","Dague Dorée"
-"dagger_demon","Dague Démoniaque"
-"dagger_dragon","Dague de Dragon"
-"dagger_glory","Dague de la Gloire"
-"dagger_kunai","Kunai"
-"dagger_zap","Dague Électrifiée"
-"dagger_abyssal","Dague des Abysses"
-"dagger_larret_s","Dague de Larret"
-"dagger_flame","Dague Enflammée"
-"dagger_breaker","Brise Dague"
-"axe","Hache"
-"axe_black","Hache Noire"
-"axe_golden","Hache Dorée"
-"axe_demon","Hache Démoniaque"
-"axe_infernal_battle","Hache Infernale"
-"axe_battle","Hache de Combat"
-"axe_beast","Hache Bestiale"
-"axe_tri","Triple Hache"
-"axe_crystal","Hache de Cristal"
-"axe_chopan_s","Hache de Chopan"
-"axe_blood_moon","Hache de la Lune de Sang"
-"axe_wide_blood_moon","Grande Hache de Lune de Sang"
-"staff","Bâton"
-"staff_black","Bâton Noir"
-"staff_light","Bâton Lumineux"
-"staff_fire","Bâton de feu"
-"staff_aqua","Bâton Aquatique"
-"staff_emerald","Bâton d'Émeraude"
-"staff_holy","Bâton Sacré"
-"staff_dragon","Bâton de Dragon"
-"staff_red_rose","Bâton de la Rose Rouge"
-"staff_celestial","Bâton Céleste"
-"staff_sacred","Bâton Sacré"
-"staff_limit","Bâton de la Limite"
-"bow","Arc"
-"bow_black","Arc Noir"
-"bow_light","Arc Étincelant"
-"bow_demon","Arc Démoniaque"
-"bow_crystal","Arc de Cristal"
-"bow_slash","Arc Tranchant"
-"bow_lava","Arc de Lave"
-"bow_thunder","Arc du Tonnerre"
-"bow_idle","Arc Inactif"
-"bow_lethal","Arc Mortel"
-"bow_hydro","Arc Hydro"
-"bow_hyper","Hyper Arc"
-"spellbook","Livre de Sorts"
-"spellbook_elder","Livre de sorts de l'Ancien"
-"spellbook_destiny","Livre du Destin"
-"spellbook_infinity","Livre de l'Infini"
-"spellbook_secret","Livre des Secrets"
-"spellbook_ancient","Livre de Sorts Antique"
-"spellbook_static","Livre de Statique"
-"spellbook_incineration","Livre d'Incinération"
-"spellbook_guardian","Livre des Gardiens"
-"spellbook_titans","Livre des Titans"
-"spellbook_hellfire","Livre des Enfers"
-"spellbook_unknown","Livre de l'Inconnu"
-"spirit","Esprit"
-"spirit_grand","Esprit Grandiose"
-"spirit_hell","Esprit Infernal"
-"spirit_heavenly","Esprit Céleste"
-"spirit_twin","Esprit Jumeau"
-"spirit_evil","Esprit Maléfique"
-"spirit_battle","Esprit de Combat"
-"spirit_strength","Esprit de Force"
-"spirit_blood","Esprit du Sang"
-"spirit_ultra","Ultra Esprit"
-"spirit_hyper","Hyper Esprit"
-"spirit_idle","Esprit d'Inactivité"
-"necklace","Collier"
-"necklace_ancient","Collier Antique"
-"necklace_divine","Collier Antique"
-"necklace_shadow","Collier de l'Ombre"
-"necklace_chaos","Collier du Chaos"
-"necklace_void","Collier du Vide"
-"necklace_implosion","Collier d'Implosion"
-"necklace_doomsday","Collier de la Fin du Monde"
-"necklace_apocalypse","Collier d'Apocalypse"
-"necklace_premonition","Collier de Prémonition"
-"necklace_coin","Collier de Pièce"
-"necklace_demon_eye","Collier de l'Œil du Démon"
-"coins","Pièces"
-"production","Production"
-"display_equipment_button","Afficher l'Équipement"
-"display_profile_button","Afficher le Profil"
-"redo_level_up_button","Réitérer l'Achat"
-"level_s","{0} Niveau"
-"level_p","{0} Niveaux"
-"cost","Coût"
-"expired","Expiré"
-"eqpm_upgrade_success","{0} ton {1} {2} est maintenant au niveau **{3}**!"
-"eqpm_upgrade_ask_eqpm","{0} quelle pièce d'équipement améliorer ?"
-"eqpm_upgrade_ask_level","{0} de combien de niveaux améliorer ton {1} {2} ?"
-"nbr_custom","Personnalisé"
-"nbr_max","Maximum"
-"progression_reset","{0} ta progression a été réinitialisée !"
-"equipment_upg_title","{0} {1} {2}"
-"equipment_upg_desc","Ton équipement {0} te donnes dorénavant {1}% plus de Pièces.\n{2} Coût : {3}"
-"no_available_upgrade","Tu n'a aucune amélioration disponible..."
+success_register,{0} bienvenue dans IdleBot !
+error_already_registered,{0} tu es déjà inscrit !
+error_someone_unregistered,{0} n'est pas inscrit ! Il peut s'inscrire avec `/register`
+error_you_unregistered, {0} tu n'es pas inscrit ! Tu peux t'inscrire avec `/register`
+error_nan,La valeur fournie n'est pas un nombre
+error_not_enough_money,{0} Tu n'as pas assez d'argent !
+error_cant_interact,{0} tu ne peux pas interagir avec ça !
+lang_updated,{0} la langue a été réglée sur Français
+notation_updated_sc,{0} tu utilises dorénavant la notation scientifique
+notation_updated_unit,{0} tu utilises dorénavant la notation en unités
+ephemeral_updated_on,{0} le mode éphémère est maintenant actif
+ephemeral_updated_off,{0} le mode éphémère n'est plus actif
+ephemeral_updated_default,{0} le mode éphémère a été mis sur défaut
+requested_by,Demandé par {0}
+equipment_title,Équipement de {0}
+profile_title,Profil de {0}
+sword,Épée
+sword_steel,Épée d'Acier
+sword_black,Épée Noire
+sword_light,Épée de Lumière
+sword_demon,Épée Démoniaque
+sword_great,Grande Épée
+sword_ember,Épée Ardente
+sword_infernal,Épée Infernal
+sword_rage,Épée de Rage
+sword_elemental,Épée Élémentaire
+sword_life,Épée de Vie
+sword_god,Épée Divine
+shield,Bouclier
+shield_reinforced,Bouclier Renforcé
+shield_iron,Bouclier de Fer
+shield_steel,Bouclier d'Acier
+shield_knight,Bouclier de Chevalier
+shield_titanium,Bouclier de Titane
+shield_golden,Bouclier Doré
+shield_infernal,Bouclier Infernal
+shield_spirit,Bouclier Spirituel
+shield_hero,Bouclier du Héro
+shield_king,Bouclier du Roi
+shield_crystal,Bouclier de Crystal
+armor,Armure
+armor_burlap,Armure en Tissu
+armor_leather,Armure en Cuire
+armor_reinforced,Armure Renforcée
+armor_steel,Armure d'Acier
+armor_steel_full,Armure Complète d'Acier
+armor_golden_full,Armure Complète Dorée
+armor_dragon,Armure de Dragon
+armor_warlord,Armure de Seigneur de Guerre
+armor_break_s,Armure de Break
+armor_black_dragon,Armure de Dragon Noir
+armor_shadow_knight,Armure du Chevalier de l’ombre
+helmet,Casque
+helmet_burlap,Casque en Tissu
+helmet_leather,Casque en Cuir
+helmet_reinforced,Casque Renforcé
+helmet_steel,Casque d'Acier
+helmet_steel_full,Casque Intégral d'Acier
+helmet_golden,Casque Doré
+helmet_dragon,Casque de Dragon
+helmet_champion_s,Casque de Champion
+helmet_warrior,Casque de Guerrier
+helmet_dark_steel,Casque en Acier Sombre
+helmet_glorious,Casque Glorieux
+boots,Bottes
+boots_burlap,Bottes en Tissu
+boots_leather,Bottes en Cuir
+boots_reinforced,Bottes Renforcées
+boots_iron,Bottes en Fer
+boots_steel,Bottes en Acier
+boots_golden,Bottes Dorées
+boots_dragon,Bottes de Dragon
+boots_dash,Bottes de Course
+boots_climbing,Bottes d'Escalade
+boots_mobious,Bottes de Mobious
+boots_idle,Bottes Inactives
+ring,Anneau
+ring_silver,Bague en Argent
+ring_magic,Anneau Magique
+ring_mind,Anneau de l'Esprit
+ring_shadow,Anneau le L'ombre
+ring_dragon,Anneau de Dragon
+ring_dual_stone,Bague de Pierre Double
+ring_mystic,Anneau Mystique
+ring_spectral,Bague Spectrale
+ring_albatross,Bague de l'Albatross
+ring_energy,Bague d'Énergie
+ring_phantom,Bague Fantôme
+dagger,Dague
+dagger_black,Dague Noire
+dagger_golden,Dague Dorée
+dagger_demon,Dague Démoniaque
+dagger_dragon,Dague de Dragon
+dagger_glory,Dague de la Gloire
+dagger_kunai,Kunai
+dagger_zap,Dague Électrifiée
+dagger_abyssal,Dague des Abysses
+dagger_larret_s,Dague de Larret
+dagger_flame,Dague Enflammée
+dagger_breaker,Brise Dague
+axe,Hache
+axe_black,Hache Noire
+axe_golden,Hache Dorée
+axe_demon,Hache Démoniaque
+axe_infernal_battle,Hache Infernale
+axe_battle,Hache de Combat
+axe_beast,Hache Bestiale
+axe_tri,Triple Hache
+axe_crystal,Hache de Cristal
+axe_chopan_s,Hache de Chopan
+axe_blood_moon,Hache de la Lune de Sang
+axe_wide_blood_moon,Grande Hache de Lune de Sang
+staff,Bâton
+staff_black,Bâton Noir
+staff_light,Bâton Lumineux
+staff_fire,Bâton de feu
+staff_aqua,Bâton Aquatique
+staff_emerald,Bâton d'Émeraude
+staff_holy,Bâton Sacré
+staff_dragon,Bâton de Dragon
+staff_red_rose,Bâton de la Rose Rouge
+staff_celestial,Bâton Céleste
+staff_sacred,Bâton Sacré
+staff_limit,Bâton de la Limite
+bow,Arc
+bow_black,Arc Noir
+bow_light,Arc Étincelant
+bow_demon,Arc Démoniaque
+bow_crystal,Arc de Cristal
+bow_slash,Arc Tranchant
+bow_lava,Arc de Lave
+bow_thunder,Arc du Tonnerre
+bow_idle,Arc Inactif
+bow_lethal,Arc Mortel
+bow_hydro,Arc Hydro
+bow_hyper,Hyper Arc
+spellbook,Livre de Sorts
+spellbook_elder,Livre de sorts de l'Ancien
+spellbook_destiny,Livre du Destin
+spellbook_infinity,Livre de l'Infini
+spellbook_secret,Livre des Secrets
+spellbook_ancient,Livre de Sorts Antique
+spellbook_static,Livre de Statique
+spellbook_incineration,Livre d'Incinération
+spellbook_guardian,Livre des Gardiens
+spellbook_titans,Livre des Titans
+spellbook_hellfire,Livre des Enfers
+spellbook_unknown,Livre de l'Inconnu
+spirit,Esprit
+spirit_grand,Esprit Grandiose
+spirit_hell,Esprit Infernal
+spirit_heavenly,Esprit Céleste
+spirit_twin,Esprit Jumeau
+spirit_evil,Esprit Maléfique
+spirit_battle,Esprit de Combat
+spirit_strength,Esprit de Force
+spirit_blood,Esprit du Sang
+spirit_ultra,Ultra Esprit
+spirit_hyper,Hyper Esprit
+spirit_idle,Esprit d'Inactivité
+necklace,Collier
+necklace_ancient,Collier Antique
+necklace_divine,Collier Antique
+necklace_shadow,Collier de l'Ombre
+necklace_chaos,Collier du Chaos
+necklace_void,Collier du Vide
+necklace_implosion,Collier d'Implosion
+necklace_doomsday,Collier de la Fin du Monde
+necklace_apocalypse,Collier d'Apocalypse
+necklace_premonition,Collier de Prémonition
+necklace_coin,Collier de Pièce
+necklace_demon_eye,Collier de l'Œil du Démon
+coins,Pièces
+production,Production
+display_equipment_button,Afficher l'Équipement
+display_profile_button,Afficher le Profil
+redo_level_up_button,Réitérer l'Achat
+level_s,{0} Niveau
+level_p,{0} Niveaux
+cost,Coût
+expired,Expiré
+eqpm_upgrade_success,{0} ton {1} {2} est maintenant au niveau **{3}**!
+eqpm_upgrade_ask_eqpm,{0} quelle pièce d'équipement améliorer ?
+eqpm_upgrade_ask_level,{0} de combien de niveaux améliorer ton {1} {2} ?
+nbr_custom,Personnalisé
+nbr_max,Maximum
+progression_reset,{0} ta progression a été réinitialisée !
+equipment_upg_title,{0} {1} {2}
+equipment_upg_desc,Ton équipement {0} te donnes dorénavant {1}% plus de Pièces.\n{2} Coût : {3}
+no_available_upgrade,Tu n'a aucune amélioration disponible...
