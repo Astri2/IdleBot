@@ -2,7 +2,6 @@ package me.astri.idleBot.GameBot.commands.noCategory;
 
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
-import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -37,8 +36,8 @@ public class Profile extends ISlashCommand {
                 hook.getInteraction().getGuild().getMember(user).getEffectiveName();
 
         EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("profile_title",name),null, user.getEffectiveAvatarUrl())
-                .addField(Emotes.getEmote("coin") + " " + author.getLang().get("coins"), player.getCoins().getNotation(author.usesScNotation()),true)
-                .addField(Emotes.getEmote("coin") + " " + author.getLang().get("production"), player.getProduction().getNotation(author.usesScNotation()),true);
+                .addField(Emotes.get("coin") + " " + author.getLang().get("coins"), player.getCoins().getNotation(author.usesScNotation()),true)
+                .addField(Emotes.get("coin") + " " + author.getLang().get("production"), player.getProduction().getNotation(author.usesScNotation()),true);
 
         if(!author.equals(player))
             eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getEffectiveAvatarUrl());

@@ -195,7 +195,7 @@ public class Equipment_upgrade extends ISlashSubcommand {
         if(eq.getPrice(level).compareTo(player.getCoins()) > 0) {
             hook.sendMessage(player.getLang().get("error_not_enough_money",hook.getInteraction().getUser().getAsMention()) + " **"
                     + player.getCoins().getNotation(player.usesScNotation()) + "/" + price.getNotation(player.usesScNotation()) + "**"
-                    + Emotes.getEmote("coin")).queue();
+                    + Emotes.get("coin")).queue();
             return;
         }
 
@@ -207,7 +207,7 @@ public class Equipment_upgrade extends ISlashSubcommand {
                                     Long.toString(eq.getLevel())) + " (+" +
                                     player.getLang().get(levels.equals("1") ? "level_s" : "level_p", String.valueOf(level)) + ")" +
                                     "\n**-" +
-                                    price.getNotation(player.usesScNotation()) + Emotes.getEmote("coin") + "**")
+                                    price.getNotation(player.usesScNotation()) + Emotes.get("coin") + "**")
             .addActionRow(
                         Button.secondary("redoLevelUp:" + equipment + ":" + levels,
                                 player.getLang().get("redo_level_up_button") + " - (" +

@@ -70,8 +70,8 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
     protected String getUpgradeDesc(Player p, boolean canAfford) {
         return p.getLang().get("equipment_upg_desc", p.getLang().get(p.getEquipment().get(this.eq).getName()),
                 Integer.toString(this.boost),
-                canAfford ? Emotes.getEmote("yes") : Emotes.getEmote("no"),
-                this.price.getNotation(p.usesScNotation()) + Emotes.getEmote("coin"));
+                canAfford ? Emotes.get("yes") : Emotes.get("no"),
+                this.price.getNotation(p.usesScNotation()) + Emotes.get("coin"));
     }
 
     public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) {

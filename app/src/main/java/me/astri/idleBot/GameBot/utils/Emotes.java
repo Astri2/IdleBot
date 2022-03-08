@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Emotes {
     private static final HashMap<String,String> emotes = new HashMap<>();
-    public static String getEmote(String name) {
+    public static String get(String name) {
         String emote = emotes.get(name.toLowerCase());
         return emote == null ? "N/A" : emote;
     }

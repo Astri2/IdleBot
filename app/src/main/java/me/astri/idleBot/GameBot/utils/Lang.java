@@ -53,7 +53,7 @@ public enum Lang {
         }
         Matcher m1 = emotePattern.matcher(str); //emotes
         while(m1.find()) {
-            str = str.replace(m1.group(0), Emotes.getEmote(m1.group(1)));
+            str = str.replace(m1.group(0), Emotes.get(m1.group(1)));
         }
         return str;
     }
@@ -69,6 +69,6 @@ public enum Lang {
             System.out.println("can't open file");
         }
     }
-    //"(.+?)","(.+?)"
+    //^"(.+?)","(.+?)"$
     //$1,$2
 }

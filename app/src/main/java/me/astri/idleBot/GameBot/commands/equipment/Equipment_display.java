@@ -55,12 +55,12 @@ public class Equipment_display extends ISlashSubcommand {
             if(previousIsntLevel0 || currentIsntLevel0 || gearPiece.getPrice().compareTo(player.getCoins()) <= 0) {
                 eb.addField(gearPiece.getEmote() + " " + author.getLang().get(gearPiece.getName()),
                         "Level **" + gearPiece.getLevel() + "\n" +
-                                gearPiece.getProduction().getNotation(author.usesScNotation()) + Emotes.getEmote("coin") + "**/s**\n" +
+                                gearPiece.getProduction().getNotation(author.usesScNotation()) + Emotes.get("coin") + "**/s**\n" +
                                 author.getLang().get("cost") + "** " + gearPiece.getPrice().getNotation(author.usesScNotation()), true);
             }
             previousIsntLevel0 = currentIsntLevel0;
         }
-        eb.setDescription(player.getCoins().getNotation(author.usesScNotation()) + " " + Emotes.getEmote("coin") + " " + author.getLang().get("coins"));
+        eb.setDescription(player.getCoins().getNotation(author.usesScNotation()) + " " + Emotes.get("coin") + " " + author.getLang().get("coins"));
         hook.sendMessageEmbeds(eb.build())
                 .addActionRow(
                         Button.secondary("equipmentDisplay",author.getLang().get("display_equipment_button")),
