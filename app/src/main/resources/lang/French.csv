@@ -5,7 +5,7 @@ error_you_unregistered, {0} tu n'es pas inscrit ! Tu peux t'inscrire avec `/regi
 error_nan,La valeur fournie n'est pas un nombre
 error_not_enough_money,{0} Tu n'as pas assez d'argent !
 error_cant_interact,{0} tu ne peux pas interagir avec ça !
-lang_updated,{0} la langue a été réglée sur Français
+lang_updated,{0} la langue a été réglée sur {1}
 notation_updated_sc,{0} tu utilises dorénavant la notation scientifique
 notation_updated_unit,{0} tu utilises dorénavant la notation en unités
 ephemeral_updated_on,{0} le mode éphémère est maintenant actif

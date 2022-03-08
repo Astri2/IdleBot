@@ -5,7 +5,7 @@ error_you_unregistered,{0} you're not registered. Please register using `/regist
 error_nan,Provided value is not a bigNumber
 error_not_enough_money,{0} You don't have enough money!
 error_cant_interact,{0} you can't interact with that!
-lang_updated,{0} el idioma se ha configurado en español
+lang_updated,{0} el idioma se ha configurado en {1}
 notation_updated_sc,{0} you are now using scientific notation
 notation_updated_unit,{0} you are now using units notation
 ephemeral_updated_on,{0} ephemeral mode is now active
@@ -14,162 +14,162 @@ ephemeral_updated_default,{0} ephemeral mode is set to default
 requested_by,Requested by {0}
 equipment_title,Equipment of {0}
 profile_title,Profile of {0}
-sword,Sword
-sword_steel,Steel Sword
-sword_black,Black Sword
-sword_light,Light Sword
-sword_demon,Demon Sword
-sword_great,Greatsword
-sword_ember,Ember Sword
-sword_infernal,Infernal Sword
-sword_rage,Rage Sword
-sword_elemental,Elemental Sword
-sword_life,Life Sword
-sword_god,God Sword
-shield,Shield
-shield_reinforced,Reinforced Shield
-shield_iron,Iron Shield
-shield_steel,Steel Shield
-shield_knight,Knight Shield
-shield_titanium,Titanium Shield
-shield_golden,Golden Shield
-shield_infernal,Infernal Shield
-shield_spirit,Spirit Shield
-shield_hero,Hero Shield
-shield_king,King Shield
-shield_crystal,Crystal Shield
-armor,Armor
-armor_burlap,Burlap Armor
-armor_leather,Leather Armor
-armor_reinforced,Reinforced Armor
-armor_steel,Steel Armor
-armor_steel_full,Full Steel Armor
-armor_golden_full,Full Gold Armor
-armor_dragon,Dragon Armor
-armor_warlord,Warlord Armor
-armor_break_s,Break's Armor
-armor_black_dragon,Black Dragon Armor
-armor_shadow_knight,Shadow Knight Armor
-helmet,Helmet
-helmet_burlap,Burlap Helmet
-helmet_leather,Leather Helmet
-helmet_reinforced,Reinforced Helmet
-helmet_steel,Steel Helmet
-helmet_steel_full,Steel Full Helmet
-helmet_golden,Golden Helmet
-helmet_dragon,Dragon Helmet
-helmet_champion_s,Champion's Helmet
-helmet_warrior,Warrior Helmet
-helmet_dark_steel,Dark Steel Helmet
-helmet_glorious,Glorious Helmet
-boots,Boots
-boots_burlap,Burlap Boots
-boots_leather,Leather Boots
-boots_reinforced,Reinforced Boots
-boots_iron,Iron Boots
-boots_steel,Steel Boots
-boots_golden,Golden Boots
-boots_dragon,Dragon Boots
-boots_dash,Dash Boots
-boots_climbing,Climbing Boots
-boots_mobious,Mobious Boots
-boots_idle,Idle Boots
-ring,Ring
-ring_silver,Silver Ring
-ring_magic,Magic Ring
-ring_mind,Mind Ring
-ring_shadow,Shadow Ring
-ring_dragon,Dragon Ring
-ring_dual_stone,Duel Stone Ring
-ring_mystic,Mystic Ring
-ring_spectral,Spectral Ring
-ring_albatross,Albatross Ring
-ring_energy,Energy Ring
-ring_phantom,Phantom Ring
-dagger,Dagger
-dagger_black,Black Dagger
-dagger_golden,Golden Dagger
-dagger_demon,Demon Dagger
-dagger_dragon,Dragon Dagger
-dagger_glory,Glory Dagger
+sword,Espada
+sword_steel,Espada de Acero
+sword_black,Espada Negra
+sword_light,Espada Liviana
+sword_demon,Espada Demoníaca
+sword_great,Espada Grande
+sword_ember,Espada de ascuas
+sword_infernal,Espada Infernal
+sword_rage,Espada de Rabia
+sword_elemental,Espada Elemental
+sword_life,Espada de Vida
+sword_god,Espada de Dios
+shield,Escudo
+shield_reinforced,Escudo Reforzado
+shield_iron,Escudo de Hierro
+shield_steel,Escudo de Acero
+shield_knight,Escudo de Caballero
+shield_titanium,Escudo de Titanio
+shield_golden,Escudo Dorado
+shield_infernal,Escudo Infernal
+shield_spirit,Escudo de Espíritu
+shield_hero,Escudo de Héroe
+shield_king,Escudo del Rey
+shield_crystal,Escudo de cristal
+armor,Armadura
+armor_burlap,Armadura de Arpillera
+armor_leather,Armadura de Cuero
+armor_reinforced,Armadura Reforzada
+armor_steel,Armadura de Acero
+armor_steel_full,Armadura completa de Acero
+armor_golden_full,Armadura Completa Dorada
+armor_dragon,Armadura del Dragón
+armor_warlord,Armadura del Señor de Guerra
+armor_break_s,Armadura de Romper
+armor_black_dragon,Armadura de Dragón Negro
+armor_shadow_knight,Armadura del Caballero Sombrío
+helmet,Casco
+helmet_burlap,Casco de Arpillera
+helmet_leather,Casco de Cuero
+helmet_reinforced,Casco Reforzado
+helmet_steel,Casco de Acero
+helmet_steel_full,Casco completo de Acero
+helmet_golden,Casco Dorado
+helmet_dragon,Casco del Dragón
+helmet_champion_s,Casco de Campeón
+helmet_warrior,Casco del Guerrero
+helmet_dark_steel,Casco de acero oscuro
+helmet_glorious,Casco Glorioso
+boots,Botas
+boots_burlap,Botas de Arpillera
+boots_leather,Botas de cuero
+boots_reinforced,Botas Reforzadas
+boots_iron,Botas de Hierro
+boots_steel,Botas de Acero
+boots_golden,Botas Doradas
+boots_dragon,Botas de Dragón
+boots_dash,Botas de embestida
+boots_climbing,Botas de Escalada
+boots_mobious,Botas de Mobius
+boots_idle,Botas Inactivas
+ring,Anillo
+ring_silver,Anillo Plateado
+ring_magic,Anillo Mágico
+ring_mind,Anillo Mental
+ring_shadow,Anillo Sombrío
+ring_dragon,Anillo del Dragón
+ring_dual_stone,Anillo de Piedra doble
+ring_mystic,Anillo Místico
+ring_spectral,Anillo Espectral
+ring_albatross,Anillo Albatros
+ring_energy,Anillo de Energía
+ring_phantom,Anillo Fantasma
+dagger,Daga
+dagger_black,Daga Negra
+dagger_golden,Daga Dorada
+dagger_demon,Daga Demoníaca
+dagger_dragon,Daga de Dragón
+dagger_glory,Daga de la Gloria
 dagger_kunai,Kunai
-dagger_zap,Zap Dagger
-dagger_abyssal,Abyssal Dagger
-dagger_larret_s,Larret's Dagger
-dagger_flame,Flame Dagger
-dagger_breaker,Dagger Breaker
-axe,Axe
-axe_black,Black Axe
-axe_golden,Golden Axe
-axe_demon,Demon Axe
-axe_infernal_battle,Infernal Battle Axe
-axe_battle,Battle Axe
-axe_beast,Beast Axe
-axe_tri,Triaxe
-axe_crystal,Cystal Axe
-axe_chopan_s,Chopan's Axe
-axe_blood_moon,Blood Moon Axe
-axe_wide_blood_moon,Wide Blood Moon Axe
-staff,Staff
-staff_black,Black Staff
-staff_light,Light Staff
-staff_fire,Fire Staff
-staff_aqua,Aqua Staff
-staff_emerald,Emerald Staff
-staff_holy,Holy Staff
-staff_dragon,Dragon Staff
-staff_red_rose,Red Rose Staff
-staff_celestial,Celestial Staff
-staff_sacred,Sacred Staff
-staff_limit,Staff of Limit
-bow,Bow
-bow_black,Black Bow
-bow_light,Light Bow
-bow_demon,Demon Bow
-bow_crystal,Crystal Bow
-bow_slash,Slash Bow
-bow_lava,Lava Bow
-bow_thunder,Thunder Bow
-bow_idle,Idle Bow
-bow_lethal,Lethal Bow
-bow_hydro,Hydro Bow
-bow_hyper,Hyper Bow
-spellbook,Spellbook
-spellbook_elder,Elder Spellbook
-spellbook_destiny,Book of Destiny
-spellbook_infinity,Book of Infinity
-spellbook_secret,Book of Secret
-spellbook_ancient,Ancient Spellbook
-spellbook_static,Book of Static
-spellbook_incineration,Book of Incineration
-spellbook_guardian,Book of The Guardians
-spellbook_titans,Book of Titans
-spellbook_hellfire,Hellfire Tome
-spellbook_unknown,Tome of The Unknown
-spirit,Spirit
-spirit_grand,Grand Spirit
-spirit_hell,Hell Spirit
-spirit_heavenly,Heavenly Spirit
-spirit_twin,Twin Spirit
-spirit_evil,Evil Spirit
-spirit_battle,Battle Spirit
-spirit_strength,Spirit of Strength
-spirit_blood,Spirit of Blood
-spirit_ultra,Ultra Spirit
-spirit_hyper,Hyper Spirit
-spirit_idle,Idle Spirit
-necklace,Necklace
-necklace_ancient,Ancient Necklace
-necklace_divine,Divine Necklace
-necklace_shadow,Shadow Necklace
-necklace_chaos,Chaos Necklace
-necklace_void,Void Necklace
-necklace_implosion,Implosion Necklace
-necklace_doomsday,Doomsday Necklace
-necklace_apocalypse,Apocalypse Necklace
-necklace_premonition,Premonition Necklace
-necklace_coin,Coin Necklace
-necklace_demon_eye,Demon Eye Necklace
+dagger_zap,Daga de chispas
+dagger_abyssal,Daga Abisal
+dagger_larret_s,Daga de Larret
+dagger_flame,Daga de Flamas
+dagger_breaker,Rompedagas
+axe,Hacha
+axe_black,Hacha Negra
+axe_golden,Hacha Dorada
+axe_demon,Hacha Demoníaca
+axe_infernal_battle,Hacha de Batalla Infernal
+axe_battle,Hacha de Batalla
+axe_beast,Hacha de Bestia
+axe_tri,Tri-hacha
+axe_crystal,Hacha de Cristal
+axe_chopan_s,Hacha de Chopan
+axe_blood_moon,Hacha de Luna de Sangre
+axe_wide_blood_moon,Hacha de Luna de Sangre Ancha
+staff,Bastón
+staff_black,Bastón Negro
+staff_light,Bastón de Luz
+staff_fire,Bastón de Fuego
+staff_aqua,Bastón de Agua
+staff_emerald,Bastón Esmeralda
+staff_holy,Bastón Sagrado
+staff_dragon,Bastón del Dragón
+staff_red_rose,Bastón de Rosa Roja
+staff_celestial,Bastón Celestial
+staff_sacred,Bastón Sagrado
+staff_limit,Bastón del Límite
+bow,Arco
+bow_black,Arco Negro
+bow_light,Arco de Luz
+bow_demon,Arco Demoníaco
+bow_crystal,Arco de Cristal
+bow_slash,Arco de corte
+bow_lava,Arco de Lava
+bow_thunder,Arco de Trueno
+bow_idle,Arco Inactivo
+bow_lethal,Arco Letal
+bow_hydro,HidroArco
+bow_hyper,Hiper Arco
+spellbook,libro de hechizos
+spellbook_elder,libro de hechizos más antiguo
+spellbook_destiny,Libro del Destinio
+spellbook_infinity,Libro de Infinidad
+spellbook_secret,Libro de Secretos
+spellbook_ancient,Libro de hechizos Antiguo
+spellbook_static,Libro de Estática
+spellbook_incineration,Libro de Incineración
+spellbook_guardian,Libro de los Guardianes
+spellbook_titans,Libro de los Titanes
+spellbook_hellfire,Tomo de Fuego Infernal
+spellbook_unknown,Tomo de lo Desconocido
+spirit,Espíritu
+spirit_grand,Gran Espíritu
+spirit_hell,Espíritu Infernal
+spirit_heavenly,Espíritu Celestial
+spirit_twin,Espíritu Gemelo
+spirit_evil,Espíritu Maligno
+spirit_battle,Espíritu de Batalla
+spirit_strength,Espíritu de Fuerza
+spirit_blood,Espíritu de Sangre
+spirit_ultra,Ultra Espíritu
+spirit_hyper,Hyper Espíritu
+spirit_idle,Espíritu Inactivo
+necklace,Collar
+necklace_ancient,Collar Antiguo
+necklace_divine,Collar Divino
+necklace_shadow,Collar Sombrío
+necklace_chaos,Collar del Caos
+necklace_void,Colgante del Vacío
+necklace_implosion,Collar de la Implosion
+necklace_doomsday,Collar del Día del Juicio
+necklace_apocalypse,Collar del Apocalipsis
+necklace_premonition,Collar Premonitorio
+necklace_coin,Collar Moneda
+necklace_demon_eye,Collar del Ojo Demoníaco
 coins,Coins
 production,Production
 display_equipment_button,Display Equipment

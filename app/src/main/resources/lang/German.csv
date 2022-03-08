@@ -5,7 +5,7 @@ error_you_unregistered,{0} you're not registered. Please register using `/regist
 error_nan,Provided value is not a bigNumber
 error_not_enough_money,{0} You don't have enough money!
 error_cant_interact,{0} you can't interact with that!
-lang_updated,{0} die Sprache ist auf Deutsch eingestellt
+lang_updated,{0} die Sprache ist auf {1} eingestellt
 notation_updated_sc,{0} you are now using scientific notation
 notation_updated_unit,{0} you are now using units notation
 ephemeral_updated_on,{0} ephemeral mode is now active

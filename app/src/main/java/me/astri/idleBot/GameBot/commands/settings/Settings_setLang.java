@@ -24,8 +24,8 @@ public class Settings_setLang extends ISlashSubcommand {
         if(botUser == null)
             return;
         botUser.setLang(Lang.valueOf(e.getOption("language").getAsString()));
-        //hook.sendMessage(Lang.get(botUser.getLang(),"lang_updated",e.getUser().getAsMention())).queue();
-        hook.sendMessage(botUser.getLang().get("lang_updated",e.getUser().getAsMention())).queue();
+        hook.sendMessage(botUser.getLang().get(
+                "lang_updated",e.getUser().getAsMention(),botUser.getLang().getName())).queue();
     }
 
     @Override
