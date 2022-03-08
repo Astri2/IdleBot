@@ -48,6 +48,10 @@ public class Minion {
         return this.endTime;
     }
 
+    public int getCPSBonusPerLevel() {
+        return this.type.getBoost();
+    }
+
     public int getCPSBonus() {
         return this.level * this.type.getBoost();
     }

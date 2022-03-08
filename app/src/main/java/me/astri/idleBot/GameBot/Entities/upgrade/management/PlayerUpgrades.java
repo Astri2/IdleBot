@@ -1,7 +1,9 @@
-package me.astri.idleBot.GameBot.entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade.management;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
+import me.astri.idleBot.GameBot.entities.upgrade.conditional.EquipmentUpgrade;
+import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 
 import java.util.ArrayList;
 import java.util.List;

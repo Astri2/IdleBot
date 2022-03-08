@@ -4,7 +4,7 @@ import me.astri.idleBot.GameBot.utils.Lang;
 
 import java.io.Serializable;
 
-public abstract class BotUser implements Serializable {
+public abstract class BotUser {
     private Lang lang;
     private final String id;
     private boolean useScNotation;

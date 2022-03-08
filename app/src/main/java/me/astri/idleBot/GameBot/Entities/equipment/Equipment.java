@@ -1,15 +1,14 @@
 package me.astri.idleBot.GameBot.entities.equipment;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
-import me.astri.idleBot.GameBot.entities.upgrade.EquipmentUpgrade;
-import me.astri.idleBot.GameBot.entities.upgrade.PlayerUpgrades;
-import me.astri.idleBot.GameBot.entities.upgrade.UpgradeManager;
+import me.astri.idleBot.GameBot.entities.upgrade.conditional.EquipmentUpgrade;
+import me.astri.idleBot.GameBot.entities.upgrade.management.PlayerUpgrades;
+import me.astri.idleBot.GameBot.entities.upgrade.management.UpgradeManager;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Equipment implements Serializable {
+public class Equipment {
     private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.5);
 
     private final String id;

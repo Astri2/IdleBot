@@ -2,21 +2,18 @@ package me.astri.idleBot.GameBot.entities.player;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipment.Equipment;
-import me.astri.idleBot.GameBot.entities.minions.Minion;
 import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
-import me.astri.idleBot.GameBot.entities.upgrade.PlayerUpgrades;
+import me.astri.idleBot.GameBot.entities.upgrade.management.PlayerUpgrades;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Lang;
 import me.astri.idleBot.GameBot.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-public class Player extends BotUser implements Serializable {
+public class Player extends BotUser {
     private static JSONArray JsonEquipments = null;
 
     private BigNumber coins;

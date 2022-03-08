@@ -1,19 +1,18 @@
-package me.astri.idleBot.GameBot.entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade.conditional;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
-import me.astri.idleBot.GameBot.utils.Emotes;
+import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class EquipmentUpgrade extends Upgrade implements Serializable {
+public class EquipmentUpgrade extends ConditionalUpgrade {
 
     private final int minLvl;
     private final String eq;
@@ -22,13 +21,13 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
 
     public EquipmentUpgrade(String name, String icon, BigNumber price, String eq, int minLvl, int weight, int boost) {
         super(name,icon,price);
-        this.condition = getCondition(minLvl);
-        this.action = getAction(boost);
-
         this.minLvl = minLvl;
         this.eq = eq;
         this.weight = weight;
         this.boost = boost;
+
+        this.condition = getCondition();
+        this.action = getAction();
     }
 
     public int getMinLvl() {
@@ -47,34 +46,42 @@ public class EquipmentUpgrade extends Upgrade implements Serializable {
         return boost/100;
     }
 
-    private Predicate<Object> getCondition(int minLvl) {
+    @Override
+    protected Predicate<Object> getCondition() {
         return obj -> {
             Equipment eq = (Equipment)obj;
-            return eq.getLevel() >= minLvl;
+            return eq.getLevel() >= this.minLvl;
         };
     }
-    private Consumer<Object> getAction(int boost) {
+
+    @Override
+    protected Consumer<Object> getAction() {
         return obj -> {
             Equipment eq = (Equipment) obj;
-            eq.increaseBooster(boost/100);
+            eq.increaseBooster(this.boost/100);
             eq.updateCurrentUpgrade(this);
         };
     }
 
     @Override
-    protected String getUpgradeTitle(Player p, boolean current) {
-        return p.getLang().get("equipment_upg_title",current ? "►":"", this.icon, p.getLang().get(this.name));
+    protected String getTitleId() {
+        return "equipment_upg_title";
     }
 
     @Override
-    protected String getUpgradeDesc(Player p, boolean canAfford) {
-        return p.getLang().get("equipment_upg_desc", p.getLang().get(p.getEquipment().get(this.eq).getName()),
-                Integer.toString(this.boost),
-                canAfford ? Emotes.get("yes") : Emotes.get("no"),
-                this.price.getNotation(p.usesScNotation()) + Emotes.get("coin"));
+    protected String getDescId() {
+        return "equipment_upg_desc";
     }
 
-    public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String,Upgrade> upg) {
+    @Override
+    protected String[] getDescArgs(Player p) {
+        return new String[]{
+                p.getLang().get(p.getEquipment().get(this.eq).getName()),
+                Integer.toString(this.boost)
+        };
+    }
+
+    public static void init(JSONObject JSONEqUpgrades, HashMap<String,LinkedHashMap<String,EquipmentUpgrade>> equipmentUpgrades, HashMap<String, Upgrade> upg) {
         JSONArray JSONEqList = JSONEqUpgrades.getJSONArray("eq_list");
         for(int i = 0 ; i < JSONEqList.length() ; i++) {
             String eq = JSONEqList.getString(i);

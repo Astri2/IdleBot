@@ -1,5 +1,7 @@
-package me.astri.idleBot.GameBot.entities.upgrade;
+package me.astri.idleBot.GameBot.entities.upgrade.management;
 
+import me.astri.idleBot.GameBot.entities.upgrade.conditional.EquipmentUpgrade;
+import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Utils;
 import org.json.JSONObject;
@@ -9,7 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class UpgradeManager { //TODO verifier que le type sert tjr a qqch
-    private static final HashMap<String,Upgrade> upgrades = new HashMap<>();
+    private static final HashMap<String, Upgrade> upgrades = new HashMap<>();
     private static final HashMap<String,LinkedHashMap<String, EquipmentUpgrade>> eqUpgrades = new HashMap<>(); //eq.id -> upgrade.name -> upgrade
 
     public static void initUpgrades() {
