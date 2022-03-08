@@ -1,7 +1,6 @@
 package me.astri.idleBot.GameBot.entities.minions;
 
-import java.util.ArrayList;
-import java.util.List;
+import me.astri.idleBot.GameBot.entities.player.Player;
 
 public class Minion {
 
@@ -10,10 +9,6 @@ public class Minion {
     private boolean idle;
     private long endTime;
 
-    private float timeFactor;
-    private float rewardFactor;
-    private float costFactor;
-
     private boolean bought;
 
     Minion(MinionTypes type) {
@@ -21,28 +16,20 @@ public class Minion {
         this.level = 0;
         this.idle = true;
 
-        this.timeFactor = 1;
-        this.rewardFactor = 1;
-        this.costFactor = 1;
-
-        this.bought = true;
-    }
-
-    public void startMission() {
-        this.idle = false;
-        this.endTime = (System.currentTimeMillis())/1000 + this.getDuration();
+        this.bought = false;
     }
 
     public void endMission() {
         this.idle = true;
-        this.level++;
+        if(this.level <= this.type.getMaxLevel())
+            this.level++;
     }
 
-    public static ArrayList<Minion> initMinions() {
-        ArrayList<Minion> minions = new ArrayList<>();
-        for(MinionTypes type : MinionTypes.values())
-            minions.add(new Minion(type));
-        return minions;
+    public void startMission(PlayerMinions minions) {
+        long endTime = Math.round(System.currentTimeMillis()/1000. + (this.getType().getDuration() * minions.getTimeFactor()));
+
+        idle = false;
+        this.endTime = endTime;
     }
 
     public MinionTypes getType() {
@@ -65,24 +52,28 @@ public class Minion {
         return this.level * this.type.getBoost();
     }
 
-    public long getDuration() {
-        return (long) (type.getDuration() * timeFactor);
+    public long getDuration(Player p) {
+        return (long) (type.getDuration() * p.getMinions().getTimeFactor());
     }
 
-    public int getCost() {
-        return (int) (type.getCost() * this.costFactor);
+    public int getPrice(Player p) {
+        return (int) (type.getCost() * p.getMinions().getPriceFactor());
     }
 
-    public int getReward() {
-        return (int) (type.getReward() * this.rewardFactor);
+    public int getReward(Player p) {
+        return (int) (type.getReward() * p.getMinions().getRewardFactor());
     }
 
     public boolean isBought() {
         return this.bought;
     }
 
+    public void setBought(boolean b) {
+        this.bought = b;
+    }
+
     @Override
     public String toString() {
-        return this.type.toString();
+        return this.type.name();
     }
 }

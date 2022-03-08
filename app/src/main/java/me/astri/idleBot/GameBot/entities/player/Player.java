@@ -3,6 +3,7 @@ package me.astri.idleBot.GameBot.entities.player;
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.minions.Minion;
+import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
 import me.astri.idleBot.GameBot.entities.upgrade.PlayerUpgrades;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Lang;
@@ -26,14 +27,15 @@ public class Player extends BotUser implements Serializable {
 
     private final LinkedHashMap<String, Equipment> equipment = new LinkedHashMap<>();
     private final PlayerUpgrades upgrades;
-    public ArrayList<Minion> minions; //TODO private final
+
+    public PlayerMinions minions;
 
     public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
         super(id, lang, scNotation, ephemeral);
         coins = new BigNumber(6);
         lastUpdateTime = System.currentTimeMillis();
         upgrades = new PlayerUpgrades(); //has to be done before equipment
-        minions = Minion.initMinions();
+        minions = new PlayerMinions();
         initEquipments();
     }
 
@@ -54,7 +56,7 @@ public class Player extends BotUser implements Serializable {
         return upgrades;
     }
 
-    public ArrayList<Minion> getMinions() {
+    public PlayerMinions getMinions() {
         return minions;
     }
 

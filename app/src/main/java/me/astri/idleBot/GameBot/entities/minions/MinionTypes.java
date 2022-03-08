@@ -1,11 +1,11 @@
 package me.astri.idleBot.GameBot.entities.minions;
 
 enum MinionTypes {
-    SKELETON(999,10800, 1500, 50, 1),
-    KNIGHT(999,10800, 10, 1, 1),
-    GOO(999,16200, 1500, 50, 2),
-    WIZARD(999,23400, 150, 20, 2),
-    GOLEM(999,82800, 3000, 1500, 4);
+    SKELETON(999999,10, 0, 0, 1),
+    KNIGHT(999999,10800, 0, 0, 1), //10800
+    GOO(999999,16200, 0, 0, 2), //16200
+    WIZARD(999999,23400, 0, 0, 2), //23400
+    GOLEM(999999,92800, 0, 0, 4); //82800
 
     private final int maxLevel;
     private final long duration;

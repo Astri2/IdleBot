@@ -1,6 +1,20 @@
 {
   "EQUIPMENT": {
-    "eq_list": ["sword","shield","armor","helmet","boots","ring","dagger","axe","staff","bow","spellbook","spirit","necklace"],
+    "eq_list": [
+      "sword",
+      "shield",
+      "armor",
+      "helmet",
+      "boots",
+      "ring",
+      "dagger",
+      "axe",
+      "staff",
+      "bow",
+      "spellbook",
+      "spirit",
+      "necklace"
+    ],
     "sword": [
       {
         "name": "sword_steel",
@@ -1171,5 +1185,62 @@
         "icon": "<a:Demon_Eye_Necklace:901156009916104774>"
       }
     ]
-  }
+  },
+  "OTHER": [
+    {
+      "name": "skeleton",
+      "price": "1e3",
+      "icon": "<:Skeleton_Minion:882792395845033984>",
+      "type": "minion",
+      "args": [
+        "SKELETON"
+      ]
+    },
+    {
+      "name": "knight",
+      "price": "1e10",
+      "icon": "<:White_Knight_Minion:882792436638814219>",
+      "type": "minion",
+      "args": [
+        "KNIGHT"
+      ]
+    },
+    {
+      "name": "goo",
+      "price": "1e25",
+      "icon": "<:Goo_Mutant_Minion:882792386311368794>",
+      "type": "minion",
+      "args": [
+        "GOO"
+      ]
+    },
+    {
+      "name": "wizard",
+      "price": "1e50",
+      "icon": "<:Dark_Wizard_Minion:882792427524620288>",
+      "type": "minion",
+      "args": [
+        "WIZARD"
+      ]
+    },
+    {
+      "name": "golem",
+      "price": "1e80",
+      "icon": "<:Stone_Golem_Minion:882792417072381964>",
+      "type": "minion",
+      "args": [
+        "GOLEM"
+      ]
+    }
+  ]
+}
+
+
+{
+  "name": "sword_steel",
+  "price": "50",
+  "weight": 1,
+  "minLevel": 10,
+  "boost": 100,
+  "icon": "<:Steel_Sword:884124806679777301>"
 }

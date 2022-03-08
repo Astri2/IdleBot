@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
 import me.astri.idleBot.GameBot.entities.minions.Minion;
+import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
@@ -134,9 +135,6 @@ public class DataBase extends ListenerAdapter {
                 ;
             }
         } catch(Exception ignore) {} //no backup files detected
-
-        //TODO remove save init
-        //botUsers.values().forEach(usr -> ((Player)usr).minions = Minion.initMinions());
 
         Timer saver = new Timer();
         saver.schedule(new TimerTask() {
