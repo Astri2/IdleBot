@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class SlashCommandManager extends ListenerAdapter {
     private final HashMap<String,ISlashCommand> slashCommands = new HashMap<>();
@@ -58,7 +59,7 @@ public class SlashCommandManager extends ListenerAdapter {
 
         long cooldown = getCooldown(e, slashCommand);
         if(cooldown > 0L) {
-            e.reply("That command is on cooldown. Please wait " + Utils.timeParser(cooldown)).setEphemeral(true).queue();
+            e.reply("That command is on cooldown. Please wait " + Utils.timeParser(cooldown, TimeUnit.MILLISECONDS)).setEphemeral(true).queue();
             return;
         }
         boolean ephemeral = slashCommand.isEphemeral();

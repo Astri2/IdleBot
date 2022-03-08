@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public abstract class Utils {
@@ -44,13 +45,13 @@ public abstract class Utils {
         return e.getReaction().retrieveUsers().complete().contains(e.getJDA().getSelfUser());
     }
 
-    public static String timeParser(long ms) {
-        ms = (long) Math.ceil(ms/1000.);
+    public static String timeParser(long amount, TimeUnit unit) {
+        long sec = TimeUnit.SECONDS.convert(amount,unit);
         StringBuilder str = new StringBuilder();
-        long days = ms / 86400; if(days > 0) str.append(days).append("d");
-        long hours = ms / 3600 % 24; if(hours > 0) str.append(hours).append("h");
-        long minutes = ms / 60 % 60; if(minutes > 0) str.append(minutes).append("m");
-        long seconds = ms % 60; if(seconds > 0) str.append(seconds).append("s");
+        long days = sec / 86400; if(days > 0) str.append(days).append("d");
+        long hours = sec / 3600 % 24; if(hours > 0) str.append(hours).append("h");
+        long minutes = sec / 60 % 60; if(minutes > 0) str.append(minutes).append("m");
+        long seconds = sec % 60; if(seconds > 0) str.append(seconds).append("s");
         return str.toString();
     }
 }
