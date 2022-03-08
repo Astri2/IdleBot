@@ -4,10 +4,7 @@ import me.astri.idleBot.GameBot.commands.__debug.DebugCommands;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
-import me.astri.idleBot.GameBot.commands.noCategory.Chesthunt;
-import me.astri.idleBot.GameBot.commands.noCategory.Profile;
-import me.astri.idleBot.GameBot.commands.noCategory.Register;
-import me.astri.idleBot.GameBot.commands.noCategory.Reset;
+import me.astri.idleBot.GameBot.commands.noCategory.*;
 import me.astri.idleBot.GameBot.commands.settings.Settings;
 import me.astri.idleBot.GameBot.commands.settings.Settings_setEphemeral;
 import me.astri.idleBot.GameBot.commands.settings.Settings_setLang;
@@ -61,7 +58,8 @@ public class BotGame extends ListenerAdapter {
                 new Reset(),
 
                 //other
-                new Chesthunt()
+                new Chesthunt(),
+                new Minions()
         );
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
