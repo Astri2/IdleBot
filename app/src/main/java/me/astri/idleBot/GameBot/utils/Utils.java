@@ -52,6 +52,6 @@ public abstract class Utils {
         long hours = sec / 3600 % 24; if(hours > 0) str.append(hours).append("h");
         long minutes = sec / 60 % 60; if(minutes > 0) str.append(minutes).append("m");
         long seconds = sec % 60; if(seconds > 0) str.append(seconds).append("s");
-        return str.toString();
+        return str.isEmpty() ? "0s" : str.toString();
     }
 }
