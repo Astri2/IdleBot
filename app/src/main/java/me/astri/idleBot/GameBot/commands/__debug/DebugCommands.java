@@ -9,7 +9,6 @@ import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Lang;
 import net.dv8tion.jda.api.entities.Emote;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
