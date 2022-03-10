@@ -66,6 +66,9 @@ public class Minions extends ISlashCommand {
                                     getTime(player, minion));
             eb.addField(title, sb,true);
         }
+        if(eb.getFields().size() == 0)
+            eb.setDescription("You have not unlocked any minion :(");
+
         return eb;
     }
 
@@ -139,19 +142,23 @@ public class Minions extends ISlashCommand {
                     label = "Click to Claim";
                 }
             }
+            //if minion is in a mission, use animated emote
+            String emotePrefix = buttonState == 3 ? "a_":"";
             buttons.add(Button.of(style,id, label,Emoji.fromMarkdown(
-                    Emotes.get(minion.toString()))).withDisabled(disable || allDisable));
+                    Emotes.get(emotePrefix + minion))).withDisabled(disable || allDisable));
         }
 
         ArrayList<ActionRow> rows = new ArrayList<>();
         ArrayList<Component> row = new ArrayList<>();
         for(int i = 0 ; i < buttons.size() ; i++) {
             row.add(buttons.get(i));
-            if(i % 5 == 4) {
+            if(i % 3 == 2) {
                 rows.add(ActionRow.of(row));
                 row = new ArrayList<>();
             }
         }
+        if(!row.isEmpty())
+            rows.add(ActionRow.of(row));
         rows.add(ActionRow.of(
                         Button.secondary("minion_all_refresh_"+ p.getId(),"Refresh").withDisabled(allDisable)));
         return rows;

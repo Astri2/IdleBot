@@ -1,6 +1,9 @@
 package me.astri.idleBot.GameBot.entities.minions;
 
+import me.astri.idleBot.GameBot.entities.BigNumber;
+
 import java.util.LinkedHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PlayerMinions {
     public LinkedHashMap<String,Minion> minions; //TODO private final
@@ -48,5 +51,14 @@ public class PlayerMinions {
 
     public void setLastMessageid(String id) {
         this.lastMessageid=id;
+    }
+
+    public BigNumber getBoost() {
+        AtomicInteger boost = new AtomicInteger(0);
+        minions.values().forEach(m -> {
+            if(m.isBought())
+                boost.addAndGet(m.getCPSBonus());
+        });
+        return new BigNumber(boost.get()/100.);
     }
 }

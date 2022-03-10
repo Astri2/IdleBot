@@ -5,7 +5,7 @@ enum MinionTypes {
     KNIGHT(999999,10800, 0, 0, 1), //10800
     GOO(999999,16200, 0, 0, 2), //16200
     WIZARD(999999,23400, 0, 0, 2), //23400
-    GOLEM(999999,92800, 0, 0, 4); //82800
+    GOLEM(999999,82800, 0, 0, 4); //82800
 
     private final int maxLevel;
     private final long duration;

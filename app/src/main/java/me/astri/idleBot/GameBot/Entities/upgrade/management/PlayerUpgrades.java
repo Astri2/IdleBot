@@ -4,6 +4,7 @@ import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.entities.upgrade.conditional.EquipmentUpgrade;
 import me.astri.idleBot.GameBot.entities.upgrade.Upgrade;
+import me.astri.idleBot.GameBot.entities.upgrade.unconditional.MinionUpgrade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,10 @@ public class PlayerUpgrades {
 
     public PlayerUpgrades() {
         boughtUpgrades = new UpgradeBundle(false);
-        availableUpgrades = new ArrayList<>();
         unboughtUpgrades = new UpgradeBundle(true);
+        availableUpgrades = new ArrayList<>();
+
+        availableUpgrades.addAll(unboughtUpgrades.getUncond());
     }
 
     public UpgradeBundle getBought() {
@@ -33,7 +36,7 @@ public class PlayerUpgrades {
     }
 
     public List<Upgrade> getAvailableSortedUpgrades() {
-        return this.getAvailable().stream().map(eqName -> UpgradeManager.getUpgrades().get(eqName))
+        return this.getAvailable().stream().map(upName -> UpgradeManager.getUpgrades().get(upName))
                 .sorted(new UpgradeManager.PriceComparator())
                 .collect(Collectors.toList());
     }
@@ -46,6 +49,9 @@ public class PlayerUpgrades {
         if (upgrade instanceof EquipmentUpgrade up) {
             up.action(p.getEquipment().get(up.getEq()));
             this.getBought().getEq().get(up.getEq()).add(up.getName());
+        } else if (upgrade instanceof MinionUpgrade up) {
+            up.action(p.getMinions());
+            this.getBought().getUncond().add(up.getName());
         }
     }
 

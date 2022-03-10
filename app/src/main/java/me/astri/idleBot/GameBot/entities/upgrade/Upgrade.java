@@ -22,6 +22,8 @@ public abstract class Upgrade {
         this.name = name;
         this.icon = icon;
         this.price = price;
+
+        this.action = getAction();
     }
 
     public String getName() {
@@ -51,12 +53,10 @@ public abstract class Upgrade {
     protected abstract String getTitleId();
 
     protected String getUpgradeDesc(Player p, boolean canAfford) {
-        String[] end = {
-                canAfford ? Emotes.get("yes") : Emotes.get("no"),
-                this.price.getNotation(p.usesScNotation()) + Emotes.get("coin")
-        };
-        String[] fullList = Stream.concat(Arrays.stream(getDescArgs(p)), Arrays.stream(end)).toArray(String[]::new);
-        return p.getLang().get(getDescId(), fullList);
+        System.out.println("passe");
+        return p.getLang().get(getDescId(), getDescArgs(p)) + "\n"
+                + (canAfford ? Emotes.get("yes") : Emotes.get("no")) + " "
+                + p.getLang().get("cost") + ": " + this.price.getNotation(p.usesScNotation()) + Emotes.get("coin");
     }
 
     protected abstract String getDescId();

@@ -1,5 +1,6 @@
 package me.astri.idleBot.GameBot.commands.equipment;
 
+import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
@@ -52,10 +53,12 @@ public class Equipment_display extends ISlashSubcommand {
 
             currentIsntLevel0 = gearPiece.getLevel() != 0;
             //display if previous/current eq isn't level 0 or if you have enough money
+
+            BigNumber prod = BigNumber.multiply(gearPiece.getProduction(),player.getBoost());
             if(previousIsntLevel0 || currentIsntLevel0 || gearPiece.getPrice().compareTo(player.getCoins()) <= 0) {
                 eb.addField(gearPiece.getEmote() + " " + author.getLang().get(gearPiece.getName()),
                         "Level **" + gearPiece.getLevel() + "\n" +
-                                gearPiece.getProduction().getNotation(author.usesScNotation()) + Emotes.get("coin") + "**/s**\n" +
+                                prod.getNotation(author.usesScNotation()) + Emotes.get("coin") + "**/s**\n" +
                                 author.getLang().get("cost") + "** " + gearPiece.getPrice().getNotation(author.usesScNotation()), true);
             }
             previousIsntLevel0 = currentIsntLevel0;

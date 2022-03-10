@@ -27,7 +27,6 @@ public class EquipmentUpgrade extends ConditionalUpgrade {
         this.boost = boost;
 
         this.condition = getCondition();
-        this.action = getAction();
     }
 
     public int getMinLvl() {

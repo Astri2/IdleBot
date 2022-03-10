@@ -10,6 +10,7 @@ import me.astri.idleBot.GameBot.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -60,7 +61,7 @@ public class Player extends BotUser {
     public BigNumber getProduction() { //TODO fix
         BigNumber prod = new BigNumber(0);
         getEquipment().values().forEach(eq -> prod.add(eq.getProduction()));
-        return prod;
+        return BigNumber.multiply(prod,getBoost());
     }
 
     public BigNumber getCoins() {
@@ -73,7 +74,12 @@ public class Player extends BotUser {
 
     public void update() {
         long newTime = System.currentTimeMillis();
-        coins.add(BigNumber.multiply(this.getProduction(), new BigNumber((newTime - lastUpdateTime)/1000)));//TODO fix
+        BigNumber eqProduction = BigNumber.multiply(this.getProduction(), new BigNumber((newTime - lastUpdateTime)/1000));
+        coins.add(eqProduction);//TODO fix
         lastUpdateTime = System.currentTimeMillis();
+    }
+
+    public BigNumber getBoost() {
+        return BigNumber.add(new BigNumber(1),this.minions.getBoost());
     }
 }

@@ -186,5 +186,38 @@ nbr_custom,Custom
 nbr_max,Max
 progression_reset,{0} your progression has been reset!
 equipment_upg_title,{0} {1} {2}
-equipment_upg_desc,Your {0} now gives you {1}% more Coins.\n{2} Cost: {3}
+minion_upg_title, {0} {1} {2}
+equipment_upg_desc,Your {0} now gives you {1}% more Coins.
+minion_upg_desc,Unlock {0} and assign it in mission for {1}.
 no_available_upgrade,You have no available upgrade...
+skeleton,Skeleton
+knight,White Knight
+goo,Goo Mutant
+wizard,Dark Wizard
+golem,Stone Golem
+time_unit_d,d
+time_unit_h,h
+time_unit_m,m
+time_unit_s,s
+number_unit_k,K
+number_unit_m,M
+number_unit_b,B
+number_unit_t,T
+number_unit_qa,Qa
+number_unit_qi,Qi
+number_unit_sx,Sx
+number_unit_sp,Sp
+number_unit_oc,Oc
+number_unit_no,No
+number_unit_de,De
+number_unit_ud,Ud
+number_unit_dd,Dd
+number_unit_td,Td
+number_unit_qt,Qt
+number_unit_qd,Qd
+number_unit_sd,Sd
+number_unit_st,St
+number_unit_od,Od
+number_unit_nd,Nd
+number_unit_vg,Vg
+

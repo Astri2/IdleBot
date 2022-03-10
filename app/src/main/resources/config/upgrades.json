@@ -1189,7 +1189,7 @@
   "OTHER": [
     {
       "name": "skeleton",
-      "price": "1e3",
+      "price": "0",
       "icon": "<:Skeleton_Minion:882792395845033984>",
       "type": "minion",
       "args": [
@@ -1233,14 +1233,4 @@
       ]
     }
   ]
-}
-
-
-{
-  "name": "sword_steel",
-  "price": "50",
-  "weight": 1,
-  "minLevel": 10,
-  "boost": 100,
-  "icon": "<:Steel_Sword:884124806679777301>"
 }

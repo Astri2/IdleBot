@@ -5,6 +5,8 @@ import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.modBot.main.BotMod;
 
 import javax.security.auth.login.LoginException;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
