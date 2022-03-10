@@ -8,6 +8,8 @@ import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Lang;
+import net.dv8tion.jda.api.entities.Emote;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -29,6 +31,7 @@ public class DebugCommands extends ListenerAdapter {
             case "i!prices" -> prices(event);
             case "i!save" -> save();
             case "i!ping" -> ping(event);
+            case "i!emote" -> emote(event);
         }
     }
 
@@ -114,5 +117,25 @@ public class DebugCommands extends ListenerAdapter {
         event.getChannel().sendMessage("Pong !").queue(msg ->
             msg.editMessageFormat("Pong %dms 🏓 !",System.currentTimeMillis()-time).queue()
         );
+    }
+
+    private void emote(GuildMessageReceivedEvent event) {
+        String[] args = event.getMessage().getContentRaw().split("\\s+");
+        if(args.length < 3) {
+            List<Emote> emotes = event.getGuild().getEmotes();
+            StringBuilder str = new StringBuilder("Emotes from " + event.getGuild().getName() + "\n");
+            for(Emote emote : emotes) {
+                String mention = emote.getAsMention();
+                str.append(mention).append(" \\").append(mention).append("\n");
+            }
+            event.getMessage().reply(str.toString()).queue();
+            return;
+        }
+        for(int i = 2 ; i < args.length ; i++) {
+            List<Emote> emotes = event.getGuild().getEmotesByName(args[i],true);
+            if(emotes.size() == 0) continue;
+            String mention = emotes.get(0).getAsMention();
+            event.getMessage().reply(mention + " \\" + mention).queue();
+        }
     }
 }
