@@ -120,21 +120,18 @@ public class DebugCommands extends ListenerAdapter {
 
     private void emote(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split("\\s+");
+        List<Emote> emotes = new ArrayList<>();
         if(args.length < 3) {
-            List<Emote> emotes = event.getGuild().getEmotes();
-            StringBuilder str = new StringBuilder("Emotes from " + event.getGuild().getName() + "\n");
-            for(Emote emote : emotes) {
-                String mention = emote.getAsMention();
-                str.append(mention).append(" \\").append(mention).append("\n");
-            }
-            event.getMessage().reply(str.toString()).queue();
-            return;
+            emotes = event.getGuild().getEmotes();
+
         }
-        for(int i = 2 ; i < args.length ; i++) {
-            List<Emote> emotes = event.getGuild().getEmotesByName(args[i],true);
-            if(emotes.size() == 0) continue;
-            String mention = emotes.get(0).getAsMention();
-            event.getMessage().reply(mention + " \\" + mention).queue();
+        else for(int i = 2 ; i < args.length ; i++) {
+            List<Emote> match = event.getGuild().getEmotesByName(args[i],true);
+            if(match.isEmpty()) continue;
+            emotes.add(match.get(0));
         }
+        StringBuilder str = new StringBuilder("emotes:\n");
+        emotes.forEach(emote -> str.append(emote.getAsMention()).append(" \\").append(emote.getAsMention()).append("\n"));
+        event.getMessage().reply(str.toString()).queue();
     }
 }
