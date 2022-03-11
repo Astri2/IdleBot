@@ -178,6 +178,7 @@ redo_level_up_button,Repeat Purchase
 level_s,{0} Level
 level_p,{0} Levels
 cost,Cost
+reward,Reward
 expired,Expired
 eqpm_upgrade_success,{0} your {1} {2} is now level **{3}**!
 eqpm_upgrade_ask_eqpm,{0} which piece of equipment should be upgraded?
@@ -195,6 +196,18 @@ knight,White Knight
 goo,Goo Mutant
 wizard,Dark Wizard
 golem,Stone Golem
+minions_title,{0}'s minions
+minions_level,Level {0}
+minion_bonus,+{0} Cps Bonus
+minion_no_unlocked,You have not unlocked any minion...
+minion_start_button,Click to Start
+minion_mission_button,In Mission...
+minion_claim_button,Click to Claim
+minion_refresh_button,Refresh
+minion_cant_afford_button,Can't afford
+minion_start_click,Your {0} is now in mission
+minion_claim_click,Your {0} finished its mission!
+minion_refresh_click,Minions refreshed
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m

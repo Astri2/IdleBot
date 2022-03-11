@@ -7,6 +7,7 @@ import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import me.astri.idleBot.GameBot.utils.Emotes;
+import me.astri.idleBot.GameBot.utils.Lang;
 import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Emoji;
@@ -46,28 +47,27 @@ public class Minions extends ISlashCommand {
 
     private static EmbedBuilder getEmbed(Player player) {
         PlayerMinions minions = player.getMinions();
+        Lang l = player.getLang();
 
         EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle(BotGame.jda.getUserById(player.getId()).getAsTag() + " minions");
+        eb.setTitle(l.get("minions_title",BotGame.jda.getUserById(player.getId()).getAsTag()));
         for(Minion minion : minions.get().values()) {
             if(!minion.isBought()) continue;
 
-            String title = Emotes.get(minion.toString()) + " " + minion;
+
+
+            String title = Emotes.get(minion.toString()) + " " + player.getLang().get(minion.toString());
             String sb =
-                    "Level %d\n".formatted(minion.getLevel()) +
-                            "+%d%% Cps bonus\n".formatted(minion.getCPSBonus()) +
-                            "Cost: %d %s\n".formatted(
-                                    minion.getPrice(player), Emotes.get("sp")) +
-                            "Reward: %d %s\n".formatted(
-                                    minion.getReward(player), Emotes.get("sp")) +
-                            Emotes.get("progress_bar_%d".formatted(
-                                    getProgressionState(player, minion))) + "\n" +
-                            "\uD83D\uDD50 %s\n".formatted(
-                                    getTime(player, minion));
+                    l.get("minions_level",Integer.toString(minion.getLevel())) + "\n" +
+                    l.get("minion_bonus",Integer.toString(minion.getCPSBonus())) + "\n" +
+                    l.get("cost") + ": %d %s\n".formatted(minion.getPrice(player), Emotes.get("sp")) +
+                    l.get("reward") + ": %d %s\n".formatted(minion.getReward(player), Emotes.get("sp")) +
+                    Emotes.get("progress_bar_%d".formatted(getProgressionState(player, minion))) + "\n" +
+                    "\uD83D\uDD50 %s\n".formatted(getTime(player, minion));
             eb.addField(title, sb,true);
         }
         if(eb.getFields().size() == 0)
-            eb.setDescription("You have not unlocked any minion :(");
+            eb.setDescription(l.get("minion_no_unlocked"));
 
         return eb;
     }
@@ -87,18 +87,21 @@ public class Minions extends ISlashCommand {
     }
 
     private static String getTime(Player p, Minion minion) {
+
         if(minion.isIdle())
             return Utils.timeParser(minion.getDuration(p), TimeUnit.SECONDS) + " - Idle";
         //else
         long now = Math.round(System.currentTimeMillis()/1000.);
-        if(now > minion.getEndTime())
+        long end = minion.getEndTime();
+        if(now > end)
             return "Ready";
         else
-            return Utils.timeParser(minion.getEndTime()-now,TimeUnit.SECONDS);
+            return Utils.timeParser(end-now,TimeUnit.SECONDS);
     }
 
     private static ArrayList<ActionRow> getActionRows(Player p, boolean allDisable) {
         ArrayList<Button> buttons = new ArrayList<>();
+        Lang l = p.getLang();
 
         for(Minion minion : p.getMinions().get().values()) {
             if(!minion.isBought()) continue;
@@ -122,24 +125,24 @@ public class Minions extends ISlashCommand {
                 case 1 -> {
                     style = ButtonStyle.PRIMARY;
                     id = "minion_" + minion + "_start_" + p.getId();
-                    label = "Click to Start";
+                    label = l.get("minion_start_button");
                 }
                 case 2 -> {
                     style = ButtonStyle.DANGER;
                     id = "minion_" + minion + "_cant_" + p.getId();
-                    label = "Can't afford";
+                    label = l.get("minion_cant_afford_button");
                     disable = true;
                 }
                 case 3 -> {
                     style = ButtonStyle.SECONDARY;
                     id = "minion_" + minion + "_miss_" + p.getId();
-                    label = "In Mission...";
+                    label = l.get("minion_mission_button");
                     disable = true;
                 }
                 case 4 -> {
                     style = ButtonStyle.SUCCESS;
                     id = "minion_" + minion + "_claim_" + p.getId();
-                    label = "Click to Claim";
+                    label = l.get("minion_claim_button");
                 }
             }
             //if minion is in a mission, use animated emote
@@ -180,9 +183,10 @@ public class Minions extends ISlashCommand {
 
         Minion m = player.getMinions().get().get(args[1]);
         PlayerMinions minions = player.getMinions();
+        Lang l = player.getLang();
 
         if(!e.getMessageId().equals(minions.getLastMessageid())) {
-            e.editMessage("This message has expired")
+            e.editMessage(l.get("expired"))
                     .setEmbeds(getEmbed(player).build())
                     .setActionRows(getActionRows(player, true)).queue();
             return;
@@ -191,18 +195,19 @@ public class Minions extends ISlashCommand {
         switch(args[2]) {
             case "start" -> {
                 m.startMission(minions);
-                e.editMessage("your %s is now in mission".formatted(m.getType()))
-                        .setEmbeds(getEmbed(player).build())
+                e.editMessageEmbeds(getEmbed(player)
+                        .setFooter(l.get("minion_start_click",l.get(m.toString()))).build())
                         .setActionRows(getActionRows(player, false)).queue();
             }
             case "claim" -> {
                 m.endMission();
-                e.editMessage("your %s finished its mission!".formatted(m.getType()))
-                        .setEmbeds(getEmbed(player).build())
+                e.editMessageEmbeds(getEmbed(player)
+                        .setFooter(l.get("minion_claim_click",l.get(m.toString()))).build())
                         .setActionRows(getActionRows(player, false)).queue();
             }
-            case "refresh" -> e.editMessageEmbeds(getEmbed(player).build())
-                                .setActionRows(getActionRows(player, false)).queue();
+            case "refresh" -> e.editMessageEmbeds(getEmbed(player)
+                    .setFooter(l.get("minion_refresh_click")).build())
+                    .setActionRows(getActionRows(player, false)).queue();
 
             default -> e.reply("How did you interact with that? O.o").queue();
         }
