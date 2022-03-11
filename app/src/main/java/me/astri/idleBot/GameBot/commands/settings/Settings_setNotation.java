@@ -34,12 +34,6 @@ public class Settings_setNotation extends ISlashSubcommand {
                 useScNot ? "notation_updated_sc" : "notation_updated_unit",hook.getInteraction().getUser().getAsMention())).queue();
     }
 
-    @Override
-    public Boolean isEphemeral() {
-        return true;
-    }
-
-    @Override
     public long getCooldown() {
         return 60000L;
     }

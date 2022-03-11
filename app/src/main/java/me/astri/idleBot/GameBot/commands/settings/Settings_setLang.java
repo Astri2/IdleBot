@@ -29,11 +29,6 @@ public class Settings_setLang extends ISlashSubcommand {
     }
 
     @Override
-    public Boolean isEphemeral() {
-        return true;
-    }
-
-    @Override
     public long getCooldown() {
         return 300000L;
     }

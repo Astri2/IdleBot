@@ -231,11 +231,6 @@ public class Equipment_upgrade extends ISlashSubcommand {
     }
 
     @Override
-    public Boolean isEphemeral() {
-        return true;
-    }
-
-    @Override
     public long getCooldown() {
         return 10000L;
     }

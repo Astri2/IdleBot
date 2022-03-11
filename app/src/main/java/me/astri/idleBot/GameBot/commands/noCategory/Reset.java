@@ -32,9 +32,4 @@ public class Reset extends ISlashCommand {
         }
         hook.sendMessage(player.getLang().get("progression_reset", e.getUser().getAsMention())).queue();
     }
-
-    @Override
-    public Boolean isEphemeral() {
-        return true;
-    }
 }

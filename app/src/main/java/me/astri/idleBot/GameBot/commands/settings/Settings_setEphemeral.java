@@ -34,11 +34,6 @@ public class Settings_setEphemeral extends ISlashSubcommand {
     }
 
     @Override
-    public Boolean isEphemeral() {
-        return true;
-    }
-
-    @Override
     public long getCooldown() {
         return 300000L;
     }

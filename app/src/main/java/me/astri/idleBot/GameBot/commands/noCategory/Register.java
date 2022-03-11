@@ -60,9 +60,4 @@ public class Register extends ISlashCommand {
     public long getCooldown() {
         return 300000L;
     }
-
-    @Override
-    public Boolean isEphemeral() {
-        return true;
-    }
 }
