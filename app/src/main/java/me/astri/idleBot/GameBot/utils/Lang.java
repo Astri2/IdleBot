@@ -67,6 +67,7 @@ public enum Lang {
                 langMap.put(args.get(0), args.get(1));
         } catch(Exception e) {
             System.out.println("can't open file");
+            e.printStackTrace();
         }
     }
     //^"(.+?)","(.+?)"$

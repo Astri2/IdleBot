@@ -186,8 +186,7 @@ public class Minions extends ISlashCommand {
         Lang l = player.getLang();
 
         if(!e.getMessageId().equals(minions.getLastMessageid())) {
-            e.editMessage(l.get("expired"))
-                    .setEmbeds(getEmbed(player).build())
+            e.editMessageEmbeds(getEmbed(player).setFooter(l.get("expired")).build())
                     .setActionRows(getActionRows(player, true)).queue();
             return;
         }

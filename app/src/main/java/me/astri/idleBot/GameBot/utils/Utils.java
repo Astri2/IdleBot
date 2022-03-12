@@ -17,7 +17,7 @@ public abstract class Utils {
         ArrayList<List<String>> records = new ArrayList<>();
         try {
             Files.readAllLines(Path.of(path)).forEach(line -> {
-                if(line.startsWith("#")) return;
+                if(line.isEmpty() ||line.startsWith("#")) return;
                 String[] values = line.split(",");
                 records.add(Arrays.asList(values));
             });

@@ -53,7 +53,6 @@ public abstract class Upgrade {
     protected abstract String getTitleId();
 
     protected String getUpgradeDesc(Player p, boolean canAfford) {
-        System.out.println("passe");
         return p.getLang().get(getDescId(), getDescArgs(p)) + "\n"
                 + (canAfford ? Emotes.get("yes") : Emotes.get("no")) + " "
                 + p.getLang().get("cost") + ": " + this.price.getNotation(p.usesScNotation()) + Emotes.get("coin");

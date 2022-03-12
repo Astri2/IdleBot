@@ -8,7 +8,6 @@ import me.astri.idleBot.modBot.main.BotMod;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.interaction.ButtonClickEvent;
 import net.dv8tion.jda.api.events.interaction.GenericComponentInteractionCreateEvent;
@@ -133,7 +132,6 @@ public class ControlPanel extends ListenerAdapter {
             .setExpirationTime(1, TimeUnit.MINUTES)
             .setTimeoutAction(() -> msg.editMessageComponents().queue())
             .setAction(ctx -> {
-                System.out.println("passe");
                 String id = ctx.getEvent().getButton().getId();
                 msg.editMessageComponents(
                         ActionRow.of(Button.success("yes", "Yes").asDisabled(), Button.danger("no", "No").asDisabled())).queue();
