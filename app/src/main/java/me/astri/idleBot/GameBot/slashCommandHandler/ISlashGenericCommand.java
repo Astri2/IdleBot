@@ -15,10 +15,10 @@ public abstract class ISlashGenericCommand {
 
     public abstract BaseCommand<CommandData> getData();
 
-    protected static final List<String> authorizedUsers = Arrays.stream(Config.get("AUTHORIZED_USERS").split(",")).toList();
+    protected static final List<String> bypassUsers = Arrays.stream(Config.get("BYPASS_USERS").split(",")).toList();
     private static final List<String> authorizedChannels = Arrays.stream(Config.get("AUTHORIZED_CHANNELS").split(",")).toList();
     public Boolean hasPermission(SlashCommandEvent e) {
-        return (authorizedChannels.contains(e.getChannel().getId()) || authorizedUsers.contains(e.getUser().getId()));
+        return (authorizedChannels.contains(e.getChannel().getId()) || bypassUsers.contains(e.getUser().getId()));
     }
 
     public Boolean guildOnly() { return false; }

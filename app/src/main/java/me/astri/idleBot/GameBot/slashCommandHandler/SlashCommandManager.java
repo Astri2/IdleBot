@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
+import net.dv8tion.jda.api.interactions.commands.privileges.CommandPrivilege;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -79,9 +80,9 @@ public class SlashCommandManager extends ListenerAdapter {
         }
     }
 
-    private ArrayList<CommandData> getAllCommandData() {
+    private ArrayList<CommandData> getAllCommandData(boolean defaultEnabled) {
         ArrayList<CommandData> list = new ArrayList<>();
-        slashCommands.values().forEach(command -> list.add((CommandData) command.getData()));
+        slashCommands.values().forEach(command -> list.add(((CommandData) command.getData()).setDefaultEnabled(defaultEnabled)));
 
         return list;
     }
@@ -110,7 +111,7 @@ public class SlashCommandManager extends ListenerAdapter {
      * @param jda the JDA bot on which you'll update all commands
      */
     public void updateJDACommands(JDA jda) {
-        jda.updateCommands().addCommands(getAllCommandData()).queue();
+        jda.updateCommands().addCommands(getAllCommandData(true)).queue();
     }
 
     /**
@@ -127,10 +128,10 @@ public class SlashCommandManager extends ListenerAdapter {
      * @param permissions enable or not permission system on this guild
      */
     public void updateGuildCommands(Guild guild, boolean permissions) {
-        guild.updateCommands().addCommands(getAllCommandData()).complete();
+        guild.updateCommands().addCommands(getAllCommandData(!permissions)).complete();
         guild.retrieveCommands().queue(commands -> commands.forEach(command -> {
+            System.out.println(command.getName());
             if(permissions) {
-                command.editCommand().setDefaultEnabled(false).queue();
                 command.updatePrivileges(guild, slashCommands.get(command.getName()).getCommandPrivileges()).queue();
             }
         }));
