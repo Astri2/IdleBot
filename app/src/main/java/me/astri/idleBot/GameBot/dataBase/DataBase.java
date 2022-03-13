@@ -26,6 +26,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -146,6 +147,10 @@ public class DataBase extends ListenerAdapter {
                     )
                 ;
             }
+
+           Arrays.stream(Config.get("REBOOT_CHANNEL").split(",")).forEach(channelId -> {
+               event.getJDA().getTextChannelById(channelId).sendMessage("Bot just rebooted, up to 5 minutes of progress may be lost :(").queue();
+           });
         } catch(Exception ignore) {} //no backup files detected
 
         Timer saver = new Timer();
