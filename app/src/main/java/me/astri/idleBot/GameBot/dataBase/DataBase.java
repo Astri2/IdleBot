@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
-import me.astri.idleBot.GameBot.entities.ChestHunt;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
@@ -101,11 +100,9 @@ public class DataBase extends ListenerAdapter {
     }
 
     private static void initNulls() {
-        botUsers.values().forEach(user -> {
-            Player p = (Player)user;
-            if(p.getChestHunt() == null)
-                p.chestHunt = new ChestHunt();
-        });
+//        botUsers.values().forEach(user -> {
+//            Player p = (Player)user;
+//        });
     }
 
     public static void download(ButtonClickEvent event) {
@@ -148,9 +145,8 @@ public class DataBase extends ListenerAdapter {
                 ;
             }
 
-           Arrays.stream(Config.get("REBOOT_CHANNEL").split(",")).forEach(channelId -> {
-               event.getJDA().getTextChannelById(channelId).sendMessage("Bot just rebooted, up to 5 minutes of progress may be lost :(").queue();
-           });
+           Arrays.stream(Config.get("REBOOT_CHANNEL").split(",")).forEach(channelId ->
+               event.getJDA().getTextChannelById(channelId).sendMessage("Bot just rebooted, up to 5 minutes of progress may be lost :(").queue());
         } catch(Exception ignore) {} //no backup files detected
 
         Timer saver = new Timer();

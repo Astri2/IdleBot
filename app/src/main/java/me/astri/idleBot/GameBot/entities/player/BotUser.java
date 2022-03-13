@@ -2,9 +2,8 @@ package me.astri.idleBot.GameBot.entities.player;
 
 import me.astri.idleBot.GameBot.utils.Lang;
 
-import java.io.Serializable;
-
 public abstract class BotUser {
+    private int cookies;
     private Lang lang;
     private final String id;
     private boolean useScNotation;
@@ -46,5 +45,13 @@ public abstract class BotUser {
 
     public void setEphemeral(String ephemeral) {
         this.ephemeral = ephemeral;
+    }
+
+    public void addCookie() {
+        this.cookies++;
+    }
+
+    public int getCookies() {
+        return this.cookies;
     }
 }

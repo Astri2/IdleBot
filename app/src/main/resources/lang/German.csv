@@ -226,6 +226,8 @@ chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} rema
 chest_hunt_win,You opened all the reward chests and won!
 chest_hunt_streak,New streak: {0} -> {1}
 chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
+cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
+cookie_display,{0} you have {1} 🍪 Cookies!
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m

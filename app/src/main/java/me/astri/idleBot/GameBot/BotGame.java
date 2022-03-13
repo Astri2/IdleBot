@@ -1,6 +1,9 @@
 package me.astri.idleBot.GameBot;
 
 import me.astri.idleBot.GameBot.commands.__debug.DebugCommands;
+import me.astri.idleBot.GameBot.commands.cookie.Cookie;
+import me.astri.idleBot.GameBot.commands.cookie.Cookie_display;
+import me.astri.idleBot.GameBot.commands.cookie.Cookie_give;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
@@ -46,6 +49,10 @@ public class BotGame extends ListenerAdapter {
                         new Settings_setEphemeral(),
                         new Settings_setLang(),
                         new Settings_setNotation()
+                ),
+                new Cookie(
+                        new Cookie_display(),
+                        new Cookie_give()
                 ),
 
                 //regular commands
