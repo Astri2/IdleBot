@@ -173,7 +173,7 @@ public class Minions extends ISlashCommand {
         String[] args = e.getButton().getId().split("_");
 
         if(!e.getUser().getId().equals(args[3])) {
-            hook.sendMessage("You can't interract with that!").queue();
+            e.reply("You can't interract with that!").setEphemeral(true).queue();
             return;
         }
 
