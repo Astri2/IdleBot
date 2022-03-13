@@ -1,18 +1,19 @@
 package me.astri.idleBot.GameBot.slashCommandHandler;
 
+import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.utils.Config;
-import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.interactions.commands.privileges.CommandPrivilege;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class SlashCommandManager extends ListenerAdapter {

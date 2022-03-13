@@ -54,7 +54,7 @@ public class BotGame extends ListenerAdapter {
                 new Reset(),
 
                 //other
-                new Chesthunt(),
+                new ChestHunt(),
                 new Minions()
         );
         jda = JDABuilder.createDefault(token)

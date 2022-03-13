@@ -1,6 +1,7 @@
 package me.astri.idleBot.GameBot.entities.player;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
+import me.astri.idleBot.GameBot.entities.ChestHunt;
 import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
 import me.astri.idleBot.GameBot.entities.upgrade.management.PlayerUpgrades;
@@ -10,7 +11,6 @@ import me.astri.idleBot.GameBot.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -25,8 +25,9 @@ public class Player extends BotUser {
 
     private final LinkedHashMap<String, Equipment> equipment = new LinkedHashMap<>();
     private final PlayerUpgrades upgrades;
+    private final PlayerMinions minions;
 
-    public PlayerMinions minions;
+    public ChestHunt chestHunt;
 
     public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
         super(id, lang, scNotation, ephemeral);
@@ -34,6 +35,7 @@ public class Player extends BotUser {
         lastUpdateTime = System.currentTimeMillis();
         upgrades = new PlayerUpgrades(); //has to be done before equipment
         minions = new PlayerMinions();
+        chestHunt = new ChestHunt();
         initEquipments();
     }
 
@@ -56,6 +58,10 @@ public class Player extends BotUser {
 
     public PlayerMinions getMinions() {
         return minions;
+    }
+
+    public ChestHunt getChestHunt() {
+        return chestHunt;
     }
 
     public BigNumber getProduction() { //TODO fix
