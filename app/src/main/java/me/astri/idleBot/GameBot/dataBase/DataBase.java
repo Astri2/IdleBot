@@ -3,13 +3,12 @@ package me.astri.idleBot.GameBot.dataBase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
-import me.astri.idleBot.GameBot.entities.minions.Minion;
-import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
+import me.astri.idleBot.GameBot.entities.ChestHunt;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
-import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -20,7 +19,9 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -82,7 +83,10 @@ public class DataBase extends ListenerAdapter {
             }
             Gson gson = new GsonBuilder().create();
             Type classType = new TypeToken<HashMap<String, Player>>() {}.getType();
-            DataBase.botUsers = gson.fromJson(json, classType);
+            botUsers = gson.fromJson(json, classType);
+
+            initNulls();
+
             System.out.println("Successfully load from the file.");
             if(event != null)
                 event.getHook().sendMessage("Loaded!").queue();
@@ -93,6 +97,14 @@ public class DataBase extends ListenerAdapter {
             return -1;
         }
         return 0;
+    }
+
+    private static void initNulls() {
+        botUsers.values().forEach(user -> {
+            Player p = (Player)user;
+            if(p.getChestHunt() == null)
+                p.chestHunt = new ChestHunt();
+        });
     }
 
     public static void download(ButtonClickEvent event) {
