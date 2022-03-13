@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.List;
 
 public abstract class UnconditionalUpgrade extends Upgrade {
     protected final String[] args;

@@ -5,11 +5,7 @@ import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.utils.Emotes;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public abstract class Upgrade {
 

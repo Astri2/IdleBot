@@ -7,9 +7,6 @@ import me.astri.idleBot.GameBot.utils.Lang;
 import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-
 public abstract class GameUtils {
     /**
      * @param hook interaction hook

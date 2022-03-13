@@ -26,7 +26,6 @@ import net.dv8tion.jda.api.interactions.components.ButtonStyle;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -55,7 +54,6 @@ public class ChestHunt extends ISlashCommand {
         if(realHunt) {
             //1h cooldown
             long cooldown = (ch.getLastTime() + 3600000) - System.currentTimeMillis();
-            System.out.println("cooldown" + cooldown);
             if (cooldown > 0) {
                 hook.sendMessage(p.getLang().get("chesthunt_cooldown", e.getUser().getAsMention(), Utils.timeParser(cooldown, TimeUnit.MILLISECONDS))).queue();
                 return;
@@ -65,7 +63,6 @@ public class ChestHunt extends ISlashCommand {
             int old = ch.getStreak();
             if (cooldown < -3600000) {
                 int newStreak = Math.max(1,old - (int)(cooldown/-3600000));
-                System.out.println("loose:" + ((int)(cooldown/-3600000)));
                 ch.setStreak(newStreak);
                 streak_msg = p.getLang().get("chest_hunt_streak_lost",Integer.toString(old),Integer.toString(newStreak));
             } else {
@@ -133,7 +130,6 @@ public class ChestHunt extends ISlashCommand {
             if (grid[i][k] == 0)
                 grid[i][k] = -1;
         }
-        System.out.println(Arrays.deepToString(grid));
         return grid;
     }
 
@@ -172,7 +168,6 @@ public class ChestHunt extends ISlashCommand {
                             if(realHunt)
                                 p.editCoins(reward);
                             remainingRewardChests.decrementAndGet();
-                            System.out.println(remainingRewardChests.get());
                             if(remainingRewardChests.get() == 0) {
                                 eb.setFooter(p.getLang().get("chest_hunt_win"));
                                 allDisabled = true;
