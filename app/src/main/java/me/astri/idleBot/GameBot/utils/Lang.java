@@ -10,16 +10,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum Lang {
-    ENGLISH("English"),
-    FRENCH("Français");
+    ENGLISH("English", "game_texts"),
+    FRENCH("Français", "French"),
+    GERMAN("Deutsch","German"),
+    SPANISH("Español","Spanish");
 
     private final String name;
+    private final String path;
     public String getName() {
         return this.name;
     }
 
-    Lang(String a) {
+    Lang(String a, String b) {
         this.name = a;
+        this.path =b;
     }
 
     private static final HashMap<Lang,HashMap<String,String>> langsMap = new HashMap<>();
@@ -35,7 +39,7 @@ public enum Lang {
             loadLang(this);
         String str = langsMap.get(this).get(key.toLowerCase());
         if(str == null)
-            return "`no string`";
+            return "`no string: %s, %s`".formatted(this.path,key);
         return fixString(str,variables);
     }
 
@@ -49,20 +53,23 @@ public enum Lang {
         }
         Matcher m1 = emotePattern.matcher(str); //emotes
         while(m1.find()) {
-            str = str.replace(m1.group(0), Emotes.getEmote(m1.group(1)));
+            str = str.replace(m1.group(0), Emotes.get(m1.group(1)));
         }
         return str;
     }
 
     private static void loadLang(Lang lang) {
         try {
-            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.toString().toLowerCase() + ".csv");
+            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.path + ".csv");
             HashMap<String, String> langMap = new HashMap<>();
             langsMap.put(lang, langMap);
             for (List<String> args : CSV_lang)
                 langMap.put(args.get(0), args.get(1));
         } catch(Exception e) {
             System.out.println("can't open file");
+            e.printStackTrace();
         }
     }
+    //^"(.+?)","(.+?)"$
+    //$1,$2
 }

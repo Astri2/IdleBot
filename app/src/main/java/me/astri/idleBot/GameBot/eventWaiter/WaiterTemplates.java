@@ -32,7 +32,7 @@ public abstract class WaiterTemplates {
                     waiter.setEventType(ButtonClickEvent.class)
                             .setExpirationTime(10, TimeUnit.SECONDS)
                             .setTimeoutAction(() -> {
-                                msg.editMessage(message + "\n" + lang.get("expired")).queue();
+                                msg.editMessage(message + "\n" + lang.get("message_expired")).queue();
                                 msg.editMessageComponents(getKP(id,false,true)).queue();
                             })
                             .setConditions(e ->

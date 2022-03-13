@@ -1,21 +1,26 @@
 package me.astri.idleBot.GameBot;
 
+import me.astri.idleBot.GameBot.commands.__debug.DebugCommands;
+import me.astri.idleBot.GameBot.commands.cookie.Cookie;
+import me.astri.idleBot.GameBot.commands.cookie.Cookie_display;
+import me.astri.idleBot.GameBot.commands.cookie.Cookie_give;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
+import me.astri.idleBot.GameBot.commands.noCategory.*;
+import me.astri.idleBot.GameBot.commands.settings.Settings;
+import me.astri.idleBot.GameBot.commands.settings.Settings_setEphemeral;
+import me.astri.idleBot.GameBot.commands.settings.Settings_setLang;
+import me.astri.idleBot.GameBot.commands.settings.Settings_setNotation;
+import me.astri.idleBot.GameBot.commands.upgrades.Upgrades;
+import me.astri.idleBot.GameBot.commands.upgrades.Upgrades_buy;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
-import me.astri.idleBot.GameBot.entities.upgrade.UpgradeManager;
-import me.astri.idleBot.GameBot.commands.*;
-import me.astri.idleBot.GameBot.commands.debug.DebugCommands;
-import me.astri.idleBot.GameBot.commands.displayCommands.EquipmentDisplay;
-import me.astri.idleBot.GameBot.commands.displayCommands.ProfileDisplay;
-import me.astri.idleBot.GameBot.commands.other.Register;
-import me.astri.idleBot.GameBot.commands.other.Reset;
-import me.astri.idleBot.GameBot.commands.settings.setEphemeral;
-import me.astri.idleBot.GameBot.commands.settings.setLang;
-import me.astri.idleBot.GameBot.commands.settings.setNotation;
+import me.astri.idleBot.GameBot.entities.upgrade.management.UpgradeManager;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
 import me.astri.idleBot.GameBot.game.PermaActionComponent;
+import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
 import me.astri.idleBot.GameBot.utils.ControlPanel;
 import me.astri.idleBot.GameBot.utils.Emotes;
-import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -32,15 +37,32 @@ public class BotGame extends ListenerAdapter {
 
     public static void startBot(String token) throws LoginException, InterruptedException {
         slashCommandManager = new SlashCommandManager(
+                //subcommands
+                new Equipment(
+                        new Equipment_display(),
+                        new Equipment_upgrade()
+                ),
+                new Upgrades(
+                        new Upgrades_buy()
+                ),
+                new Settings(
+                        new Settings_setEphemeral(),
+                        new Settings_setLang(),
+                        new Settings_setNotation()
+                ),
+                new Cookie(
+                        new Cookie_display(),
+                        new Cookie_give()
+                ),
+
+                //regular commands
+                new Profile(),
                 new Register(),
-                new EquipmentDisplay(),
-                new setLang(),
-                new setNotation(),
-                new setEphemeral(),
-                new ProfileDisplay(),
-                new LevelUpEquipment(),
                 new Reset(),
-                new Upgrades()
+
+                //other
+                new ChestHunt(),
+                new Minions()
         );
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)

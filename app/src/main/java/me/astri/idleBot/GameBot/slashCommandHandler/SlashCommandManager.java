@@ -1,8 +1,8 @@
 package me.astri.idleBot.GameBot.slashCommandHandler;
 
+import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.utils.Config;
-import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
@@ -11,27 +11,35 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class SlashCommandManager extends ListenerAdapter {
-    private final List<ISlashCommand> slashCommands = new ArrayList<>();
+    private final HashMap<String,ISlashCommand> slashCommands = new HashMap<>();
     private final HashMap<String, HashMap<Long,Long>> cooldowns = new HashMap<>();
 
     public SlashCommandManager(ISlashCommand ... slashCommand) {
-        Collections.addAll(slashCommands, slashCommand);
-        Arrays.stream(slashCommand).forEach(cmd -> cooldowns.put(cmd.getCommandData().getName(),new HashMap<>()));
+        Arrays.stream(slashCommand).forEach(cmd -> slashCommands.put(cmd.getData().getName(),cmd));
+        Arrays.stream(slashCommand).forEach(cmd -> {
+            if(cmd.getSubcommands().isEmpty()) {
+                cooldowns.put(cmd.getClass().getName(), new HashMap<>());
+            } else
+                cmd.getSubcommands().values().forEach(subCmd -> cooldowns.put(subCmd.getClass().getName(), new HashMap<>()));
+        });
     }
 
-    private ISlashCommand getISlashCommand(String name) {
-        for(ISlashCommand slashCommand : slashCommands) {
-            if(name.equals(slashCommand.getCommandData().getName()))
-                return slashCommand;
-        }
-        return null;
+    private ISlashGenericCommand getISlashCommand(String name, String subName) {
+            if (subName == null || subName.isEmpty())
+                return slashCommands.get(name);
+            else
+                return slashCommands.get(name).getSubcommands().get(subName);
     }
+
     @Override
     public void onSlashCommand(@NotNull SlashCommandEvent e) {
-        ISlashCommand slashCommand = getISlashCommand(e.getName());
+        ISlashGenericCommand slashCommand = getISlashCommand(e.getName(),e.getSubcommandName());
 
         if(e.getUser().isBot())
             return;
@@ -53,7 +61,7 @@ public class SlashCommandManager extends ListenerAdapter {
 
         long cooldown = getCooldown(e, slashCommand);
         if(cooldown > 0L) {
-            e.reply("That command is on cooldown. Please wait " + Utils.timeParser(cooldown)).setEphemeral(true).queue();
+            e.reply("That command is on cooldown. Please wait " + Utils.timeParser(cooldown, TimeUnit.MILLISECONDS)).setEphemeral(true).queue();
             return;
         }
         boolean ephemeral = slashCommand.isEphemeral();
@@ -64,7 +72,7 @@ public class SlashCommandManager extends ListenerAdapter {
 
         if(e.getOption("ephemeral")!= null) ephemeral = Boolean.parseBoolean(e.getOption("ephemeral").getAsString());
 
-        cooldowns.get(slashCommand.getCommandData().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
+        cooldowns.get(slashCommand.getClass().getName()).put(e.getUser().getIdLong(),System.currentTimeMillis());
         e.deferReply(ephemeral).queue();
         try {
             slashCommand.handle(e,e.getHook());
@@ -73,14 +81,14 @@ public class SlashCommandManager extends ListenerAdapter {
         }
     }
 
-    private ArrayList<CommandData> getAllCommandData() {
+    private ArrayList<CommandData> getAllCommandData(boolean defaultEnabled) {
         ArrayList<CommandData> list = new ArrayList<>();
-        slashCommands.forEach(command -> list.add(command.getCommandData()));
+        slashCommands.values().forEach(command -> list.add(((CommandData) command.getData()).setDefaultEnabled(defaultEnabled)));
 
         return list;
     }
 
-    private long getCooldown(SlashCommandEvent e, ISlashCommand command) {
+    private long getCooldown(SlashCommandEvent e, ISlashGenericCommand command) {
         if(e.getUser().getId().equals(Config.get("BOT_OWNER_ID"))) {
             return -1L;
         }
@@ -88,7 +96,7 @@ public class SlashCommandManager extends ListenerAdapter {
             return -1L;
         }
         long time = System.currentTimeMillis();
-        Long lastTime = cooldowns.get(command.getCommandData().getName()).get(e.getUser().getIdLong());
+        Long lastTime = cooldowns.get(command.getClass().getName()).get(e.getUser().getIdLong());
         if(lastTime == null) {
             return -1L;
         }
@@ -96,40 +104,16 @@ public class SlashCommandManager extends ListenerAdapter {
         return (lastTime + command.getCooldown()) - time;
     }
 
+
+
+
     /**
      * Add new commands, Delete missing commands, Update edited commands
      * @param jda the JDA bot on which you'll update all commands
      */
-    public void updateCommands(JDA jda) {
-        jda.updateCommands().addCommands(getAllCommandData()).queue();
+    public void updateJDACommands(JDA jda) {
+        jda.updateCommands().addCommands(getAllCommandData(true)).queue();
     }
-
-    /**
-     * Add new commands, Delete missing commands, Update edited commands
-     * @param guild the Guild on which you'll update all commands
-     */
-    public void updateGuildCommands(Guild guild) {
-        guild.updateCommands().addCommands(getAllCommandData()).queue();
-    }
-
-    /**
-     * Add or Update specific commands on the whole Bot
-     * @param jda the JDA bot on which you'll updates the commands
-     * @param command list of commands you want to Add or Update
-     */
-    public void updateCommands(JDA jda, String ... command) {
-        Arrays.stream(command).forEach(cmd -> jda.upsertCommand(getISlashCommand(cmd).getCommandData()).queue());
-    }
-
-    /**
-     * Add or Update specific commands on a specific Guild
-     * @param guild the Guild on which you'll updates the commands
-     * @param command list of commands you want to Add or Update
-     */
-    public void updateGuildCommands(Guild guild, String ... command) {
-        Arrays.stream(command).forEach(cmd -> guild.upsertCommand(getISlashCommand(cmd).getCommandData()).queue());
-    }
-
 
     /**
      * Clear all commands from the JDA
@@ -140,33 +124,25 @@ public class SlashCommandManager extends ListenerAdapter {
     }
 
     /**
+     * Add new commands, Delete missing ones and Update edited ones
+     * @param guild the guild you want to update the commands on
+     * @param permissions enable or not permission system on this guild
+     */
+    public void updateGuildCommands(Guild guild, boolean permissions) {
+        guild.updateCommands().addCommands(getAllCommandData(!permissions)).complete();
+        guild.retrieveCommands().queue(commands -> commands.forEach(command -> {
+            System.out.println(command.getName());
+            if(permissions) {
+                command.updatePrivileges(guild, slashCommands.get(command.getName()).getCommandPrivileges()).queue();
+            }
+        }));
+    }
+
+    /**
      * Clear all commands from a specific Guild
      * @param guild the Guild on which you'll clear all commands
      */
     public void clearGuildCommands(Guild guild) {
         guild.updateCommands().queue();
-    }
-
-
-    /**
-     * Clear all Guild commands from all Guilds
-     * @param jda the JDA bot on which you'll clear the Guild commands
-     */
-    public void clearAllGuildCommands(JDA jda) { jda.getGuilds().forEach(guild -> guild.updateCommands().queue());}
-
-    /**
-     * Remove specific commands from a specific Guild
-     * @param guild the Guild on which you'll clear the commands
-     * @param command list of commands you want to remove
-     */
-    public void removeGuildCommands(Guild guild, String ... command) {
-        if(command.length == 0)
-            return;
-        List<String> commandsToRemove = Arrays.asList(command);
-        guild.retrieveCommands().queue(guildCommands ->
-            guildCommands.forEach(cmd -> {
-                if(commandsToRemove.contains(cmd.getName()))
-                    guild.deleteCommandById(cmd.getId()).queue();
-            }));
     }
 }
