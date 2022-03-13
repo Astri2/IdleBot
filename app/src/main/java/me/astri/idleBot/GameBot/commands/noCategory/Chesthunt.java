@@ -1,6 +1,7 @@
 package me.astri.idleBot.GameBot.commands.noCategory;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
+import me.astri.idleBot.GameBot.entities.PlayerChestHunt;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.game.GameUtils;
@@ -43,8 +44,12 @@ public class ChestHunt extends ISlashCommand {
 
         Player p = GameUtils.getUser(hook,e.getUser());
         if(p == null) return;
-        me.astri.idleBot.GameBot.entities.ChestHunt ch = p.getChestHunt();
+        PlayerChestHunt ch = p.getChestHunt();
 
+        if(!ch.isUnlocked()) {
+            hook.sendMessage(p.getLang().get("chest_hunt_locked",e.getUser().getAsMention())).queue();
+            return;
+        }
 
         String streak_msg = "";
         if(realHunt) {
@@ -59,8 +64,10 @@ public class ChestHunt extends ISlashCommand {
             //2h before streak reset
             int old = ch.getStreak();
             if (cooldown < -3600000) {
-                ch.setStreak(1);
-                streak_msg = p.getLang().get("chest_hunt_streak_lost",Integer.toString(old),Integer.toString(ch.getStreak()));
+                int newStreak = Math.max(1,old - (int)(cooldown/-3600000));
+                System.out.println("loose:" + ((int)(cooldown/-3600000)));
+                ch.setStreak(newStreak);
+                streak_msg = p.getLang().get("chest_hunt_streak_lost",Integer.toString(old),Integer.toString(newStreak));
             } else {
                 ch.setStreak(ch.getStreak() + 1);
                 streak_msg = p.getLang().get("chest_hunt_streak",Integer.toString(old),Integer.toString(ch.getStreak()));
@@ -133,8 +140,9 @@ public class ChestHunt extends ISlashCommand {
     private Waiter<ButtonClickEvent> getWaiter(Player p, User user, boolean realHunt, Message msg, int[][] grid, int streak) {
         AtomicInteger saver = new AtomicInteger(0);
         BigNumber gain = new BigNumber();
-        BigNumber CPS = p.getProduction();
-        BigNumber multiplier = new BigNumber(Math.min(streak,10));
+        final BigNumber prod = p.getProduction();
+        final BigNumber CPS = prod.toDouble() == 0 ? new BigNumber(1) : prod;
+        final BigNumber multiplier = new BigNumber(Math.min(streak,10));
         AtomicInteger remainingRewardChests = new AtomicInteger(21);
 
         return new Waiter<ButtonClickEvent>()

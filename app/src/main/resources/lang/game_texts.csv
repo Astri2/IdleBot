@@ -217,6 +217,7 @@ minion_refresh_click,Minions refreshed
 chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
 chest_hunt,Chest Hunt
 chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
+chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
 chest_hunt_multiplier,Multiplier: x{0}
 chest_hunt_reward,Reward: {0}
 chest_hunt_coins,You got +{0}

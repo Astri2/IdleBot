@@ -1,12 +1,22 @@
 package me.astri.idleBot.GameBot.entities;
 
-public class ChestHunt {
+public class PlayerChestHunt {
+    private boolean unlocked;
     private long lastTime;
     private int streak;
 
-    public ChestHunt() {
+    public PlayerChestHunt() {
+        unlocked = true;
         lastTime = 0;
         streak = 0;
+    }
+
+    public boolean isUnlocked() {
+        return unlocked;
+    }
+
+    public void setUnlocked(boolean unlocked) {
+        this.unlocked = unlocked;
     }
 
     public long getLastTime() {

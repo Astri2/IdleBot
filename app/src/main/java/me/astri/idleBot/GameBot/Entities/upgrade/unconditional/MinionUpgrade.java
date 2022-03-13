@@ -2,12 +2,10 @@ package me.astri.idleBot.GameBot.entities.upgrade.unconditional;
 
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.minions.Minion;
-import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.utils.Lang;
 import me.astri.idleBot.GameBot.utils.Utils;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
@@ -35,9 +33,6 @@ public class MinionUpgrade extends UnconditionalUpgrade {
 
     @Override
     protected Consumer<Object> getAction() {
-        return obj -> {
-            PlayerMinions minions = (PlayerMinions) obj;
-            minions.get().get(this.args[0]).setBought(true);
-        };
+        return UpgradeActions.getAction("minionUpgrade",this.args);
     }
 }
