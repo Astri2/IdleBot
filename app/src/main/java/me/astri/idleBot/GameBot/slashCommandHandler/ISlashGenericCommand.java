@@ -11,9 +11,9 @@ import java.util.List;
 
 public abstract class ISlashGenericCommand {
 
-    public abstract void handle(SlashCommandEvent e, InteractionHook hook);
-
     public abstract BaseCommand<CommandData> getData();
+
+    public abstract void handle(SlashCommandEvent e, InteractionHook hook);
 
     protected static final List<String> bypassUsers = Arrays.stream(Config.get("BYPASS_USERS").split(",")).toList();
     private static final List<String> authorizedChannels = Arrays.stream(Config.get("AUTHORIZED_CHANNELS").split(",")).toList();

@@ -26,8 +26,7 @@ public class Player extends BotUser {
     private final LinkedHashMap<String, Equipment> equipment = new LinkedHashMap<>();
     private final PlayerUpgrades upgrades;
     private final PlayerMinions minions;
-
-    public ChestHunt chestHunt;
+    private final ChestHunt chestHunt;
 
     public Player(String id, Lang lang, boolean scNotation, String ephemeral) {
         super(id, lang, scNotation, ephemeral);
