@@ -214,6 +214,18 @@ minion_cant_afford_button,Can't afford
 minion_start_click,Your {0} is now in Mission
 minion_claim_click,Your {0} finished its Mission!
 minion_refresh_click,Minions refreshed
+chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
+chest_hunt,Chest Hunt
+chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
+chest_hunt_multiplier,Multiplier: x{0}
+chest_hunt_reward,Reward: {0}
+chest_hunt_coins,You got +{0}
+chest_hunt_saver,You found a Saver! You now have {0} savers
+chest_hunt_mimic,Oh no it's a Mimic!
+chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
+chest_hunt_win,You opened all the reward chests and won!
+chest_hunt_streak,New streak: {0} -> {1}
+chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m

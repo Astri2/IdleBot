@@ -178,7 +178,8 @@ redo_level_up_button,Réitérer l'Achat
 level_s,{0} Niveau
 level_p,{0} Niveaux
 cost,Coût
-expired,Expiré
+reward,Récompense
+message_expired,Ce message a expiré
 eqpm_upgrade_success,{0} ton {1} {2} est maintenant au niveau **{3}**!
 eqpm_upgrade_ask_eqpm,{0} quelle pièce d'équipement améliorer ?
 eqpm_upgrade_ask_level,{0} de combien de niveaux améliorer ton {1} {2} ?
@@ -186,5 +187,67 @@ nbr_custom,Personnalisé
 nbr_max,Maximum
 progression_reset,{0} ta progression a été réinitialisée !
 equipment_upg_title,{0} {1} {2}
-equipment_upg_desc,Ton équipement {0} te donnes dorénavant {1}% plus de Pièces.\n{2} Coût : {3}
+minion_upg_title,{0} {1} {2}
+equipment_upg_desc,Ton Équipement {1} te donne désormais {0}% de Pièces en plus.
+minion_upg_desc,Obtiens le minion {0}. Tu peux l'assigner à une Mission pour {1}.
+upgrade_buy_button,Acheter
+upgrade_buy_all_button,Acheter Tout
+upgrade_refresh_button,Rafraichir
 no_available_upgrade,Tu n'a aucune amélioration disponible...
+upgrade_bought,Tu as acheté {0}
+upgrade_bought_all,Tu as acheté {0} améliorations
+upgrade_nb_available,{0} améliorations disponibles
+skeleton,Squelette
+knight,Chevalier Blanc
+goo,Goo Mutante
+wizard,Sorcier Noir
+golem,Golem de Pierre
+minions_title,Minions de {0}
+minions_level,Niveau {0}
+minion_bonus,+{0}% Pps Bonus
+minion_no_unlocked,Tu n'as débloqué aucun Minion...
+minion_start_button,Clique pour assigner
+minion_mission_button,En Mission...
+minion_claim_button,Clique pour Réclamer
+minion_refresh_button,Rafraichir
+minion_cant_afford_button,Achat Impossible
+minion_start_click,Ton Minion {0} est maintenant en Mission
+minion_claim_click,Ton Minion {0} a fini sa Mission!
+minion_refresh_click,Minions rafraichis
+chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
+chest_hunt,Chest Hunt
+chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
+chest_hunt_multiplier,Multiplier: x{0}
+chest_hunt_reward,Reward: {0}
+chest_hunt_coins,You got +{0}
+chest_hunt_saver,You found a Saver! You now have {0} savers
+chest_hunt_mimic,Oh no it's a Mimic!
+chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
+chest_hunt_win,You opened all the reward chests and won!
+chest_hunt_streak,New streak: {0} -> {1}
+chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
+time_unit_d,j
+time_unit_h,h
+time_unit_m,m
+time_unit_s,s
+number_unit_k,K
+number_unit_m,M
+number_unit_b,B
+number_unit_t,T
+number_unit_qa,Qa
+number_unit_qi,Qi
+number_unit_sx,Sx
+number_unit_sp,Sp
+number_unit_oc,Oc
+number_unit_no,No
+number_unit_de,De
+number_unit_ud,Ud
+number_unit_dd,Dd
+number_unit_td,Td
+number_unit_qt,Qt
+number_unit_qd,Qd
+number_unit_sd,Sd
+number_unit_st,St
+number_unit_od,Od
+number_unit_nd,Nd
+number_unit_vg,Vg
