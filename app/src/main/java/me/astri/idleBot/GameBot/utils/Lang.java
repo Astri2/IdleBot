@@ -39,7 +39,7 @@ public enum Lang {
             loadLang(this);
         String str = langsMap.get(this).get(key.toLowerCase());
         if(str == null)
-            return "`no string`";
+            return "`no string: %s, %s`".formatted(this.path,key);
         return fixString(str,variables);
     }
 
