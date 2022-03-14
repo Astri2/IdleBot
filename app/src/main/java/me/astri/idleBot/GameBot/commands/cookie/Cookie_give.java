@@ -3,6 +3,7 @@ package me.astri.idleBot.GameBot.commands.cookie;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashSubcommand;
+import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
@@ -10,6 +11,8 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.BaseCommand;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
+
+import java.util.concurrent.TimeUnit;
 
 public class Cookie_give extends ISlashSubcommand {
     @Override
@@ -32,13 +35,21 @@ public class Cookie_give extends ISlashSubcommand {
             return;
         }
 
-        p1.addCookie();
+        long cooldown = p.getCookies().getLastCookie() + 86400000 - System.currentTimeMillis(); //24h cooldown
+        if(cooldown > 0) {
+            hook.sendMessage(p.getLang().get("cookie_on_cooldown",e.getUser().getAsMention(),
+                    Utils.timeParser(cooldown, TimeUnit.MILLISECONDS))).queue();
+            return;
+        }
 
-        hook.sendMessage(p1.getLang().get("cookie_gave",user.getAsMention(),e.getUser().getAsMention(),Integer.toString(p1.getCookies()))).queue();
+        p1.getCookies().giveCookie();
+        p.getCookies().setLastCookie();
+
+        hook.sendMessage(p1.getLang().get("cookie_gave",user.getAsMention(),e.getUser().getAsMention(),Integer.toString(p1.getCookies().getNumber()))).queue();
     }
 
     @Override
     public long getCooldown() {
-        return 86400000L; //24h
+        return 10L;
     }
 }

@@ -1,13 +1,14 @@
 package me.astri.idleBot.GameBot.entities.player;
 
+import me.astri.idleBot.GameBot.entities.Cookie;
 import me.astri.idleBot.GameBot.utils.Lang;
 
 public abstract class BotUser {
-    private int cookies;
     private Lang lang;
     private final String id;
     private boolean useScNotation;
     private String ephemeral;
+    public Cookie cookie;
 
     public BotUser(String id, Lang lang, boolean useScNotation, String ephemeral) {
         this.id = id;
@@ -17,6 +18,8 @@ public abstract class BotUser {
 
         if(this.lang == null)
             this.lang = Lang.ENGLISH;
+
+        this.cookie = new Cookie();
     }
 
     public String getId() {
@@ -47,11 +50,7 @@ public abstract class BotUser {
         this.ephemeral = ephemeral;
     }
 
-    public void addCookie() {
-        this.cookies++;
-    }
-
-    public int getCookies() {
-        return this.cookies;
+    public Cookie getCookies() {
+        return this.cookie;
     }
 }

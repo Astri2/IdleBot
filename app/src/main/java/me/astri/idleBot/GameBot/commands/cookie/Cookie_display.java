@@ -20,6 +20,6 @@ public class Cookie_display extends ISlashSubcommand {
         Player p = GameUtils.getUser(hook,e.getUser());
         if(p == null) return;
 
-        hook.sendMessage(p.getLang().get("cookie_display",e.getUser().getAsMention(),Integer.toString(p.getCookies()))).queue();
+        hook.sendMessage(p.getLang().get("cookie_display",e.getUser().getAsMention(),Integer.toString(p.getCookies().getNumber()))).queue();
     }
 }
