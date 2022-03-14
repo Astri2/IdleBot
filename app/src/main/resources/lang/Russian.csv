@@ -1,5 +1,5 @@
-success_register,{0} welcome to IdleBot!
-error_already_registered,{0} you are already registered!
+success_register,{0} Добро пожаловать в IdleBot!
+error_already_registered,{0} вы уже зарегистрировались!
 error_someone_unregistered,{0} is not registered. Please register using `/register`
 error_you_unregistered,{0} you're not registered. Please register using `/register`
 error_nan,Provided value is not a bigNumber
@@ -217,7 +217,6 @@ minion_refresh_click,Minions refreshed
 chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
 chest_hunt,Chest Hunt
 chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
-chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
 chest_hunt_multiplier,Multiplier: x{0}
 chest_hunt_reward,Reward: {0}
 chest_hunt_coins,You got +{0}
@@ -229,7 +228,6 @@ chest_hunt_streak,New streak: {0} -> {1}
 chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
 cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
 cookie_display,{0} you have {1} 🍪 Cookies!
-cookie_cant_give_youself,{1} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m
