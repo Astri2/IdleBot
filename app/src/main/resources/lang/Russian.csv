@@ -1,241 +1,243 @@
 success_register,{0} Добро пожаловать в IdleBot!
 error_already_registered,{0} вы уже зарегистрировались!
-error_someone_unregistered,{0} is not registered. Please register using `/register`
-error_you_unregistered,{0} you're not registered. Please register using `/register`
-error_nan,Provided value is not a bigNumber
-error_not_enough_money,{0} You don't have enough money!
-error_cant_interact,{0} you can't interact with that!
-lang_updated,{0} language has been set to {1}
-notation_updated_sc,{0} you are now using scientific notation
-notation_updated_unit,{0} you are now using units notation
-ephemeral_updated_on,{0} ephemeral mode is now active
-ephemeral_updated_off,{0} ephemeral mode is no longer active
-ephemeral_updated_default,{0} ephemeral mode is set to default
-requested_by,Requested by {0}
-equipment_title,Equipment of {0}
-profile_title,Profile of {0}
-sword,Sword
-sword_steel,Steel Sword
-sword_black,Black Sword
-sword_light,Light Sword
-sword_demon,Demon Sword
-sword_great,Greatsword
-sword_ember,Ember Sword
-sword_infernal,Infernal Sword
-sword_rage,Rage Sword
-sword_elemental,Elemental Sword
-sword_life,Life Sword
-sword_god,God Sword
-shield,Shield
-shield_reinforced,Reinforced Shield
-shield_iron,Iron Shield
-shield_steel,Steel Shield
-shield_knight,Knight Shield
-shield_titanium,Titanium Shield
-shield_golden,Golden Shield
-shield_infernal,Infernal Shield
-shield_spirit,Spirit Shield
-shield_hero,Hero Shield
-shield_king,King Shield
-shield_crystal,Crystal Shield
-armor,Armor
-armor_burlap,Burlap Armor
-armor_leather,Leather Armor
-armor_reinforced,Reinforced Armor
-armor_steel,Steel Armor
-armor_steel_full,Full Steel Armor
-armor_golden_full,Full Gold Armor
-armor_dragon,Dragon Armor
-armor_warlord,Warlord Armor
-armor_break_s,Break's Armor
-armor_black_dragon,Black Dragon Armor
-armor_shadow_knight,Shadow Knight Armor
-helmet,Helmet
-helmet_burlap,Burlap Helmet
-helmet_leather,Leather Helmet
-helmet_reinforced,Reinforced Helmet
-helmet_steel,Steel Helmet
-helmet_steel_full,Steel Full Helmet
-helmet_golden,Golden Helmet
-helmet_dragon,Dragon Helmet
-helmet_champion_s,Champion's Helmet
-helmet_warrior,Warrior Helmet
-helmet_dark_steel,Dark Steel Helmet
-helmet_glorious,Glorious Helmet
-boots,Boots
-boots_burlap,Burlap Boots
-boots_leather,Leather Boots
-boots_reinforced,Reinforced Boots
-boots_iron,Iron Boots
-boots_steel,Steel Boots
-boots_golden,Golden Boots
-boots_dragon,Dragon Boots
-boots_dash,Dash Boots
-boots_climbing,Climbing Boots
-boots_mobious,Mobious Boots
-boots_idle,Idle Boots
-ring,Ring
-ring_silver,Silver Ring
-ring_magic,Magic Ring
-ring_mind,Mind Ring
-ring_shadow,Shadow Ring
-ring_dragon,Dragon Ring
-ring_dual_stone,Duel Stone Ring
-ring_mystic,Mystic Ring
-ring_spectral,Spectral Ring
-ring_albatross,Albatross Ring
-ring_energy,Energy Ring
-ring_phantom,Phantom Ring
-dagger,Dagger
-dagger_black,Black Dagger
-dagger_golden,Golden Dagger
-dagger_demon,Demon Dagger
-dagger_dragon,Dragon Dagger
-dagger_glory,Glory Dagger
-dagger_kunai,Kunai
-dagger_zap,Zap Dagger
-dagger_abyssal,Abyssal Dagger
-dagger_larret_s,Larret's Dagger
-dagger_flame,Flame Dagger
-dagger_breaker,Dagger Breaker
-axe,Axe
-axe_black,Black Axe
-axe_golden,Golden Axe
-axe_demon,Demon Axe
-axe_infernal_battle,Infernal Battle Axe
-axe_battle,Battle Axe
-axe_beast,Beast Axe
-axe_tri,Triaxe
-axe_crystal,Cystal Axe
-axe_chopan_s,Chopan's Axe
-axe_blood_moon,Blood Moon Axe
-axe_wide_blood_moon,Wide Blood Moon Axe
-staff,Staff
-staff_black,Black Staff
-staff_light,Light Staff
-staff_fire,Fire Staff
-staff_aqua,Aqua Staff
-staff_emerald,Emerald Staff
-staff_holy,Holy Staff
-staff_dragon,Dragon Staff
-staff_red_rose,Red Rose Staff
-staff_celestial,Celestial Staff
-staff_sacred,Sacred Staff
-staff_limit,Staff of Limit
-bow,Bow
-bow_black,Black Bow
-bow_light,Light Bow
-bow_demon,Demon Bow
-bow_crystal,Crystal Bow
-bow_slash,Slash Bow
-bow_lava,Lava Bow
-bow_thunder,Thunder Bow
-bow_idle,Idle Bow
-bow_lethal,Lethal Bow
-bow_hydro,Hydro Bow
-bow_hyper,Hyper Bow
-spellbook,Spellbook
-spellbook_elder,Elder Spellbook
-spellbook_destiny,Book of Destiny
-spellbook_infinity,Book of Infinity
-spellbook_secret,Book of Secret
-spellbook_ancient,Ancient Spellbook
-spellbook_static,Book of Static
-spellbook_incineration,Book of Incineration
-spellbook_guardian,Book of The Guardians
-spellbook_titans,Book of Titans
-spellbook_hellfire,Hellfire Tome
-spellbook_unknown,Tome of The Unknown
-spirit,Spirit
-spirit_grand,Grand Spirit
-spirit_hell,Hell Spirit
-spirit_heavenly,Heavenly Spirit
-spirit_twin,Twin Spirit
-spirit_evil,Evil Spirit
-spirit_battle,Battle Spirit
-spirit_strength,Spirit of Strength
-spirit_blood,Spirit of Blood
-spirit_ultra,Ultra Spirit
-spirit_hyper,Hyper Spirit
-spirit_idle,Idle Spirit
-necklace,Necklace
-necklace_ancient,Ancient Necklace
-necklace_divine,Divine Necklace
-necklace_shadow,Shadow Necklace
-necklace_chaos,Chaos Necklace
-necklace_void,Void Necklace
-necklace_implosion,Implosion Necklace
-necklace_doomsday,Doomsday Necklace
-necklace_apocalypse,Apocalypse Necklace
-necklace_premonition,Premonition Necklace
-necklace_coin,Coin Necklace
-necklace_demon_eye,Demon Eye Necklace
-coins,Coins
-production,Production
-display_equipment_button,Display Equipment
-display_profile_button,Display Profile
-redo_level_up_button,Repeat Purchase
-level_s,{0} Level
-level_p,{0} Levels
-cost,Cost
-reward,Reward
-message_expired,This message has expired
-eqpm_upgrade_success,{0} your {1} {2} is now level **{3}**!
-eqpm_upgrade_ask_eqpm,{0} which piece of equipment should be upgraded?
-eqpm_upgrade_ask_level,{0} by how many levels should your {1} {2} level up?
-nbr_custom,Custom
-nbr_max,Max
-progression_reset,{0} your progression has been reset!
+error_someone_unregistered,{0} не зарегистрирован. Пожалуйста; зарегистрируйтесь с помощью `/register`
+error_you_unregistered,{0} вы не зарегистрированы. Пожалуйста; зарегистрируйтесь с помощью `/register`
+error_nan,Предоставленное значение не является большим числом
+error_not_enough_money,{0} У Вас недостаточно денег!
+error_cant_interact,{0} вы не можете взаимодействовать с этим!
+lang_updated,{0} язык был установлен на {1}
+notation_updated_sc,{0} вы используете научную нотацию
+notation_updated_unit,{0} вы используете обозначение единиц
+ephemeral_updated_on,{0} эфемерный режим теперь активен
+ephemeral_updated_off,{0} эфемерный режим больше не активен
+ephemeral_updated_default,{0} эфемерный режим установлен по умолчанию
+requested_by,Запрос от {0}
+equipment_title,Снаряжение от {0}
+profile_title,Профиль {0}
+sword,Меч
+sword_steel,Стальной Меч
+sword_black,Черный Меч
+sword_light,Легкий Меч
+sword_demon,Меч Демона
+sword_great,Двуручный Меч
+sword_ember,Янтарный Меч
+sword_infernal,Адский Меч
+sword_rage,Яростный Меч
+sword_elemental,Элементальный Меч
+sword_life,Меч Жизни
+sword_god,Божественный Меч
+shield,Щит
+shield_reinforced,Усиленный Щит
+shield_iron,Железный Щит
+shield_steel,Стальной Щит
+shield_knight,Рыцарский Щит
+shield_titanium,Титановый Щит
+shield_golden,Золотой Щит
+shield_infernal,Адский Щит
+shield_spirit,Духовный Щит
+shield_hero,Геройский Щит
+shield_king,Королевский Щит
+shield_crystal,Кристальный Щит
+armor,Доспех
+armor_burlap,Брезентовый Доспех
+armor_leather,Кожаный Доспех
+armor_reinforced,Усиленный Доспех
+armor_steel,Стальной Доспех
+armor_steel_full,Цельностальной Доспех
+armor_golden_full,Цельнозолотой Доспех
+armor_dragon,Доспех Дракона
+armor_warlord,Доспех Полководца
+armor_break_s,Сломанный Доспех
+armor_black_dragon,Доспех Черного Дракона
+armor_shadow_knight,Доспех Рыцаря Тени
+helmet,Шлем
+helmet_burlap,Брезентовый Шлем
+helmet_leather,Кожаный Шлем
+helmet_reinforced,Усиленный Шлем
+helmet_steel,Стальной Шлем
+helmet_steel_full,Цельностальной Шлем
+helmet_golden,Золотой Шлем
+helmet_dragon,Шлем Дракона
+helmet_champion_s,Чемпионский Шлем
+helmet_warrior,Шлем Воина
+helmet_dark_steel,Шлем из Темной Стали
+helmet_glorious,Великолепный Шлем
+boots,Ботинки
+boots_burlap,Брезентовые Ботинки
+boots_leather,Кожаные Ботинки
+boots_reinforced,Усиленные Ботинки
+boots_iron,Железные Ботинки
+boots_steel,Стальные Ботинки
+boots_golden,Золотые Ботинки
+boots_dragon,Ботинки Дракона
+boots_dash,Ботинки Рывка
+boots_climbing,Альпинистские Ботинки
+boots_mobious,Ботинки Мебиуса
+boots_idle,Ботинки Лени
+ring,Кольцо
+ring_silver,Серебряное Кольцо
+ring_magic,Магическое Кольцо
+ring_mind,Кольцо Разума
+ring_shadow,Кольцо Тени
+ring_dragon,Кольцо Дракона
+ring_dual_stone,Двойное Каменное Кольцо
+ring_mystic,Мистическое Кольцо
+ring_spectral,Спектральное Кольцо
+ring_albatross,Кольцо Альбатроса
+ring_energy,Кольцо Энергии
+ring_phantom,Фантомное Кольцо
+dagger,Кинжал
+dagger_black,Черный Кинжал
+dagger_golden,Золотой Кинжал
+dagger_demon,Кинжал Демона
+dagger_dragon,Кинжал Дракона
+dagger_glory,Кинжал Славы
+dagger_kunai,Кунай
+dagger_zap,Кинжал Молнии
+dagger_abyssal,Кинжал Бездны
+dagger_larret_s,Кинжал Ларрета
+dagger_flame,Огненный Кинжал
+dagger_breaker,Сокрушитель Кинжалов
+axe,Топор
+axe_black,Черный Топор
+axe_golden,Золотой Топор
+axe_demon,Топор Демона
+axe_infernal_battle,Адский Боевой Топор
+axe_battle,Боевой Топор
+axe_beast,Звериный Топор
+axe_tri,Секира
+axe_crystal,Кристальный Топор
+axe_chopan_s,Чемпионский Топор
+axe_blood_moon,Топор Кровавой Луны
+axe_wide_blood_moon,Широкий Топор Кровавой Луны
+staff,Посох
+staff_black,Черный Посох
+staff_light,Легкий Посох
+staff_fire,Огненный Посох
+staff_aqua,Водяной Посох
+staff_emerald,Изумрудный Посох
+staff_holy,Святой Посох
+staff_dragon,Посох Дракона
+staff_red_rose,Посох Красной Розы
+staff_celestial,Небесный Посох
+staff_sacred,Священный Посох
+staff_limit,Посох Предела
+bow,Лук
+bow_black,Черный Лук
+bow_light,Легкий Лук
+bow_demon,Лук Демона
+bow_crystal,Кристальный Лук
+bow_slash,Режущий Лук
+bow_lava,Лавовый Лук
+bow_thunder,Громовой Лук
+bow_idle,Лук Лени
+bow_lethal,Смертоносный Лук
+bow_hydro,Гидро Лук
+bow_hyper,Гипер Лук
+spellbook,Книга Заклинаний
+spellbook_elder,Старинная Книга Заклинаний
+spellbook_destiny,Книга Судьбы
+spellbook_infinity,Книга Бесконечности
+spellbook_secret,Книга Секретов
+spellbook_ancient,Древняя Книга Заклинаний
+spellbook_static,Книга Статичности
+spellbook_incineration,Книга Сожжения
+spellbook_guardian,Книга Стражей
+spellbook_titans,Книга Титанов
+spellbook_hellfire,Фолиант Адского Огня
+spellbook_unknown,Фолиант Неизвестного
+spirit,Дух
+spirit_grand,Великий Дух
+spirit_hell,Адский Дух
+spirit_heavenly,Райский Дух
+spirit_twin,Двойной Дух
+spirit_evil,Злой Дух
+spirit_battle,Боевой Дух
+spirit_strength,Дух Силы
+spirit_blood,Дух Крови
+spirit_ultra,Ультра Дух
+spirit_hyper,Гипер Дух
+spirit_idle,Дух Лени
+necklace,Ожерелье
+necklace_ancient,Древнее Ожерелье
+necklace_divine,Божественное Ожерелье
+necklace_shadow,Ожерелье Тени
+necklace_chaos,Ожерелье Хаоса
+necklace_void,Ожерелье Пустоты
+necklace_implosion,Ожерелье Имплозии
+necklace_doomsday,Ожерелье Судного Дня
+necklace_apocalypse,Ожерелье Апокалипсиса
+necklace_premonition,Ожерелье Предостережения
+necklace_coin,Ожерелье из Монет
+necklace_demon_eye,Ожерелье «Глаз Демона»
+coins,Монеты
+production,Добыча
+display_equipment_button,Показать Снаряжения
+display_profile_button,Показать Профиль
+redo_level_up_button,Повторить Покупку
+level_s,{0} Уровень
+level_p,{0} Уровни
+cost,Стоимость
+reward,Награда
+message_expired,Срок действия сообщения истёк
+eqpm_upgrade_success,{0} ваш {1} {2} теперь уровень **{3}**!
+eqpm_upgrade_ask_eqpm,{0}; какую часть снаряжения нужно улучшить?
+eqpm_upgrade_ask_level,{0} на сколько уровней должен быть прокачен ваш {1} {2}?
+nbr_custom,Настраиваемый
+nbr_max,Максимальный
+progression_reset,{0} ваш прогресс был сброшен!
 equipment_upg_title,{0} {1} {2}
 minion_upg_title,{0} {1} {2}
-equipment_upg_desc,Your {0} now gives you {1}% more Coins.
-minion_upg_desc,Unlock the {0}. You can assign it to a Mission for {1}.
-upgrade_buy_button,Buy
-upgrade_buy_all_button,Buy All
-upgrade_refresh_button,Refresh
-no_available_upgrade,You have no available upgrade...
-upgrade_bought,You just bought {0}
-upgrade_bought_all,You just bought {0} upgrades
-upgrade_nb_available,{0} available upgrades
-skeleton,Skeleton
-knight,White Knight
-goo,Goo Mutant
-wizard,Dark Wizard
-golem,Stone Golem
-minions_title,{0}'s minions
-minions_level,Level {0}
-minion_bonus,+{0}% Cps Bonus
-minion_no_unlocked,You have not unlocked any Minion...
-minion_start_button,Click to Start
-minion_mission_button,In Mission...
-minion_claim_button,Click to Claim
-minion_refresh_button,Refresh
-minion_cant_afford_button,Can't afford
-minion_start_click,Your {0} is now in Mission
-minion_claim_click,Your {0} finished its Mission!
-minion_refresh_click,Minions refreshed
-chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
-chest_hunt,Chest Hunt
-chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
-chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
-chest_hunt_multiplier,Multiplier: x{0}
-chest_hunt_reward,Reward: {0}
-chest_hunt_coins,You got +{0}
-chest_hunt_saver,You found a Saver! You now have {0} savers
-chest_hunt_mimic,Oh no it's a Mimic!
-chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
-chest_hunt_win,You opened all the reward chests and won!
-chest_hunt_streak,New streak: {0} -> {1}
-chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
-cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
-cookie_display,{0} you have {1} 🍪 Cookies!
-cookie_cant_self_give,{0} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
-time_unit_d,d
-time_unit_h,h
-time_unit_m,m
-time_unit_s,s
+equipment_upg_desc,Ваши {0} теперь приносят на {1}% больше Монет.
+minion_upg_desc,Разблокируйте {0}. Вы можете назначить его Миссию за {1}.
+upgrade_buy_button,Купить
+upgrade_buy_all_button,Купить Все
+upgrade_refresh_button,Обновить
+no_available_upgrade,У Вас нет доступных улучшений...
+upgrade_bought,Вы только что купили {0}
+upgrade_bought_all,Вы только что купили {0} улучшений
+upgrade_nb_available,{0} доступных улучшений
+skeleton,Скелет
+knight,Белый Рыцарь
+goo,Мутант из Жижи
+wizard,Темный Волшебник
+golem,Каменный Голем
+minions_title,Миньоны {0}
+minions_level,Уровень {0}
+minion_bonus,+{0}% Бонус МвС
+minion_no_unlocked,Вы не разблокировали Миньона...
+minion_start_button,Нажмите; чтобы Начать
+minion_mission_button,В Миссии...
+minion_claim_button,Нажмите; чтобы Забрать
+minion_refresh_button,Обновить
+minion_cant_afford_button,Недостаточно средств
+minion_start_click,Ваш {0} сейчас в Миссии
+minion_claim_click,Ваши {0} завершили свою Миссию!
+minion_refresh_click,Миньоны обновлены
+chesthunt_cooldown,{0} ваша Охота на Сундуками еще не готова. Пожалуйста; подождите {1}
+chest_hunt,Охота за Сундуками
+chest_hunt_fun,Охота за Сундуками (но только для веселья; потому что весело играть в охоту за сундуками)
+chest_hunt_locked,{0} Вы еще не разблокировали Охоту Сундуками. Улучшения можно разблокировать.
+chest_hunt_multiplier,Множитель: x{0}
+chest_hunt_reward,Награда: {0}
+chest_hunt_coins,Вы получили +{0}
+chest_hunt_saver,Вы нашли Хранителя! Теперь у вас {0} хранителей
+chest_hunt_mimic,О нет! Это Мимик!
+chest_hunt_mimic_saved,О нет! Это Мимик! К счастью у вас был Хранитель(осталось {0})
+chest_hunt_mimic_crystal,Oh no it's a Mimic! Fortunately the {0} Crystal Saver was here
+chest_hunt_win,Вы открыли все сундуки с наградами и победили!
+chest_hunt_streak,Новая серия: {0} -> {1}
+chest_hunt_streak_lost,О нет! Вы потеряли свою серию. Новая серия: {0} -> {1}
+cookie_gave,Привет; {0}! {1} только что дал вам 🍪 Печенье! Теперь у вас есть {2} 🍪 Печенек!
+cookie_display,{0} у вас {1} 🍪 Печенек!
+cookie_cant_self_give,{0} вы не можете дать 🍪 Печеньки себе... Не будьте эгоистичным и дайте его кому-то другому!
+cookie_on_cooldown,{0} your 🍪 isn't ready yet. Please wait {1}
+time_unit_d,д
+time_unit_h,ч
+time_unit_m,м
+time_unit_s,с
 number_unit_k,K
-number_unit_m,M
+number_unit_m,М
 number_unit_b,B
 number_unit_t,T
 number_unit_qa,Qa

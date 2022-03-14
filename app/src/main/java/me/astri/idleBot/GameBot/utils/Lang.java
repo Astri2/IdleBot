@@ -14,7 +14,7 @@ public enum Lang {
     FRENCH("Français", "French"),
     GERMAN("Deutsch","German"),
     SPANISH("Español","Spanish"),
-    RUSSIAN("русский","Russian");
+    RUSSIAN("Русский","Russian");
 
     private final String name;
     private final String path;

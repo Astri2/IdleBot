@@ -214,22 +214,24 @@ minion_cant_afford_button,Achat Impossible
 minion_start_click,Ton Minion {0} est maintenant en Mission
 minion_claim_click,Ton Minion {0} a fini sa Mission!
 minion_refresh_click,Minions rafraichis
-chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
-chest_hunt,Chest Hunt
-chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
-chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
-chest_hunt_multiplier,Multiplier: x{0}
-chest_hunt_reward,Reward: {0}
-chest_hunt_coins,You got +{0}
-chest_hunt_saver,You found a Saver! You now have {0} savers
-chest_hunt_mimic,Oh no it's a Mimic!
-chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
-chest_hunt_win,You opened all the reward chests and won!
-chest_hunt_streak,New streak: {0} -> {1}
-chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
-cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
-cookie_display,{0} you have {1} 🍪 Cookies!
-cookie_cant_self_give,{0} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
+chesthunt_cooldown,{0} ta Casse aux Trésors n'est pas encore prête. Attends {1}
+chest_hunt,Casse aux Trésors
+chest_hunt_fun,Chasse au Trésors (mais just pour le fun parce que c'est drôle de jouer à la chasse aux trésors)
+chest_hunt_locked,{0} tu n'as pas encore débloqué la Chasse aux Trésors. Tu peux la débloquer depuis les améliorations.
+chest_hunt_multiplier,Multiplicateur: x{0}
+chest_hunt_reward,Récompense: {0}
+chest_hunt_coins,Tu as obtenu +{0}
+chest_hunt_saver,Tu as trouvé un Sauveur ! Tu as maintenant {0} sauveurs
+chest_hunt_mimic,Oh non c'est un Mimique !
+chest_hunt_mimic_saved,Oh non c'est un Mimique ! Heureusement tu aais un Sauveur ({0} restant)
+chest_hunt_mimic_crystal,Oh non c'est un Mimique ! Heureusement que le {0} Saveur de Cystal était là
+chest_hunt_win,Tu as obtenu tous les coffres à récompense et tu as gagné !
+chest_hunt_streak,Nouvelle Chaine: {0} -> {1}
+chest_hunt_streak_lost,Oh non ! Tu as oublié ta chaine. Nouvelle chaine: {0} -> {1}
+cookie_gave,Hey {0}! {1} t'as donné un 🍪 Cookie ! Tu as maintenant {2} 🍪 Cookies !
+cookie_display,{0} tu as {1} 🍪 Cookies !
+cookie_cant_self_give,{0} tu ne peux te donner de 🍪 Cookie tout seul.... Ne soit pas égoïste et donne le à quelqu'un d'autre !
+cookie_on_cooldown,{0} ton 🍪 n'est pas encore prêt. Il le sera dans {1}
 time_unit_d,j
 time_unit_h,h
 time_unit_m,m
