@@ -26,8 +26,10 @@ public class Cookie_give extends ISlashSubcommand {
         Player p1 = GameUtils.getUser(hook,e.getUser(),user);
         if(p1 == null) return;
 
+        //TODO integrated cooldown
         if(p.getId().equals(p1.getId())) {
             hook.sendMessage(p.getLang().get("cookie_cant_self_give",user.getAsMention())).queue();
+            return;
         }
 
         p1.addCookie();

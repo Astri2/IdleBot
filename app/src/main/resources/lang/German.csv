@@ -217,6 +217,7 @@ minion_refresh_click,Minions refreshed
 chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
 chest_hunt,Chest Hunt
 chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
+chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
 chest_hunt_multiplier,Multiplier: x{0}
 chest_hunt_reward,Reward: {0}
 chest_hunt_coins,You got +{0}
@@ -228,6 +229,7 @@ chest_hunt_streak,New streak: {0} -> {1}
 chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
 cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
 cookie_display,{0} you have {1} 🍪 Cookies!
+cookie_cant_self_give,{0} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m
