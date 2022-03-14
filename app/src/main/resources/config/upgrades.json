@@ -1189,7 +1189,7 @@
   "OTHER": [
     {
       "name": "skeleton",
-      "price": "0",
+      "price": "100",
       "icon": "<:Skeleton_Minion:882792395845033984>",
       "type": "minion",
       "args": [
