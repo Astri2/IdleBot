@@ -47,6 +47,10 @@ public class Upgrades_buy extends ISlashSubcommand {
                 .setEventType(ButtonClickEvent.class)
                 .setExpirationTime(1, TimeUnit.MINUTES)
                 .setConditions(event -> event.getMessage().equals(msg) && event.getInteraction().getUser().equals(e.getUser()))
+                .setFailureAction(ctx -> {
+                    if (ctx.getEvent().getMessage().equals(msg))
+                        ctx.getEvent().reply("you can't interact with that!").setEphemeral(true).queue();
+                })
                 .setTimeoutAction(() ->
                     msg.editMessageEmbeds(getUpgradeDisplay(player, upgrades.get(),min.get(),max.get(),
                                     current.get(), player.getLang().get("message_expired")))

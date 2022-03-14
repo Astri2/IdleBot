@@ -150,9 +150,9 @@ public class ChestHunt extends ISlashCommand {
                 .setExpirationTime(5L, TimeUnit.MINUTES)
                 .setConditions(ctx -> ctx.getUser().getId().equals(p.getId()) && ctx.getMessage().equals(msg))
                 .setTimeoutAction(() -> msg.editMessage("expired").setActionRows(getRows(grid, true)).queue())
-                .setFailureAction(a -> {
-                    if(a.getEvent().getMessage().equals(msg))
-                        a.getEvent().reply("you can't interact with that!").setEphemeral(true).queue();
+                .setFailureAction(ctx -> {
+                    if(ctx.getEvent().getMessage().equals(msg))
+                        ctx.getEvent().reply("you can't interact with that!").setEphemeral(true).queue();
                 })
                 .setAction(ctx -> {
                     ctx.resetTimer();
