@@ -229,6 +229,7 @@ chest_hunt_streak,New streak: {0} -> {1}
 chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
 cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
 cookie_display,{0} you have {1} 🍪 Cookies!
+cookie_cant_give_youself,{1} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m
