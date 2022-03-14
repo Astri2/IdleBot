@@ -131,7 +131,7 @@ public class ChestHunt extends ISlashCommand {
             if (grid[i][k] == 0)
                 grid[i][k] = -1;
         }
-        System.out.println(Arrays.deepToString(grid));
+        //.out.println(Arrays.deepToString(grid));
         return grid;
     }
 
@@ -143,7 +143,6 @@ public class ChestHunt extends ISlashCommand {
         final BigNumber multiplier = new BigNumber(Math.min(streak,10));
         AtomicInteger remainingRewardChests = new AtomicInteger(21);
         AtomicInteger crystalSavers = new AtomicInteger(1);
-        System.out.println("mult: " + multiplier);
 
         return new Waiter<ButtonClickEvent>()
                 .setEventType(ButtonClickEvent.class)
@@ -166,7 +165,6 @@ public class ChestHunt extends ISlashCommand {
                         case -1 -> {
                             BigNumber reward = BigNumber.multiply(CPS,new BigNumber(30 + Math.random() * 90));
                             reward.multiply(multiplier);
-                            System.out.println(reward);
                             gain.add(reward);
                             eb = getEmbed(p, user, realHunt, gain, multiplier.getUnitNotation(), "chest_hunt_coins",
                                 new String[]{reward.getNotation(p.usesScNotation()) + " " + Emotes.get("coin") + " " + p.getLang().get("coins")});
