@@ -13,7 +13,8 @@ public enum Lang {
     ENGLISH("English", "game_texts"),
     FRENCH("Français", "French"),
     GERMAN("Deutsch","German"),
-    SPANISH("Español","Spanish");
+    SPANISH("Español","Spanish"),
+    RUSSIAN("русский","Russian");
 
     private final String name;
     private final String path;
