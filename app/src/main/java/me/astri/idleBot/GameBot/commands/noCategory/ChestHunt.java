@@ -26,6 +26,7 @@ import net.dv8tion.jda.api.interactions.components.ButtonStyle;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -59,7 +60,7 @@ public class ChestHunt extends ISlashCommand {
                 return;
             }
 
-            //2h before streak reset
+            //you then loose 1 streak level per hour
             int old = ch.getStreak();
             if (cooldown < -3600000) {
                 int newStreak = Math.max(1,old - (int)(cooldown/-3600000));
@@ -130,6 +131,7 @@ public class ChestHunt extends ISlashCommand {
             if (grid[i][k] == 0)
                 grid[i][k] = -1;
         }
+        System.out.println(Arrays.deepToString(grid));
         return grid;
     }
 
@@ -140,6 +142,8 @@ public class ChestHunt extends ISlashCommand {
         final BigNumber CPS = prod.toDouble() == 0 ? new BigNumber(1) : prod;
         final BigNumber multiplier = new BigNumber(Math.min(streak,10));
         AtomicInteger remainingRewardChests = new AtomicInteger(21);
+        AtomicInteger crystalSavers = new AtomicInteger(1);
+        System.out.println("mult: " + multiplier);
 
         return new Waiter<ButtonClickEvent>()
                 .setEventType(ButtonClickEvent.class)
@@ -162,7 +166,8 @@ public class ChestHunt extends ISlashCommand {
                         case -1 -> {
                             BigNumber reward = BigNumber.multiply(CPS,new BigNumber(30 + Math.random() * 90));
                             reward.multiply(multiplier);
-                            gain.add(BigNumber.multiply(reward,new BigNumber(streak)));
+                            System.out.println(reward);
+                            gain.add(reward);
                             eb = getEmbed(p, user, realHunt, gain, multiplier.getUnitNotation(), "chest_hunt_coins",
                                 new String[]{reward.getNotation(p.usesScNotation()) + " " + Emotes.get("coin") + " " + p.getLang().get("coins")});
                             if(realHunt)
@@ -177,15 +182,19 @@ public class ChestHunt extends ISlashCommand {
                         case -2 -> { //sp, not implemented yet
                         }
                         case -3 -> {
-                            saver.decrementAndGet();
-                            if(saver.get() < 0) {
-                                eb = getEmbed(p, user, realHunt, gain,multiplier.getUnitNotation(),"chest_hunt_mimic", new String[]{});
-                                allDisabled = true;
-                                ctx.unregister();
-                            } else
+                            if(crystalSavers.get() > 0) {
+                                eb = getEmbed(p,user, realHunt, gain,multiplier.getUnitNotation(),"chest_hunt_mimic_crystal",
+                                        new String[]{Emotes.get("crystal_saver")});
+                            }
+                            else if(saver.get() > 0) {
+                                saver.decrementAndGet();
                                 eb = getEmbed(p,user, realHunt, gain,multiplier.getUnitNotation(),"chest_hunt_mimic_saved",
                                         new String[]{Emotes.get("saver") + " " + saver.get()});
-
+                            } else {
+                                eb = getEmbed(p, user, realHunt, gain, multiplier.getUnitNotation(), "chest_hunt_mimic", new String[]{});
+                                allDisabled = true;
+                                ctx.unregister();
+                            }
                         }
                         case -4 -> {
                             saver.incrementAndGet();
@@ -194,7 +203,7 @@ public class ChestHunt extends ISlashCommand {
                         }
                     }
                     grid[Integer.parseInt(pos[0])][Integer.parseInt(pos[1])] *= -1;
-
+                    crystalSavers.decrementAndGet();
                     ctx.getEvent().editMessageEmbeds(eb.build()).setActionRows(getRows(grid,allDisabled)).queue();
                 });
     }
