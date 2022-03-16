@@ -23,7 +23,7 @@ public class Player extends BotUser {
     private BigNumber spPrice;
     private long lastUpdateTime;
 
-    private final LinkedHashMap<String, Equipment> equipment = new LinkedHashMap<>();
+    public final LinkedHashMap<String, Equipment> equipment = new LinkedHashMap<>();
     private final PlayerUpgrades upgrades;
     private final PlayerMinions minions;
     private final PlayerChestHunt chestHunt;

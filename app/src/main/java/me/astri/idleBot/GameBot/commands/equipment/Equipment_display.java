@@ -41,7 +41,8 @@ public class Equipment_display extends ISlashSubcommand {
                 hook.getInteraction().getGuild().getMember(user).getEffectiveName();
 
         HashMap<String, Equipment> equipments = player.getEquipment();
-        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("equipment_title",name),null, user.getEffectiveAvatarUrl());
+        EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("equipment_title",name),null, user.getEffectiveAvatarUrl())
+                .setColor(player.getColor());
         if(!author.equals(player))
             eb.setFooter(author.getLang().get("requested_by",event_author.getAsTag()),event_author.getEffectiveAvatarUrl());
 

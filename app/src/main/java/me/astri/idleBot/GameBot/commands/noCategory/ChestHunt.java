@@ -208,7 +208,8 @@ public class ChestHunt extends ISlashCommand {
 
     private EmbedBuilder getEmbed(Player p, User user, boolean realHunt, BigNumber gains, String multiplier, String eventId, @Nullable String[] args) {
         Lang l = p.getLang();
-        EmbedBuilder eb = new EmbedBuilder().setAuthor(l.get(realHunt ? "chest_hunt" : "chest_hunt_fun",user.getName()),null,user.getAvatarUrl());
+        EmbedBuilder eb = new EmbedBuilder().setAuthor(l.get(realHunt ? "chest_hunt" : "chest_hunt_fun",user.getName()),null,user.getAvatarUrl())
+                        .setColor(p.getColor());
         eb.setDescription(l.get("chest_hunt_multiplier",multiplier) + "\n");
         eb.appendDescription(l.get("chest_hunt_reward", gains.getNotation(p.usesScNotation()) + Emotes.get("coin") + " " + l.get("coins")));
         if(!eventId.isEmpty())

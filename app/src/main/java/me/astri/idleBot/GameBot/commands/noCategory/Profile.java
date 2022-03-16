@@ -36,6 +36,7 @@ public class Profile extends ISlashCommand {
                 hook.getInteraction().getGuild().getMember(user).getEffectiveName();
 
         EmbedBuilder eb = new EmbedBuilder().setAuthor(author.getLang().get("profile_title",name),null, user.getEffectiveAvatarUrl())
+                .setColor(player.getColor())
                 .addField(Emotes.get("coin") + " " + author.getLang().get("coins"), player.getCoins().getNotation(author.usesScNotation()),true)
                 .addField(Emotes.get("coin") + " " + author.getLang().get("production"), player.getProduction().getNotation(author.usesScNotation()),true);
 

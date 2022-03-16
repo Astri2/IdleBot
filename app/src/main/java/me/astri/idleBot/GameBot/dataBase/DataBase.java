@@ -5,10 +5,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import me.astri.idleBot.GameBot.BotGame;
 import me.astri.idleBot.GameBot.dataBase.Gson.GsonIgnoreStrategy;
+import me.astri.idleBot.GameBot.entities.BigNumber;
+import me.astri.idleBot.GameBot.entities.ColorEnum;
+import me.astri.idleBot.GameBot.entities.equipment.Equipment;
 import me.astri.idleBot.GameBot.entities.player.BotUser;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.eventWaiter.Waiter;
 import me.astri.idleBot.GameBot.utils.Config;
+import me.astri.idleBot.GameBot.utils.Emotes;
 import me.astri.idleBot.GameBot.utils.Utils;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.ShutdownEvent;
@@ -100,9 +104,11 @@ public class DataBase extends ListenerAdapter {
     }
 
     private static void initNulls() {
-//        botUsers.values().forEach(user -> {
-//            Player p = (Player)user;
-//        });
+        botUsers.values().forEach(user -> {
+            Player p = (Player)user;
+            if(p.color == null)
+                p.color = ColorEnum.RED;
+        });
     }
 
     public static void download(ButtonClickEvent event) {

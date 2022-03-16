@@ -8,10 +8,7 @@ import me.astri.idleBot.GameBot.commands.equipment.Equipment;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
 import me.astri.idleBot.GameBot.commands.noCategory.*;
-import me.astri.idleBot.GameBot.commands.settings.Settings;
-import me.astri.idleBot.GameBot.commands.settings.Settings_setEphemeral;
-import me.astri.idleBot.GameBot.commands.settings.Settings_setLang;
-import me.astri.idleBot.GameBot.commands.settings.Settings_setNotation;
+import me.astri.idleBot.GameBot.commands.settings.*;
 import me.astri.idleBot.GameBot.commands.upgrades.Upgrades;
 import me.astri.idleBot.GameBot.commands.upgrades.Upgrades_buy;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
@@ -48,7 +45,8 @@ public class BotGame extends ListenerAdapter {
                 new Settings(
                         new Settings_setEphemeral(),
                         new Settings_setLang(),
-                        new Settings_setNotation()
+                        new Settings_setNotation(),
+                        new Settings_setColor()
                 ),
                 new Cookie(
                         new Cookie_display(),

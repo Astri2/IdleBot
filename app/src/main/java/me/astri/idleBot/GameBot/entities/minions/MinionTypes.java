@@ -1,7 +1,7 @@
 package me.astri.idleBot.GameBot.entities.minions;
 
 enum MinionTypes {
-    SKELETON(999999,10800, 0, 0, 1),
+    SKELETON(999999,10800, 0, 0, 1), //10800
     KNIGHT(999999,10800, 0, 0, 1), //10800
     GOO(999999,16200, 0, 0, 2), //16200
     WIZARD(999999,23400, 0, 0, 2), //23400

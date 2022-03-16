@@ -9,14 +9,14 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class Equipment {
-    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.5);
+    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.3);
 
     private final String id;
     private final boolean unlocked;
     private final BigNumber baseProduction;
 
     private long level;
-    private final BigNumber price;
+    private BigNumber price;
     private String currentIcon;
     private String currentUpgrade;
     private int currentWeight;
@@ -90,5 +90,9 @@ public class Equipment {
 
     public void increaseBooster(int boost) {
         booster+=boost;
+    }
+
+    public void updatePrices(int basePrice) {
+        this.price = new BigNumber(basePrice).multiply(BigNumber.pow(PRICE_MULTIPLIER,new BigNumber(this.level)));
     }
 }

@@ -102,6 +102,7 @@ public class Upgrades_buy extends ISlashSubcommand {
 
     private MessageEmbed getUpgradeDisplay(Player p, List<Upgrade> upgrades, int min, int max, int current, String footer) {
         EmbedBuilder eb = new EmbedBuilder();
+        eb.setColor(p.getColor());
         eb.setAuthor("Available Upgrades of " + BotGame.jda.getUserById(p.getId()).getName(),null, BotGame.jda.getUserById(p.getId()).getEffectiveAvatarUrl());
         p.update();
         eb.setDescription(p.getCoins().getNotation(p.usesScNotation()) + " " + Emotes.get("coin") + " " + p.getLang().get("coins"));
