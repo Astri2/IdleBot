@@ -11,6 +11,21 @@ notation_updated_unit,{0} вы используете обозначение е�
 ephemeral_updated_on,{0} эфемерный режим теперь активен
 ephemeral_updated_off,{0} эфемерный режим больше не активен
 ephemeral_updated_default,{0} эфемерный режим установлен по умолчанию
+color_update,{0} color have been set to {1}
+color_black,black
+color_blue,blue
+color_cyan,cyan
+color_dark_gray,dark gray
+color_gray,gray
+color_green,green,
+color_light_gray,light gray
+color_magenta,magenta
+color_orange,orange
+color_pink,pink
+color_red,red
+color_white,white
+color_yellow,yellow
+color_purple,purple
 requested_by,Запрос от {0}
 equipment_title,Снаряжение от {0}
 profile_title,Профиль {0}

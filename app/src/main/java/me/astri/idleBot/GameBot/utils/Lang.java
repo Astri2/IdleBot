@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
 public enum Lang {
     ENGLISH("English", "game_texts"),
     FRENCH("Français", "French"),
-    GERMAN("Deutsch","German"),
-    SPANISH("Español","Spanish"),
+//    GERMAN("Deutsch","German"),
+//    SPANISH("Español","Spanish"),
     RUSSIAN("Русский","Russian");
 
     private final String name;
