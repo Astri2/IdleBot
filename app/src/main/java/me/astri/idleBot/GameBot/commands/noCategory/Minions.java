@@ -49,7 +49,7 @@ public class Minions extends ISlashCommand {
         PlayerMinions minions = player.getMinions();
         Lang l = player.getLang();
 
-        EmbedBuilder eb = new EmbedBuilder();
+        EmbedBuilder eb = new EmbedBuilder().setColor(player.getColor());
         eb.setTitle(l.get("minions_title",BotGame.jda.getUserById(player.getId()).getAsTag()));
         for(Minion minion : minions.get().values()) {
             if(!minion.isBought()) continue;
@@ -78,10 +78,10 @@ public class Minions extends ISlashCommand {
 
         //if current time is after the mission ending time, bar is full (state 5)
         double remainingTime = minion.getEndTime()-System.currentTimeMillis()/1000.;
-        if(remainingTime < 0) return 5;
+        if(remainingTime < 0) return 10;
 
         //Otherwise, quantify the advancement of the mission, between state 0-4
-        double advancement = Math.floor(5*(1 - (remainingTime-1)/minion.getDuration(p)));
+        double advancement = Math.floor(10*(1 - (remainingTime-1)/minion.getDuration(p)));
         return (int) advancement;
 
     }
