@@ -11,21 +11,21 @@ notation_updated_unit,{0} tu utilises dorénavant la notation en unités
 ephemeral_updated_on,{0} le mode éphémère est maintenant actif
 ephemeral_updated_off,{0} le mode éphémère n'est plus actif
 ephemeral_updated_default,{0} le mode éphémère a été mis sur défaut
-color_update,{0} color have been set to {1}
-color_black,black
-color_blue,blue
+color_update,{0} la couleur a été réglée sur {1}
+color_black,noir
+color_blue,bleu
 color_cyan,cyan
-color_dark_gray,dark gray
-color_gray,gray
-color_green,green,
-color_light_gray,light gray
+color_dark_gray,gris foncé
+color_gray,gris
+color_green,vert
+color_light_gray,gris clair
 color_magenta,magenta
 color_orange,orange
-color_pink,pink
-color_red,red
-color_white,white
-color_yellow,yellow
-color_purple,purple
+color_pink,rose
+color_red,rouge
+color_white,blanc
+color_yellow,jaune
+color_purple,violet
 requested_by,Demandé par {0}
 equipment_title,Équipement de {0}
 profile_title,Profil de {0}

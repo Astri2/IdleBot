@@ -1,16 +1,16 @@
-success_register,{0} welcome to IdleBot!
-error_already_registered,{0} you are already registered!
+success_register,{0} Welcome to the real Idle Slayer!
+error_already_registered,{0} you forgot you are registered aleady dummy!
 error_someone_unregistered,{0} is not registered. Please register using `/register`
 error_you_unregistered,{0} you're not registered. Please register using `/register`
 error_nan,Provided value is not a bigNumber
-error_not_enough_money,{0} You don't have enough money!
-error_cant_interact,{0} you can't interact with that!
+error_not_enough_money,{0} You're poor <:kekw:732251407759179901>!
+error_cant_interact,{0} stop pushing other people's buttons!
 lang_updated,{0} language has been set to {1}
-notation_updated_sc,{0} you are now using scientific notation
-notation_updated_unit,{0} you are now using units notation
-ephemeral_updated_on,{0} ephemeral mode is now active
-ephemeral_updated_off,{0} ephemeral mode is no longer active
-ephemeral_updated_default,{0} ephemeral mode is set to default
+notation_updated_sc,{0} you are now using superior notation
+notation_updated_unit,{0} you are now using bad notation
+ephemeral_updated_on,{0} shy mode is now active
+ephemeral_updated_off,{0} shy mode is no longer active
+ephemeral_updated_default,{0} shy mode is set to default
 color_update,{0} color have been set to {1}
 color_black,black
 color_blue,blue
@@ -185,7 +185,7 @@ necklace_apocalypse,Apocalypse Necklace
 necklace_premonition,Premonition Necklace
 necklace_coin,Coin Necklace
 necklace_demon_eye,Demon Eye Necklace
-coins,Coins
+coins,Doubloons
 production,Production
 display_equipment_button,Display Equipment
 display_profile_button,Display Profile
@@ -217,36 +217,36 @@ knight,White Knight
 goo,Goo Mutant
 wizard,Dark Wizard
 golem,Stone Golem
-minions_title,{0}'s minions
+minions_title,{0}'s slaves
 minions_level,Level {0}
 minion_bonus,+{0}% Cps Bonus
-minion_no_unlocked,You have not unlocked any Minion...
+minion_no_unlocked,You have not unlocked any Slave...
 minion_start_button,Click to Start
 minion_mission_button,In Mission...
 minion_claim_button,Click to Claim
 minion_refresh_button,Refresh
-minion_cant_afford_button,Can't afford
+minion_cant_afford_button,Too poor
 minion_start_click,Your {0} is now in Mission
 minion_claim_click,Your {0} finished its Mission!
 minion_refresh_click,Minions refreshed
 chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
 chest_hunt,Chest Hunt
-chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
+chest_hunt_fun,Chest Hunt (but just for torture because you love torture)
 chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
 chest_hunt_multiplier,Multiplier: x{0}
 chest_hunt_reward,Reward: {0}
 chest_hunt_coins,You got +{0}
-chest_hunt_saver,You found a Saver! You now have {0} savers
-chest_hunt_mimic,Oh no it's a Mimic!
-chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
-chest_hunt_mimic_crystal,Oh no it's a Mimic! Fortunately the {0} Crystal Saver was here
-chest_hunt_win,You opened all the reward chests and won!
+chest_hunt_saver,Pog a Saver! You now have {0} savers
+chest_hunt_mimic,Haha lost to a mimic xD!
+chest_hunt_mimic_saved,Haha it's a Mimic! kekwait you had a saver ({0} remaining)
+chest_hunt_mimic_crystal,Haha lost to a Mimic! The {0} Crystal Saver saved you kekwait
+chest_hunt_win,Time to buy a lottery ticket!
 chest_hunt_streak,New streak: {0} -> {1}
 chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
-cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
-cookie_display,{0} you have {1} 🍪 Cookies!
-cookie_cant_self_give,{0} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
-cookie_on_cooldown,{0} your 🍪 isn't ready yet. Please wait {1}
+cookie_gave,Hey {0}! {1} just gave you a 🍌 Banana! You now have {2} 🍌 Bananas!
+cookie_display,{0} you have {1} 🍌 Bananas!
+cookie_cant_self_give,{0} you can't give a 🍌 Banana to yourself... Don't be selfish and give it to monke!
+cookie_on_cooldown,{0} your 🍌 isn't ready yet. Please wait {1}
 time_unit_d,d
 time_unit_h,h
 time_unit_m,m
