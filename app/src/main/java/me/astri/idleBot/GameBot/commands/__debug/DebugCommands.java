@@ -26,12 +26,6 @@ public class DebugCommands extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().toLowerCase().split("\\s+");
         if(!event.getAuthor().getId().equals(Config.get("BOT_OWNER_ID"))) return;
 
-        event.getChannel().sendMessage(event.getAuthor().getAsMention() + " your helm is now level 50\n-20T").queue();
-        event.getChannel().sendMessageEmbeds(new EmbedBuilder()
-                        .setAuthor("<:bar_e1:882933409784147969>",null,event.getAuthor().getAvatarUrl())
-                        .setThumbnail(event.getAuthor().getAvatarUrl() + "?size=48")
-                        .setDescription(" your helm is now level 50\n-20T")
-                .setColor(Color.CYAN).build()).queue();
 
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser())) return;
         switch (args[0]) {
