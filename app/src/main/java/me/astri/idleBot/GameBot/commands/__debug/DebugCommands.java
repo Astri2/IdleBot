@@ -3,17 +3,19 @@ package me.astri.idleBot.GameBot.commands.__debug;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.entities.BigNumber;
 import me.astri.idleBot.GameBot.entities.equipment.Equipment;
-import me.astri.idleBot.GameBot.entities.player.BotUser;
+import me.astri.idleBot.GameBot.entities.minions.Minion;
+import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.game.GameUtils;
 import me.astri.idleBot.GameBot.utils.Config;
-import me.astri.idleBot.GameBot.utils.Lang;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +25,14 @@ public class DebugCommands extends ListenerAdapter {
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().toLowerCase().split("\\s+");
         if(!event.getAuthor().getId().equals(Config.get("BOT_OWNER_ID"))) return;
+
+        event.getChannel().sendMessage(event.getAuthor().getAsMention() + " your helm is now level 50\n-20T").queue();
+        event.getChannel().sendMessageEmbeds(new EmbedBuilder()
+                        .setAuthor("<:bar_e1:882933409784147969>",null,event.getAuthor().getAvatarUrl())
+                        .setThumbnail(event.getAuthor().getAvatarUrl() + "?size=48")
+                        .setDescription(" your helm is now level 50\n-20T")
+                .setColor(Color.CYAN).build()).queue();
+
         if(!event.getMessage().getMentionedUsers().contains(event.getJDA().getSelfUser())) return;
         switch (args[0]) {
             case "i!give" -> give(event);
@@ -59,18 +69,17 @@ public class DebugCommands extends ListenerAdapter {
         DataBase.save(null);
     }
 
-    private static HashMap<String,String> basePrices = new HashMap<>();
-      {{basePrices.put("sword","6"); basePrices.put("shield","50");basePrices.put("armor","6"); basePrices.put("helmet","50");
-        basePrices.put("boots","6"); basePrices.put("ring","50");basePrices.put("dagger","6"); basePrices.put("axe","50");
-        basePrices.put("staff","6"); basePrices.put("bow","50");basePrices.put("spellbook","6"); basePrices.put("spirit","50");
-        basePrices.put("nacklace","6"); basePrices.put("shield","50");}}
+    private static final HashMap<String,String> basePrices = new HashMap<>()
+      {{put("sword","6"); put("shield","50");put("armor","750"); put("helmet","1.6e4");
+        put("boots","1.2e5"); put("ring","1.2e6");put("dagger","1.4e7"); put("axe","5.8e8");
+        put("staff","5.4e9"); put("bow","3.3e11");put("spellbook","4.6e12"); put("spirit","2.2e14");
+        put("necklace","1.5e17");}};
 
     private void prices() {
         DataBase.getUsers().values().forEach(user -> {
             Player p = (Player) user;
-            p.getEquipment().forEach((id, eq) -> {
-
-            });
+            p.getEquipment().forEach((id, eq) ->
+                eq.updatePrices(new BigNumber(basePrices.get(eq.getId()))));
         });
     }
 

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class Equipment {
-    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.3);
+    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.4);
 
     private final String id;
     private final boolean unlocked;
@@ -92,7 +92,11 @@ public class Equipment {
         booster+=boost;
     }
 
-    public void updatePrices(int basePrice) {
-        this.price = new BigNumber(basePrice).multiply(BigNumber.pow(PRICE_MULTIPLIER,new BigNumber(this.level)));
+    public void updatePrices(BigNumber basePrice) {
+        this.price = basePrice.multiply(BigNumber.pow(PRICE_MULTIPLIER,new BigNumber(this.level)));
+    }
+
+    public String getId() {
+        return this.id;
     }
 }
