@@ -74,7 +74,8 @@ public class ChestHunt extends ISlashCommand {
         }
 
         int[][] grid = getGrid();
-        EmbedBuilder eb = getEmbed(p,e.getUser(), realHunt, new BigNumber(),Integer.toString(ch.getStreak()),"", null);
+        String multiplier = Integer.toString(Math.min(10,ch.getStreak()));
+        EmbedBuilder eb = getEmbed(p,e.getUser(), realHunt, new BigNumber(),multiplier,"", null);
         if(realHunt)
             eb.setFooter(streak_msg);
         hook.sendMessageEmbeds(eb.build()).addActionRows(getRows(grid, false)).queue(msg ->
