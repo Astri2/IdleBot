@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class Equipment {
-    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.4);
+    private static final BigNumber PRICE_MULTIPLIER = new BigNumber(1.5);
 
     private final String id;
     private final boolean unlocked;
