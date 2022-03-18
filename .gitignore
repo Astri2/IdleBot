@@ -7,3 +7,4 @@ app/src/main/resources/save/
 *.dat
 *.lock
 *.bin
+app/src/main/resources/font/tmp.png
