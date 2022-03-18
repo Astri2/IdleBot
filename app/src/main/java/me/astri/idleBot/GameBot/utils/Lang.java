@@ -10,14 +10,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum Lang {
-    ENGLISH("English", "game_texts"),
-    FRENCH("Français", "French"),
-    GERMAN("Deutsch","German"),
-    SPANISH("Español","Spanish"),
-    POTUGUESE("Português","Portuguese"),
-    PIRATE("Pirate English","Pirate English"),
-    ARMENIAN("\uD83C\uDDE6\uD83C\uDDF2","Armenian"),
-    RUSSIAN("Русский","Russian");
+    ENGLISH("English  \uD83C\uDDFA\uD83C\uDDF8", "game_texts"),
+    FRENCH("Français  \uD83C\uDDEB\uD83C\uDDF7", "French"),
+    GERMAN("Deutsch  \uD83C\uDDE9\uD83C\uDDEA","German"),
+    SPANISH("Español  \uD83C\uDDEA\uD83C\uDDF8","Spanish"),
+    POTUGUESE("Português  \uD83C\uDDF5\uD83C\uDDF9","Portuguese"),
+    SLAYERIAN("Slayerian  ⚔️","Slayerian"),
+    ARMENIAN("հայերեն  \uD83C\uDDE6\uD83C\uDDF2","Armenian"),
+    RUSSIAN("Русский  \uD83C\uDDF7\uD83C\uDDFA","Russian");
 
     private final String name;
     private final String path;
