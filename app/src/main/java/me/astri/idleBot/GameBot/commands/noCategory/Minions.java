@@ -76,13 +76,14 @@ public class Minions extends ISlashCommand {
         //If minion isn't on a mission, the bar will be empty (state 0)
         if(minion.isIdle()) return 0;
 
-        //if current time is after the mission ending time, bar is full (state 5)
         double remainingTime = minion.getEndTime()-System.currentTimeMillis()/1000.;
+
+        //if current time is after the mission ending time, bar is full (state 10)
         if(remainingTime < 0) return 10;
 
-        //Otherwise, quantify the advancement of the mission, between state 0-4
-        double advancement = Math.floor(10*(1 - (remainingTime-1)/minion.getDuration(p)));
-        return (int) advancement;
+        //Otherwise, quantify the advancement of the mission, between state 0-9
+        double advancement = Math.floor(10*(1 - (remainingTime)/minion.getDuration(p)));
+        return (int) Math.max(advancement,0);
 
     }
 

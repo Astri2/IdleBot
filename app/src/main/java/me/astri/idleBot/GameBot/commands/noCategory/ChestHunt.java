@@ -85,12 +85,12 @@ public class ChestHunt extends ISlashCommand {
 
     private static final String[] emotes = {"<:closed_chest:946562343645626469>","<:coin:883817946663747614>","<:slayer_point:882795259971661844>",
             "<:mimic:946563866110853140>","<:Knight_Shield:884894974552977419>"};
-    private ArrayList<ActionRow> getRows(int[][] grid, boolean allDisable) {
+    private ArrayList<ActionRow> getRows(int[][] grid, boolean gameFinished) {
         ArrayList<ActionRow> rows = new ArrayList<>();
         for(int i = 0 ; i < 5 ; i++) {
             ArrayList<Button> buttons = new ArrayList<>();
             for(int k = 0 ; k < 5 ; k++) {
-                int val = Math.max(grid[i][k],0);
+                int val = grid[i][k];
                 ButtonStyle style;
                 switch(val) {
                     case 1,2 -> style = ButtonStyle.PRIMARY;
@@ -98,7 +98,9 @@ public class ChestHunt extends ISlashCommand {
                     case 4 -> style = ButtonStyle.SUCCESS;
                     default -> style = ButtonStyle.SECONDARY;
                 }
-                buttons.add(Button.of(style,i + " " + k, Emoji.fromMarkdown(emotes[val])).withDisabled(val != 0 || allDisable));
+                if(gameFinished) val = Math.abs(val);
+                else val = Math.max(0,val);
+                buttons.add(Button.of(style,i + " " + k, Emoji.fromMarkdown(emotes[val])).withDisabled(val != 0 || gameFinished));
             }
             rows.add(ActionRow.of(buttons));
         }

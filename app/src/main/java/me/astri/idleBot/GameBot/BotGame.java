@@ -11,6 +11,7 @@ import me.astri.idleBot.GameBot.commands.noCategory.*;
 import me.astri.idleBot.GameBot.commands.settings.*;
 import me.astri.idleBot.GameBot.commands.upgrades.Upgrades;
 import me.astri.idleBot.GameBot.commands.upgrades.Upgrades_buy;
+import me.astri.idleBot.GameBot.commands.utils.Say;
 import me.astri.idleBot.GameBot.dataBase.DataBase;
 import me.astri.idleBot.GameBot.entities.upgrade.management.UpgradeManager;
 import me.astri.idleBot.GameBot.eventWaiter.EventWaiter;
@@ -18,6 +19,7 @@ import me.astri.idleBot.GameBot.game.PermaActionComponent;
 import me.astri.idleBot.GameBot.slashCommandHandler.SlashCommandManager;
 import me.astri.idleBot.GameBot.utils.ControlPanel;
 import me.astri.idleBot.GameBot.utils.Emotes;
+import me.astri.idleBot.GameBot.utils.Font;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -60,7 +62,10 @@ public class BotGame extends ListenerAdapter {
 
                 //other
                 new ChestHunt(),
-                new Minions()
+                new Minions(),
+
+                //not in game
+                new Say()
         );
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
@@ -82,6 +87,7 @@ public class BotGame extends ListenerAdapter {
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         try {
+            Font.init();
             Emotes.init();
             UpgradeManager.initUpgrades();
         } catch (Exception exception) {
