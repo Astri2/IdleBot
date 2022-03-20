@@ -120,14 +120,22 @@ public class BigNumber {//TODO try to avoid using Math.pow
             "Qd","Sd","St","Od","Nd","Vg"};
     public String getUnitNotation() {
         int unitRank = (int)(this.p10/3); //int division -> floor
-        if(unitRank >= bigUnits.length) return getScientificNotation();
 
         String tweaked_value = this.getRoundVal(2,this.val * Math.pow(10, p10 % 3));
+        if(tweaked_value.equals("1000")) { //may happen bc of rounding
+            tweaked_value = "1";
+            unitRank++;
+        }
+        if(unitRank >= bigUnits.length) return getScientificNotation();
         return tweaked_value + bigUnits[unitRank];
     }
 
     public String getScientificNotation() {
-        return "%se%d".formatted(this.getRoundVal(2, this.val),this.p10);
+        String val = this.getRoundVal(2, this.val);
+        if(val.equals("10")) { //may happen bc of rounding
+            return "%se%d".formatted("1",this.p10+1);
+        }
+        return "%se%d".formatted(val,this.p10);
     }
 
     @Override
