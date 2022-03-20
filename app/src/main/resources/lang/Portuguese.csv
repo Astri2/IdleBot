@@ -1,274 +1,274 @@
-success_register,{0} bem-vindo ao IdleBot!
-error_already_registered,{0} você já está registrado!
-error_someone_unregistered,{0} não está registrado. Por favor registre-se usando '/register'
-error_you_unregistered,{0} você não está registrado. Por favor registre-se usando '/register'
-error_nan,O valor fornecido não é um número grande
-error_not_enough_money,{0} Você não tem dinheiro suficiente!
-error_cant_interact,{0} você não pode interagir com isso!
-lang_updated,{0} Idioma foi definido como {1}
-notation_updated_sc,{0} você agora está usando notação científica
-notation_updated_unit,{0} você agora está usando notação de unidade
-ephemeral_updated_on,{0} modo fantasma agora está ativo
-ephemeral_updated_off,{0} modo fantasma não está mais ativo
-ephemeral_updated_default,{0} modo fantasma foi definido como padrão
-color_update,{0} cor foi definida para {1}
-color_black,preto
-color_blue,azul
-color_cyan,ciano
-color_dark_gray,cinza escuro
-color_gray,cinza
-color_green,verde
-color_light_gray,cinza claro
-color_magenta,magenta
-color_orange,laranja
-color_pink,rosa
-color_red,vermelho
-color_white,branco
-color_yellow,amarelo
-color_purple,roxo
-requested_by,Solicitado por {0}
-equipment_title,Equipamento de {0}
-profile_title,Perfil de {0}
-sword,Espada
-sword_steel,Espada de Aço
-sword_black,Espada Negra
-sword_light,Espada de Luz
-sword_demon,Espada Demoníaca
-sword_great,Espada Longa
-sword_ember,Espada de Brasas
-sword_infernal,Espada Infernal
-sword_rage,Espada da Fúria
-sword_elemental,Espada Elemental
-sword_life,Espada da Vida
-sword_god,Espada Divina
-shield,Escudo
-shield_reinforced,Escudo Reforçado
-shield_iron,Escudo de Ferro
-shield_steel,Escudo de Aço
-shield_knight,Escudo do Cavaleiro
-shield_titanium,Escudo de Titânio
-shield_golden,Escudo Dourado
-shield_infernal,Escudo Infernal
-shield_spirit,Escudo Espiritual
-shield_hero,Escudo do Herói
-shield_king,Escudo do Rei
-shield_crystal,Escudo de Cristal
-armor,Armadura
-armor_burlap,Armadura de Estopa
-armor_leather,Armaduras de Couro
-armor_reinforced,Armadura Reforçada
-armor_steel,Armadura de Aço
-armor_steel_full,Armadura de Aço Completa
-armor_golden_full,Armadura de Ouro Completa
-armor_dragon,Armadura do Dragão
-armor_warlord,Armadura do Senhor da Guerra
-armor_break_s,Armadura de Quebra
-armor_black_dragon,Armadura do Dragão Negro
-armor_shadow_knight,Armadura do Cavaleiro das Sombras
-helmet,Elmo
-helmet_burlap,Elmo de Estopa
-helmet_leather,Elmo de Couro
-helmet_reinforced,Elmo Reforçado
-helmet_steel,Elmo de Aço
-helmet_steel_full,Elmo de Aço Completo
-helmet_golden,Elmo Dourado
-helmet_dragon,Elmo do Dragão
-helmet_champion_s,Elmo do Campeão
-helmet_warrior,Elmo do Guerreiro
-helmet_dark_steel,Elmo de Aço Negro
-helmet_glorious,Elmo Glorioso
-boots,Botas
-boots_burlap,Botas de Estopa
-boots_leather,Botas de Couro
-boots_reinforced,Botas Reforçadas
-boots_iron,Botas de Ferro
-boots_steel,Botas de Aço
-boots_golden,Botas Douradas
-boots_dragon,Botas do Dragão
-boots_dash,Botas Rápidas
-boots_climbing,Botas de Escalada
-boots_mobious,Botas Mobianas
-boots_idle,Botas Ociosas
-ring,Anel
-ring_silver,Anel de Prata
-ring_magic,Anel Mágico
-ring_mind,Anel da Mente
-ring_shadow,Anel Sombrio
-ring_dragon,Anel do Dragão
-ring_dual_stone,Anel de Batalha
-ring_mystic,Anel Místico
-ring_spectral,Anel Espectral
-ring_albatross,Anel de Albatross
-ring_energy,Anel de Energia
-ring_phantom,Anel Fantasma
-dagger,Adaga
-dagger_black,Adaga Negra
-dagger_golden,Adaga Dourada
-dagger_demon,Adaga Demoníaca
-dagger_dragon,Adaga do Dragão
-dagger_glory,Adaga da Glória
-dagger_kunai,Kunai
-dagger_zap,Adaga Elétrica
-dagger_abyssal,Adaga Abissal
-dagger_larret_s,Adaga de Larret
-dagger_flame,Adaga Flamejante
-dagger_breaker,Quebra Adagas
-axe,Machado
-axe_black,Machado Negro
-axe_golden,Machado Dourado
-axe_demon,Machado Demoníaco
-axe_infernal_battle,Machado de Batalha Infernal
-axe_battle,Machado de Batalha
-axe_beast,Machado da Fera
-axe_tri,Machado Tri-Lâmina
-axe_crystal,Machado de Cristal
-axe_chopan_s,Machado de Chopan
-axe_blood_moon,Machado da Lua Sangrenta
-axe_wide_blood_moon,Machado Lunar
-staff,Cajado
-staff_black,Cajado Negro
-staff_light,Cajado de Luz
-staff_fire,Cajado do Fogo
-staff_aqua,Cajado de Água
-staff_emerald,Cajado de Esmeralda
-staff_holy,Cajado Divino
-staff_dragon,Cajado do Dragão
-staff_red_rose,Cajado da Rosa Vermelha
-staff_celestial,Cajado Celestial
-staff_sacred,Cajado Sagrado
-staff_limit,Cajado do Limite
-bow,Arco
-bow_black,Arco Negro
-bow_light,Arco de Luz
-bow_demon,Arco Demoníaco
-bow_crystal,Arco de Cristal
-bow_slash,Arco Cortante
-bow_lava,Arco de Lava
-bow_thunder,Arco do Trovão
-bow_idle,Arco Ocioso
-bow_lethal,Arco Letal
-bow_hydro,Arco de Água
-bow_hyper,Hiper Arco
-spellbook,Livro de Feitiços
-spellbook_elder,Livro de Feitiços do Ancião
-spellbook_destiny,Livro do Destino
-spellbook_infinity,Livro do Infinito
-spellbook_secret,Livro do Segredo
-spellbook_ancient,Livro de Feitiços Antigo
-spellbook_static,Livro da Estática
-spellbook_incineration,Livro de Incineração
-spellbook_guardian,Livro dos Guardiões
-spellbook_titans,Livro dos Titãs
-spellbook_hellfire,Tomo de Fogo do Inferno
-spellbook_unknown,Tomo do Desconhecido
-spirit,Espírito
-spirit_grand,Grande Espírito
-spirit_hell,Espírito Infernal
-spirit_heavenly,Espírito Celestial
-spirit_twin,Espírito Gêmeo
-spirit_evil,Espírito do Mal
-spirit_battle,Espírito de Batalha
-spirit_strength,Espírito da Força
-spirit_blood,Espírito de Sangue
-spirit_ultra,Ultra Espírito
-spirit_hyper,Hiper Espírito
-spirit_idle,Espírito Ocioso
-necklace,Colar
-necklace_ancient,Colar Antigo
-necklace_divine,Colar Divino
-necklace_shadow,Colar das Sombras
-necklace_chaos,Colar do Caos
-necklace_void,Colar do Vazio
-necklace_implosion,Colar da Implosão
-necklace_doomsday,Colar do Juízo Final
-necklace_apocalypse,Colar do Apocalipse
-necklace_premonition,Colar da Premonição
-necklace_coin,Colar de Moedas
-necklace_demon_eye,Colar do Olho do Demônio
-coins,Moedas
-production,Produção
-display_equipment_button,Mostrar Equipamentos
-display_profile_button,Mostrar Perfil
-redo_level_up_button,Repetir compra
-level_s,{0} Nível
-level_p,{0} Níveis
-cost,Custo
-reward,Recompensa
-message_expired,Esta mensagem expirou
-eqpm_upgrade_success,{0} seu {1} {2} agora está nível **{3}**!
-eqpm_upgrade_ask_eqpm,{0} que equipamento você deseja melhorar?
-eqpm_upgrade_ask_level,{0} em quantos níveis seu {1} {2} deve ser melhorado?
-nbr_custom,Personalizado
-nbr_max,Máximo
-progression_reset,{0} seu progresso foi resetado!
-equipment_upg_title,{0} {1} {2}
-minion_upg_title,{0} {1} {2}
-equipment_upg_desc,Seu {0} agora lhe dá {1}% mais moedas.
-minion_upg_desc,Desbloqueie o {0}, você pode designá-lo para uma Missão por {1}.
-upgrade_buy_button,Comprar
-upgrade_buy_all_button,Comprar todos
-upgrade_refresh_button,Atualizar
-no_available_upgrade,Você não tem nenhuma melhoria disponível...
-upgrade_bought,Você comprou {0}
-upgrade_bought_all,Você comprou {0} melhorias
-upgrade_nb_available,{0} melhorias disponíveis
-skeleton,Esqueleto
-knight,Cavaleiro Branco
-goo,Gosma Mutante
-wizard,Mago das Trevas
-golem,Golem de Pedra
-minions_title,Vassalos de {0}
-minions_level,Nível {0}
-minion_bonus,+{0}% Bônus de MpS
-minion_no_unlocked,Você ainda não desbloqueou nenhum Vassalo...
-minion_start_button,Clicar para iniciar
-minion_mission_button,Em Missão...
-minion_claim_button,Clique para Reivindicar
-minion_refresh_button,Atualizar
-minion_cant_afford_button,Você não tem o Suficiente
-minion_start_click,Seu {0} está agora em Missão
-minion_claim_click,Seu {0} terminou a missão!
-minion_refresh_click,Vassalos Atualizados
-chesthunt_cooldown,{0} sua Caça ao Baú ainda não está pronta. Por favor, espere {1}
-chest_hunt,Caça ao Baú
-chest_hunt_fun,Caça ao baú (mas só por diversão porque é divertido jogar uma caça ao baú)
-chest_hunt_locked,{0} Você ainda não desbloqueou a Caça ao Baú. Você pode desbloquear através do menu de Melhorias.
-chest_hunt_multiplier,Multiplicador: x{0}
-chest_hunt_reward,Recompensa: {0}
-chest_hunt_coins,Você ganhou +{0}
-chest_hunt_saver,Você encontrou um Salvador! Agora você tem {0} salvadores
-chest_hunt_mimic,Ah, não! É um Mímico!
-chest_hunt_mimic_saved,Ah não, é um Mímico! Felizmente você tinha um Salvador ({0} restantes)
-chest_hunt_mimic_crystal,Ah não, é um Mímico! Felizmente o {0} Salvador de Cristal esteva aqui
-chest_hunt_win,Você abriu todos os baús de recompensa e venceu!
-chest_hunt_streak,Nova sequência: {0} -> {1}
-chest_hunt_streak_lost,Ah não! Você se esqueceu da sua sequência. Nova sequência: {0} -> {1}
-cookie_gave,Ei {0}! {1} acabou de te dar um 🍪 Biscoito! Você agora tem {2} 🍪 Biscoitos!
-cookie_display,{0} você tem {1} 🍪 Biscoitos!
-cookie_cant_self_give,{0} você não pode dar um 🍪 Biscoito para você mesmo... Não seja egoísta e dê para outra pessoa!
-cookie_on_cooldown,{0} seu 🍪 não está pronto ainda. Por favor, espere {1}
-time_unit_d,d
-time_unit_h,h
-time_unit_m,m
-time_unit_s,s
-number_unit_k,K
-number_unit_m,M
-number_unit_b,B
-number_unit_t,T
-number_unit_qa,Qa
-number_unit_qi,Qi
-number_unit_sx,Sx
-number_unit_sp,Sp
-number_unit_oc,Oc
-number_unit_no,No
-number_unit_de,De
-number_unit_ud,Ud
-number_unit_dd,Dd
-number_unit_td,Td
-number_unit_qt,Qt
-number_unit_qd,Qd
-number_unit_sd,Sd
-number_unit_st,St
-number_unit_od,Od
-number_unit_nd,Nd
-number_unit_vg,Vg
+success_register|{0} bem-vindo ao IdleBot!
+error_already_registered|{0} você já está registrado!
+error_someone_unregistered|{0} não está registrado. Por favor registre-se usando '/register'
+error_you_unregistered|{0} você não está registrado. Por favor registre-se usando '/register'
+error_nan|O valor fornecido não é um número grande
+error_not_enough_money|{0} Você não tem dinheiro suficiente!
+error_cant_interact|{0} você não pode interagir com isso!
+lang_updated|{0} Idioma foi definido como {1}
+notation_updated_sc|{0} você agora está usando notação científica
+notation_updated_unit|{0} você agora está usando notação de unidade
+ephemeral_updated_on|{0} modo fantasma agora está ativo
+ephemeral_updated_off|{0} modo fantasma não está mais ativo
+ephemeral_updated_default|{0} modo fantasma foi definido como padrão
+color_update|{0} cor foi definida para {1}
+color_black|preto
+color_blue|azul
+color_cyan|ciano
+color_dark_gray|cinza escuro
+color_gray|cinza
+color_green|verde
+color_light_gray|cinza claro
+color_magenta|magenta
+color_orange|laranja
+color_pink|rosa
+color_red|vermelho
+color_white|branco
+color_yellow|amarelo
+color_purple|roxo
+requested_by|Solicitado por {0}
+equipment_title|Equipamento de {0}
+profile_title|Perfil de {0}
+sword|Espada
+sword_steel|Espada de Aço
+sword_black|Espada Negra
+sword_light|Espada de Luz
+sword_demon|Espada Demoníaca
+sword_great|Espada Longa
+sword_ember|Espada de Brasas
+sword_infernal|Espada Infernal
+sword_rage|Espada da Fúria
+sword_elemental|Espada Elemental
+sword_life|Espada da Vida
+sword_god|Espada Divina
+shield|Escudo
+shield_reinforced|Escudo Reforçado
+shield_iron|Escudo de Ferro
+shield_steel|Escudo de Aço
+shield_knight|Escudo do Cavaleiro
+shield_titanium|Escudo de Titânio
+shield_golden|Escudo Dourado
+shield_infernal|Escudo Infernal
+shield_spirit|Escudo Espiritual
+shield_hero|Escudo do Herói
+shield_king|Escudo do Rei
+shield_crystal|Escudo de Cristal
+armor|Armadura
+armor_burlap|Armadura de Estopa
+armor_leather|Armaduras de Couro
+armor_reinforced|Armadura Reforçada
+armor_steel|Armadura de Aço
+armor_steel_full|Armadura de Aço Completa
+armor_golden_full|Armadura de Ouro Completa
+armor_dragon|Armadura do Dragão
+armor_warlord|Armadura do Senhor da Guerra
+armor_break_s|Armadura de Quebra
+armor_black_dragon|Armadura do Dragão Negro
+armor_shadow_knight|Armadura do Cavaleiro das Sombras
+helmet|Elmo
+helmet_burlap|Elmo de Estopa
+helmet_leather|Elmo de Couro
+helmet_reinforced|Elmo Reforçado
+helmet_steel|Elmo de Aço
+helmet_steel_full|Elmo de Aço Completo
+helmet_golden|Elmo Dourado
+helmet_dragon|Elmo do Dragão
+helmet_champion_s|Elmo do Campeão
+helmet_warrior|Elmo do Guerreiro
+helmet_dark_steel|Elmo de Aço Negro
+helmet_glorious|Elmo Glorioso
+boots|Botas
+boots_burlap|Botas de Estopa
+boots_leather|Botas de Couro
+boots_reinforced|Botas Reforçadas
+boots_iron|Botas de Ferro
+boots_steel|Botas de Aço
+boots_golden|Botas Douradas
+boots_dragon|Botas do Dragão
+boots_dash|Botas Rápidas
+boots_climbing|Botas de Escalada
+boots_mobious|Botas Mobianas
+boots_idle|Botas Ociosas
+ring|Anel
+ring_silver|Anel de Prata
+ring_magic|Anel Mágico
+ring_mind|Anel da Mente
+ring_shadow|Anel Sombrio
+ring_dragon|Anel do Dragão
+ring_dual_stone|Anel de Batalha
+ring_mystic|Anel Místico
+ring_spectral|Anel Espectral
+ring_albatross|Anel de Albatross
+ring_energy|Anel de Energia
+ring_phantom|Anel Fantasma
+dagger|Adaga
+dagger_black|Adaga Negra
+dagger_golden|Adaga Dourada
+dagger_demon|Adaga Demoníaca
+dagger_dragon|Adaga do Dragão
+dagger_glory|Adaga da Glória
+dagger_kunai|Kunai
+dagger_zap|Adaga Elétrica
+dagger_abyssal|Adaga Abissal
+dagger_larret_s|Adaga de Larret
+dagger_flame|Adaga Flamejante
+dagger_breaker|Quebra Adagas
+axe|Machado
+axe_black|Machado Negro
+axe_golden|Machado Dourado
+axe_demon|Machado Demoníaco
+axe_infernal_battle|Machado de Batalha Infernal
+axe_battle|Machado de Batalha
+axe_beast|Machado da Fera
+axe_tri|Machado Tri-Lâmina
+axe_crystal|Machado de Cristal
+axe_chopan_s|Machado de Chopan
+axe_blood_moon|Machado da Lua Sangrenta
+axe_wide_blood_moon|Machado Lunar
+staff|Cajado
+staff_black|Cajado Negro
+staff_light|Cajado de Luz
+staff_fire|Cajado do Fogo
+staff_aqua|Cajado de Água
+staff_emerald|Cajado de Esmeralda
+staff_holy|Cajado Divino
+staff_dragon|Cajado do Dragão
+staff_red_rose|Cajado da Rosa Vermelha
+staff_celestial|Cajado Celestial
+staff_sacred|Cajado Sagrado
+staff_limit|Cajado do Limite
+bow|Arco
+bow_black|Arco Negro
+bow_light|Arco de Luz
+bow_demon|Arco Demoníaco
+bow_crystal|Arco de Cristal
+bow_slash|Arco Cortante
+bow_lava|Arco de Lava
+bow_thunder|Arco do Trovão
+bow_idle|Arco Ocioso
+bow_lethal|Arco Letal
+bow_hydro|Arco de Água
+bow_hyper|Hiper Arco
+spellbook|Livro de Feitiços
+spellbook_elder|Livro de Feitiços do Ancião
+spellbook_destiny|Livro do Destino
+spellbook_infinity|Livro do Infinito
+spellbook_secret|Livro do Segredo
+spellbook_ancient|Livro de Feitiços Antigo
+spellbook_static|Livro da Estática
+spellbook_incineration|Livro de Incineração
+spellbook_guardian|Livro dos Guardiões
+spellbook_titans|Livro dos Titãs
+spellbook_hellfire|Tomo de Fogo do Inferno
+spellbook_unknown|Tomo do Desconhecido
+spirit|Espírito
+spirit_grand|Grande Espírito
+spirit_hell|Espírito Infernal
+spirit_heavenly|Espírito Celestial
+spirit_twin|Espírito Gêmeo
+spirit_evil|Espírito do Mal
+spirit_battle|Espírito de Batalha
+spirit_strength|Espírito da Força
+spirit_blood|Espírito de Sangue
+spirit_ultra|Ultra Espírito
+spirit_hyper|Hiper Espírito
+spirit_idle|Espírito Ocioso
+necklace|Colar
+necklace_ancient|Colar Antigo
+necklace_divine|Colar Divino
+necklace_shadow|Colar das Sombras
+necklace_chaos|Colar do Caos
+necklace_void|Colar do Vazio
+necklace_implosion|Colar da Implosão
+necklace_doomsday|Colar do Juízo Final
+necklace_apocalypse|Colar do Apocalipse
+necklace_premonition|Colar da Premonição
+necklace_coin|Colar de Moedas
+necklace_demon_eye|Colar do Olho do Demônio
+coins|Moedas
+production|Produção
+display_equipment_button|Mostrar Equipamentos
+display_profile_button|Mostrar Perfil
+redo_level_up_button|Repetir compra
+level_s|{0} Nível
+level_p|{0} Níveis
+cost|Custo
+reward|Recompensa
+message_expired|Esta mensagem expirou
+eqpm_upgrade_success|{0} seu {1} {2} agora está nível **{3}**!
+eqpm_upgrade_ask_eqpm|{0} que equipamento você deseja melhorar?
+eqpm_upgrade_ask_level|{0} em quantos níveis seu {1} {2} deve ser melhorado?
+nbr_custom|Personalizado
+nbr_max|Máximo
+progression_reset|{0} seu progresso foi resetado!
+equipment_upg_title|{0} {1} {2}
+minion_upg_title|{0} {1} {2}
+equipment_upg_desc|Seu {0} agora lhe dá {1}% mais moedas.
+minion_upg_desc|Desbloqueie o {0}, você pode designá-lo para uma Missão por {1}.
+upgrade_buy_button|Comprar
+upgrade_buy_all_button|Comprar todos
+upgrade_refresh_button|Atualizar
+no_available_upgrade|Você não tem nenhuma melhoria disponível...
+upgrade_bought|Você comprou {0}
+upgrade_bought_all|Você comprou {0} melhorias
+upgrade_nb_available|{0} melhorias disponíveis
+skeleton|Esqueleto
+knight|Cavaleiro Branco
+goo|Gosma Mutante
+wizard|Mago das Trevas
+golem|Golem de Pedra
+minions_title|Vassalos de {0}
+minions_level|Nível {0}
+minion_bonus|+{0}% Bônus de MpS
+minion_no_unlocked|Você ainda não desbloqueou nenhum Vassalo...
+minion_start_button|Clicar para iniciar
+minion_mission_button|Em Missão...
+minion_claim_button|Clique para Reivindicar
+minion_refresh_button|Atualizar
+minion_cant_afford_button|Você não tem o Suficiente
+minion_start_click|Seu {0} está agora em Missão
+minion_claim_click|Seu {0} terminou a missão!
+minion_refresh_click|Vassalos Atualizados
+chesthunt_cooldown|{0} sua Caça ao Baú ainda não está pronta. Por favor, espere {1}
+chest_hunt|Caça ao Baú
+chest_hunt_fun|Caça ao baú (mas só por diversão porque é divertido jogar uma caça ao baú)
+chest_hunt_locked|{0} Você ainda não desbloqueou a Caça ao Baú. Você pode desbloquear através do menu de Melhorias.
+chest_hunt_multiplier|Multiplicador: x{0}
+chest_hunt_reward|Recompensa: {0}
+chest_hunt_coins|Você ganhou +{0}
+chest_hunt_saver|Você encontrou um Salvador! Agora você tem {0} salvadores
+chest_hunt_mimic|Ah, não! É um Mímico!
+chest_hunt_mimic_saved|Ah não, é um Mímico! Felizmente você tinha um Salvador ({0} restantes)
+chest_hunt_mimic_crystal|Ah não, é um Mímico! Felizmente o {0} Salvador de Cristal esteva aqui
+chest_hunt_win|Você abriu todos os baús de recompensa e venceu!
+chest_hunt_streak|Nova sequência: {0} -> {1}
+chest_hunt_streak_lost|Ah não! Você se esqueceu da sua sequência. Nova sequência: {0} -> {1}
+cookie_gave|Ei {0}! {1} acabou de te dar um 🍪 Biscoito! Você agora tem {2} 🍪 Biscoitos!
+cookie_display|{0} você tem {1} 🍪 Biscoitos!
+cookie_cant_self_give|{0} você não pode dar um 🍪 Biscoito para você mesmo... Não seja egoísta e dê para outra pessoa!
+cookie_on_cooldown|{0} seu 🍪 não está pronto ainda. Por favor, espere {1}
+time_unit_d|d
+time_unit_h|h
+time_unit_m|m
+time_unit_s|s
+number_unit_k|K
+number_unit_m|M
+number_unit_b|B
+number_unit_t|T
+number_unit_qa|Qa
+number_unit_qi|Qi
+number_unit_sx|Sx
+number_unit_sp|Sp
+number_unit_oc|Oc
+number_unit_no|No
+number_unit_de|De
+number_unit_ud|Ud
+number_unit_dd|Dd
+number_unit_td|Td
+number_unit_qt|Qt
+number_unit_qd|Qd
+number_unit_sd|Sd
+number_unit_st|St
+number_unit_od|Od
+number_unit_nd|Nd
+number_unit_vg|Vg

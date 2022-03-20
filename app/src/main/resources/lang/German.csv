@@ -1,274 +1,274 @@
-success_register,{0} welcome to IdleBot!
-error_already_registered,{0} you are already registered!
-error_someone_unregistered,{0} is not registered. Please register using `/register`
-error_you_unregistered,{0} you're not registered. Please register using `/register`
-error_nan,Provided value is not a bigNumber
-error_not_enough_money,{0} You don't have enough money!
-error_cant_interact,{0} you can't interact with that!
-lang_updated,{0} die Sprache ist auf {1} eingestellt
-notation_updated_sc,{0} you are now using scientific notation
-notation_updated_unit,{0} you are now using units notation
-ephemeral_updated_on,{0} ephemeral mode is now active
-ephemeral_updated_off,{0} ephemeral mode is no longer active
-ephemeral_updated_default,{0} ephemeral mode is set to default
-color_update,{0} color have been set to {1}
-color_black,black
-color_blue,blue
-color_cyan,cyan
-color_dark_gray,dark gray
-color_gray,gray
-color_green,green
-color_light_gray,light gray
-color_magenta,magenta
-color_orange,orange
-color_pink,pink
-color_red,red
-color_white,white
-color_yellow,yellow
-color_purple,purple
-requested_by,Requested by {0}
-equipment_title,Equipment of {0}
-profile_title,Profile of {0}
-sword,Schwert
-sword_steel,Stahlschwert
-sword_black,Schwarzes Schwert
-sword_light,Lichtschwert
-sword_demon,Dämonenschwert
-sword_great,Großschwert
-sword_ember,Glutschwert
-sword_infernal,Höllenschwert
-sword_rage,Wutschwert
-sword_elemental,Elementarschwert
-sword_life,Lebensschwert
-sword_god,Gottesschwert
-shield,Schild
-shield_reinforced,Verstärkter Schild
-shield_iron,Eisenschild
-shield_steel,Stahlschild
-shield_knight,Ritterschild
-shield_titanium,Titanschild
-shield_golden,Goldener Schild
-shield_infernal,Höllenschild
-shield_spirit,Geisterschild
-shield_hero,Heldenschild
-shield_king,Königsschild
-shield_crystal,Kristallschild
-armor,Brustpanzer
-armor_burlap,Hessianbrustpanzer
-armor_leather,Lederbrustpanzer
-armor_reinforced,Verstärkter Brustpanzer
-armor_steel,Stahlbrustpanzer
-armor_steel_full,Stählerne Vollpanzerung
-armor_golden_full,Goldene Vollpanzerung
-armor_dragon,Drachenbrustpanzer
-armor_warlord,Kriegsherrenbrustpanzer
-armor_break_s,Breaks Brustpanzer
-armor_black_dragon,Schwarzer Drachenbrustpanzer
-armor_shadow_knight,Schattenritterpanzerung
-helmet,Helm
-helmet_burlap,Hessianhelm
-helmet_leather,Lederhelm
-helmet_reinforced,Verstärkter Helm
-helmet_steel,Stahlhelm
-helmet_steel_full,Stählerner Vollhelm
-helmet_golden,Goldener Helm
-helmet_dragon,Drachenhelm
-helmet_champion_s,Meisterhelm
-helmet_warrior,Kriegerhelm
-helmet_dark_steel,Dunkelstahlhelm
-helmet_glorious,Glorreicher Helm
-boots,Stiefel
-boots_burlap,Hessianstiefel
-boots_leather,Lederstiefel
-boots_reinforced,Verstärkte Stiefel
-boots_iron,Eisenstiefel
-boots_steel,Stahlstiefel
-boots_golden,Goldene Stiefel
-boots_dragon,Drachenstiefel
-boots_dash,Sprintstiefel
-boots_climbing,Kletterstiefel
-boots_mobious,Möbiusstiefel
-boots_idle,Idle-Stiefel
-ring,Ring
-ring_silver,Silberring
-ring_magic,Magischer Ring
-ring_mind,Gedankenring
-ring_shadow,Schattenring
-ring_dragon,Drachenring
-ring_dual_stone,Doppelsteinring
-ring_mystic,Mystischer Ring
-ring_spectral,Spektralring
-ring_albatross,Albatrosring
-ring_energy,Energiering
-ring_phantom,Phantomring
-dagger,Dolch
-dagger_black,Schwarzer Dolch
-dagger_golden,Goldener Dolch
-dagger_demon,Dämonendolch
-dagger_dragon,Drachendolch
-dagger_glory,Ruhmdolch
-dagger_kunai,Kunai
-dagger_zap,Schlagdolch
-dagger_abyssal,Abgrunddolch
-dagger_larret_s,Larretts Dolch
-dagger_flame,Flammendolch
-dagger_breaker,Dolchbrecher
-axe,Beil
-axe_black,Schwarzes Beil
-axe_golden,Goldenes Beil
-axe_demon,Dämonenbeil
-axe_infernal_battle,Höllenstreitaxt
-axe_battle,Streitaxt
-axe_beast,Bestienbeil
-axe_tri,Triaxt
-axe_crystal,Kristallbeil
-axe_chopan_s,Chopans Beil
-axe_blood_moon,Blutmondbeil
-axe_wide_blood_moon,Breites Blutmondbeil
-staff,Stab
-staff_black,Schwarzer Stab
-staff_light,Lichtstab
-staff_fire,Feuerstab
-staff_aqua,Aquastab
-staff_emerald,Smaragdstab
-staff_holy,Heiliger Stab
-staff_dragon,Drachenstab
-staff_red_rose,Rote-Rosen-Stab
-staff_celestial,Astralstab
-staff_sacred,Heiliger Stab
-staff_limit,Limitstab
-bow,Bogen
-bow_black,Schwarzer Bogen
-bow_light,Lichtbogen
-bow_demon,Dämonenbogen
-bow_crystal,Kristallbogen
-bow_slash,Schlitzbogen
-bow_lava,Lavabogen
-bow_thunder,Donnerbogen
-bow_idle,Idle-Bogen
-bow_lethal,Tödlicher Bogen
-bow_hydro,Hydrobogen
-bow_hyper,Hyperbogen
-spellbook,Zauberbuch
-spellbook_elder,Ältesten-Zauberbuch
-spellbook_destiny,Schicksalsbuch
-spellbook_infinity,Buch der Unendlichkeit
-spellbook_secret,Geheimnisvolles Buch
-spellbook_ancient,Antikes Zauberbuch
-spellbook_static,Statisch geladenes Buch
-spellbook_incineration,Buch der Verbrennung
-spellbook_guardian,Buch der Wächter
-spellbook_titans,Buch der Titanen
-spellbook_hellfire,Höllenfeuerfoliant
-spellbook_unknown,Foliant des Unbekannten
-spirit,Geist
-spirit_grand,Großer Geist
-spirit_hell,Höllengeist
-spirit_heavenly,Himmlischer Geist
-spirit_twin,Zwillingsgeist
-spirit_evil,Böser Geist
-spirit_battle,Kampfgeist
-spirit_strength,Geist der Stärke
-spirit_blood,Geist des Blutes
-spirit_ultra,Ultrageist
-spirit_hyper,Hypergeist
-spirit_idle,Idle-Geist
-necklace,Halsschmuck
-necklace_ancient,Antiker Halsschmuck
-necklace_divine,Göttlicher Halsschmuck
-necklace_shadow,Schattenhalsschmuck
-necklace_chaos,Chaoshalsschmuck
-necklace_void,Leerenhalsschmuck
-necklace_implosion,Implosionshalskette
-necklace_doomsday,Weltuntergangshalskette
-necklace_apocalypse,Apokalypsenhalskette
-necklace_premonition,Vorahnungshalskette
-necklace_coin,Münzhalskette
-necklace_demon_eye,Dämonenaugenhalskette
-coins,Münzen
-production,Production
-display_equipment_button,Display Equipment
-display_profile_button,Display Profile
-redo_level_up_button,Repeat Purchase
-level_s,{0} Level
-level_p,{0} Levels
-cost,Cost
-reward,Reward
-message_expired,This message has expired
-eqpm_upgrade_success,{0} your {1} {2} is now level **{3}**!
-eqpm_upgrade_ask_eqpm,{0} which piece of equipment should be upgraded?
-eqpm_upgrade_ask_level,{0} by how many levels should your {1} {2} level up?
-nbr_custom,Custom
-nbr_max,Max
-progression_reset,{0} your progression has been reset!
-equipment_upg_title,{0} {1} {2}
-minion_upg_title,{0} {1} {2}
-equipment_upg_desc,Your {0} now gives you {1}% more Coins.
-minion_upg_desc,Unlock the {0}. You can assign it to a Mission for {1}.
-upgrade_buy_button,Buy
-upgrade_buy_all_button,Buy All
-upgrade_refresh_button,Refresh
-no_available_upgrade,You have no available upgrade...
-upgrade_bought,You just bought {0}
-upgrade_bought_all,You just bought {0} upgrades
-upgrade_nb_available,{0} available upgrades
-skeleton,Skeleton
-knight,White Knight
-goo,Goo Mutant
-wizard,Dark Wizard
-golem,Stone Golem
-minions_title,{0}'s minions
-minions_level,Level {0}
-minion_bonus,+{0}% Cps Bonus
-minion_no_unlocked,You have not unlocked any Minion...
-minion_start_button,Click to Start
-minion_mission_button,In Mission...
-minion_claim_button,Click to Claim
-minion_refresh_button,Refresh
-minion_cant_afford_button,Can't afford
-minion_start_click,Your {0} is now in Mission
-minion_claim_click,Your {0} finished its Mission!
-minion_refresh_click,Minions refreshed
-chesthunt_cooldown,{0} your chestHunt is not ready yet. Please wait {1}
-chest_hunt,Chest Hunt
-chest_hunt_fun,Chest Hunt (but just for fun because it's fun to play chest hunt)
-chest_hunt_locked,{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
-chest_hunt_multiplier,Multiplier: x{0}
-chest_hunt_reward,Reward: {0}
-chest_hunt_coins,You got +{0}
-chest_hunt_saver,You found a Saver! You now have {0} savers
-chest_hunt_mimic,Oh no it's a Mimic!
-chest_hunt_mimic_saved,Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
-chest_hunt_mimic_crystal,Oh no it's a Mimic! Fortunately the {0} Crystal Saver was here
-chest_hunt_win,You opened all the reward chests and won!
-chest_hunt_streak,New streak: {0} -> {1}
-chest_hunt_streak_lost,Oh no! You forgot your streak. New streak: {0} -> {1}
-cookie_gave,Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
-cookie_display,{0} you have {1} 🍪 Cookies!
-cookie_cant_self_give,{0} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
-cookie_on_cooldown,{0} your 🍪 isn't ready yet. Please wait {1}
-time_unit_d,d
-time_unit_h,h
-time_unit_m,m
-time_unit_s,s
-number_unit_k,K
-number_unit_m,M
-number_unit_b,B
-number_unit_t,T
-number_unit_qa,Qa
-number_unit_qi,Qi
-number_unit_sx,Sx
-number_unit_sp,Sp
-number_unit_oc,Oc
-number_unit_no,No
-number_unit_de,De
-number_unit_ud,Ud
-number_unit_dd,Dd
-number_unit_td,Td
-number_unit_qt,Qt
-number_unit_qd,Qd
-number_unit_sd,Sd
-number_unit_st,St
-number_unit_od,Od
-number_unit_nd,Nd
-number_unit_vg,Vg
+success_register|{0} welcome to IdleBot!
+error_already_registered|{0} you are already registered!
+error_someone_unregistered|{0} is not registered. Please register using `/register`
+error_you_unregistered|{0} you're not registered. Please register using `/register`
+error_nan|Provided value is not a bigNumber
+error_not_enough_money|{0} You don't have enough money!
+error_cant_interact|{0} you can't interact with that!
+lang_updated|{0} die Sprache ist auf {1} eingestellt
+notation_updated_sc|{0} you are now using scientific notation
+notation_updated_unit|{0} you are now using units notation
+ephemeral_updated_on|{0} ephemeral mode is now active
+ephemeral_updated_off|{0} ephemeral mode is no longer active
+ephemeral_updated_default|{0} ephemeral mode is set to default
+color_update|{0} color have been set to {1}
+color_black|black
+color_blue|blue
+color_cyan|cyan
+color_dark_gray|dark gray
+color_gray|gray
+color_green|green
+color_light_gray|light gray
+color_magenta|magenta
+color_orange|orange
+color_pink|pink
+color_red|red
+color_white|white
+color_yellow|yellow
+color_purple|purple
+requested_by|Requested by {0}
+equipment_title|Equipment of {0}
+profile_title|Profile of {0}
+sword|Schwert
+sword_steel|Stahlschwert
+sword_black|Schwarzes Schwert
+sword_light|Lichtschwert
+sword_demon|Dämonenschwert
+sword_great|Großschwert
+sword_ember|Glutschwert
+sword_infernal|Höllenschwert
+sword_rage|Wutschwert
+sword_elemental|Elementarschwert
+sword_life|Lebensschwert
+sword_god|Gottesschwert
+shield|Schild
+shield_reinforced|Verstärkter Schild
+shield_iron|Eisenschild
+shield_steel|Stahlschild
+shield_knight|Ritterschild
+shield_titanium|Titanschild
+shield_golden|Goldener Schild
+shield_infernal|Höllenschild
+shield_spirit|Geisterschild
+shield_hero|Heldenschild
+shield_king|Königsschild
+shield_crystal|Kristallschild
+armor|Brustpanzer
+armor_burlap|Hessianbrustpanzer
+armor_leather|Lederbrustpanzer
+armor_reinforced|Verstärkter Brustpanzer
+armor_steel|Stahlbrustpanzer
+armor_steel_full|Stählerne Vollpanzerung
+armor_golden_full|Goldene Vollpanzerung
+armor_dragon|Drachenbrustpanzer
+armor_warlord|Kriegsherrenbrustpanzer
+armor_break_s|Breaks Brustpanzer
+armor_black_dragon|Schwarzer Drachenbrustpanzer
+armor_shadow_knight|Schattenritterpanzerung
+helmet|Helm
+helmet_burlap|Hessianhelm
+helmet_leather|Lederhelm
+helmet_reinforced|Verstärkter Helm
+helmet_steel|Stahlhelm
+helmet_steel_full|Stählerner Vollhelm
+helmet_golden|Goldener Helm
+helmet_dragon|Drachenhelm
+helmet_champion_s|Meisterhelm
+helmet_warrior|Kriegerhelm
+helmet_dark_steel|Dunkelstahlhelm
+helmet_glorious|Glorreicher Helm
+boots|Stiefel
+boots_burlap|Hessianstiefel
+boots_leather|Lederstiefel
+boots_reinforced|Verstärkte Stiefel
+boots_iron|Eisenstiefel
+boots_steel|Stahlstiefel
+boots_golden|Goldene Stiefel
+boots_dragon|Drachenstiefel
+boots_dash|Sprintstiefel
+boots_climbing|Kletterstiefel
+boots_mobious|Möbiusstiefel
+boots_idle|Idle-Stiefel
+ring|Ring
+ring_silver|Silberring
+ring_magic|Magischer Ring
+ring_mind|Gedankenring
+ring_shadow|Schattenring
+ring_dragon|Drachenring
+ring_dual_stone|Doppelsteinring
+ring_mystic|Mystischer Ring
+ring_spectral|Spektralring
+ring_albatross|Albatrosring
+ring_energy|Energiering
+ring_phantom|Phantomring
+dagger|Dolch
+dagger_black|Schwarzer Dolch
+dagger_golden|Goldener Dolch
+dagger_demon|Dämonendolch
+dagger_dragon|Drachendolch
+dagger_glory|Ruhmdolch
+dagger_kunai|Kunai
+dagger_zap|Schlagdolch
+dagger_abyssal|Abgrunddolch
+dagger_larret_s|Larretts Dolch
+dagger_flame|Flammendolch
+dagger_breaker|Dolchbrecher
+axe|Beil
+axe_black|Schwarzes Beil
+axe_golden|Goldenes Beil
+axe_demon|Dämonenbeil
+axe_infernal_battle|Höllenstreitaxt
+axe_battle|Streitaxt
+axe_beast|Bestienbeil
+axe_tri|Triaxt
+axe_crystal|Kristallbeil
+axe_chopan_s|Chopans Beil
+axe_blood_moon|Blutmondbeil
+axe_wide_blood_moon|Breites Blutmondbeil
+staff|Stab
+staff_black|Schwarzer Stab
+staff_light|Lichtstab
+staff_fire|Feuerstab
+staff_aqua|Aquastab
+staff_emerald|Smaragdstab
+staff_holy|Heiliger Stab
+staff_dragon|Drachenstab
+staff_red_rose|Rote-Rosen-Stab
+staff_celestial|Astralstab
+staff_sacred|Heiliger Stab
+staff_limit|Limitstab
+bow|Bogen
+bow_black|Schwarzer Bogen
+bow_light|Lichtbogen
+bow_demon|Dämonenbogen
+bow_crystal|Kristallbogen
+bow_slash|Schlitzbogen
+bow_lava|Lavabogen
+bow_thunder|Donnerbogen
+bow_idle|Idle-Bogen
+bow_lethal|Tödlicher Bogen
+bow_hydro|Hydrobogen
+bow_hyper|Hyperbogen
+spellbook|Zauberbuch
+spellbook_elder|Ältesten-Zauberbuch
+spellbook_destiny|Schicksalsbuch
+spellbook_infinity|Buch der Unendlichkeit
+spellbook_secret|Geheimnisvolles Buch
+spellbook_ancient|Antikes Zauberbuch
+spellbook_static|Statisch geladenes Buch
+spellbook_incineration|Buch der Verbrennung
+spellbook_guardian|Buch der Wächter
+spellbook_titans|Buch der Titanen
+spellbook_hellfire|Höllenfeuerfoliant
+spellbook_unknown|Foliant des Unbekannten
+spirit|Geist
+spirit_grand|Großer Geist
+spirit_hell|Höllengeist
+spirit_heavenly|Himmlischer Geist
+spirit_twin|Zwillingsgeist
+spirit_evil|Böser Geist
+spirit_battle|Kampfgeist
+spirit_strength|Geist der Stärke
+spirit_blood|Geist des Blutes
+spirit_ultra|Ultrageist
+spirit_hyper|Hypergeist
+spirit_idle|Idle-Geist
+necklace|Halsschmuck
+necklace_ancient|Antiker Halsschmuck
+necklace_divine|Göttlicher Halsschmuck
+necklace_shadow|Schattenhalsschmuck
+necklace_chaos|Chaoshalsschmuck
+necklace_void|Leerenhalsschmuck
+necklace_implosion|Implosionshalskette
+necklace_doomsday|Weltuntergangshalskette
+necklace_apocalypse|Apokalypsenhalskette
+necklace_premonition|Vorahnungshalskette
+necklace_coin|Münzhalskette
+necklace_demon_eye|Dämonenaugenhalskette
+coins|Münzen
+production|Production
+display_equipment_button|Display Equipment
+display_profile_button|Display Profile
+redo_level_up_button|Repeat Purchase
+level_s|{0} Level
+level_p|{0} Levels
+cost|Cost
+reward|Reward
+message_expired|This message has expired
+eqpm_upgrade_success|{0} your {1} {2} is now level **{3}**!
+eqpm_upgrade_ask_eqpm|{0} which piece of equipment should be upgraded?
+eqpm_upgrade_ask_level|{0} by how many levels should your {1} {2} level up?
+nbr_custom|Custom
+nbr_max|Max
+progression_reset|{0} your progression has been reset!
+equipment_upg_title|{0} {1} {2}
+minion_upg_title|{0} {1} {2}
+equipment_upg_desc|Your {0} now gives you {1}% more Coins.
+minion_upg_desc|Unlock the {0}. You can assign it to a Mission for {1}.
+upgrade_buy_button|Buy
+upgrade_buy_all_button|Buy All
+upgrade_refresh_button|Refresh
+no_available_upgrade|You have no available upgrade...
+upgrade_bought|You just bought {0}
+upgrade_bought_all|You just bought {0} upgrades
+upgrade_nb_available|{0} available upgrades
+skeleton|Skeleton
+knight|White Knight
+goo|Goo Mutant
+wizard|Dark Wizard
+golem|Stone Golem
+minions_title|{0}'s minions
+minions_level|Level {0}
+minion_bonus|+{0}% Cps Bonus
+minion_no_unlocked|You have not unlocked any Minion...
+minion_start_button|Click to Start
+minion_mission_button|In Mission...
+minion_claim_button|Click to Claim
+minion_refresh_button|Refresh
+minion_cant_afford_button|Can't afford
+minion_start_click|Your {0} is now in Mission
+minion_claim_click|Your {0} finished its Mission!
+minion_refresh_click|Minions refreshed
+chesthunt_cooldown|{0} your chestHunt is not ready yet. Please wait {1}
+chest_hunt|Chest Hunt
+chest_hunt_fun|Chest Hunt (but just for fun because it's fun to play chest hunt)
+chest_hunt_locked|{0} You haven't unlock Chesthunt yet. You can unlock it through your upgrades.
+chest_hunt_multiplier|Multiplier: x{0}
+chest_hunt_reward|Reward: {0}
+chest_hunt_coins|You got +{0}
+chest_hunt_saver|You found a Saver! You now have {0} savers
+chest_hunt_mimic|Oh no it's a Mimic!
+chest_hunt_mimic_saved|Oh no it's a Mimic! Fortunately you had a Saver ({0} remaining)
+chest_hunt_mimic_crystal|Oh no it's a Mimic! Fortunately the {0} Crystal Saver was here
+chest_hunt_win|You opened all the reward chests and won!
+chest_hunt_streak|New streak: {0} -> {1}
+chest_hunt_streak_lost|Oh no! You forgot your streak. New streak: {0} -> {1}
+cookie_gave|Hey {0}! {1} just gave you a 🍪 Cookie! You now have {2} 🍪 Cookies!
+cookie_display|{0} you have {1} 🍪 Cookies!
+cookie_cant_self_give|{0} you can't give a 🍪 Cookie to yourself... Don't be selfish and give it to someone else!
+cookie_on_cooldown|{0} your 🍪 isn't ready yet. Please wait {1}
+time_unit_d|d
+time_unit_h|h
+time_unit_m|m
+time_unit_s|s
+number_unit_k|K
+number_unit_m|M
+number_unit_b|B
+number_unit_t|T
+number_unit_qa|Qa
+number_unit_qi|Qi
+number_unit_sx|Sx
+number_unit_sp|Sp
+number_unit_oc|Oc
+number_unit_no|No
+number_unit_de|De
+number_unit_ud|Ud
+number_unit_dd|Dd
+number_unit_td|Td
+number_unit_qt|Qt
+number_unit_qd|Qd
+number_unit_sd|Sd
+number_unit_st|St
+number_unit_od|Od
+number_unit_nd|Nd
+number_unit_vg|Vg
