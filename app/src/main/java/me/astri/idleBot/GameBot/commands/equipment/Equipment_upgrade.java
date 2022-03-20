@@ -144,7 +144,7 @@ public class Equipment_upgrade extends ISlashSubcommand {
                 waiter.setExpirationTime(1, TimeUnit.MINUTES).setTimeoutAction(() ->
                     msg.editMessageComponents(ActionRow.of(SelectionMenu.create("unused")
                             .addOption("unused","unused")
-                            .setPlaceholder(player.getLang().get("expired")).setDisabled(true).build())).queue()
+                            .setPlaceholder(player.getLang().get("message_expired")).setDisabled(true).build())).queue()
                 );
                 waiter.setAutoRemove(true).setEventType(SelectionMenuEvent.class);
                 waiter.setConditions(
