@@ -120,7 +120,7 @@ public class BigNumber {//TODO try to avoid using Math.pow
             "Qd","Sd","St","Od","Nd","Vg"};
     public String getUnitNotation() {
         int unitRank = (int)(this.p10/3); //int division -> floor
-        if(unitRank > bigUnits.length) return getScientificNotation();
+        if(unitRank >= bigUnits.length) return getScientificNotation();
 
         String tweaked_value = this.getRoundVal(2,this.val * Math.pow(10, p10 % 3));
         return tweaked_value + bigUnits[unitRank];

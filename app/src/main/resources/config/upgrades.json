@@ -1018,7 +1018,7 @@
         "name": "spirit_hell",
         "price": "6e23",
         "weight": 2,
-        "minLevel": 20,
+        "minLevel": 50,
         "boost": 100,
         "icon": "<:Hell_Spirit:901146871916027915>"
       },
