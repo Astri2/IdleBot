@@ -29,16 +29,16 @@ public class Say extends ISlashCommand {
                         .addChoice("5",5)
                         .addChoice("10",10))
                 .addOptions(new OptionData(OptionType.STRING,"aligned","where the text should be aligned")
-                        .addChoice("Left","left")
-                        .addChoice("Center","center")
-                        .addChoice("Right","right"));
+                        .addChoice("Left","LEFT")
+                        .addChoice("Center","CENTER")
+                        .addChoice("Right","RIGHT"));
     }
 
     @Override
     public void handle(SlashCommandEvent e, InteractionHook hook) {
         String input = e.getOption("text") != null ? e.getOption("text").getAsString() : e.getUser().getName();
         int zoom = e.getOption("zoom") != null ? (int)e.getOption("zoom").getAsLong() : 1;
-        Font.Align align = Font.Align.valueOf(e.getOption("aligned") != null ? e.getOption("aligned").getAsString() : "left");
+        Font.Align align = Font.Align.valueOf(e.getOption("aligned") != null ? e.getOption("aligned").getAsString() : "LEFT");
         BufferedImage output = Font.getImage(input, zoom, align);
 
         if(output == null)

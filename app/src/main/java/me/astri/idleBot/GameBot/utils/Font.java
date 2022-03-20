@@ -83,7 +83,6 @@ public enum Font {
             }
             lines.add(new BufferedImage(imgWidth+1,lineHeight,BufferedImage.TYPE_INT_ARGB));
             sequence.add(lineFont);
-            System.out.println(sequence);
 
             maxWidth = Math.max(maxWidth, imgWidth + 1);
             BufferedImage output = new BufferedImage(maxWidth,
