@@ -6,6 +6,7 @@ import me.astri.idleBot.GameBot.commands.cookie.Cookie_display;
 import me.astri.idleBot.GameBot.commands.cookie.Cookie_give;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_display;
+import me.astri.idleBot.GameBot.commands.equipment.Equipment_image;
 import me.astri.idleBot.GameBot.commands.equipment.Equipment_upgrade;
 import me.astri.idleBot.GameBot.commands.noCategory.*;
 import me.astri.idleBot.GameBot.commands.settings.*;
@@ -39,7 +40,8 @@ public class BotGame extends ListenerAdapter {
                 //subcommands
                 new Equipment(
                         new Equipment_display(),
-                        new Equipment_upgrade()
+                        new Equipment_upgrade(),
+                        new Equipment_image()
                 ),
                 new Upgrades(
                         new Upgrades_buy()
@@ -88,6 +90,7 @@ public class BotGame extends ListenerAdapter {
     public void onReady(@NotNull ReadyEvent event) {
         try {
             Font.init();
+            Equipment_image.init();
             Emotes.init();
             UpgradeManager.initUpgrades();
         } catch (Exception exception) {

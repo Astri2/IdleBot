@@ -38,7 +38,7 @@ public class Say extends ISlashCommand {
     public void handle(SlashCommandEvent e, InteractionHook hook) {
         String input = e.getOption("text") != null ? e.getOption("text").getAsString() : e.getUser().getName();
         int zoom = e.getOption("zoom") != null ? (int)e.getOption("zoom").getAsLong() : 1;
-        String align = e.getOption("aligned") != null ? e.getOption("aligned").getAsString() : "left";
+        Font.Align align = Font.Align.valueOf(e.getOption("aligned") != null ? e.getOption("aligned").getAsString() : "left");
         BufferedImage output = Font.getImage(input, zoom, align);
 
         if(output == null)
@@ -50,7 +50,7 @@ public class Say extends ISlashCommand {
 
     private void sendImage(BufferedImage output, InteractionHook hook, String input) {
         try {
-            File f = new File("app/src/main/resources/font","tmp.png");
+            File f = new File("app/src/main/resources/img","tmp.png");
             ImageIO.write(output,"PNG",f);
 
             EmbedBuilder eb = new EmbedBuilder()
@@ -59,7 +59,6 @@ public class Say extends ISlashCommand {
                     .setDescription(input);
             hook.getJDA().getTextChannelById("954145438863347724").sendFile(f).queue(msg -> {
                 hook.sendMessageEmbeds(eb.setImage(msg.getAttachments().get(0).getUrl()).build()).queue();
-                msg.delete().queue();
             });
         } catch (IOException e) {
             e.printStackTrace();
