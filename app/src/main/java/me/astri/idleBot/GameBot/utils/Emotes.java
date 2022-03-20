@@ -11,6 +11,6 @@ public class Emotes {
 
     public static void init() {
         if(emotes.isEmpty())
-            Utils.readCSV(Config.get("EMOTE_PATH")).forEach(arg -> emotes.put(arg.get(0),arg.get(1)));
+            Utils.readCSV(Config.get("EMOTE_PATH"),",").forEach(arg -> emotes.put(arg.get(0),arg.get(1)));
     }
 }

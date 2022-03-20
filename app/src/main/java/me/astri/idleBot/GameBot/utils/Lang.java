@@ -64,7 +64,7 @@ public enum Lang {
 
     private static void loadLang(Lang lang) {
         try {
-            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.path + ".csv");
+            ArrayList<List<String>> CSV_lang = Utils.readCSV(Config.get("LANG_PATH") + lang.path + ".csv","\\|");
             HashMap<String, String> langMap = new HashMap<>();
             langsMap.put(lang, langMap);
             for (List<String> args : CSV_lang)

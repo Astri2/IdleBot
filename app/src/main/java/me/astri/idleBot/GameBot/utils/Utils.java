@@ -13,12 +13,12 @@ import java.util.concurrent.TimeUnit;
 
 
 public abstract class Utils {
-    public static ArrayList<List<String>> readCSV(String path) {
+    public static ArrayList<List<String>> readCSV(String path, String sep) {
         ArrayList<List<String>> records = new ArrayList<>();
         try {
             Files.readAllLines(Path.of(path)).forEach(line -> {
-                if(line.isEmpty() ||line.startsWith("#")) return;
-                String[] values = line.split(",");
+                if(line.isEmpty() || line.startsWith("#")) return;
+                String[] values = line.split(sep);
                 records.add(Arrays.asList(values));
             });
         } catch (IOException e) {
