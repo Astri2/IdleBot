@@ -3,7 +3,6 @@ package me.astri.idleBot.GameBot.commands.utils;
 import me.astri.idleBot.GameBot.slashCommandHandler.ISlashCommand;
 import me.astri.idleBot.GameBot.utils.Font;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;

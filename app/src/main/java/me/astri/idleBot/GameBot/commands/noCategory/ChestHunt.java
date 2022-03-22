@@ -78,14 +78,14 @@ public class ChestHunt extends ISlashCommand {
         EmbedBuilder eb = getEmbed(p,e.getUser(), realHunt, new BigNumber(),multiplier,"", null);
         if(realHunt)
             eb.setFooter(streak_msg);
-        hook.sendMessageEmbeds(eb.build()).addActionRows(getRows(grid, false)).queue(msg ->
+        hook.sendMessageEmbeds(eb.build()).addActionRows(getRows(grid, false,false)).queue(msg ->
             new Waiter<>(getWaiter(p, e.getUser(), realHunt, msg, grid, ch.getStreak())).register("chestHunt_"+e.getUser().getId())
         );
     }
 
     private static final String[] emotes = {"<:closed_chest:946562343645626469>","<:coin:883817946663747614>","<:slayer_point:882795259971661844>",
             "<:mimic:946563866110853140>","<:Knight_Shield:884894974552977419>"};
-    private ArrayList<ActionRow> getRows(int[][] grid, boolean gameFinished) {
+    private ArrayList<ActionRow> getRows(int[][] grid, boolean allDisabled, boolean reveal) {
         ArrayList<ActionRow> rows = new ArrayList<>();
         for(int i = 0 ; i < 5 ; i++) {
             ArrayList<Button> buttons = new ArrayList<>();
@@ -98,9 +98,9 @@ public class ChestHunt extends ISlashCommand {
                     case 4 -> style = ButtonStyle.SUCCESS;
                     default -> style = ButtonStyle.SECONDARY;
                 }
-                if(gameFinished) val = Math.abs(val);
+                if(reveal) val = Math.abs(val);
                 else val = Math.max(0,val);
-                buttons.add(Button.of(style,i + " " + k, Emoji.fromMarkdown(emotes[val])).withDisabled(val != 0 || gameFinished));
+                buttons.add(Button.of(style,i + " " + k, Emoji.fromMarkdown(emotes[val])).withDisabled(val != 0 || allDisabled));
             }
             rows.add(ActionRow.of(buttons));
         }
@@ -152,7 +152,7 @@ public class ChestHunt extends ISlashCommand {
                 .setAutoRemove(false)
                 .setExpirationTime(5L, TimeUnit.MINUTES)
                 .setConditions(ctx -> ctx.getUser().getId().equals(p.getId()) && ctx.getMessage().equals(msg))
-                .setTimeoutAction(() -> msg.editMessage("message_expired").setActionRows(getRows(grid, true)).queue())
+                .setTimeoutAction(() -> msg.editMessage("message_expired").setActionRows(getRows(grid, true,false)).queue())
                 .setFailureAction(ctx -> {
                     if(ctx.getEvent().getMessage().equals(msg))
                         ctx.getEvent().reply("you can't interact with that!").setEphemeral(true).queue();
@@ -162,7 +162,7 @@ public class ChestHunt extends ISlashCommand {
 
                     String[] pos = ctx.getEvent().getButton().getId().split(" ");
                     int val = grid[Integer.parseInt(pos[0])][Integer.parseInt(pos[1])];
-                    boolean allDisabled = false;
+                    boolean dead = false;
                     EmbedBuilder eb = new EmbedBuilder();
                     switch(val) {
                         case -1 -> {
@@ -176,7 +176,7 @@ public class ChestHunt extends ISlashCommand {
                             remainingRewardChests.decrementAndGet();
                             if(remainingRewardChests.get() == 0) {
                                 eb.setFooter(p.getLang().get("chest_hunt_win"));
-                                allDisabled = true;
+                                dead = true;
                                 ctx.unregister();
                             }
                         }
@@ -193,7 +193,7 @@ public class ChestHunt extends ISlashCommand {
                                         new String[]{Emotes.get("saver") + " " + saver.get()});
                             } else {
                                 eb = getEmbed(p, user, realHunt, gain, multiplier.getUnitNotation(), "chest_hunt_mimic", new String[]{});
-                                allDisabled = true;
+                                dead = true;
                                 ctx.unregister();
                             }
                         }
@@ -205,7 +205,14 @@ public class ChestHunt extends ISlashCommand {
                     }
                     grid[Integer.parseInt(pos[0])][Integer.parseInt(pos[1])] *= -1;
                     crystalSavers.decrementAndGet();
-                    ctx.getEvent().editMessageEmbeds(eb.build()).setActionRows(getRows(grid,allDisabled)).queue();
+                    if(dead) {
+                        ctx.getEvent().editMessageEmbeds(eb.build()).setActionRows(getRows(grid,true,false)).queue(__ ->
+                            msg.editMessageComponents(getRows(grid,true,true)).queueAfter(2,TimeUnit.SECONDS)
+                        );
+                    } else {
+                        ctx.getEvent().editMessageEmbeds(eb.build()).setActionRows(getRows(grid,false,false)).queue();
+                    }
+
                 });
     }
 
