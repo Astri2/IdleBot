@@ -119,7 +119,7 @@ public class Equipment_image extends ISlashSubcommand {
                 3*gap + titleGap + 2*iconSize + lvlShift + 10*zoom,
                 BufferedImage.TYPE_INT_ARGB);
         BufferedImage avatar = ImageIO.read(new URL(member.getEffectiveAvatarUrl()));
-        BufferedImage title = Font.getImage(l.get("equipment_title",member.getEffectiveName()),zoom*3);
+        BufferedImage title = Font.getImage(l.get("equipment_title",member.getUser().getName()),zoom*3);
         List<BufferedImage> eqNamesImg = eqToDisplay.stream().map(eq ->
                 Font.getImage(l.get(eq.getName()).replace(" ","\n"),zoom, Font.Align.CENTER)).toList();
         List<BufferedImage> eqIconsImg = eqToDisplay.stream().map(eq -> emoteImages.get(eq.getName())).toList();
