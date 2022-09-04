@@ -8,6 +8,7 @@ import me.astri.idleBot.GameBot.utils.Config;
 import me.astri.idleBot.GameBot.utils.Font;
 import me.astri.idleBot.GameBot.utils.Lang;
 import me.astri.idleBot.GameBot.utils.Utils;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.SlashCommandEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
@@ -23,7 +24,6 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -59,7 +59,7 @@ public class Equipment_image extends ISlashSubcommand {
         Lang l = english ? Lang.ENGLISH : p.getLang();
         hook.sendMessage("image generation in progress... ⌛").queue(msg -> {
             try {
-                BufferedImage output = getImage(p, e.getUser(), l, zoom);
+                BufferedImage output = getImage(p, e.getMember(), l, zoom);
                 msg.editMessage("image posted!").queue();
                 sendImage(output,hook);
             } catch(Exception ex) {
@@ -103,7 +103,7 @@ public class Equipment_image extends ISlashSubcommand {
         }
     }
 
-    private BufferedImage getImage(Player p, User user, Lang l, int zoom) throws IOException {
+    private BufferedImage getImage(Player p, Member member, Lang l, int zoom) throws IOException {
         int titleGap = 64*zoom;
         int gap = 46*zoom;
         int iconSize = 32*zoom;
@@ -118,8 +118,8 @@ public class Equipment_image extends ISlashSubcommand {
                 2*gap+(eqToDisplay.size()*2)*iconSize,
                 3*gap + titleGap + 2*iconSize + lvlShift + 10*zoom,
                 BufferedImage.TYPE_INT_ARGB);
-        BufferedImage avatar = ImageIO.read(new URL(user.getEffectiveAvatarUrl()));
-        BufferedImage title = Font.getImage(l.get("equipment_title",user.getName()),zoom*3);
+        BufferedImage avatar = ImageIO.read(new URL(member.getEffectiveAvatarUrl()));
+        BufferedImage title = Font.getImage(l.get("equipment_title",member.getEffectiveName()),zoom*3);
         List<BufferedImage> eqNamesImg = eqToDisplay.stream().map(eq ->
                 Font.getImage(l.get(eq.getName()).replace(" ","\n"),zoom, Font.Align.CENTER)).toList();
         List<BufferedImage> eqIconsImg = eqToDisplay.stream().map(eq -> emoteImages.get(eq.getName())).toList();
