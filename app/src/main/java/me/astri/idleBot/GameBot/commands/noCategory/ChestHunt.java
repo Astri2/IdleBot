@@ -134,7 +134,6 @@ public class ChestHunt extends ISlashCommand {
             if (grid[i][k] == 0)
                 grid[i][k] = -1;
         }
-        //.out.println(Arrays.deepToString(grid));
         return grid;
     }
 

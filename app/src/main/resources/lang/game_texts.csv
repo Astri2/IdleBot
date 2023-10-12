@@ -222,11 +222,11 @@ minions_level|Level {0}
 minion_bonus|+{0}% Cps Bonus
 minion_no_unlocked|You have not unlocked any Minion...
 minion_start_button|Click to Start
-minion_mission_button|In Mission...
+minion_mission_button|On Mission...
 minion_claim_button|Click to Claim
 minion_refresh_button|Refresh
 minion_cant_afford_button|Cannot afford
-minion_start_click|Your {0} is now in Mission
+minion_start_click|Your {0} is now on a Mission
 minion_claim_click|Your {0} finished its Mission!
 minion_refresh_click|Minions refreshed
 chesthunt_cooldown|{0} your chestHunt is not ready yet. Please wait {1}

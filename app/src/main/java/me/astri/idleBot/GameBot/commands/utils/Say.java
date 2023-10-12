@@ -38,6 +38,7 @@ public class Say extends ISlashCommand {
         String input = e.getOption("text") != null ? e.getOption("text").getAsString() : e.getUser().getName();
         int zoom = e.getOption("zoom") != null ? (int)e.getOption("zoom").getAsLong() : 1;
         Font.Align align = Font.Align.valueOf(e.getOption("aligned") != null ? e.getOption("aligned").getAsString() : "LEFT");
+
         BufferedImage output = Font.getImage(input, zoom, align);
 
         if(output == null)

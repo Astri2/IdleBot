@@ -6,6 +6,7 @@ import me.astri.idleBot.GameBot.entities.minions.PlayerMinions;
 import me.astri.idleBot.GameBot.entities.player.Player;
 import me.astri.idleBot.GameBot.utils.Lang;
 import me.astri.idleBot.GameBot.utils.Utils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
@@ -26,7 +27,7 @@ public class MinionUpgrade extends UnconditionalUpgrade {
     }
 
     @Override
-    protected String[] getDescArgs(Player p) {
+    protected String[] getDescArgs(@NotNull Player p) {
         Minion m = p.getMinions().get().get(this.args[0]);
         Lang l = p.getLang();
         return new String[]{l.get(this.name), Utils.timeParser(m.getDuration(p), TimeUnit.SECONDS), Integer.toString(m.getCPSBonusPerLevel())};

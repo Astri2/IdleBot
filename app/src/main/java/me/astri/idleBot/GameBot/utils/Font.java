@@ -20,8 +20,8 @@ public enum Font {
     ZERO(8,52), ONE(6,53), TWO(8,54),   THREE(8,55), FOUR(8,56),
     FIVE(8,57), SIX(8,58), SEVEN(8,59), EIGHT(8,60), NINE(8,61),
     DOT(5,62), COMAS(5,63), APOSTROPHE(4,64), BRACKETO(6,65), BRACKETC(6,66),
-    DOLLAR(8,67), PLUS(8, 68), TILDE(8,69), HASHTAG(8,70),
-    WHITESPACE(6,71), ERROR(10,72);
+    DOLLAR(8,67), PLUS(8, 68), TILDE(8,69), HASHTAG(8,70), DASH(7,71),
+    PERCENT(9, 72), WHITESPACE(6,73), ERROR(10,74);
 
     private final int width;
     private final int id;
@@ -31,7 +31,8 @@ public enum Font {
         put('5', FIVE); put('6', SIX); put('7', SEVEN); put('8', EIGHT); put('9', NINE);
         put('.', DOT); put(',', COMAS); put('\'', APOSTROPHE);
         put('(', BRACKETO); put(')', BRACKETC); put('$', DOLLAR); put('+', PLUS);
-        put('~', TILDE); put('#', HASHTAG); put(' ', WHITESPACE);
+        put('~', TILDE); put('#', HASHTAG); put('-', DASH); put('%', PERCENT);
+        put(' ', WHITESPACE);
     }};
 
     public enum Align {
@@ -118,7 +119,6 @@ public enum Font {
                 g1.dispose();
                 output = zoomedOutput;
             }
-
             return output;
 
         } catch(Exception e) {

@@ -37,14 +37,6 @@ public abstract class Utils {
         }
     }
 
-    public static void addReactions(Message message, String ... reactions) {
-        Arrays.stream(reactions).forEach(reaction -> message.addReaction(reaction).queue());
-    }
-
-    public static boolean hasBotReacted(MessageReactionAddEvent e) {
-        return e.getReaction().retrieveUsers().complete().contains(e.getJDA().getSelfUser());
-    }
-
     public static String timeParser(long amount, TimeUnit unit) {
         long sec = TimeUnit.SECONDS.convert(amount,unit);
         StringBuilder str = new StringBuilder();
