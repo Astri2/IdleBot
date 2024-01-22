@@ -35,6 +35,7 @@ public class DebugCommands extends ListenerAdapter {
             case "i!lprices" -> prices();
             case "i!ping" -> ping(event);
             case "i!emote" -> emote(event);
+            case "i!shutdown" -> shutdown(event);
         }
     }
 
@@ -99,5 +100,10 @@ public class DebugCommands extends ListenerAdapter {
         StringBuilder str = new StringBuilder("emotes:\n");
         emotes.forEach(emote -> str.append(emote.getAsMention()).append(" \\").append(emote.getAsMention()).append("\n"));
         event.getMessage().reply(str.toString()).queue();
+    }
+
+    private void shutdown(GuildMessageReceivedEvent event) {
+        event.getMessage().reply("bot will shutdown").complete();
+        event.getJDA().shutdown();
     }
 }
