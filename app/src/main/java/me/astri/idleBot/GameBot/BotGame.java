@@ -79,19 +79,12 @@ public class BotGame extends ListenerAdapter {
                         new EventWaiter(),
                         new PermaActionComponent(),
                         new BotGame(),
-                        //slashCommandManager,
+                        slashCommandManager,
 
                         //DEBUG
                         new DebugCommands()
                 )
                 .build().awaitReady();
-    }
-
-    @Override
-    public void onSlashCommand(@NotNull SlashCommandEvent event) {
-        event.deferReply(true).queue();
-        event.getHook().sendMessage("hi").queue();
-        //ERROR RestAction - RestAction queue returned failure: [ErrorResponseException] 50027: Invalid Webhook Token
     }
 
     @Override
