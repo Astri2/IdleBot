@@ -18,9 +18,9 @@ test {
 }
 
 dependencies {
-    implementation group: 'net.dv8tion', name: 'JDA', version: '4.4.0_352'
-    implementation group: 'org.json', name: 'json', version: '20210307'
+    implementation group: 'net.dv8tion', name: 'JDA', version: '4.4.1_353'
     implementation 'com.google.code.gson:gson:2.8.9'
+    implementation group: 'org.json', name: 'json', version: '20210307'
 }
 
 compileJava.options.encoding = 'UTF-8'

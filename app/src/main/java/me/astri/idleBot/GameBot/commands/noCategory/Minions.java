@@ -40,10 +40,10 @@ public class Minions extends ISlashCommand {
                 msg -> player.getMinions().setLastMessageid(msg.getId()));
     }
 
-    @Override
-    public long getCooldown() {
-        return 10000L;
-    }
+//    @Override
+//    public long getCooldown() {
+//        return 10000L;
+//    }
 
     private static EmbedBuilder getEmbed(Player player) {
         PlayerMinions minions = player.getMinions();
