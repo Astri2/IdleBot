@@ -1,6 +1,7 @@
 package me.astri.idleBot.modBot.main;
 
 import me.astri.idleBot.modBot.listeners.Commands;
+import me.astri.idleBot.modBot.listeners.Honeypot;
 import me.astri.idleBot.modBot.listeners.VoiceRole;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -13,8 +14,11 @@ public class BotMod {
     public static void startBot(String token) throws LoginException, InterruptedException {
         jda = JDABuilder.createDefault(token)
                 .addEventListeners(
-                        new VoiceRole(),
-                        new Commands()
+                        // new VoiceRole(), // obsolete
+
+                        new Commands(),
+
+                        new Honeypot()
                 )
                 .build().awaitReady();
     }
