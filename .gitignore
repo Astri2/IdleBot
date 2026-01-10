@@ -10,3 +10,5 @@ app/src/main/resources/save/
 
 app/src/main/resources/img/tmp.png
 app/src/main/resources/playerData.json
+
+gradle.properties
