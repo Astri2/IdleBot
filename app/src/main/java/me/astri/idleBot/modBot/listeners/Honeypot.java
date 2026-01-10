@@ -35,6 +35,9 @@ public class Honeypot extends ListenerAdapter {
         Member member = event.getMember();
         if(member == null) return; // hopefully won't happen
 
+        // actual bot accounts will not be scammers
+        if(member.getUser().isBot()) return;
+
         // handle bypass features
         if(_bypassUsers.contains(member.getId())) return;
         if(member.getRoles().stream().anyMatch(role -> _bypassRoles.contains(role.getId()))) return;
