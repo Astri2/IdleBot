@@ -1,36 +1,39 @@
 plugins {
-    id'java'
-    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
-version '1.0'
+version = '1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 repositories {
     maven {
-        name 'm2-dv8tion'
-        url 'https://m2.dv8tion.net/releases'
+        name = 'm2-dv8tion'
+        url = 'https://m2.dv8tion.net/releases'
     }
     mavenCentral()
 }
 
-test {
-    useJUnitPlatform()
-}
-
 dependencies {
-    implementation group: 'net.dv8tion', name: 'JDA', version: '4.4.1_353'
+    implementation 'net.dv8tion:JDA:4.4.1_353'
     implementation 'com.google.code.gson:gson:2.8.9'
-    implementation group: 'org.json', name: 'json', version: '20210307'
+    implementation 'org.json:json:20210307'
 }
 
-compileJava.options.encoding = 'UTF-8'
+application {
+    mainClass = 'me.astri.idleBot.Main'
+}
 
-task stage(dependsOn: ['build','shadowJar','clean','test'])
-build.mustRunAfter clean
-build.mustRunAfter test
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
 
-jar {
-    manifest {
-        attributes 'Class-Path': '/libs/app-1.0.jar', 'Main-Class': 'me.astri.idleBot.Main'
-    }
+tasks.shadowJar {
+    archiveClassifier.set('all')
 }
